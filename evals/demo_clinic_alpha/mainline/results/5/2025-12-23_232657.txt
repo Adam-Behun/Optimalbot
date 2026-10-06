@@ -1,0 +1,32 @@
+SCENARIO: 5
+EXPECTED: Bot may not recognize when caller needs scheduling vs something else
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, um, I was wondering if maybe, you know, I could come in sometime?
+
+MONICA: Sure! What would the appointment be for?
+
+CALLER: Oh, just... like a checkup? I guess? It's been a while.
+
+MONICA: Got it, a checkup. Let me get you to scheduling to help you with that.
+
+CALLER: Um, okay. That sounds good.
+
+MONICA: I've routed you to scheduling for your checkup appointment. They will assist you shortly!
+
+CALLER: Oh, um, okay. Thanks.
+
+MONICA: You're welcome! If you have any other questions or need further assistance, feel free to ask.
+
+CALLER: Um, I just want to make sure... I mean, I want to schedule a general checkup? And I'm a returning patient. I also mentioned being kind of tired lately? Is that, um, all understood?
+
+MONICA: Yes, I understand. You want to schedule a general checkup as a returning patient, and you've mentioned feeling kind of tired lately. Let me pull up your file to ensure everything is noted correctly. What's the phone number on your account?
+
+CALLER: Oh, um, it's 5555556666.
+
+MONICA: I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Bot ignored tired symptom initially

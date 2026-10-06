@@ -1,0 +1,295 @@
+{
+  "id": "24_2026-01-05_020947",
+  "scenario_id": "24",
+  "timestamp": "2026-01-05T02:09:47.821154",
+  "langfuse_trace_id": "60bb39f74efd61ad162bf631c9572e16",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/60bb39f74efd61ad162bf631c9572e16",
+  "input": {
+    "description": "Cigna: Deep menu navigation with provider callback number",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling Cigna. For faster service, have your NPI ready. Press 1 to continue.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "For providers, press 1. For members, press 2. For pharmacies, press 3.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Provider services. For eligibility and benefits, press 1. For claims, press 2. For prior authorization, press 3. For credentialing, press 4.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "To access eligibility, I'll need to verify your information. Please enter your NPI.",
+        "expected_action": "dtmf_sequence:1928374650"
+      },
+      {
+        "menu_prompt": "What is your callback number in case we get disconnected? Enter 10 digits.",
+        "expected_action": "dtmf_sequence:5558472910"
+      },
+      {
+        "menu_prompt": "Thank you. Enter the member's ID number.",
+        "expected_action": "speak:WDH492817365"
+      },
+      {
+        "menu_prompt": "For automated eligibility response, press 1. To speak with a representative, press 2.",
+        "expected_action": "dtmf:2"
+      },
+      {
+        "menu_prompt": "All representatives are currently busy. Estimated wait: 8 minutes. Press 1 to hold. Press 2 for callback.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Thank you for holding. A representative will be with you shortly.",
+        "expected_action": "status:completed"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling Cigna. For faster service, have your NPI ready. Press 1 to continue.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Continue to main menu",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "For providers, press 1. For members, press 2. For pharmacies, press 3.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Provider services",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "Provider services. For eligibility and benefits, press 1. For claims, press 2. For prior authorization, press 3. For credentialing, press 4.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Eligibility and benefits",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "To access eligibility, I'll need to verify your information. Please enter your NPI.",
+        "expected_action": "dtmf_sequence:1928374650",
+        "actual_response": "<dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf>",
+        "reasoning": "Enter NPI",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "1",
+        "event_matched": false
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "What is your callback number in case we get disconnected? Enter 10 digits.",
+        "expected_action": "dtmf_sequence:5558472910",
+        "actual_response": "<dtmf>5</dtmf><dtmf>5</dtmf><dtmf>5</dtmf><dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf>",
+        "reasoning": "Enter callback phone (555-847-2910 \u2192 5558472910)",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "5",
+        "event_matched": false
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "Thank you. Enter the member's ID number.",
+        "expected_action": "speak:WDH492817365",
+        "actual_response": "WDH492817365",
+        "reasoning": "Member ID contains letters - must speak it verbally",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "For automated eligibility response, press 1. To speak with a representative, press 2.",
+        "expected_action": "dtmf:2",
+        "actual_response": "<dtmf>2</dtmf>",
+        "reasoning": "Need representative for complete verification",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "2",
+        "actual_arg": "2",
+        "event_matched": true
+      },
+      {
+        "step_number": 8,
+        "menu_prompt": "All representatives are currently busy. Estimated wait: 8 minutes. Press 1 to hold. Press 2 for callback.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "8 minutes is acceptable - hold",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 9,
+        "menu_prompt": "Thank you for holding. A representative will be with you shortly.",
+        "expected_action": "status:completed",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "In queue - navigation complete",
+        "expected_event": "on_ivr_status_changed",
+        "actual_event": null,
+        "expected_arg": "completed",
+        "actual_arg": null,
+        "event_matched": false
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling Cigna. For faster service, have your NPI ready. Press 1 to continue."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "For providers, press 1. For members, press 2. For pharmacies, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Provider services. For eligibility and benefits, press 1. For claims, press 2. For prior authorization, press 3. For credentialing, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "To access eligibility, I'll need to verify your information. Please enter your NPI."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "What is your callback number in case we get disconnected? Enter 10 digits."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>5</dtmf><dtmf>5</dtmf><dtmf>5</dtmf><dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you. Enter the member's ID number."
+      },
+      {
+        "role": "assistant",
+        "content": "WDH492817365"
+      },
+      {
+        "role": "user",
+        "content": "For automated eligibility response, press 1. To speak with a representative, press 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>2</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "All representatives are currently busy. Estimated wait: 8 minutes. Press 1 to hold. Press 2 for callback."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you for holding. A representative will be with you shortly."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: 1/9 steps failed",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling Cigna. For faster service, h...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "For providers, press 1. For members, press 2. For ...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "Provider services. For eligibility and benefits, p...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "To access eligibility, I'll need to verify your in...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF sequence (1928374650)"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "What is your callback number in case we get discon...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF sequence (5558472910)"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "Thank you. Enter the member's ID number....",
+        "pass": true,
+        "reason": "PASS: Exact match (WDH492817365)"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "For automated eligibility response, press 1. To sp...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (2)"
+      },
+      {
+        "step": 8,
+        "menu_prompt": "All representatives are currently busy. Estimated ...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 9,
+        "menu_prompt": "Thank you for holding. A representative will be wi...",
+        "pass": false,
+        "reason": "FAIL: Expected status 'completed', got 'wait'"
+      }
+    ]
+  },
+  "notes": ""
+}

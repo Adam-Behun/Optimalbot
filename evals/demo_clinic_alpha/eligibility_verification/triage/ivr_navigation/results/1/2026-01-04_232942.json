@@ -1,0 +1,55 @@
+{
+  "id": "1_2026-01-04_232942",
+  "scenario_id": "1",
+  "timestamp": "2026-01-04T23:29:42.030437",
+  "langfuse_trace_id": "2044f7e46df42e9d3d82c43e54fde1ab",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/2044f7e46df42e9d3d82c43e54fde1ab",
+  "input": {
+    "description": "Trap: 'Member eligibility' vs need for provider eligibility",
+    "steps": [
+      {
+        "menu_prompt": "For member eligibility and benefits, press 1. For claims, press 2. For pharmacy, press 3. To speak with an operator, press 0.",
+        "expected_action": "dtmf:0"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "For member eligibility and benefits, press 1. For claims, press 2. For pharmacy, press 3. To speak with an operator, press 0.",
+        "expected_action": "dtmf:0",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "'Member eligibility' is for patients checking their own benefits, not providers. Need operator to reach provider services.",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": null,
+        "expected_arg": "0",
+        "actual_arg": null,
+        "event_matched": false
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "For member eligibility and benefits, press 1. For claims, press 2. For pharmacy, press 3. To speak with an operator, press 0."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: 1/1 steps failed",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "For member eligibility and benefits, press 1. For ...",
+        "pass": false,
+        "reason": "FAIL: Pressed 1 for member eligibility which is for patients checking their own benefits, not for providers needing provider services"
+      }
+    ]
+  },
+  "notes": ""
+}

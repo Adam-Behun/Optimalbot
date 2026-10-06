@@ -1,0 +1,19 @@
+{
+  "id": "29_2026-01-05_020111",
+  "scenario_id": "29",
+  "timestamp": "2026-01-05T02:01:11.881906",
+  "langfuse_trace_id": "ec7c6548ea2c013311fb41dad297046d",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/ec7c6548ea2c013311fb41dad297046d",
+  "input": {
+    "utterance": "One moment while I look up that information... I see you're calling about eligibility. Let me transfer you to the right department.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": false,
+    "reason": "Expected IVR, got CONVERSATION"
+  },
+  "notes": ""
+}

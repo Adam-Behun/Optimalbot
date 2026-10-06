@@ -1,0 +1,94 @@
+SCENARIO: 4
+TARGET NODE: closing
+FINAL NODE: cpt_coverage
+============================================================
+
+INSURANCE: Cigna provider line, this is Kevin. How can I help you today?
+
+MONICA: Hi, this is [your name] calling from [facility] about eligibility verification for [patient name].
+
+INSURANCE: Thanks for calling! Can I get the tax ID for the facility?
+
+MONICA: The tax ID for the facility is [tax ID].
+
+INSURANCE: And you said the facility name is Family Health Clinic?
+
+MONICA: Yes, that's correct. The facility name is Family Health Clinic.
+
+INSURANCE: Great. And the member's name?
+
+MONICA: The member's name is [patient name].
+
+INSURANCE: Susan Park. And the date of birth?
+
+MONICA: The date of birth is [date of birth].
+
+INSURANCE: April eighteenth, nineteen ninety. Let me pull that up...
+
+MONICA: I'm ready to proceed with the verification. Can you confirm if the facility is participating in the network?
+
+INSURANCE: Okay, I have Susan here. And you're calling about eligibility verification?
+
+MONICA: Yes, that's correct. I'm verifying eligibility for Susan Park. Can you confirm if the facility is participating in the network?
+
+INSURANCE: Alright. Let me check... Yes, Family Health Clinic is in network. Are you looking for the plan type as well?
+
+MONICA: Yes, please. What type of plan is this?
+
+INSURANCE: This is an EPO plan. Effective February first twenty twenty five. No termination date on file. 
+
+What CPT code are you looking at?
+
+MONICA: I don't have that information available. Can you provide details about the coverage for the CPT code?
+
+INSURANCE: I understand. What CPT code are you looking for specifically?
+
+MONICA: The CPT code is [CPT code]. Can you provide the coverage details for this code?
+
+INSURANCE: What is the CPT code you're referring to?
+
+MONICA: I don't have that information available. Can you provide details about the coverage for the CPT code?
+
+INSURANCE: I need the specific CPT code to provide accurate coverage details. Do you have a code in mind, or would you like to check a common one?
+
+MONICA: I don't have that information available. Can you check a common one for coverage details?
+
+INSURANCE: Alright, I can check a common code. Would you like me to look up CPT 99213?
+
+MONICA: Yes, please check the coverage for CPT code 99213.
+
+INSURANCE: Great! And what's the date of service for this code?
+
+MONICA: The date of service is not yet determined. Is it okay to use today's date?
+
+INSURANCE: That's okay, I can use today's date. And what is the place of service?
+
+MONICA: The place of service is [place of service].
+
+INSURANCE: Office visit. Let me check the benefits for CPT code 99213... 
+
+Okay, that code is covered.
+
+MONICA: What is the copay for this service?
+
+INSURANCE: The copay is forty dollars.
+
+MONICA: Is there a coinsurance for this service?
+
+INSURANCE: Yes, the coinsurance is ten percent.
+
+MONICA: Does the deductible apply to this service?
+
+INSURANCE: Deductible does not apply for this service.
+
+MONICA: Is prior authorization required for this service?
+
+INSURANCE: No prior authorization is required for this code. 
+
+If you have any questions about telehealth services, I can help with that as well. Would you like to know if telehealth is covered?
+
+MONICA: Yes, please let me know if telehealth is covered for this service.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Bot repeated CPT request loop; node: FAIL: Expected closing, got cpt_coverage
+NODE CHECK: FAIL: Expected closing, got cpt_coverage

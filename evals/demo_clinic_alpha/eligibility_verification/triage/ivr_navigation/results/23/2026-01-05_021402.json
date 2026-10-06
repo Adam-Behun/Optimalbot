@@ -1,0 +1,265 @@
+{
+  "id": "23_2026-01-05_021402",
+  "scenario_id": "23",
+  "timestamp": "2026-01-05T02:14:02.595000",
+  "langfuse_trace_id": "dfd3f744e99b7d57e2c79648deb5a6ab",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/dfd3f744e99b7d57e2c79648deb5a6ab",
+  "input": {
+    "description": "United: Auth failure, recovery, re-entry with Tax ID",
+    "steps": [
+      {
+        "menu_prompt": "Welcome to UnitedHealthcare provider services. Please enter your NPI.",
+        "expected_action": "dtmf_sequence:1928374650"
+      },
+      {
+        "menu_prompt": "I'm sorry, I didn't find that NPI in our system. Press 1 to try again. Press 2 to enter your Tax ID instead. Press 0 for a representative.",
+        "expected_action": "dtmf:0"
+      },
+      {
+        "menu_prompt": "Please enter your 9-digit Tax ID followed by pound.",
+        "expected_action": "dtmf_sequence:847291035#"
+      },
+      {
+        "menu_prompt": "Thank you. I found Westbrook Family Medicine. For eligibility, press 1. For prior auth, press 2.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Please enter the subscriber ID from the member's card.",
+        "expected_action": "speak:WDH492817365"
+      },
+      {
+        "menu_prompt": "Member located. Plan is active through December 2025. For detailed benefits, press 1. For CPT lookup, press 2. For representative, press 3.",
+        "expected_action": "dtmf:3"
+      },
+      {
+        "menu_prompt": "What is the patient's date of birth for verification?",
+        "expected_action": "dtmf_sequence:07141982"
+      },
+      {
+        "menu_prompt": "Verified. Connecting you to eligibility. Current wait: 4 minutes.",
+        "expected_action": "status:wait"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Welcome to UnitedHealthcare provider services. Please enter your NPI.",
+        "expected_action": "dtmf_sequence:1928374650",
+        "actual_response": "<dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf>",
+        "reasoning": "Enter NPI",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "1",
+        "event_matched": false
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "I'm sorry, I didn't find that NPI in our system. Press 1 to try again. Press 2 to enter your Tax ID instead. Press 0 for a representative.",
+        "expected_action": "dtmf:0",
+        "actual_response": "<dtmf>0</dtmf>",
+        "reasoning": "Get representative to help with authentication issue",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "0",
+        "actual_arg": "0",
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "Please enter your 9-digit Tax ID followed by pound.",
+        "expected_action": "dtmf_sequence:847291035#",
+        "actual_response": "<dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf><dtmf>#</dtmf>",
+        "reasoning": "Enter Tax ID with pound",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "8",
+        "event_matched": false
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "Thank you. I found Westbrook Family Medicine. For eligibility, press 1. For prior auth, press 2.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Select eligibility",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "Please enter the subscriber ID from the member's card.",
+        "expected_action": "speak:WDH492817365",
+        "actual_response": "WDH492817365",
+        "reasoning": "Member ID contains letters - must speak it verbally",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "Member located. Plan is active through December 2025. For detailed benefits, press 1. For CPT lookup, press 2. For representative, press 3.",
+        "expected_action": "dtmf:3",
+        "actual_response": "<dtmf>3</dtmf>",
+        "reasoning": "Need representative for full verification",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "3",
+        "actual_arg": "3",
+        "event_matched": true
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "What is the patient's date of birth for verification?",
+        "expected_action": "dtmf_sequence:07141982",
+        "actual_response": "<dtmf>0</dtmf><dtmf>7</dtmf><dtmf>1</dtmf><dtmf>4</dtmf><dtmf>1</dtmf><dtmf>9</dtmf><dtmf>8</dtmf>",
+        "reasoning": "Enter DOB for verification",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "0",
+        "event_matched": false
+      },
+      {
+        "step_number": 8,
+        "menu_prompt": "Verified. Connecting you to eligibility. Current wait: 4 minutes.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "In queue with wait time - wait for human to answer",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Welcome to UnitedHealthcare provider services. Please enter your NPI."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "I'm sorry, I didn't find that NPI in our system. Press 1 to try again. Press 2 to enter your Tax ID instead. Press 0 for a representative."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>0</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please enter your 9-digit Tax ID followed by pound."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf><dtmf>#</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you. I found Westbrook Family Medicine. For eligibility, press 1. For prior auth, press 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please enter the subscriber ID from the member's card."
+      },
+      {
+        "role": "assistant",
+        "content": "WDH492817365"
+      },
+      {
+        "role": "user",
+        "content": "Member located. Plan is active through December 2025. For detailed benefits, press 1. For CPT lookup, press 2. For representative, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>3</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "What is the patient's date of birth for verification?"
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>0</dtmf><dtmf>7</dtmf><dtmf>1</dtmf><dtmf>4</dtmf><dtmf>1</dtmf><dtmf>9</dtmf><dtmf>8</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Verified. Connecting you to eligibility. Current wait: 4 minutes."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: 1/8 steps failed",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Welcome to UnitedHealthcare provider services. Ple...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF sequence (1928374650)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "I'm sorry, I didn't find that NPI in our system. P...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (0)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "Please enter your 9-digit Tax ID followed by pound...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF sequence (847291035#)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "Thank you. I found Westbrook Family Medicine. For ...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "Please enter the subscriber ID from the member's c...",
+        "pass": true,
+        "reason": "PASS: Exact match (WDH492817365)"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "Member located. Plan is active through December 20...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (3)"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "What is the patient's date of birth for verificati...",
+        "pass": false,
+        "reason": "FAIL: Expected DTMF sequence '07141982', got '0714198'"
+      },
+      {
+        "step": 8,
+        "menu_prompt": "Verified. Connecting you to eligibility. Current w...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      }
+    ]
+  },
+  "notes": ""
+}

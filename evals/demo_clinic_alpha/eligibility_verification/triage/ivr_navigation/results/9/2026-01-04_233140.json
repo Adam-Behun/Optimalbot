@@ -1,0 +1,55 @@
+{
+  "id": "9_2026-01-04_233140",
+  "scenario_id": "9",
+  "timestamp": "2026-01-04T23:31:40.913225",
+  "langfuse_trace_id": "24759766fcfa2ed5a31887649a23b530",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/24759766fcfa2ed5a31887649a23b530",
+  "input": {
+    "description": "Wait: Incomplete menu, don't act yet",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling Aetna. Please listen carefully as our menu options have recently changed. For...",
+        "expected_action": "status:wait"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling Aetna. Please listen carefully as our menu options have recently changed. For...",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "Menu is still being read - wait for all options",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling Aetna. Please listen carefully as our menu options have recently changed. For..."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All 1 steps correct",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling Aetna. Please listen careful...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      }
+    ]
+  },
+  "notes": ""
+}

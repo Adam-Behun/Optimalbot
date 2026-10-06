@@ -1,0 +1,16 @@
+SCENARIO: 7
+EXPECTED: Bot may confuse check-in (I'm here now) with scheduling (I want to book future)
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I'm here for my 2:30 appointment. I saw there's phone check-in?
+
+MONICA: Got it! Yes, we do have phone check-in available. Let me get you to someone who can assist you with that.
+
+CALLER: No, I don't need to schedule. I already have an appointment - today, at 2:30. I'm in the parking lot right now. Can you just help me check in?
+
+MONICA: Transferring you now, one moment please.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Ignored caller's check-in request

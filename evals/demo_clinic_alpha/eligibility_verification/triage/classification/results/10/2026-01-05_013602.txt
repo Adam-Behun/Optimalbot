@@ -1,0 +1,10 @@
+SCENARIO: 10
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Hi, before we begin, this call may be recorded for quality purposes. How can I help you?
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

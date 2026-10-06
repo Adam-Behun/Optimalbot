@@ -1,0 +1,36 @@
+SCENARIO: 2
+EXPECTED: Anxious caller context should transfer to lab_results workflow
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I'm calling about some test results. I had a biopsy done about ten days ago.
+
+MONICA: I can help you check on that. What type of biopsy was it?
+
+CALLER: It was a skin biopsy for a mole that looked suspicious. The doctor said I'd hear back in a week, but I haven't heard anything.
+
+MONICA: I understand your concern. Let me get you to someone who can look that up for you.
+
+CALLER: Thank you, I appreciate it. Just to clarify, I've been pretty worried about it. Is there any way to check if the results are back?
+
+MONICA: I completely understand how anxious this can be. I'm checking on that for you right now. Please hold on for just a moment.
+
+CALLER: Okay, thank you. I'll hold.
+
+MONICA: For privacy and security, I need to verify your identity first. May I have your first and last name?
+
+CALLER: Sure, it's Robert Martinez.
+
+MONICA: Thank you, Robert. And what is your date of birth?
+
+CALLER: My date of birth is February 28, 1958.
+
+MONICA: I'm sorry, but I wasn't able to verify your identity with the information provided. For your security, let me connect you with a staff member who can assist you further. Please hold on.
+
+CALLER: Okay, I understand. I'll hold. Thank you for your help.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

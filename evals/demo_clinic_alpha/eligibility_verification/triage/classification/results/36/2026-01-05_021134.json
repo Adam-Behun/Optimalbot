@@ -1,0 +1,19 @@
+{
+  "id": "36_2026-01-05_021134",
+  "scenario_id": "36",
+  "timestamp": "2026-01-05T02:11:34.899259",
+  "langfuse_trace_id": "109e09facee20e1777eef8c0bd2971c6",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/109e09facee20e1777eef8c0bd2971c6",
+  "input": {
+    "utterance": "Provider services. Please hold.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

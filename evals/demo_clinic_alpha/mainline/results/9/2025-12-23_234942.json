@@ -1,0 +1,67 @@
+{
+  "id": "9_2025-12-23_234942",
+  "scenario_id": "9",
+  "timestamp": "2025-12-23T23:49:42.839561",
+  "langfuse_trace_id": "d640b7769af3fa19ef60248a018641f4",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/d640b7769af3fa19ef60248a018641f4",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot should recognize callback requests require human handling and transfer to front_desk"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I can't really talk right now - I'm at work. Can someone call me back?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 1
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "request_staff",
+        "args": {
+          "reason": "Caller requested a callback as they can't talk right now."
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Staff Transfer",
+      "call_reason": "Caller requested a callback as they can't talk right now.",
+      "routed_to": "Staff",
+      "resolution": ""
+    },
+    "turns": 1
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Ignored caller's callback request",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correctly transferred callback request."
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Ignored caller's callback request"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct staff request for callback"
+      }
+    }
+  },
+  "notes": ""
+}

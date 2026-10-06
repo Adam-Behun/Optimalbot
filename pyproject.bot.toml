@@ -1,0 +1,47 @@
+[project]
+name = "healthcare-voice-ai"
+version = "1.0.0"
+description = "Healthcare voice AI for automated prior authorization verification"
+requires-python = ">=3.12"
+dependencies = [
+    # Pipecat AI
+    # NOTE: keep in sync with pyproject.toml. See that file for why this is
+    # bounded rather than tracking latest.
+    "pipecat-ai[daily,cartesia,deepgram,groq,tracing]>=1.10.0,<2.0.0",
+    "pipecat-ai-flows>=1.3.0,<2.0.0",
+    "pipecat-ai-whisker",
+    "pipecatcloud",
+
+    # LLM providers
+    "anthropic",
+
+    # Database
+    "motor",
+
+    # Observability
+    "langfuse",
+
+    # Utilities
+    "pyyaml",
+    "pydantic",
+    "tenacity",
+    "phonenumbers",
+    "python-dateutil",
+    "python-dotenv",
+    "loguru",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.8.0",
+]
+
+[tool.ruff]
+exclude = [".git", "__pycache__", "*.pyc"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]

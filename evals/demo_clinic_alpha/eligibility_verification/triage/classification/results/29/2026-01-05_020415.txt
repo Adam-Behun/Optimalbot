@@ -1,0 +1,10 @@
+SCENARIO: 29
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+One moment while I look up that information... I see you're calling about eligibility. Let me transfer you to the right department.
+
+============================================================
+GRADE: PASS - Correct: IVR

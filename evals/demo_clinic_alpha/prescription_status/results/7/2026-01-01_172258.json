@@ -1,0 +1,224 @@
+{
+  "id": "7_2026-01-01_172258",
+  "scenario_id": "7",
+  "timestamp": "2026-01-01T17:22:58.316861",
+  "langfuse_trace_id": "bd572b4fc192fff5f0bc7320dba285c0",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/bd572b4fc192fff5f0bc7320dba285c0",
+  "input": {
+    "target_node": "end",
+    "expected_problem": "Bot should handle phone correction gracefully when caller says number was misheard",
+    "patient": {
+      "_id": "6956f3b0ac5b4f0eefb71945",
+      "patient_id": "6956f3b0ac5b4f0eefb71945",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "prescription_status",
+      "call_status": "Not Started",
+      "patient_name": "Patricia O'Brien",
+      "date_of_birth": "1983-06-14",
+      "phone_number": "6175554289",
+      "pharmacy_name": "CVS Pharmacy",
+      "pharmacy_phone": "(617) 555-4289",
+      "pharmacy_address": "100 Boylston Street, Boston, MA 02116",
+      "prescriptions": [
+        {
+          "medication_name": "Metformin",
+          "dosage": "500mg twice daily",
+          "status": "Sent to Pharmacy",
+          "refills_remaining": 5
+        }
+      ],
+      "first_name": "Patricia",
+      "last_name": "O'Brien",
+      "created_at": "2026-01-01T22:22:41.395927+00:00",
+      "updated_at": "2026-01-01T22:22:41.395927+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I'm checking on my Metformin prescription.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sounds good! What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's six one seven, five five five, for too ate nine.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "That's 617-555-4289, correct?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "No, that's not right. It's six one seven, five five five, four two eight nine.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! That's 617-555-4289. Let me look that up for you. One moment, please.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's correct.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Can you confirm your date of birth please? Let me pull up your account.",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "June fourteenth, nineteen eighty-three.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Your Metformin 500mg twice daily has been sent to CVS Pharmacy. You can reach them at (617) 555-4289 to check if it's ready for pickup.",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Great, thanks!",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Is there anything else I can help you with today?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "No, I'm all set. Bye!",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Take care!",
+        "turn": 7
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_prescription_status",
+        "args": {
+          "mentioned_medication": "Metformin"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "6175554289"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "verify_dob",
+        "function": "verify_dob",
+        "args": {
+          "date_of_birth": "June 14, 1983"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "status_sent",
+        "function": "proceed_to_completion",
+        "args": {}
+      },
+      {
+        "turn": 7,
+        "node": "completion",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6956f3b0ac5b4f0eefb71945",
+      "patient_name": "Patricia O'Brien",
+      "first_name": "Patricia",
+      "last_name": "O'Brien",
+      "date_of_birth": "1983-06-14",
+      "phone_number": "6175554289",
+      "identity_verified": true,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 0,
+      "anything_else_count": 1,
+      "medication_name": "Metformin",
+      "dosage": "500mg twice daily",
+      "prescribing_physician": "",
+      "refill_status": "Sent to Pharmacy",
+      "last_filled_date": "",
+      "next_refill_date": "",
+      "pharmacy_name": "CVS Pharmacy",
+      "pharmacy_phone": "(617) 555-4289",
+      "pharmacy_address": "100 Boylston Street, Boston, MA 02116",
+      "refills_remaining": 5,
+      "prescriptions": [
+        {
+          "medication_name": "Metformin",
+          "dosage": "500mg twice daily",
+          "status": "Sent to Pharmacy",
+          "refills_remaining": 5
+        }
+      ],
+      "callback_confirmed": false,
+      "medication_select_attempts": 0,
+      "mentioned_medication": "Metformin",
+      "selected_prescription": {
+        "medication_name": "Metformin",
+        "dosage": "500mg twice daily",
+        "status": "Sent to Pharmacy",
+        "refills_remaining": 5
+      },
+      "_last_lookup_phone": "6175554289",
+      "_last_lookup_dob": "1983-06-14"
+    },
+    "final_node": "end",
+    "turns": 7
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: Identity verified before sharing"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversation, resolved prescription inquiry"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: All functions called correctly"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached end (equivalent to end)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: No DB state assertions"
+      }
+    }
+  },
+  "notes": ""
+}

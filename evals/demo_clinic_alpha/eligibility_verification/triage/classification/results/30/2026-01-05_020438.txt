@@ -1,0 +1,10 @@
+SCENARIO: 30
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Let me check on that... [keyboard sounds]... okay, I've got the patient pulled up. Go ahead.
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

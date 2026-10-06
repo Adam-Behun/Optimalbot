@@ -1,0 +1,10 @@
+SCENARIO: 33
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+[beep] Thank you for calling. [beep] For claims, press 1. [beep] For eligibility, press 2.
+
+============================================================
+GRADE: PASS - Correct: IVR

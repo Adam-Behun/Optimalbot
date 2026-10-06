@@ -1,0 +1,132 @@
+SCENARIO: 5
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Humana provider services, this is Sandra. How may I help you today?
+
+MONICA: Hi, this is Brian J. calling from Central Medical Group about eligibility verification for David Kim. His date of birth is September fifth, nineteen eighty-two. The tax ID for our facility is fifty-five dash six-six-seven-seven-eight-eight-nine.
+
+INSURANCE: Thank you, Brian. May I have the facility name?
+
+MONICA: The facility name is Central Medical Group.
+
+INSURANCE: And the tax ID for Central Medical Group?
+
+MONICA: The tax ID is fifty-five dash six-six-seven-seven-eight-eight-nine.
+
+INSURANCE: Thank you. And the member's name and date of birth?
+
+MONICA: The member's name is David Kim, and his date of birth is September fifth, nineteen eighty-two.
+
+INSURANCE: Let me pull that up... one moment please. 
+
+[HOLD 1] 
+
+I apologize, my system is running slow today. Still loading... 
+
+[HOLD 2] 
+
+Okay, I have David Kim here. What can I help you with?
+
+MONICA: I need to verify a few details regarding the plan. Is Central Medical Group participating in the network?
+
+INSURANCE: [HOLD 3] 
+
+Let me check that for you... can you hold for just a moment? 
+
+[HOLD 4] 
+
+Still pulling it up... I apologize for the delay. 
+
+Okay, Central Medical Group is in-network.
+
+MONICA: What type of plan does David Kim have?
+
+INSURANCE: That's a POS plan.
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: [HOLD 5] 
+
+Let me verify... one second. 
+
+January first, twenty twenty five.
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: No termination date on file.
+
+MONICA: I have all the plan information. Now, can you provide coverage details for CPT code nine nine two one four?
+
+INSURANCE: What's the date of service for that visit?
+
+MONICA: The date of service is January twentieth, twenty twenty-five.
+
+INSURANCE: Okay, let me check ninety-nine two fourteen... 
+
+[HOLD 6] 
+
+Please hold, I need to pull up the benefits screen. 
+
+[HOLD 7] 
+
+The system is taking a moment... I appreciate your patience. 
+
+[HOLD 8] 
+
+Almost there... 
+
+Got it. That code is covered. Thirty-five dollar copay.
+
+MONICA: Is there a coinsurance for this service?
+
+INSURANCE: No coinsurance for this service.
+
+MONICA: Does the deductible apply to this service?
+
+INSURANCE: [HOLD 9] 
+
+Let me verify that... hold on. 
+
+Yes, the deductible does apply.
+
+MONICA: Is prior authorization required for this service?
+
+INSURANCE: No prior authorization required.
+
+MONICA: Is telehealth covered for this service?
+
+INSURANCE: Yes, telehealth is covered for this code.
+
+MONICA: I have all the coverage details. Can you provide information on the individual and family deductibles, as well as any out-of-pocket maximums?
+
+INSURANCE: [HOLD 10] 
+
+I need to pull up a different screen for that. Bear with me. 
+
+[HOLD 11] 
+
+Still loading the accumulator information... 
+
+Okay, the family deductible is six hundred dollars, four hundred has been met.
+
+MONICA: What is the family out-of-pocket maximum?
+
+INSURANCE: [HOLD 12] 
+
+Let me check... 
+
+The family out-of-pocket max is forty-five hundred, eight ninety applied.
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: The reference number is HUM-SLOW-2025-777.
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: Thank you for your patience today. Is there anything else? Alright, have a good day!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

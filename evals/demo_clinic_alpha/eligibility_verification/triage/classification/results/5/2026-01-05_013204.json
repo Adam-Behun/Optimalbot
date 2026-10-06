@@ -1,0 +1,19 @@
+{
+  "id": "5_2026-01-05_013204",
+  "scenario_id": "5",
+  "timestamp": "2026-01-05T01:32:04.346757",
+  "langfuse_trace_id": "35b9248278f12bc358ced3e73e555981",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/35b9248278f12bc358ced3e73e555981",
+  "input": {
+    "utterance": "Hey, it's Mike. Sorry I missed you. Leave me a message and I'll call you back.",
+    "expected_classification": "VOICEMAIL"
+  },
+  "output": {
+    "actual_classification": "VOICEMAIL"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: VOICEMAIL"
+  },
+  "notes": ""
+}

@@ -1,0 +1,10 @@
+SCENARIO: 36
+EXPECTED: IVR
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Provider services. Please hold.
+
+============================================================
+GRADE: FAIL - Expected IVR, got CONVERSATION

@@ -1,0 +1,10 @@
+SCENARIO: 8
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Speaking.
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

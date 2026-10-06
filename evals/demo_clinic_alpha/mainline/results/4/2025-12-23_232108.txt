@@ -1,0 +1,28 @@
+SCENARIO: 4
+EXPECTED: Bot may not handle multiple unrelated intents with proper sequencing
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I have a few things I need help with. I need to schedule my annual physical, I'm waiting on some blood work results from last Tuesday, and I got a bill I don't understand.
+
+MONICA: Sure thing! Let's start with your annual physical. What date were you hoping to schedule that for?
+
+CALLER: Sure, that's fine. Let's do the scheduling first. I'm looking to schedule my annual physical sometime next week. What do you have available?
+
+MONICA: I've transferred you to someone who can help with scheduling your annual physical. They'll be with you shortly!
+
+CALLER: Okay, that's booked. What about my lab results?
+
+MONICA: I recommend reaching out to the lab or your healthcare provider directly for your blood work results. Would you like assistance with anything else?
+
+CALLER: Remember I mentioned blood work from last Tuesday? I need to check on those results. Can you help me with that?
+
+MONICA: I can’t check on lab results directly, but I can connect you with someone who can help. Would you like me to transfer you to staff for that?
+
+CALLER: Yes, please transfer me to someone who can help with my lab results. Thank you!
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Billing intent completely ignored throughout; quality: FAIL: Bot ignored scheduling completion acknowledgment; functions: FAIL: Wrong function called second time

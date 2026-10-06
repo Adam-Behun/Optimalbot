@@ -1,0 +1,10 @@
+SCENARIO: 4
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Hello, and thank you for your patience. A representative will be with you shortly.
+
+============================================================
+GRADE: PASS - Correct: IVR

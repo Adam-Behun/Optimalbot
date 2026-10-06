@@ -1,0 +1,173 @@
+LAB RESULTS INQUIRY CALL - EXAMPLE TRANSCRIPT
+Clinic: Bright Smile Dental
+Workflow: Inbound Lab Results Request
+
+================================================================================
+SECTION 1: GREETING AND IDENTITY VERIFICATION
+================================================================================
+
+[Phone rings]
+
+[AI Agent]
+Hello! Thank you for calling Bright Smile Dental. How can I help you today?
+
+[Patient - Maria]
+Hi, I'm calling to check on my lab results. I had a biopsy done last week.
+
+[AI Agent]
+Sounds good. For privacy and security, I need to verify your identity first. May I have your first and last name?
+
+[Patient - Maria]
+Maria Santos.
+
+[AI Agent]
+Thank you, Maria. And what is your date of birth?
+
+[Patient - Maria]
+March 22nd, 1978.
+
+[AI Agent]
+Thank you. One moment while I look up your records.
+
+[AI Agent]
+I found your record. Just to confirm, is your phone number ending in 123-456-7891?
+
+[Patient - Maria]
+Yes, that's me.
+
+[AI Agent]
+Perfect. Thank you. 
+
+================================================================================
+SECTION 2: LAB RESULTS INQUIRY
+================================================================================
+
+[AI Agent]
+Let me check the status of your lab results. I can see you had an oral tissue biopsy performed on December 10th, 2025, ordered by Dr. Jennifer Chen. 
+
+================================================================================
+SECTION 3: ALTERNATIVE SCENARIO - PROVIDER REVIEW REQUIRED
+================================================================================
+
+[This section shows how the call would proceed if results require provider review]
+
+[AI Agent]
+I can see your lab results have been received from the lab. However, Dr. Chen needs to review these results before they can be shared with you.
+
+[Patient - Maria]
+Oh, is something wrong?
+
+[AI Agent]
+I don't have information about the specific findings. It's standard procedure for certain types of results to be reviewed by your provider before being communicated to patients. Dr. Chen will call you personally within 24 to 48 hours to discuss the results.
+
+[Patient - Maria]
+Okay, should I be worried?
+
+[AI Agent]
+I understand this can feel concerning. Provider review is a normal part of our process for biopsy results. Dr. Chen wants to ensure she can answer any questions you might have and discuss next steps if needed. Is the phone number ending in 4523 still the best number to reach you?
+
+[Patient - Maria]
+Yes, that's my cell.
+
+[AI Agent]
+I've confirmed your callback number. You should expect a call from Dr. Chen's office within the next 48 hours. If you haven't heard from us by Friday, please call back.
+
+[Patient - Maria]
+Alright, thank you.
+
+[AI Agent]
+You're welcome. Is there anything else I can help you with today?
+
+[Patient - Maria]
+No, that's all.
+
+[AI Agent]
+Thank you for calling Bright Smile Dental. Take care.
+
+================================================================================
+SECTION 4: ALTERNATIVE SCENARIO - RESULTS PENDING
+================================================================================
+
+[This section shows how the call would proceed if results are not yet available]
+
+[AI Agent]
+I can see your biopsy was collected on December 10th, 2025. The results are still pending from the lab. Oral pathology results typically take 5 to 7 business days.
+
+[Patient - Maria]
+Oh, so they're not ready yet?
+
+[AI Agent]
+That's correct. Based on the timeline, we expect results to arrive by December 18th. Once received, Dr. Chen will review them and our office will contact you. Would you like us to call you when the results are ready?
+
+[Patient - Maria]
+Yes, please.
+
+[AI Agent]
+I've made a note to call you at the number ending in 4523 once results are available. Is there anything else I can help you with?
+
+[Patient - Maria]
+No, I'll just wait for the call. Thanks.
+
+[AI Agent]
+You're welcome. Thank you for calling Bright Smile Dental. We'll be in touch soon.
+
+================================================================================
+SUMMARY OF FIELDS USED
+================================================================================
+
+PATIENT IDENTIFICATION (verified during call):
+- Patient Name: Maria Santos
+- Date of Birth: 03/22/1978
+- Phone Number: (xxx) xxx-4523
+- Medical Record Number: [used internally for lookup]
+
+LAB ORDER INFORMATION (from database):
+- Test Type: Oral Tissue Biopsy
+- Test Date: 12/10/2025
+- Ordering Physician: Dr. Jennifer Chen
+- Results Status: "Ready" | "Pending" | "Provider Review Required"
+- Results Summary: Benign fibroma - non-cancerous tissue growth
+- Provider Review Required: False (in main scenario) | True (in alt scenario)
+- Callback Timeframe: 24-48 hours (when provider review required)
+
+CALL OUTCOME (recorded during call):
+- Identity Verified: True
+- Results Communicated: True | False (depending on scenario)
+- Call Status: Completed
+- Caller Phone Number: [captured from incoming call]
+- Created At: [timestamp]
+- Updated At: [timestamp]
+
+================================================================================
+SUGGESTED ADDITIONAL FIELDS FOR DENTAL WORKFLOWS
+================================================================================
+
+The following fields would enhance this workflow:
+
+1. specimen_type (string)
+   - Example: "Oral tissue biopsy", "Saliva sample", "Gum swab"
+   - Helps AI agent describe what test was performed
+
+2. site_location (string)
+   - Example: "Lower left gum near molar #19", "Upper palate"
+   - Helps patient confirm correct test is being discussed
+
+3. lab_name (string)
+   - Example: "Pacific Oral Pathology Lab"
+   - Patient may want to know who processed their specimen
+
+4. follow_up_appointment_date (date)
+   - Example: "12/20/2025"
+   - If provider review is needed, when patient should come in
+
+5. urgent_flag (boolean)
+   - Indicates if results require immediate provider attention
+   - Changes callback_timeframe and call handling
+
+6. patient_consent_verified (boolean)
+   - HIPAA compliance - confirms patient authorized to receive results
+   - Some results may require in-person disclosure
+
+7. result_category (string)
+   - Example: "Normal", "Abnormal - Benign", "Abnormal - Requires Follow-up"
+   - Standardized categories for reporting

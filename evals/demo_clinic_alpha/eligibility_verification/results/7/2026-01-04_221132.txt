@@ -1,0 +1,54 @@
+SCENARIO: 7
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Aetna provider line, this is Jennifer. How can I help?
+
+MONICA: Hi, this is Nicole H. calling from Premier Health Associates about eligibility verification for Patricia Brown. Her date of birth is June twelfth, nineteen eighty-eight.
+
+INSURANCE: Thank you. Can I get the tax ID?
+
+MONICA: The tax ID for Premier Health Associates is ninety-nine dash zero zero one one two two three.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Patricia Brown, and her date of birth is June twelfth, nineteen eighty-eight.
+
+INSURANCE: Let me pull that up... Okay, I have Patricia Brown. What do you need?
+
+MONICA: I need to verify a few details about her insurance plan. First, is Premier Health Associates participating in the network?
+
+INSURANCE: Yes, Premier Health Associates is in network.
+
+MONICA: What type of plan is this?
+
+INSURANCE: PPO.
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: April fifteenth, twenty twenty four.
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: No termination date.
+
+MONICA: Now that I have all the plan information, can you provide details about the CPT code nine nine two one five coverage?
+
+INSURANCE: What's the date of service?
+
+MONICA: The date of service has not yet been determined. Can you use today's date?
+
+INSURANCE: Let me check ninety-nine two fifteen... That's covered. Forty-five fifty copay, fifteen percent coinsurance, deductible applies, no PA, telehealth is covered.
+
+MONICA: Can you provide the individual and family deductible amounts, as well as any amounts met?
+
+INSURANCE: The individual deductible is seven hundred fifty dollars. Four eighty-three twenty-seven has been met.
+
+MONICA: What is the family deductible amount?
+
+INSURANCE: I only have the individual deductible information. The individual deductible is seven hundred fifty dollars.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

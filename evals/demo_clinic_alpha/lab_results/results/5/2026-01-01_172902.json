@@ -1,0 +1,219 @@
+{
+  "id": "5_2026-01-01_172902",
+  "scenario_id": "5",
+  "timestamp": "2026-01-01T17:29:02.761482",
+  "langfuse_trace_id": "61d788ca07d1eb0b8b786ed14c877967",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/61d788ca07d1eb0b8b786ed14c877967",
+  "input": {
+    "target_node": "end",
+    "expected_problem": "Bot should handle frustrated caller professionally, acknowledge prior calls, de-escalate and confirm callback",
+    "patient": {
+      "_id": "6956f519d518a1ea0a9ac9f8",
+      "patient_id": "6956f519d518a1ea0a9ac9f8",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "lab_results",
+      "call_status": "Not Started",
+      "patient_name": "Linda Martinez",
+      "date_of_birth": "1972-06-18",
+      "phone_number": "5558889990",
+      "test_type": "Comprehensive Metabolic Panel",
+      "test_date": "2024-12-05",
+      "ordering_physician": "Dr. William Foster",
+      "results_status": "Pending",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "3 to 5 business days",
+      "first_name": "Linda",
+      "last_name": "Martinez",
+      "created_at": "2026-01-01T22:28:41.698654+00:00",
+      "updated_at": "2026-01-01T22:28:41.698654+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Demo Clinic Alpha laboratory results. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Look, I've called THREE times about my blood work. It's been two weeks! When will my results be ready?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sounds good! What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "*Sighs audibly* Five five five, eight eight eight, nine nine nine zero.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "That's 555-888-9990, correct?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's right.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Can you confirm your date of birth please? Let me pull up your account.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "June 18, 1972. Same as the last two times I called.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you. Your Comprehensive Metabolic Panel is still being processed. Would you like us to call you when they're ready?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "STILL pending? This is ridiculous! It's been two weeks! What's the holdup?",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "I understand your frustration. Unfortunately, I don't have specific details on the delay. Would you like a callback when your results are ready?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "You said that last time and nobody called. Why should I believe you now?",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "I completely understand your concerns. I can assure you that we will call you as soon as your results are available. Would you like to confirm a callback?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Look, I'm sorry, I'm not mad at you. I'm just frustrated with waiting. Okay fine, I'll give it one more try with the callback.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "I've confirmed your callback number. Is there anything else I can help you with today?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "No, that's all. Bye.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "Take care!",
+        "turn": 8
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_lab_results",
+        "args": {}
+      },
+      {
+        "turn": 3,
+        "node": "patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5558889990"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "verify_dob",
+        "function": "verify_dob",
+        "args": {
+          "date_of_birth": "June 18, 1972"
+        }
+      },
+      {
+        "turn": 7,
+        "node": "results_pending",
+        "function": "confirm_callback",
+        "args": {
+          "confirmed": true
+        }
+      },
+      {
+        "turn": 8,
+        "node": "completion",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6956f519d518a1ea0a9ac9f8",
+      "patient_name": "Linda Martinez",
+      "first_name": "Linda",
+      "last_name": "Martinez",
+      "date_of_birth": "1972-06-18",
+      "phone_number": "5558889990",
+      "identity_verified": true,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 0,
+      "anything_else_count": 1,
+      "test_type": "Comprehensive Metabolic Panel",
+      "test_date": "2024-12-05",
+      "ordering_physician": "Dr. William Foster",
+      "results_status": "Pending",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "3 to 5 business days",
+      "callback_confirmed": false,
+      "results_communicated": false,
+      "_last_lookup_phone": "5558889990",
+      "_last_lookup_dob": "1972-06-18"
+    },
+    "final_node": "end",
+    "db_state": {
+      "identity_verified": false,
+      "results_communicated": false,
+      "callback_confirmed": true,
+      "call_status": "Completed",
+      "caller_phone_number": ""
+    },
+    "turns": 8
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Ignored repeated failed callback promises",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: No results shared appropriately"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Ignored repeated failed callback promises"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Pending results callback confirmed correctly"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached end (equivalent to end)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: DB state correct"
+      }
+    }
+  },
+  "notes": ""
+}

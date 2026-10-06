@@ -1,0 +1,103 @@
+{
+  "id": "4_2025-12-20_125608",
+  "scenario_id": "4",
+  "timestamp": "2025-12-20T12:56:08.197029",
+  "langfuse_trace_id": "4cbadaf9ceaa67278acf0bcb2990701b",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/4cbadaf9ceaa67278acf0bcb2990701b",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not handle multiple unrelated intents with proper sequencing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I have a few things I need help with. I need to schedule my annual physical, I'm waiting on some blood work results from last Tuesday, and I got a bill I don't understand.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Let me pull up your file. What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "My phone number is 555-888-9999.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.",
+        "turn": 2
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "annual physical appointment"
+        }
+      },
+      {
+        "turn": 1,
+        "node": "handoff_entry",
+        "function": "set_returning_patient",
+        "args": {
+          "visit_reason": "annual physical"
+        }
+      },
+      {
+        "turn": 2,
+        "node": "returning_patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5558889999"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "annual physical appointment",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "today": "December 20, 2025",
+      "available_slots": [
+        "Sunday, December 21 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "annual physical",
+      "appointment_type": "Returning Patient",
+      "handed_off_to": "scheduling"
+    },
+    "turns": 2
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Ignored lab results billing intents",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Ignored lab results billing intents"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversation, handled appropriately."
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct scheduling workflow routing used"
+      }
+    }
+  },
+  "notes": ""
+}

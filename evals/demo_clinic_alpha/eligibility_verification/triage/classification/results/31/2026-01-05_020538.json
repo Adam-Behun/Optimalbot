@@ -1,0 +1,19 @@
+{
+  "id": "31_2026-01-05_020538",
+  "scenario_id": "31",
+  "timestamp": "2026-01-05T02:05:38.169231",
+  "langfuse_trace_id": "396aad1031e7801367877e07ea7eb3cc",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/396aad1031e7801367877e07ea7eb3cc",
+  "input": {
+    "utterance": "Please hold, I'm transferring you now. [brief silence] ...Thank you for holding. You've reached provider eligibility. Press 1 to verify benefits. Press 2 for prior auth.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

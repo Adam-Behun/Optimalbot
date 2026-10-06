@@ -1,0 +1,29 @@
+{
+  "id": "1_2025-12-13_150640",
+  "scenario_id": "1",
+  "timestamp": "2025-12-13T15:06:40.382146",
+  "langfuse_trace_id": "1f922dfa5885727c23a69ee0f98bdc80",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/1f922dfa5885727c23a69ee0f98bdc80",
+  "input": {
+    "utterance": "Thank you for calling. This is Jennifer from member services.",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "classification": {
+        "pass": true,
+        "reason": "PASS: Correct classification (CONVERSATION)"
+      },
+      "confidence": {
+        "pass": true,
+        "reason": "PASS: Clear case handled correctly"
+      }
+    }
+  },
+  "notes": ""
+}

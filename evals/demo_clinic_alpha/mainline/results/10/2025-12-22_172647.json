@@ -1,0 +1,195 @@
+{
+  "id": "10_2025-12-22_172647",
+  "scenario_id": "10",
+  "timestamp": "2025-12-22T17:26:47.332893",
+  "langfuse_trace_id": "45b8f81e2d8ab2f784fb888d00262b17",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/45b8f81e2d8ab2f784fb888d00262b17",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may get confused by caller who changes their mind mid-conversation"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I think I need to schedule an appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What would the appointment be for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Actually, wait. Before I do that - do you know if my lab results are back? I had blood work last week.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you check on that. Were you feeling anxious about the results?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Hmm, actually never mind the labs. Let me just schedule the appointment. But wait - what are your hours? I need to figure out when I can come in.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Our office hours are Monday through Friday, 8 AM to 5 PM, and Saturday from 9 AM to 1 PM. We're closed on Sundays. Is there anything else I can help with?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Okay, so you're open until 5. That might work. Actually, can I check on those lab results first after all? Then I'll know if I even need to come in.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! I can help you check on that. Just to confirm, you mentioned it was blood work from last week, right?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's right! But actually, I changed my mind, I do want to schedule either way. Sorry, I know I'm all over the place today.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "No problem at all! What would the appointment be for?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Sorry, I'm just stressed. Let me focus. I need to: one, check my lab results, and two, schedule a follow-up regardless of the results. Can we do both?",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Absolutely, I can help with both. First, let me get you checked on those lab results. Just to confirm, it was blood work from last week, right?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's correct! Thank you for helping with that.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "It seems that I need to verify your identity before I can check on your lab results. Could you please provide me with your full name?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "Sure! My name is Michelle Lee.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Michelle. And what is your date of birth?",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "My date of birth is April 22, 1988.",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "I'm sorry, I wasn't able to verify your identity. Let me connect you with someone who can help.",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "Oh, I see. That's okay! While you're at it, can we go ahead and schedule that appointment anyway? I just want to make sure I can get in, regardless of the lab results.",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 10
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 7,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "lab_results",
+          "reason": "blood work from last week, caller is stressed about results"
+        }
+      },
+      {
+        "turn": 9,
+        "node": "verification",
+        "function": "verify_identity",
+        "args": {
+          "name": "Michelle Lee",
+          "date_of_birth": "April 22, 1988"
+        }
+      },
+      {
+        "turn": 10,
+        "node": "verification_failed",
+        "function": "request_staff",
+        "args": {
+          "reason": "caller requested human due to identity verification failure"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Lab Results",
+      "call_reason": "blood work from last week, caller is stressed about results",
+      "routed_to": "lab_results (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "medical_record_number": "",
+      "phone_number": "",
+      "test_type": "",
+      "test_date": "",
+      "ordering_physician": "",
+      "results_status": "",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "identity_verified": false,
+      "results_communicated": false,
+      "caller_anxious": false,
+      "transfer_reason": "caller requested human due to identity verification failure",
+      "handed_off_to": "lab_results"
+    },
+    "turns": 10
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Routed labs, caller wanted both; quality: FAIL: Ignored final appointment scheduling request",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Routed labs, caller wanted both"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Ignored final appointment scheduling request"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing and escalation sequence"
+      }
+    }
+  },
+  "notes": ""
+}

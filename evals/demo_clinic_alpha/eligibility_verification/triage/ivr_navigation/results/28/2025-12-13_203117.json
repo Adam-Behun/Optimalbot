@@ -1,0 +1,200 @@
+{
+  "id": "28_2025-12-13_203117",
+  "scenario_id": "28",
+  "timestamp": "2025-12-13T20:31:17.885673",
+  "langfuse_trace_id": "53b13affe0da7fc11e76813ef6ae77a1",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/53b13affe0da7fc11e76813ef6ae77a1",
+  "input": {
+    "description": "Deep: 7-level enterprise IVR maze",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For all other inquiries, press 3.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Provider services. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For patient support services, press 4.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Patient support. For eligibility and benefits verification, press 1. For referral management, press 2. For care coordination, press 3.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Eligibility verification. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid, press 3. For all plan types, press 4.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "To expedite your call, please have your provider NPI ready. Press 1 to continue.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Please hold for the next available eligibility specialist. Current wait time is 3 minutes.",
+        "expected_action": "status:completed"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For all other inquiries, press 3.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "UnitedHealthcare is the insurance arm"
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "We are calling as a healthcare provider"
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "Provider services. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For patient support services, press 4.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "Patient support services is closest to eligibility verification"
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "Patient support. For eligibility and benefits verification, press 1. For referral management, press 2. For care coordination, press 3.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Direct match for eligibility verification"
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "Eligibility verification. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid, press 3. For all plan types, press 4.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "All plan types covers any patient"
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "To expedite your call, please have your provider NPI ready. Press 1 to continue.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Continue past informational prompt"
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "Please hold for the next available eligibility specialist. Current wait time is 3 minutes.",
+        "expected_action": "status:completed",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "In queue for specialist - goal achieved"
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For all other inquiries, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored plans, press 2. For Medicare, press 3. For healthcare providers, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Provider services. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For patient support services, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Patient support. For eligibility and benefits verification, press 1. For referral management, press 2. For care coordination, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Eligibility verification. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid, press 3. For all plan types, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "To expedite your call, please have your provider NPI ready. Press 1 to continue."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please hold for the next available eligibility specialist. Current wait time is 3 minutes."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All 7 steps correct",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling UnitedHealth Group. For Unit...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "UnitedHealthcare. For individual and family plans,...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "Provider services. For contracting and credentiali...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "Patient support. For eligibility and benefits veri...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "Eligibility verification. For commercial plans, pr...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "To expedite your call, please have your provider N...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "Please hold for the next available eligibility spe...",
+        "pass": true,
+        "reason": "PASS: Correct status (completed)"
+      }
+    ]
+  },
+  "notes": ""
+}

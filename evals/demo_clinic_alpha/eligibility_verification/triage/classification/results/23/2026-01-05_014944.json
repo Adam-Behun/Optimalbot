@@ -1,0 +1,19 @@
+{
+  "id": "23_2026-01-05_014944",
+  "scenario_id": "23",
+  "timestamp": "2026-01-05T01:49:44.583758",
+  "langfuse_trace_id": "02eab17c8c6440631d981785aa68a6f3",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/02eab17c8c6440631d981785aa68a6f3",
+  "input": {
+    "utterance": "Great news! Your callback request has been saved. We'll call you back at this number within the next 20 minutes. You may hang up now.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

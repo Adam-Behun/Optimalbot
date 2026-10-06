@@ -1,0 +1,123 @@
+{
+  "id": "4_2025-12-24_232739",
+  "scenario_id": "4",
+  "timestamp": "2025-12-24T23:27:39.411548",
+  "langfuse_trace_id": "bce296080d609411c622cd7a0bf11263",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/bce296080d609411c622cd7a0bf11263",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not handle multiple unrelated intents with proper sequencing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I have a few things I need help with. I need to schedule my annual physical, I'm waiting on some blood work results from last Tuesday, and I got a bill I don't understand.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! Let me help you with all of that, starting with your annual physical. What would you like to schedule it for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Sure, I\u2019d like to schedule it for sometime next week, if possible. What days do you have available?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I can't check availability for you, but I can route you to scheduling to help with that. I'll include that you need an annual physical for next week, along with your blood work results and billing question. Just a moment! \n\nI'll connect you now. ",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Okay, but I mentioned three things - can we make sure we handle all of them? I really want to get everything sorted out today. ",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I\u2019ll make sure all your concerns are addressed. I\u2019m transferring you now to the scheduling team to help with your annual physical, blood work results, and billing question. Just a moment!",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Sure, that's fine. Let's do the scheduling first. Thank you!",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 4
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "annual physical for next week, ALSO NEEDS: blood work results from last Tuesday, billing question"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "scheduling",
+        "function": "request_staff",
+        "args": {
+          "patient_confirmed": true,
+          "reason": "scheduling for annual physical, blood work results, billing question"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "annual physical for next week, ALSO NEEDS: blood work results from last Tuesday, billing question",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "handed_off_to": "scheduling",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "phone_number": "",
+      "identity_verified": false,
+      "today": "December 24, 2025",
+      "available_slots": [
+        "Thursday, December 25 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "annual physical for next week",
+      "appointment_type": "New Patient",
+      "transfer_reason": "scheduling for annual physical, blood work results, billing question"
+    },
+    "turns": 4
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: functions: FAIL: scheduling routed then staff requested",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: All intents properly preserved"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: All needs captured and handled"
+      },
+      "functions": {
+        "pass": false,
+        "reason": "FAIL: scheduling routed then staff requested"
+      }
+    }
+  },
+  "notes": ""
+}

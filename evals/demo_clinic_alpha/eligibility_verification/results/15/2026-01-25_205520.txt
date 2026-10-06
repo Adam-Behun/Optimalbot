@@ -1,0 +1,94 @@
+SCENARIO: 15
+TARGET NODE: plan_info
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Provider services, how can I help you?
+
+MONICA: May I have your first name and last initial?
+
+INSURANCE: Sure, I'm Sarah K.
+
+MONICA: Hi Sarah, this is Jordan M. calling from Sample Medical Center about eligibility verification for Test Patient Two.
+
+INSURANCE: Thanks, Jordan. What's the tax ID?
+
+MONICA: The tax ID is ninety-eight dash seven six five four three two one.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Test Patient Two and the date of birth is February twentieth, nineteen eighty-five.
+
+INSURANCE: Let me pull that up... Got it. They're active, in network. What else do you need?
+
+MONICA: What type of plan is this?
+
+INSURANCE: Let me check that for you. One moment, please... 
+
+It looks like the member is enrolled in a comprehensive health plan. Is there anything else you would like to know?
+
+MONICA: Could you specify the plan type, such as PPO, HMO, or another type?
+
+INSURANCE: Certainly! The plan type for Test Patient Two is an HMO. Do you need any more information regarding this plan?
+
+MONICA: Yes, could you please provide the effective date of the plan?
+
+INSURANCE: The effective date of the plan is January 1st, 2023. Is there anything else you would like to know?
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: No, there is currently no termination date for the plan; it remains active. If you have any more questions or need further assistance, feel free to ask!
+
+MONICA: I appreciate the information. Now, could you provide coverage details for the CPT code nine nine two one four?
+
+INSURANCE: Let me check the coverage details for CPT code 99214... 
+
+The coverage for that code includes an office visit for an established patient, typically involving a moderate level of complexity. It is covered under the member's plan with a copayment of $30. 
+
+Is there anything else you would like to know?
+
+MONICA: Is there a coinsurance for this service?
+
+INSURANCE: For CPT code 99214, there is no coinsurance applicable; the member is only responsible for the $30 copayment. If you have any more questions or need further information, just let me know!
+
+MONICA: Does the deductible apply to this service?
+
+INSURANCE: No, the deductible does not apply to this service. The member will only need to pay the $30 copayment for the office visit. If you have any more questions or need further assistance, feel free to ask!
+
+MONICA: Is prior authorization required for this service?
+
+INSURANCE: No, prior authorization is not required for CPT code 99214. The member can schedule the office visit without needing any prior approval. If you need any more information or assistance, just let me know!
+
+MONICA: Is telehealth covered for this service?
+
+INSURANCE: Yes, telehealth is covered for CPT code 99214. The member can utilize telehealth services for this office visit with the same copayment of $30. If you have any more questions or need further assistance, feel free to ask!
+
+MONICA: Could you please provide the individual and family deductible amounts, as well as any amounts that have been met?
+
+INSURANCE: Certainly! The individual deductible is $1,000, and the family deductible is $2,000. Currently, the member has met $300 of the individual deductible and $600 of the family deductible. If you have any more questions or need further assistance, just let me know!
+
+MONICA: What is the individual out-of-pocket maximum?
+
+INSURANCE: The individual out-of-pocket maximum is $3,000. If you have any more questions or need further information, feel free to ask!
+
+MONICA: How much of the individual out-of-pocket maximum has been met?
+
+INSURANCE: The member has met $600 of the individual out-of-pocket maximum. If you need any more information or have further questions, just let me know!
+
+MONICA: What is the family out-of-pocket maximum?
+
+INSURANCE: The family out-of-pocket maximum is $6,000. If you have any more questions or need further assistance, feel free to ask!
+
+MONICA: How much of the family out-of-pocket maximum has been met?
+
+INSURANCE: The family has met $1,200 of the out-of-pocket maximum. If you have any more questions or need further assistance, just let me know!
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Of course! The reference number for this call is 123456789. If you need anything else or have further questions, feel free to ask!
+
+MONICA: Thank you for your help. Goodbye!
+
+============================================================
+GRADE: FAIL - FAIL: node: FAIL: Expected plan_info, got closing; DB: FAIL: insurance_rep_first_name: expected Sarah, got None; insurance_rep_last_initial: expected K, got None
+NODE CHECK: FAIL: Expected plan_info, got closing

@@ -1,0 +1,137 @@
+{
+  "id": "3_2025-12-23_234916",
+  "scenario_id": "3",
+  "timestamp": "2025-12-23T23:49:16.053356",
+  "langfuse_trace_id": "1b7705d359d26139327766b1960642a2",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/1b7705d359d26139327766b1960642a2",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Complex prescription context may be lost during handoff"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I'm calling about a prescription issue.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "I can look into that for you. What medication are you having issues with?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's lisinopril, 10mg. I take it for blood pressure. I've been on it for two years.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, lisinopril 10mg for blood pressure. Let me get that information for you. ",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Okay, thanks. I went to pick up my lisinopril refill at CVS, and they said there's some kind of hold on it? They told me to call you.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that. Before we proceed, could you please provide your first and last name?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Sure, it's Linda Anderson.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Linda. And what is your date of birth?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "My date of birth is December 10, 1972.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "I'm sorry, I wasn't able to verify your identity. For your security, I'll need to transfer you to a staff member who can assist you. One moment please.",
+        "turn": 5
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 2,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "prescription_status",
+          "reason": "caller has a prescription issue with lisinopril 10mg for blood pressure, has been on it for two years"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "verification",
+        "function": "verify_identity",
+        "args": {
+          "name": "Linda Anderson",
+          "date_of_birth": "December 10, 1972"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Prescription Status",
+      "call_reason": "caller has a prescription issue with lisinopril 10mg for blood pressure, has been on it for two years",
+      "routed_to": "prescription_status (AI)",
+      "resolution": "",
+      "handed_off_to": "prescription_status",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "medical_record_number": "",
+      "phone_number": "",
+      "medication_name": "lisinopril",
+      "dosage": "",
+      "prescribing_physician": "",
+      "refill_status": "",
+      "refills_remaining": 0,
+      "last_filled_date": "",
+      "next_refill_date": "",
+      "pharmacy_name": "",
+      "pharmacy_phone": "",
+      "pharmacy_address": "",
+      "prescriptions": [],
+      "identity_verified": false
+    },
+    "turns": 5
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Routing correct, context preserved well"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural flow, appropriate verification handling"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing and identity verification"
+      }
+    }
+  },
+  "notes": ""
+}

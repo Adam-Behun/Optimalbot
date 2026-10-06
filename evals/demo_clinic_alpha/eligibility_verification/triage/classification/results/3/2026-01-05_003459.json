@@ -1,0 +1,29 @@
+{
+  "id": "3_2026-01-05_003459",
+  "scenario_id": "3",
+  "timestamp": "2026-01-05T00:34:59.004944",
+  "langfuse_trace_id": "e050f22e026605f6839423e3f56c2700",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/e050f22e026605f6839423e3f56c2700",
+  "input": {
+    "utterance": "Hi there! I'm your virtual assistant. What can I help you with today?",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "classification": {
+        "pass": true,
+        "reason": "PASS: Virtual assistant uses conversational language with greeting and open-ended question, matching CONVERSATION criteria despite being automated"
+      },
+      "confidence": {
+        "pass": true,
+        "reason": "PASS: Clear case handled correctly"
+      }
+    }
+  },
+  "notes": ""
+}

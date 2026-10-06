@@ -1,0 +1,55 @@
+{
+  "id": "4_2026-01-05_002713",
+  "scenario_id": "4",
+  "timestamp": "2026-01-05T00:27:13.032074",
+  "langfuse_trace_id": "d41544ec89d42cb406ba32345b4a37ca",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/d41544ec89d42cb406ba32345b4a37ca",
+  "input": {
+    "description": "Stuck: Pharmacy-only menu with no escape",
+    "steps": [
+      {
+        "menu_prompt": "Pharmacy services. For prescription refills, press 1. For drug pricing, press 2. For mail order, press 3. For specialty pharmacy, press 4.",
+        "expected_action": "status:stuck"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Pharmacy services. For prescription refills, press 1. For drug pricing, press 2. For mail order, press 3. For specialty pharmacy, press 4.",
+        "expected_action": "status:stuck",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "No eligibility options and no way back - wrong department entirely",
+        "expected_event": "on_ivr_status_changed",
+        "actual_event": null,
+        "expected_arg": "stuck",
+        "actual_arg": null,
+        "event_matched": false
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Pharmacy services. For prescription refills, press 1. For drug pricing, press 2. For mail order, press 3. For specialty pharmacy, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: 1/1 steps failed",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Pharmacy services. For prescription refills, press...",
+        "pass": false,
+        "reason": "FAIL: Should be \"stuck\" - no relevant options for wrong department, not \"wait\""
+      }
+    ]
+  },
+  "notes": ""
+}

@@ -1,0 +1,12 @@
+SCENARIO: 7
+EXPECTED: Bot should recognize check-in is outside its capabilities and transfer to front_desk
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I'm here for my 2:30 appointment. I saw there's phone check-in?
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

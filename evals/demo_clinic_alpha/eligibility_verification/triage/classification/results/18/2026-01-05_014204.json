@@ -1,0 +1,19 @@
+{
+  "id": "18_2026-01-05_014204",
+  "scenario_id": "18",
+  "timestamp": "2026-01-05T01:42:04.220562",
+  "langfuse_trace_id": "7fafb2b37a9578578e975b77c2623bcb",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/7fafb2b37a9578578e975b77c2623bcb",
+  "input": {
+    "utterance": "Hi, this is Jessica, I'm a virtual assistant... just kidding, real person here! How can I help you?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

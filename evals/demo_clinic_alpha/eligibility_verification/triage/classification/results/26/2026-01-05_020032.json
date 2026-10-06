@@ -1,0 +1,19 @@
+{
+  "id": "26_2026-01-05_020032",
+  "scenario_id": "26",
+  "timestamp": "2026-01-05T02:00:32.514749",
+  "langfuse_trace_id": "ac91c97c4804a891a685a3d1bba9cfbe",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/ac91c97c4804a891a685a3d1bba9cfbe",
+  "input": {
+    "utterance": "Thank you for calling. Our office hours are Monday through Friday, 8 AM to 6 PM Eastern. If you know your party's extension, you may dial it now. Otherwise, please call back during business hours.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

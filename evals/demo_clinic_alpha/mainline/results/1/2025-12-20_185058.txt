@@ -1,0 +1,24 @@
+SCENARIO: 1
+EXPECTED: Context may be lost when handing off to scheduling workflow
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, this is Jessica Williams. I need to schedule a follow-up appointment.
+
+MONICA: Sure! What's the follow-up for?
+
+CALLER: It's for my chronic lower back pain. I've been coming here for about three years for it.
+
+MONICA: Got it, a follow-up for chronic lower back pain. Let me get that scheduled for you.
+
+CALLER: Actually, I’d like to see Dr. Chen if possible - she's been treating me.
+
+MONICA: Let me pull up your file. What's the phone number on your account?
+
+CALLER: My phone number is 555-333-4444.
+
+MONICA: I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Lost context during scheduling handoff

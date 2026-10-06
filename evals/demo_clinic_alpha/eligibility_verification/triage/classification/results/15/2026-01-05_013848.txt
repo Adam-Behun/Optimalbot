@@ -1,0 +1,10 @@
+SCENARIO: 15
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Hello! I'm Eva, your virtual assistant for United Healthcare. I can help you check eligibility, prior authorization status, and more. What would you like to do today?
+
+============================================================
+GRADE: PASS - Correct: IVR

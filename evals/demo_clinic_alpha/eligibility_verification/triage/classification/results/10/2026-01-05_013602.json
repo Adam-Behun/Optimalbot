@@ -1,0 +1,19 @@
+{
+  "id": "10_2026-01-05_013602",
+  "scenario_id": "10",
+  "timestamp": "2026-01-05T01:36:02.789441",
+  "langfuse_trace_id": "b3aeee3e8b7d9a698db3962f2b4046f9",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/b3aeee3e8b7d9a698db3962f2b4046f9",
+  "input": {
+    "utterance": "Hi, before we begin, this call may be recorded for quality purposes. How can I help you?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

@@ -1,0 +1,20 @@
+SCENARIO: 12
+EXPECTED: Bot should recognize language barrier and transfer to front_desk for human assistance
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hello, do you have someone who speaks Spanish?
+
+MONICA: Sorry, I didn't catch that. Could you repeat that?
+
+CALLER: Yes please. Someone Spanish. Thank you.
+
+MONICA: Let me transfer you to someone who can help with that.
+
+CALLER: Thank you.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

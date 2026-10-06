@@ -1,0 +1,295 @@
+{
+  "id": "1_2026-01-05_020044",
+  "scenario_id": "1",
+  "timestamp": "2026-01-05T02:00:44.792815",
+  "langfuse_trace_id": "c584dfe0251000708c858f56f31a2171",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/c584dfe0251000708c858f56f31a2171",
+  "input": {
+    "description": "BCBS: Member eligibility trap, wrong department, recovery to provider services",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy, press 3. To speak with a provider representative, press 0.",
+        "expected_action": "dtmf:0"
+      },
+      {
+        "menu_prompt": "All representatives are currently assisting other callers. Your estimated wait time is 25 minutes. To continue holding, press 1. To receive a callback, press 2.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Thank you for holding. Your estimated wait time is now 18 minutes.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "Your estimated wait time is now 8 minutes. Thank you for your patience.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "You are next in queue. A representative will be with you shortly.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "[Hold music] Thank you for your patience. A representative will be with you shortly.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "Thank you for holding. This is Jennifer with provider services. How may I help you today?",
+        "expected_action": "status:completed"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Select English",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "We are calling as a healthcare provider",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "4",
+        "actual_arg": "4",
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy, press 3. To speak with a provider representative, press 0.",
+        "expected_action": "dtmf:0",
+        "actual_response": "<dtmf>0</dtmf>",
+        "reasoning": "'Member eligibility' is for members checking their OWN benefits. Need provider rep.",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "0",
+        "actual_arg": "0",
+        "event_matched": true
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "All representatives are currently assisting other callers. Your estimated wait time is 25 minutes. To continue holding, press 1. To receive a callback, press 2.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "25 minutes is under 30 min threshold - hold instead of callback",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "Thank you for holding. Your estimated wait time is now 18 minutes.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "Wait time decreasing - continue holding",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "Your estimated wait time is now 8 minutes. Thank you for your patience.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "Almost there - continue holding",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "You are next in queue. A representative will be with you shortly.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "Next in queue - wait",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 8,
+        "menu_prompt": "[Hold music] Thank you for your patience. A representative will be with you shortly.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "Still on hold",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 9,
+        "menu_prompt": "Thank you for holding. This is Jennifer with provider services. How may I help you today?",
+        "expected_action": "status:completed",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "Human answered - navigation complete",
+        "expected_event": "on_ivr_status_changed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "completed",
+        "actual_arg": "completed",
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy, press 3. To speak with a provider representative, press 0."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>0</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "All representatives are currently assisting other callers. Your estimated wait time is 25 minutes. To continue holding, press 1. To receive a callback, press 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you for holding. Your estimated wait time is now 18 minutes."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "Your estimated wait time is now 8 minutes. Thank you for your patience."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "You are next in queue. A representative will be with you shortly."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "[Hold music] Thank you for your patience. A representative will be with you shortly."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you for holding. This is Jennifer with provider services. How may I help you today?"
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All 9 steps correct",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For En...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "Please listen carefully as our menu options have c...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "Provider services. For member eligibility and bene...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (0)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "All representatives are currently assisting other ...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "Thank you for holding. Your estimated wait time is...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "Your estimated wait time is now 8 minutes. Thank y...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "You are next in queue. A representative will be wi...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      },
+      {
+        "step": 8,
+        "menu_prompt": "[Hold music] Thank you for your patience. A repres...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      },
+      {
+        "step": 9,
+        "menu_prompt": "Thank you for holding. This is Jennifer with provi...",
+        "pass": true,
+        "reason": "PASS: Correct status (completed)"
+      }
+    ]
+  },
+  "notes": ""
+}

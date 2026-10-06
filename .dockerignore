@@ -1,0 +1,110 @@
+# Default .dockerignore (fallback)
+#
+# Specific ignore files are used for:
+#   - Dockerfile.api -> Dockerfile.api.dockerignore (backend API)
+#   - Dockerfile.bot -> Dockerfile.bot.dockerignore (Pipecat bot)
+#
+# This file is used if no specific ignore file exists.
+
+# ============================================
+# Python artifacts
+# ============================================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+**/*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+
+# ============================================
+# Environment and secrets
+# ============================================
+.env
+.env.*
+.env.example
+**/.env
+*.log
+**/*.log
+
+# ============================================
+# IDE and OS
+# ============================================
+.vscode/
+**/.vscode/
+.idea/
+**/.idea/
+.claude/
+*.swp
+*.swo
+**/*.swp
+**/*.swo
+.DS_Store
+**/.DS_Store
+Thumbs.db
+**/Thumbs.db
+
+# ============================================
+# Database
+# ============================================
+*.db
+**/*.db
+*.sqlite3
+**/*.sqlite3
+
+# ============================================
+# Frontend
+# ============================================
+frontend/
+
+# ============================================
+# Development directories
+# ============================================
+evals/
+scripts/
+utils/
+whisker/
+pipecat-examples/
+patients.csv
+
+# ============================================
+# Git
+# ============================================
+.git/
+.gitignore
+.github/
+
+# ============================================
+# Documentation
+# ============================================
+README.md
+CLAUDE.md
+docs/
+Notes.md
+SUMMARY.md
+AUDIT_ISSUES.md
+
+# ============================================
+# Tests
+# ============================================
+tests/
+test_*.py
+*_test.py
+pytest.ini
+
+# ============================================
+# Obsolete files
+# ============================================
+Dockerfile.obsolete-*
+**/debug_audio.wav
+**/real*.txt
+**/ThePerfectFineTuningTranscript.txt
+**/14FineTuningExamples.txt
+**/fine-tune
+**/documentation

@@ -1,0 +1,88 @@
+SCENARIO: 14
+TARGET NODE: plan_info
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Test Insurance provider line, Marcus B. speaking. How can I help you today?
+
+MONICA: Hi Marcus, this is Alex T. calling from Test Clinic about eligibility verification for Test Patient. May I have your last initial?
+
+INSURANCE: I just told you, I'm Marcus B. Were you not listening? Anyway, what's the tax ID?
+
+MONICA: I apologize for that, Marcus. The tax ID is twelve dash three four five six seven eight nine.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Test Patient and the date of birth is January fifteenth, nineteen ninety.
+
+INSURANCE: Let me pull that up... Got it. They're active, in network. What else do you need?
+
+MONICA: Could you please provide the type of plan for Test Patient?
+
+INSURANCE: Sure! The type of plan for Test Patient is a comprehensive health plan. Is there anything else you need?
+
+MONICA: Could you specify the plan type as PPO, HMO, POS, EPO, or HDHP?
+
+INSURANCE: The plan type for Test Patient is an HMO plan. Is there anything else you would like to know?
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: The effective date of the plan is March 1, 2023. Is there anything else I can assist you with?
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: The termination date for the plan is December 31, 2024. Do you need any more information?
+
+MONICA: I need to verify coverage for CPT code nine nine two one three. Can you confirm if this service is covered?
+
+INSURANCE: Let me check that for you... Yes, the service for CPT code 99213 is covered under the plan. Is there anything else you need?
+
+MONICA: What is the copay for this service?
+
+INSURANCE: The copay for CPT code 99213 is $25. Is there anything else I can help you with?
+
+MONICA: Is there a coinsurance for this service?
+
+INSURANCE: No, there is no coinsurance for this service. The copay of $25 is the only cost associated with it. Do you have any other questions?
+
+MONICA: Does the deductible apply to this service?
+
+INSURANCE: No, the deductible does not apply to this service. The copay of $25 covers it fully. Is there anything else you would like to know?
+
+MONICA: Is prior authorization required for this service?
+
+INSURANCE: No, prior authorization is not required for this service. Is there anything else I can assist you with?
+
+MONICA: Is telehealth covered for this service?
+
+INSURANCE: Yes, telehealth is covered for this service. Is there anything else you need?
+
+MONICA: Could you provide the individual and family deductible amounts, as well as any amounts met?
+
+INSURANCE: The individual deductible is $1,500, and the family deductible is $3,000. Currently, $500 has been met for the individual, and $1,000 has been met for the family. Is there anything else I can help with?
+
+MONICA: What is the individual out-of-pocket maximum?
+
+INSURANCE: The individual out-of-pocket maximum is $3,500. Is there anything else you would like to know?
+
+MONICA: How much of the individual out-of-pocket maximum has been met?
+
+INSURANCE: $1,000 has been met of the individual out-of-pocket maximum. Do you need any more information?
+
+MONICA: What is the family out-of-pocket maximum?
+
+INSURANCE: The family out-of-pocket maximum is $7,000. Is there anything else I can assist you with?
+
+MONICA: How much of the family out-of-pocket maximum has been met?
+
+INSURANCE: $2,000 has been met of the family out-of-pocket maximum. Is there anything else you would like to know?
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Sure! Your reference number for this call is 987654321. Is there anything else I can assist you with?
+
+MONICA: Thank you for your help. Goodbye!
+
+============================================================
+GRADE: FAIL - FAIL: functions: FAIL: Missing: record_rep_name; node: FAIL: Expected plan_info, got closing; state: FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None; phrases: FAIL: Bot said forbidden phrase(s): last initial; DB: FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None
+NODE CHECK: FAIL: Expected plan_info, got closing

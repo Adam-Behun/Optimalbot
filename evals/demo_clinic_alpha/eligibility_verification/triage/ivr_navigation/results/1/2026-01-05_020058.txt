@@ -1,0 +1,62 @@
+SCENARIO: 1
+DESCRIPTION: BCBS: Member eligibility trap, wrong department, recovery to provider services
+============================================================
+
+STEP 1:
+  Menu: Thank you for calling BlueCross BlueShield. For English, press 1. Para español, oprima 2.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 2:
+  Menu: Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4.
+  Expected: dtmf:4
+  Actual: <dtmf>4</dtmf>
+
+STEP 3:
+  Menu: Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy, press 3. To speak with a provider representative, press 0.
+  Expected: dtmf:0
+  Actual: <dtmf>0</dtmf>
+
+STEP 4:
+  Menu: All representatives are currently assisting other callers. Your estimated wait time is 25 minutes. To continue holding, press 1. To receive a callback, press 2.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 5:
+  Menu: Thank you for holding. Your estimated wait time is now 18 minutes.
+  Expected: status:wait
+  Actual: <ivr>wait</ivr>
+
+STEP 6:
+  Menu: Your estimated wait time is now 8 minutes. Thank you for your patience.
+  Expected: status:wait
+  Actual: <ivr>wait</ivr>
+
+STEP 7:
+  Menu: You are next in queue. A representative will be with you shortly.
+  Expected: status:wait
+  Actual: <ivr>wait</ivr>
+
+STEP 8:
+  Menu: [Hold music] Thank you for your patience. A representative will be with you shortly.
+  Expected: status:wait
+  Actual: <ivr>wait</ivr>
+
+STEP 9:
+  Menu: Thank you for holding. This is Jennifer with provider services. How may I help you today?
+  Expected: status:completed
+  Actual: <ivr>completed</ivr>
+
+============================================================
+GRADE: PASS - PASS: All 9 steps correct
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct DTMF (1)
+  Step 2: PASS - PASS: Correct DTMF (4)
+  Step 3: PASS - PASS: Correct DTMF (0)
+  Step 4: PASS - PASS: Correct DTMF (1)
+  Step 5: PASS - PASS: Correct status (wait)
+  Step 6: PASS - PASS: Correct status (wait)
+  Step 7: PASS - PASS: Correct status (wait)
+  Step 8: PASS - PASS: Correct status (wait)
+  Step 9: PASS - PASS: Correct status (completed)

@@ -1,0 +1,10 @@
+SCENARIO: 36
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Provider services. Please hold.
+
+============================================================
+GRADE: PASS - Correct: IVR

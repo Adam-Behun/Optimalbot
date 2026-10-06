@@ -1,0 +1,22 @@
+SCENARIO: 1
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Provider services, this is Eliza. Tax ID and member ID?
+
+MONICA: Hi, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith. The tax ID is 82-1234567 and the member ID is U123456789.
+
+INSURANCE: Okay, they're active. POS plan, in network, effective January first twenty twenty five, no term date. What code are you looking at?
+
+MONICA: I'm looking at CPT code 95800. Can you provide coverage details for that?
+
+INSURANCE: Ninety-five eight hundred, that's covered. Fifty dollar copay, no coinsurance, ded doesn't apply, no auth, telehealth same benefit. Anything else?
+
+MONICA: Could you provide the individual and family deductible amounts, as well as any out-of-pocket maximums? Additionally, is there a reference number for this verification?
+
+INSURANCE: Family ded is five hundred, fully met. OOP max six K, eleven seventy point seven four applied. Reference is UHC-2025-789456. Have a good one.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

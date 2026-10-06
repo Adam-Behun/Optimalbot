@@ -1,0 +1,19 @@
+{
+  "id": "28_2026-01-05_020100",
+  "scenario_id": "28",
+  "timestamp": "2026-01-05T02:01:00.765662",
+  "langfuse_trace_id": "055a490db0526cdd1d96db02f2cc218c",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/055a490db0526cdd1d96db02f2cc218c",
+  "input": {
+    "utterance": "I'll need to verify your identity. Can you confirm your provider's Tax ID number?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

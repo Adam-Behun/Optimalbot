@@ -1,0 +1,12 @@
+SCENARIO: 8
+EXPECTED: Bot may misroute insurance claim dispute as general insurance question
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi Monica, I need to talk to someone about an insurance claim that was denied.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Ignored caller's insurance claim request

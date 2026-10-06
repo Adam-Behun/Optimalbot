@@ -1,0 +1,60 @@
+SCENARIO: 6
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: UnitedHealthcare provider services, this is Robert. How can I help you?
+
+MONICA: Hi, this is Daniel S. calling from Advanced Therapy Center about eligibility verification for Emily Johnson. Her date of birth is February 28, 1975.
+
+INSURANCE: Thank you. Can I get the tax ID for the facility?
+
+MONICA: The tax ID for Advanced Therapy Center is seventy-seven dash eight-eight-nine-nine-zero-zero-one.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Emily Johnson, and her date of birth is February 28, 1975.
+
+INSURANCE: Let me pull that up... Okay, I have Emily Johnson here. What do you need today?
+
+MONICA: I need to verify a few details about her plan. First, is Advanced Therapy Center participating in the network?
+
+INSURANCE: Yes, Advanced Therapy Center is participating.
+
+MONICA: What type of plan does Emily have?
+
+INSURANCE: This is an HMO plan.
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: Effective September first, twenty twenty four.
+
+MONICA: Is there a termination date for this plan?
+
+INSURANCE: No termination date on file.
+
+MONICA: Now that I have the plan information, can you provide details on the CPT code 97140 coverage?
+
+INSURANCE: Let me check that code... I'm sorry, that procedure is NOT covered under this member's benefit plan. It's a plan exclusion.
+
+MONICA: Since the CPT code is not covered, can you provide any information regarding the deductible or out-of-pocket maximums?
+
+INSURANCE: The family deductible is fifteen hundred, eight hundred has been met. The family out-of-pocket max is seventy-five hundred, twelve hundred applied.
+
+MONICA: Do you have the individual amounts for the deductible and out-of-pocket maximum?
+
+INSURANCE: I'm sorry, but I only have the family amounts available. Would you like the reference number?
+
+MONICA: Yes, may I have a reference number for this call?
+
+INSURANCE: Reference number is UHC-NC-2025-5432.
+
+MONICA: Thank you for your help. Goodbye! 
+
+
+
+INSURANCE: Goodbye.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

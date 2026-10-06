@@ -1,0 +1,19 @@
+{
+  "id": "11_2026-01-05_013623",
+  "scenario_id": "11",
+  "timestamp": "2026-01-05T01:36:23.706013",
+  "langfuse_trace_id": "2541d437f02d9266ec23f1a8e36727c8",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/2541d437f02d9266ec23f1a8e36727c8",
+  "input": {
+    "utterance": "You've reached us outside of business hours. If this is urgent, press 1 to page the on-call representative, otherwise leave a message.",
+    "expected_classification": "VOICEMAIL"
+  },
+  "output": {
+    "actual_classification": "VOICEMAIL"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: VOICEMAIL"
+  },
+  "notes": ""
+}

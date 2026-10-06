@@ -1,0 +1,68 @@
+SCENARIO: 7
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Aetna provider line, this is Jennifer. How can I help?
+
+MONICA: Hi, this is Nicole H. calling from Premier Health Associates about eligibility verification for Patricia Brown. The date of birth is June twelfth, nineteen eighty-eight. The tax ID for our facility is ninety-nine dash zero zero one one two two three.
+
+INSURANCE: Thank you. Can I get the tax ID?
+
+MONICA: The tax ID for our facility is ninety-nine dash zero zero one one two two three.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Patricia Brown, and the date of birth is June twelfth, nineteen eighty-eight.
+
+INSURANCE: Let me pull that up... Okay, I have Patricia Brown. What do you need?
+
+MONICA: I need to verify a few details regarding the plan. First, is Premier Health Associates participating in the network?
+
+INSURANCE: Yes, Premier Health Associates is in network.
+
+MONICA: What type of plan is this?
+
+INSURANCE: PPO.
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: April fifteenth, twenty twenty four.
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: No termination date.
+
+MONICA: Can you provide coverage details for the CPT code nine nine two one five?
+
+INSURANCE: What's the date of service?
+
+MONICA: The date of service is not yet determined. Can you use today's date?
+
+INSURANCE: Let me check ninety-nine two fifteen... That's covered. Forty-five fifty copay, fifteen percent coinsurance, deductible applies, no PA, telehealth is covered.
+
+MONICA: Thank you for that information. Can you provide the individual and family deductible amounts, as well as any amounts met?
+
+INSURANCE: The individual deductible is seven hundred fifty dollars. Four eighty-three twenty-seven has been met.
+
+MONICA: What is the family deductible amount?
+
+INSURANCE: I only have information for individual accumulators. The family deductible amount is not available.
+
+MONICA: Understood. What is the family out-of-pocket maximum?
+
+INSURANCE: I only have information for individual accumulators. The family out-of-pocket maximum is not available. The individual out-of-pocket max is forty-five hundred. Two thousand one forty-seven sixty-three has been applied.
+
+MONICA: I understand. May I have a reference number for this call?
+
+INSURANCE: Reference is ATN-2025-EXACT-1234.
+
+MONICA: Thank you for your help. Goodbye! 
+
+call.end_call()
+
+INSURANCE: Goodbye.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

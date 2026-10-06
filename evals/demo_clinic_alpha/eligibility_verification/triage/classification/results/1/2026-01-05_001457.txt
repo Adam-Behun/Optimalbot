@@ -1,0 +1,10 @@
+SCENARIO: 1
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Thank you for calling Blue Cross Blue Shield member services. My name is David, representative ID 54321. How may I assist you today?
+
+============================================================
+GRADE: PASS - PASS: All checks passed

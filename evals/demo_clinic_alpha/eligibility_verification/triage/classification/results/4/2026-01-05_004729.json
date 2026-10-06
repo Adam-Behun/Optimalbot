@@ -1,0 +1,19 @@
+{
+  "id": "4_2026-01-05_004729",
+  "scenario_id": "4",
+  "timestamp": "2026-01-05T00:47:29.935486",
+  "langfuse_trace_id": "5718147c47f59985ff8aff4f6ecb60ec",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/5718147c47f59985ff8aff4f6ecb60ec",
+  "input": {
+    "utterance": "Hello, and thank you for your patience. A representative will be with you shortly.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

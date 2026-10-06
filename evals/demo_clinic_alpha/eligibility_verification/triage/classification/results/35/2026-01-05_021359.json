@@ -1,0 +1,19 @@
+{
+  "id": "35_2026-01-05_021359",
+  "scenario_id": "35",
+  "timestamp": "2026-01-05T02:13:59.316933",
+  "langfuse_trace_id": "109a2436fa9943237d52206e26461f83",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/109a2436fa9943237d52206e26461f83",
+  "input": {
+    "utterance": "Provider services.",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": false,
+    "reason": "Expected CONVERSATION, got IVR"
+  },
+  "notes": ""
+}

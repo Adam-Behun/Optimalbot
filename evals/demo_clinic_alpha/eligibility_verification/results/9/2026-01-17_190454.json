@@ -1,0 +1,310 @@
+{
+  "id": "9_2026-01-17_190454",
+  "scenario_id": "9",
+  "timestamp": "2026-01-17T19:04:54.218723",
+  "langfuse_trace_id": "6a64a17f45baa890a6663418caea626b",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/6a64a17f45baa890a6663418caea626b",
+  "input": {
+    "target_node": "closing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Cigna provider services, this is Lisa. How can I help you?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Hi, this is Steven W. calling from City Health Partners about eligibility verification for Linda Martinez. Her date of birth is August fifteenth, nineteen eighty-three.",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Thank you, Steven. Can I get the facility name and tax ID?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "The facility name is City Health Partners, and the tax ID is sixty-six dash seven seven eight eight nine nine zero.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "And the member's name and date of birth?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "The member's name is Linda Martinez, and her date of birth is August fifteenth, nineteen eighty-three.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Let me pull that up... Okay, I have Linda Martinez. What do you need?",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Is City Health Partners participating in the network?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yes, City Health Partners is in-network.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "What type of plan is this?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "PPO plan.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "What is the effective date of the plan?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "May first, twenty twenty four.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Is there a termination date for the plan?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "No termination date.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "Can we proceed to the CPT coverage details? The CPT code is nine nine two one two.",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "Let me check ninety-nine two twelve... Yes, that's covered. Twenty-five dollar copay, twenty percent coinsurance, deductible applies, no prior auth, telehealth is covered.",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "Can you provide information on the individual deductible and out-of-pocket maximum?",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "Family deductible is one thousand, seven hundred has been met.",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "What is the family out-of-pocket maximum?",
+        "turn": 10
+      },
+      {
+        "role": "user",
+        "content": "Family out-of-pocket max is six thousand, fifteen hundred has been used.",
+        "turn": 11
+      },
+      {
+        "role": "assistant",
+        "content": "May I have a reference number for this call?",
+        "turn": 11
+      },
+      {
+        "role": "user",
+        "content": "Reference is CIG-CORR-2025-3456. \n\nOh wait, before we continue - I need to correct something. I gave you the wrong copay earlier. It should be FIFTY dollars, not twenty-five. Can you update that?",
+        "turn": 12
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you for your help. Goodbye!",
+        "turn": 12
+      },
+      {
+        "role": "user",
+        "content": "Great, thank you for catching that. If you have any more questions, feel free to reach out. Goodbye!",
+        "turn": 13
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 4,
+        "node": "greeting_without_ivr",
+        "function": "proceed_to_plan_info",
+        "args": {}
+      },
+      {
+        "turn": 5,
+        "node": "plan_info",
+        "function": "record_network_status",
+        "args": {
+          "status": "In-Network"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "plan_info",
+        "function": "record_plan_type",
+        "args": {
+          "plan_type": "PPO"
+        }
+      },
+      {
+        "turn": 7,
+        "node": "plan_info",
+        "function": "record_plan_effective_date",
+        "args": {
+          "date": "05/01/2024"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "plan_info",
+        "function": "record_plan_term_date",
+        "args": {
+          "date": "None"
+        }
+      },
+      {
+        "turn": 9,
+        "node": "plan_info",
+        "function": "proceed_to_cpt_coverage",
+        "args": {
+          "cpt_covered": "Yes",
+          "copay_amount": "25.00",
+          "coinsurance_percent": "20",
+          "deductible_applies": "Yes",
+          "prior_auth_required": "No",
+          "telehealth_covered": "Yes"
+        }
+      },
+      {
+        "turn": 10,
+        "node": "cpt_coverage",
+        "function": "proceed_to_accumulators",
+        "args": {
+          "deductible_family": "1700",
+          "deductible_family_met": "1700"
+        }
+      },
+      {
+        "turn": 11,
+        "node": "accumulators",
+        "function": "record_oop_max_family",
+        "args": {
+          "amount": "6000.00"
+        }
+      },
+      {
+        "turn": 11,
+        "node": "accumulators",
+        "function": "record_oop_max_family_met",
+        "args": {
+          "amount": "1500.00"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "accumulators",
+        "function": "record_correction",
+        "args": {
+          "field_name": "copay_amount",
+          "corrected_value": "50.00"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "accumulators",
+        "function": "record_reference_number",
+        "args": {
+          "reference_number": "CIG-CORR-2025-3456"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "accumulators",
+        "function": "proceed_to_closing",
+        "args": {
+          "reference_number": "CIG-CORR-2025-3456"
+        }
+      },
+      {
+        "turn": 13,
+        "node": "closing",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "696c2376e47f49729f45d35a",
+      "patient_name": "Linda Martinez",
+      "date_of_birth": "1983-08-15",
+      "insurance_member_id": "CIG334455667",
+      "insurance_company_name": "Cigna",
+      "insurance_phone": "+18009012345",
+      "caller_name": "Steven",
+      "caller_last_initial": "W",
+      "facility_name": "City Health Partners",
+      "tax_id": "66-7788990",
+      "provider_name": "Dr. Jennifer Taylor",
+      "provider_npi": "6789012345",
+      "provider_call_back_phone": "+15559012345",
+      "cpt_code": "99212",
+      "place_of_service": "Office",
+      "date_of_service": "",
+      "network_status": "In-Network",
+      "plan_type": "PPO",
+      "plan_effective_date": "05/01/2024",
+      "plan_term_date": "None",
+      "cpt_covered": "Yes",
+      "copay_amount": "50.00",
+      "coinsurance_percent": "20",
+      "deductible_applies": "Yes",
+      "prior_auth_required": "No",
+      "telehealth_covered": "Yes",
+      "deductible_family": "1700",
+      "deductible_family_met": "1700",
+      "oop_max_family": "6000.00",
+      "oop_max_family_met": "1500.00",
+      "reference_number": "CIG-CORR-2025-3456"
+    },
+    "final_node": "closing",
+    "turns": 13
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Bot ignored correction update",
+    "details": {
+      "data_accuracy": {
+        "pass": true,
+        "reason": "PASS: No expected data defined"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Bot ignored correction update"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: 13 functions called"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached closing"
+      },
+      "captured_state": {
+        "pass": true,
+        "reason": "PASS: No state assertions"
+      }
+    }
+  },
+  "notes": ""
+}

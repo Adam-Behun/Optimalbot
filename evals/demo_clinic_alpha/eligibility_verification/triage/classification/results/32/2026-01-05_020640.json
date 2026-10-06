@@ -1,0 +1,19 @@
+{
+  "id": "32_2026-01-05_020640",
+  "scenario_id": "32",
+  "timestamp": "2026-01-05T02:06:40.995277",
+  "langfuse_trace_id": "a70c4a9c333b0f1c71b2fbc735623b59",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/a70c4a9c333b0f1c71b2fbc735623b59",
+  "input": {
+    "utterance": "[static] ...can't hear you very well... [static] ...hello? Is someone there?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

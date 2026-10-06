@@ -1,0 +1,10 @@
+SCENARIO: 26
+EXPECTED: IVR
+ACTUAL: VOICEMAIL
+============================================================
+
+UTTERANCE:
+Thank you for calling. Our office hours are Monday through Friday, 8 AM to 6 PM Eastern. If you know your party's extension, you may dial it now. Otherwise, please call back during business hours.
+
+============================================================
+GRADE: FAIL - Expected IVR, got VOICEMAIL

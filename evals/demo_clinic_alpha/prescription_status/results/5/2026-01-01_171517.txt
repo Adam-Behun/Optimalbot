@@ -1,0 +1,31 @@
+SCENARIO: 5
+EXPECTED: Bot should empathize and transfer to staff for early refill exception
+TARGET NODE: transfer_initiated
+FINAL NODE: transfer_pending
+============================================================
+
+BOT: Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?
+
+PATIENT: Hi, I need to get my blood pressure medication refilled early. I lost my pills.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: Seven one three, five five five, four three two one.
+
+BOT: That's 713-555-4321, correct?
+
+PATIENT: Yes.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: September third, nineteen sixty-eight.
+
+BOT: It's a bit early to refill your Lisinopril. Your insurance will cover the next fill on January 15, 2025.
+
+PATIENT: I understand, but I really need them. I was traveling and my bag got lost with all my medication in it. Is there any way to get an exception?
+
+BOT: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Transfer was initiated

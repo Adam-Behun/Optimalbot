@@ -1,0 +1,126 @@
+{
+  "id": "2_2025-12-22_155551",
+  "scenario_id": "2",
+  "timestamp": "2025-12-22T15:55:51.976270",
+  "langfuse_trace_id": "422975cede1d1ccac76933c1998729b2",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/422975cede1d1ccac76933c1998729b2",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Anxious caller context should transfer to lab_results workflow"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I'm calling about some test results. I had a biopsy done about ten days ago.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you check on that. What type of biopsy was it?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It was a skin biopsy for a mole that looked suspicious. The doctor said I'd hear back in a week, but I haven't heard anything.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I understand your concern. Let me get you to someone who can look that up for you.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Thank you, I appreciate it. I\u2019ve been pretty worried about it, to be honest. Is there any way to check if the results are back?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I understand how anxious you must be about the results. I will connect you with someone who can assist you further. Please hold on for a moment.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Okay, thank you. I'll hold.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 4
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "lab_results",
+          "reason": "skin biopsy for a suspicious mole done about ten days ago, caller is anxious about results"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "verification",
+        "function": "request_staff",
+        "args": {
+          "reason": "caller requested human assistance for biopsy results"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Lab Results",
+      "call_reason": "skin biopsy for a suspicious mole done about ten days ago, caller is anxious about results",
+      "routed_to": "lab_results (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "medical_record_number": "",
+      "phone_number": "",
+      "test_type": "biopsy",
+      "test_date": "",
+      "ordering_physician": "",
+      "results_status": "",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "identity_verified": false,
+      "results_communicated": false,
+      "caller_anxious": true,
+      "transfer_reason": "caller requested human assistance for biopsy results",
+      "handed_off_to": "lab_results"
+    },
+    "turns": 4
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correct routing with proper context"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural helpful appropriate medical conversation"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing then staff escalation"
+      }
+    }
+  },
+  "notes": ""
+}

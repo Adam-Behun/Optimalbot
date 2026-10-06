@@ -1,0 +1,295 @@
+{
+  "id": "1_2026-01-05_005708",
+  "scenario_id": "1",
+  "timestamp": "2026-01-05T00:57:08.421747",
+  "langfuse_trace_id": "ebf09f52bb395a63729ee1eded6715ea",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/ebf09f52bb395a63729ee1eded6715ea",
+  "input": {
+    "description": "BCBS: Member eligibility trap, wrong department, recovery to provider services",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy, press 3. To speak with a provider representative, press 0.",
+        "expected_action": "dtmf:0"
+      },
+      {
+        "menu_prompt": "All representatives are currently assisting other callers. Your estimated wait time is 25 minutes. To continue holding, press 1. To receive a callback, press 2.",
+        "expected_action": "dtmf:2"
+      },
+      {
+        "menu_prompt": "Callback service. We will call you back at the number you're calling from. Press 1 to confirm, or press 2 to enter a different number.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Your callback request has been confirmed. You are number 12 in queue. Expected callback within 45 minutes. Press 1 to cancel and continue holding instead.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Callback cancelled. Returning you to the queue. Your wait time is now approximately 22 minutes.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "[Hold music] Thank you for your patience. A representative will be with you shortly.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "Thank you for holding. This is Jennifer with provider services. How may I help you today?",
+        "expected_action": "status:completed"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Select English",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "We are calling as a healthcare provider",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "4",
+        "actual_arg": "4",
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy, press 3. To speak with a provider representative, press 0.",
+        "expected_action": "dtmf:0",
+        "actual_response": "<dtmf>0</dtmf>",
+        "reasoning": "'Member eligibility' is for members checking their OWN benefits. Need provider rep.",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "0",
+        "actual_arg": "0",
+        "event_matched": true
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "All representatives are currently assisting other callers. Your estimated wait time is 25 minutes. To continue holding, press 1. To receive a callback, press 2.",
+        "expected_action": "dtmf:2",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "25 minutes is too long - request callback",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "2",
+        "actual_arg": "1",
+        "event_matched": false
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "Callback service. We will call you back at the number you're calling from. Press 1 to confirm, or press 2 to enter a different number.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Confirm callback to current number",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "Your callback request has been confirmed. You are number 12 in queue. Expected callback within 45 minutes. Press 1 to cancel and continue holding instead.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "45 minute callback is worse than 25 minute hold - cancel and hold",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "1",
+        "actual_arg": "completed",
+        "event_matched": false
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "Callback cancelled. Returning you to the queue. Your wait time is now approximately 22 minutes.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "Back in queue - wait for representative",
+        "expected_event": null,
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": null,
+        "actual_arg": "completed",
+        "event_matched": false
+      },
+      {
+        "step_number": 8,
+        "menu_prompt": "[Hold music] Thank you for your patience. A representative will be with you shortly.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "Still on hold",
+        "expected_event": null,
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": null,
+        "actual_arg": "completed",
+        "event_matched": false
+      },
+      {
+        "step_number": 9,
+        "menu_prompt": "Thank you for holding. This is Jennifer with provider services. How may I help you today?",
+        "expected_action": "status:completed",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "Human answered - navigation complete",
+        "expected_event": "on_ivr_status_changed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "completed",
+        "actual_arg": "completed",
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy, press 3. To speak with a provider representative, press 0."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>0</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "All representatives are currently assisting other callers. Your estimated wait time is 25 minutes. To continue holding, press 1. To receive a callback, press 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Callback service. We will call you back at the number you're calling from. Press 1 to confirm, or press 2 to enter a different number."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Your callback request has been confirmed. You are number 12 in queue. Expected callback within 45 minutes. Press 1 to cancel and continue holding instead."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "Callback cancelled. Returning you to the queue. Your wait time is now approximately 22 minutes."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "[Hold music] Thank you for your patience. A representative will be with you shortly."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you for holding. This is Jennifer with provider services. How may I help you today?"
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: 4/9 steps failed",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For En...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "Please listen carefully as our menu options have c...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "Provider services. For member eligibility and bene...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (0)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "All representatives are currently assisting other ...",
+        "pass": false,
+        "reason": "FAIL: Pressed 1 to hold for 25 minutes instead of pressing 2 for callback as expected given the long wait time"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "Callback service. We will call you back at the num...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "Your callback request has been confirmed. You are ...",
+        "pass": false,
+        "reason": "FAIL: No DTMF input provided when Press 1 was needed to cancel callback and continue holding instead"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "Callback cancelled. Returning you to the queue. Yo...",
+        "pass": false,
+        "reason": "FAIL: Customer is back in queue waiting for representative, not at completion of call"
+      },
+      {
+        "step": 8,
+        "menu_prompt": "[Hold music] Thank you for your patience. A repres...",
+        "pass": false,
+        "reason": "FAIL: Should be \"wait\" since caller is still on hold waiting for representative, not completed yet"
+      },
+      {
+        "step": 9,
+        "menu_prompt": "Thank you for holding. This is Jennifer with provi...",
+        "pass": true,
+        "reason": "PASS: Correct status (completed)"
+      }
+    ]
+  },
+  "notes": ""
+}

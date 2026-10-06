@@ -1,0 +1,19 @@
+{
+  "id": "22_2026-01-05_014802",
+  "scenario_id": "22",
+  "timestamp": "2026-01-05T01:48:02.764480",
+  "langfuse_trace_id": "32c6597ae267f80ddc5af6d159082ae7",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/32c6597ae267f80ddc5af6d159082ae7",
+  "input": {
+    "utterance": "Your estimated wait time is 15 minutes. To continue holding, stay on the line. To receive a callback when it's your turn, press 1. To leave a voicemail, press 2.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

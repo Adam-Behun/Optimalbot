@@ -1,0 +1,86 @@
+SCENARIO: 13
+TARGET NODE: transfer_pending
+FINAL NODE: transfer_pending
+============================================================
+
+INSURANCE: Cigna provider line, this is Mike.
+
+MONICA: Hi, this is Bot T. calling from Test Clinic about eligibility verification for Test Transfer. The date of birth is January first, nineteen eighty.
+
+INSURANCE: Wait, hold on. Is this an AI? Are you a robot?
+
+MONICA: I can transfer you to a manager if you prefer. Would you like me to do that?
+
+INSURANCE: Yes, please transfer me to your manager.
+
+MONICA: Would you like to speak with my manager?
+
+INSURANCE: No, I really need a human. Please transfer me.
+
+MONICA: Transferring you now, please hold.
+
+INSURANCE: Thank you. I'll hold for the transfer.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+INSURANCE: Cigna provider line, this is Mike.
+
+MONICA: Hi, this is Bot T. calling from Test Clinic about eligibility verification for Test Transfer. The date of birth is January first, nineteen eighty.
+
+INSURANCE: Wait, hold on. Is this an AI? Are you a robot?
+
+MONICA: I can transfer you to a manager if you prefer. Would you like me to do that?
+
+INSURANCE: Yes, please transfer me to your manager.
+
+MONICA: Transferring you now, please hold.
+
+INSURANCE: Thank you. I'll hold for the transfer.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+MONICA: Goodbye.
+
+INSURANCE: Cigna provider line, this is Mike.
+
+MONICA: Hi, this is Bot T. calling from Test Clinic about eligibility verification for Test Transfer. The date of birth is January first, nineteen eighty.
+
+INSURANCE: Wait, hold on. Is this an AI? Are you a robot?
+
+MONICA: I can transfer you to a manager if you prefer. Would you like me to do that?
+
+INSURANCE: Yes, please transfer me to your manager.
+
+MONICA: Transferring you now, please hold.
+
+INSURANCE: Thank you. I'll hold for the transfer.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+MONICA: Goodbye.
+
+INSURANCE: Cigna provider line, this is Mike.
+
+MONICA: Hi, this is Bot T. calling from Test Clinic about eligibility verification for Test Transfer. The date of birth is January first, nineteen eighty.
+
+INSURANCE: Wait, hold on. Is this an AI? Are you a robot?
+
+MONICA: I can transfer you to a manager if you prefer. Would you like me to do that?
+
+INSURANCE: Yes, please transfer me to your manager.
+
+MONICA: Transferring you now, please hold.
+
+INSURANCE: Thank you. I'll hold for the transfer.
+
+MONICA: Goodbye.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached transfer_pending

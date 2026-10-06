@@ -1,0 +1,55 @@
+{
+  "id": "2_2026-01-05_002304",
+  "scenario_id": "2",
+  "timestamp": "2026-01-05T00:23:04.707250",
+  "langfuse_trace_id": "62cb62fdb2ff52cd0e49dc23e3ce77f5",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/62cb62fdb2ff52cd0e49dc23e3ce77f5",
+  "input": {
+    "description": "Trap: 'Eligibility' option leads to automated system, not human",
+    "steps": [
+      {
+        "menu_prompt": "For automated eligibility verification, press 1. For prior authorization status, press 2. To speak with a representative, press 0.",
+        "expected_action": "dtmf:0"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "For automated eligibility verification, press 1. For prior authorization status, press 2. To speak with a representative, press 0.",
+        "expected_action": "dtmf:0",
+        "actual_response": "<dtmf>0</dtmf>",
+        "reasoning": "Automated eligibility won't help for complex verification - need human rep",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "0",
+        "actual_arg": "0",
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "For automated eligibility verification, press 1. For prior authorization status, press 2. To speak with a representative, press 0."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>0</dtmf>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All 1 steps correct",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "For automated eligibility verification, press 1. F...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (0)"
+      }
+    ]
+  },
+  "notes": ""
+}

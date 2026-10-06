@@ -1,0 +1,14 @@
+SCENARIO: 9
+DESCRIPTION: Wait: Incomplete menu, don't act yet
+============================================================
+
+STEP 1:
+  Menu: Thank you for calling Aetna. Please listen carefully as our menu options have recently changed. For...
+  Expected: status:wait
+  Actual: <ivr>wait</ivr>
+
+============================================================
+GRADE: PASS - PASS: All 1 steps correct
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct status (wait)

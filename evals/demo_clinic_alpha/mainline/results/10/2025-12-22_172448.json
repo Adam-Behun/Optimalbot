@@ -1,0 +1,130 @@
+{
+  "id": "10_2025-12-22_172448",
+  "scenario_id": "10",
+  "timestamp": "2025-12-22T17:24:48.951231",
+  "langfuse_trace_id": "f26e7e131f8cedcc7be4ebaf9dae8a7c",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/f26e7e131f8cedcc7be4ebaf9dae8a7c",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may get confused by caller who changes their mind mid-conversation"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I think I need to schedule an appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What would the appointment be for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Actually, wait. Before I do that - do you know if my lab results are back? I had blood work last week.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you check on that. Were you feeling anxious about the results?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Oh, not really anxious, just curious. I just want to know if everything is okay. But, hmm, actually never mind the labs. Let me just schedule the appointment. But wait\u2014what are your hours? I need to figure out when I can come in.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Our office hours are Monday through Friday, 8 AM to 5 PM, and Saturday from 9 AM to 1 PM. We're closed on Sundays. Is there anything else I can help with?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Okay, so you're open until 5. That might work. Actually, can I check on those lab results first after all? Then I'll know if I even need to come in.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! I can help you check on that. Just to confirm, you had blood work done last week, right?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's right! But, okay, actually, I changed my mind. I do want to schedule that appointment either way. Sorry, I know I'm all over the place today.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "No problem at all! What would the appointment be for?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "I\u2019m not sure yet, but I think it might be for a follow-up regarding my lab results. Can we check those results first, and then I\u2019ll decide what kind of appointment I need?",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "I understand. Let me get you to someone who can look that up for you. Just a moment!",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Thank you! I appreciate your help. Sorry for the back and forth!",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 7
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 7,
+        "node": "greeting",
+        "function": "request_staff",
+        "args": {
+          "department": "front_desk",
+          "reason": "caller wants to check lab results for blood work done last week"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Front Desk",
+      "call_reason": "caller wants to check lab results for blood work done last week",
+      "routed_to": "Front Desk (staff)",
+      "resolution": "",
+      "pending_department": "front_desk",
+      "transfer_reason": "caller wants to check lab results for blood work done last week"
+    },
+    "turns": 7
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Used staff transfer not workflow; quality: FAIL: Bot ignored lab results request; functions: FAIL: Should use route_to_workflow instead",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Used staff transfer not workflow"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Bot ignored lab results request"
+      },
+      "functions": {
+        "pass": false,
+        "reason": "FAIL: Should use route_to_workflow instead"
+      }
+    }
+  },
+  "notes": ""
+}

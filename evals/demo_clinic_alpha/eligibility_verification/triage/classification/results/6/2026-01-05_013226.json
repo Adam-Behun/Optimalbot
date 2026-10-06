@@ -1,0 +1,19 @@
+{
+  "id": "6_2026-01-05_013226",
+  "scenario_id": "6",
+  "timestamp": "2026-01-05T01:32:26.446872",
+  "langfuse_trace_id": "e0e6bb585dd01c148461a537870d1180",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/e0e6bb585dd01c148461a537870d1180",
+  "input": {
+    "utterance": "Hello? Hello? ...If you can hear me, please leave a message after the tone.",
+    "expected_classification": "VOICEMAIL"
+  },
+  "output": {
+    "actual_classification": "VOICEMAIL"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: VOICEMAIL"
+  },
+  "notes": ""
+}

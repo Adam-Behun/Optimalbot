@@ -1,0 +1,276 @@
+# Patient scheduling scenarios for flow evaluation
+# Each scenario tests specific flow behaviors matching production
+#
+# Usage:
+#   python run.py --scenario 1
+#   python run.py --all
+#   python run.py --sync-dataset
+
+dataset_name: "demo_clinic_alpha/patient_scheduling"
+dataset_description: "Scenarios for patient scheduling flow testing"
+
+scenarios:
+  # =============================================================================
+  # SCENARIO 1: Happy Path - Returning Patient Books Cleaning
+  # Tests: Verification flow, visit reason, slot selection, confirmation
+  # =============================================================================
+  - id: "1"
+    target_node: end
+    expected_problem: "Bot should verify identity, collect visit reason, offer slots, confirm booking"
+    patient:
+      patient_name: "Sarah Johnson"
+      first_name: "Sarah"
+      last_name: "Johnson"
+      date_of_birth: "03/15/1985"
+      phone_number: "5551234567"
+      email: "sarah.johnson@email.com"
+    persona: |
+      You're a returning patient calling to schedule a cleaning appointment.
+
+      TURN 1: Say "Hi, I'd like to schedule a cleaning appointment."
+
+      WHEN ASKED if you're new or returning: Say "I've been coming here for a few years"
+
+      WHEN ASKED for phone number: Say "five five five, one two three, four five six seven"
+
+      WHEN ASKED to confirm the number: Say "Yes, that's right"
+
+      WHEN ASKED for date of birth: Say "March fifteenth, nineteen eighty-five"
+
+      WHEN offered appointment slots: Pick the first available slot
+
+      WHEN asked to confirm the appointment: Say "Yes, that sounds perfect"
+
+      WHEN asked if there's anything else: Say "No, that's all. Thank you!"
+
+  # =============================================================================
+  # SCENARIO 2: Ambiguous Input - Patient Unclear If New/Returning
+  # Tests: Handling uncertainty, defaulting to lookup, graceful recovery
+  # =============================================================================
+  - id: "2"
+    target_node: end
+    expected_problem: "Bot should handle ambiguous new/returning response gracefully"
+    patient:
+      patient_name: "Mike Chen"
+      first_name: "Mike"
+      last_name: "Chen"
+      date_of_birth: "06/02/1990"
+      phone_number: "5559876543"
+      email: "mike.chen@email.com"
+    persona: |
+      You want to schedule a routine cleaning but you're genuinely unsure if you're new or returning.
+
+      TURN 1: Say "Hi, I'd like to schedule a cleaning appointment."
+
+      WHEN ASKED if you're new or returning: Be genuinely uncertain:
+      "I came here years ago as a kid, maybe once? I honestly don't remember."
+
+      IF PRESSED AGAIN about new/returning: Say "I guess treat me as new? Not sure if that matters."
+
+      WHEN ASKED for your information: Provide it cooperatively:
+      - Name: Mike Chen
+      - Phone: five five five, nine eight seven, six five four three
+      - DOB: June second, nineteen ninety
+      - Email: mike.chen@email.com
+
+      WHEN offered appointment slots: Pick the second available slot
+
+      WHEN asked to confirm: Say "Yes, that works for me"
+
+      WHEN asked if there's anything else: Say "Nope, that's everything. Thanks!"
+
+  # =============================================================================
+  # SCENARIO 3: Verification Failure - Wrong DOB
+  # Tests: HIPAA-like behavior, graceful transfer when verification fails
+  # =============================================================================
+  - id: "3"
+    target_node: transfer_initiated
+    expected_problem: "Bot should transfer to staff when DOB verification fails"
+    patient:
+      patient_name: "James Wilson"
+      first_name: "James"
+      last_name: "Wilson"
+      date_of_birth: "08/22/1978"
+      phone_number: "5552468135"
+      email: "james.wilson@email.com"
+    persona: |
+      You're calling to schedule an appointment but you'll provide the WRONG date of birth.
+      This tests that the bot handles verification failure correctly.
+
+      TURN 1: Say "Hi, I need to schedule a checkup appointment."
+
+      WHEN ASKED if you're new or returning: Say "I'm a returning patient"
+
+      WHEN ASKED for phone number: Say "five five five, two four six, eight one three five"
+
+      WHEN ASKED to confirm: Say "Yes"
+
+      WHEN ASKED for date of birth: Say "August twenty-second, nineteen seventy-five"
+      (NOTE: This is WRONG - actual DOB is 1978, not 1975)
+
+      IF bot says it couldn't verify or asks to try again: Say "That's definitely my birthday. August 22, 1975."
+
+      IF bot offers to transfer to staff: Say "Yes, please connect me"
+
+  # =============================================================================
+  # SCENARIO 4: New Patient - Full Info Collection
+  # Tests: New patient flow, collecting all required fields, confirmation
+  # =============================================================================
+  - id: "4"
+    target_node: end
+    expected_problem: "Bot should collect all patient info and confirm booking for new patient"
+    patient:
+      patient_name: "Emily Rodriguez"
+      first_name: "Emily"
+      last_name: "Rodriguez"
+      date_of_birth: "11/30/1995"
+      phone_number: "5557891234"
+      email: "emily.rodriguez@email.com"
+    persona: |
+      You're a brand new patient calling to schedule your first appointment.
+
+      TURN 1: Say "Hi, I'm looking to schedule my first appointment at your clinic."
+
+      WHEN ASKED if you're new or returning: Say "I'm a new patient, this would be my first visit"
+
+      WHEN ASKED what brings you in: Say "Just a regular checkup and cleaning"
+
+      WHEN offered appointment slots: Say "The first one works for me"
+
+      WHEN ASKED for your information, provide one piece at a time:
+      - First name: Emily
+      - Last name: Rodriguez
+      - Phone: five five five, seven eight nine, one two three four
+      - DOB: November thirtieth, nineteen ninety-five
+      - Email: emily.rodriguez@email.com
+
+      WHEN asked to confirm the appointment: Say "Yes, that's all correct"
+
+      WHEN asked if there's anything else: Say "No, that's everything. Thank you!"
+
+  # =============================================================================
+  # SCENARIO 5: Exception - Wants to Reschedule Existing Appointment
+  # Tests: Recognizing non-scheduling request, appropriate transfer
+  # =============================================================================
+  - id: "5"
+    target_node: transfer_initiated
+    expected_problem: "Bot should recognize reschedule request and transfer to staff"
+    patient:
+      patient_name: "Robert Martinez"
+      first_name: "Robert"
+      last_name: "Martinez"
+      date_of_birth: "04/18/1982"
+      phone_number: "5553692581"
+      email: "robert.martinez@email.com"
+    persona: |
+      You're calling to reschedule an EXISTING appointment, not book a new one.
+      The bot should recognize this and transfer you to staff.
+
+      TURN 1: Say "Hi, I need to reschedule my appointment that's coming up next week."
+
+      IF bot asks if you want to schedule a new appointment: Say "No, I already have one scheduled. I just need to change the date."
+
+      IF bot asks about new/returning: Say "I'm returning, but I don't want to book a new appointment. I need to move my existing one."
+
+      IF bot offers to transfer you to staff: Say "Yes, please. That would be great."
+
+      IF bot keeps trying to schedule: Say "I really just need to speak with someone about changing my existing appointment. Can you transfer me?"
+
+  # =============================================================================
+  # SCENARIO 6: Emergency - Caller Requests Human Urgently
+  # Tests: Safety classifier detects staff request, immediate transfer
+  # =============================================================================
+  - id: "6"
+    target_node: transfer_initiated
+    expected_problem: "Bot should detect urgent staff request and transfer immediately"
+    patient:
+      patient_name: "Amanda Foster"
+      first_name: "Amanda"
+      last_name: "Foster"
+      date_of_birth: "06/15/1985"
+      phone_number: "5558124790"
+      email: "amanda.foster@email.com"
+    persona: |
+      You urgently need to speak with a human.
+
+      TURN 1: Say "I need to speak to a real person right now, this is urgent."
+
+      The bot should recognize this as a staff request and transfer you.
+
+      IF bot asks follow-up questions: Say "Please just transfer me to someone, I really need to talk to a person."
+
+  # =============================================================================
+  # SCENARIO 7: Bad Transcription - Garbled Phone/Email
+  # Tests: Speech recognition error handling, clarification, recovery
+  # =============================================================================
+  - id: "7"
+    target_node: end
+    expected_problem: "Bot should handle garbled transcription and recover gracefully"
+    patient:
+      patient_name: "Lisa Park"
+      first_name: "Lisa"
+      last_name: "Park"
+      date_of_birth: "09/12/1988"
+      phone_number: "5554281937"
+      email: "lisa.park@email.com"
+    persona: |
+      You're a returning patient but you speak quickly and unclearly, causing transcription errors.
+
+      TURN 1: Say "Hi I wanna schedule a cleaning"
+
+      WHEN ASKED if you're new or returning: Say "returning patient"
+
+      WHEN ASKED for phone number: Say it poorly/quickly: "for too ate one nine tree seven"
+      (This represents "428-1937" but garbled - the bot should ask for clarification)
+
+      IF bot reads back a WRONG number: Say "No that's wrong, let me say it again. Five five five, four two eight, one nine three seven."
+
+      IF bot reads back the CORRECT number (555-428-1937): Say "Yes that's right"
+
+      WHEN ASKED for date of birth: Say "september twelfth eighty eight"
+
+      WHEN offered appointment slots: Say "the first one"
+
+      WHEN ASKED for email: Say "lisa dot park at email dot com"
+
+      WHEN asked to confirm the appointment: Say "yep looks good"
+
+      WHEN asked if there's anything else: Say "nope bye"
+
+  # =============================================================================
+  # SCENARIO 8: Unavailable Slot Request
+  # Tests: Slot validation, graceful rejection, re-offering valid slots
+  # =============================================================================
+  - id: "8"
+    target_node: end
+    expected_problem: "Bot should reject unavailable slot and offer valid alternatives"
+    patient:
+      patient_name: "David Kim"
+      first_name: "David"
+      last_name: "Kim"
+      date_of_birth: "02/28/1992"
+      phone_number: "5557773333"
+      email: "david.kim@email.com"
+    persona: |
+      You're a returning patient who wants a specific time that's NOT available.
+
+      TURN 1: Say "Hi, I need to schedule a checkup"
+
+      WHEN ASKED if you're new or returning: Say "I've been here before"
+
+      WHEN ASKED for phone number: Say "five five five, seven seven seven, three three three three"
+
+      WHEN ASKED to confirm: Say "yes"
+
+      WHEN ASKED for date of birth: Say "February twenty-eighth, nineteen ninety-two"
+
+      WHEN offered appointment slots: Ask for an UNAVAILABLE time:
+      "Do you have anything on Monday at 3pm? That works better for my schedule."
+
+      IF bot says that slot isn't available and offers alternatives: Say "Okay fine, I'll take the Friday 9am one then"
+
+      WHEN ASKED for email: Say "david.kim@email.com"
+
+      WHEN asked to confirm the appointment: Say "yes that's correct"
+
+      WHEN asked if there's anything else: Say "no thanks, goodbye"

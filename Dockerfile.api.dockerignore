@@ -1,0 +1,112 @@
+# Backend API ignore file (for Dockerfile.api)
+# Used by: fly deploy
+#
+# REQUIRED FILES (do NOT add these to ignore):
+#   - pyproject.api.toml
+#   - uv.api.lock
+#   - app.py
+#   - logging_config.py
+#   - backend/
+
+# ============================================
+# EXCLUDE: Bot-specific code (not needed by backend API)
+# ============================================
+bot.py
+core/
+pipeline/
+handlers/
+clients/
+observers/
+pyproject.bot.toml
+uv.bot.lock
+uv.local.lock
+
+# ============================================
+# EXCLUDE: Frontend (deployed separately to Vercel)
+# ============================================
+frontend/
+
+# ============================================
+# EXCLUDE: Development/testing directories
+# ============================================
+evals/
+scripts/
+utils/
+whisker/
+pipecat-examples/
+patients.csv
+
+# ============================================
+# Python artifacts
+# ============================================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+
+# ============================================
+# Environment and secrets
+# ============================================
+.env
+.env.*
+.env.example
+*.log
+
+# ============================================
+# IDE and OS
+# ============================================
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ============================================
+# Database
+# ============================================
+*.db
+*.sqlite3
+
+# ============================================
+# Git
+# ============================================
+.git/
+.gitignore
+.github/
+
+# ============================================
+# Deployment configs (other services)
+# ============================================
+pcc-deploy*.toml
+Dockerfile.bot
+Dockerfile.bot.dockerignore
+.dockerignore
+
+# ============================================
+# Documentation
+# ============================================
+README.md
+CLAUDE.md
+docs/
+Notes.md
+SUMMARY.md
+AUDIT_ISSUES.md
+
+# ============================================
+# Tests
+# ============================================
+tests/
+test_*.py
+*_test.py
+pytest.ini

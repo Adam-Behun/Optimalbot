@@ -1,0 +1,19 @@
+{
+  "id": "1_2026-01-05_013343",
+  "scenario_id": "1",
+  "timestamp": "2026-01-05T01:33:43.665243",
+  "langfuse_trace_id": "54e59c748ecf1a40e57382a7bb0bd1d4",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/54e59c748ecf1a40e57382a7bb0bd1d4",
+  "input": {
+    "utterance": "Thank you for calling Blue Cross Blue Shield member services. My name is David, representative ID 54321. How may I assist you today?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

@@ -1,0 +1,63 @@
+SCENARIO: 10
+TARGET NODE: plan_info
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Hello, James Wilson! I hope you're doing well today. Can I start by confirming a few details? Could you please provide your date of birth and member ID?
+
+MONICA: Hi, this is Rachel P. calling from Comprehensive Care Clinic about eligibility verification for James Wilson. His date of birth is May twentieth, nineteen ninety-two, and the member ID is BSC223344556.
+
+INSURANCE: Thank you, Rachel! I appreciate you providing that information. Let me verify James Wilson's eligibility.
+
+I can confirm that he is eligible under our plan. 
+
+This is an HDHP – that’s a high deductible health plan. The member also has an HSA. His coverage is in-network, and the effective date of the plan is January 1, 2025. There is no term date for this plan.
+
+If you have specific questions about coverage, feel free to ask!
+
+MONICA: Could you please provide the coverage details for the CPT code nine nine two zero four?
+
+INSURANCE: Certainly! For CPT code 99204, here's the coverage information:
+
+- **Covered:** Yes
+- **Copay:** No copay - this is an HDHP, so everything goes to deductible first.
+- **Coinsurance:** After the deductible is met, the member pays twenty percent coinsurance.
+- **Deductible Applies:** Yes, the deductible applies to ALL services - that's how an HDHP works.
+- **Prior Auth Required:** No
+- **Telehealth Covered:** Yes, telehealth is covered but also subject to deductible.
+
+Remember, with this HDHP structure, the member pays the full contracted rate until the deductible is met. If you have more questions or need further assistance, just let me know!
+
+MONICA: Could you provide the accumulator information, such as the individual and family deductible amounts, any amounts met, and the reference number?
+
+INSURANCE: Of course! Here’s the accumulator information for James Wilson's plan:
+
+- **Individual Deductible:** $3,000 (the individual deductible is three thousand dollars)
+- **Individual Deductible Met:** $850 (eight hundred fifty has been applied)
+- **Individual Out of Pocket Max:** $7,000 (seven thousand individual out of pocket max)
+- **Individual Out of Pocket Met:** $850 (eight fifty applied)
+- **Family Deductible:** $6,000 (family deductible is six thousand)
+- **Family Deductible Met:** $1,200 (twelve hundred met on family)
+- **Family Out of Pocket Max:** $14,000 (fourteen thousand family out of pocket maximum)
+- **
+
+MONICA: How much of the out-of-pocket maximum has been met?
+
+INSURANCE: For James Wilson's plan, the amounts met for the out-of-pocket maximum are as follows:
+
+- **Individual Out of Pocket Met:** $850 (eight hundred fifty applied)
+- **Family Out of Pocket Met:** $1,200 (same twelve hundred).
+
+If you need any more information or have further questions, feel free to ask!
+
+INSURANCE: Additionally, the reference number for this inquiry is BSC-HDHP-2025-7890. If there's anything else you need or if you have more questions, I'm here to help!
+
+MONICA: Thank you for your help. Goodbye! 
+
+
+
+INSURANCE: You're welcome, Rachel! If you need assistance in the future, don't hesitate to reach out. Have a great day! Goodbye!
+
+============================================================
+GRADE: FAIL - FAIL: functions: FAIL: Duplicate recording function calls made; node: FAIL: Expected plan_info, got closing
+NODE CHECK: FAIL: Expected plan_info, got closing

@@ -1,0 +1,19 @@
+{
+  "id": "7_2026-01-05_013405",
+  "scenario_id": "7",
+  "timestamp": "2026-01-05T01:34:05.129577",
+  "langfuse_trace_id": "1b29e30f8d3cc62047242519b616675e",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/1b29e30f8d3cc62047242519b616675e",
+  "input": {
+    "utterance": "Yes",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

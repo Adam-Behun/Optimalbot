@@ -1,0 +1,141 @@
+{
+  "id": "5_2025-12-23_232657",
+  "scenario_id": "5",
+  "timestamp": "2025-12-23T23:26:57.026249",
+  "langfuse_trace_id": "2501c9ffaad6f7cc3121deb9347473c4",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/2501c9ffaad6f7cc3121deb9347473c4",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not recognize when caller needs scheduling vs something else"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, um, I was wondering if maybe, you know, I could come in sometime?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What would the appointment be for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Oh, just... like a checkup? I guess? It's been a while.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, a checkup. Let me get you to scheduling to help you with that.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Um, okay. That sounds good.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I've routed you to scheduling for your checkup appointment. They will assist you shortly!",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Oh, um, okay. Thanks.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "You're welcome! If you have any other questions or need further assistance, feel free to ask.",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Um, I just want to make sure... I mean, I want to schedule a general checkup? And I'm a returning patient. I also mentioned being kind of tired lately? Is that, um, all understood?",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, I understand. You want to schedule a general checkup as a returning patient, and you've mentioned feeling kind of tired lately. Let me pull up your file to ensure everything is noted correctly. What's the phone number on your account?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Oh, um, it's 5555556666.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.",
+        "turn": 6
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "checkup appointment, returning patient"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "returning_patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5555556666"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "checkup appointment, returning patient",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "handed_off_to": "scheduling",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "phone_number": "",
+      "identity_verified": false,
+      "today": "December 23, 2025",
+      "available_slots": [
+        "Wednesday, December 24 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "checkup appointment",
+      "appointment_type": "Returning Patient"
+    },
+    "turns": 6
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Bot ignored tired symptom initially",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correctly routed scheduling with context"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Bot ignored tired symptom initially"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing and lookup sequence"
+      }
+    }
+  },
+  "notes": ""
+}

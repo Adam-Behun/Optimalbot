@@ -1,0 +1,86 @@
+SCENARIO: 3
+EXPECTED: Complex prescription context may be lost during handoff
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi Monica, I'm calling about a prescription issue.
+
+MONICA: I can look into that for you. Could you tell me which medication you're having an issue with?
+
+CALLER: It's lisinopril, 10mg. I take it for blood pressure. I've been on it for two years.
+
+MONICA: Got it, lisinopril 10mg for blood pressure. Let me get that information for you. One moment please. 
+
+*Routing to prescription status now.*
+
+CALLER: Thank you!
+
+MONICA: You're welcome! If you need anything else, just let me know.
+
+CALLER: Actually, I do need to mention that when I went to pick up my lisinopril refill at CVS, they said there was some kind of hold on it. They told me to call you about it.
+
+MONICA: I understand, that's important information. Let me route you to someone who can help with that prescription hold. One moment please. 
+
+*Routing to prescription status now.*
+
+CALLER: Thanks for your help!
+
+MONICA: You're welcome! If you need anything else later, just give us a call.
+
+CALLER: Hi, I'm back with the prescription workflow. I just want to clarify that it's lisinopril 10mg, and CVS said there's a prior auth problem.
+
+MONICA: Got it, lisinopril 10mg with a prior authorization issue at CVS. Let me get that to the right team for you. One moment please. 
+
+*Routing to prescription status now.*
+
+CALLER: Thank you!
+
+MONICA: You're welcome! If you need anything else, feel free to ask.
+
+CALLER: I might need to verify my identity, but I hope you have all my info from what I just told the first person. My name is Linda Anderson, and my phone number is 555-123-1234. My date of birth is December 10, 1972.
+
+MONICA: Thanks for providing that, Linda. However, I can't handle personal information directly. Let me transfer you to someone who can assist with verifying your identity. One moment please. 
+
+*Routing to staff now.*
+
+CALLER: Thanks for your help!
+
+MONICA: You're welcome! If you need anything else, just let us know.
+
+CALLER: Hi, I'm back with the staff. I just want to check, how long will this take to resolve? I only have a few pills left.
+
+MONICA: I'm sorry, I didn't catch that. Could you repeat that?
+
+CALLER: Sure! I'm just wondering how long this will take to resolve. I only have a few pills left.
+
+MONICA: I understand your concern. Let me transfer you to someone who can provide you with that information. One moment please. 
+
+*Routing to staff now.*
+
+CALLER: Thank you for your help!
+
+MONICA: You're welcome! If you need anything else, just let us know.
+
+CALLER: Hi there, I just want to make sure someone can call me back when this is sorted out. This is really important - I can't miss doses of my medication.
+
+MONICA: I understand how important that is. Let me transfer you to someone who can make sure you get a callback. One moment please. 
+
+*Routing to staff now.*
+
+CALLER: Thank you!
+
+MONICA: You're welcome! If you need anything else, feel free to reach out.
+
+CALLER: Goodbye! I appreciate your help.
+
+MONICA: Goodbye! I'm glad I could help. Take care!
+
+CALLER: You too! Thank you!
+
+MONICA: You're welcome! Have a great day!
+
+CALLER: You too! Bye!
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Context lost through multiple transfers; quality: FAIL: Bot kept talking after goodbye

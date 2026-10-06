@@ -1,0 +1,10 @@
+SCENARIO: 34
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+...orry, I was on mute. This is provider services, how can I help?
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

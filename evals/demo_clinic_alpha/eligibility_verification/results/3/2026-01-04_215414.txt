@@ -1,0 +1,66 @@
+SCENARIO: 3
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Blue Cross Blue Shield, this is Diana. May I have your name and the facility you're calling from?
+
+MONICA: Hi, this is Jennifer R. calling from Specialty Surgery Associates about eligibility verification for Robert Williams.
+
+INSURANCE: Thank you, Jennifer. And what's the tax ID for Specialty Surgery Associates?
+
+MONICA: The tax ID for Specialty Surgery Associates is thirty-three dash four four five five six six seven.
+
+INSURANCE: Got it. And the member's name and date of birth?
+
+MONICA: The member's name is Robert Williams, and the date of birth is November thirtieth, nineteen sixty-five.
+
+INSURANCE: Let me pull that up... Okay, I have Robert Williams here. How can I help you today?
+
+MONICA: I need to verify some plan information. Can you tell me if Specialty Surgery Associates is participating in the network?
+
+INSURANCE: Let me check... That facility is non-par.
+
+MONICA: Can you tell me what type of plan this is?
+
+INSURANCE: This is an HMO plan.
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: The effective date is July first, twenty twenty-four.
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: The term date is June thirtieth, twenty twenty-five.
+
+MONICA: Now that I have all the plan information, can you provide coverage details for the CPT code two seven four four seven?
+
+INSURANCE: What's the date of service for this procedure?
+
+MONICA: The date of service is not yet determined. Can you use today's date?
+
+INSURANCE: Let me check the non-par benefits for that code... The code is covered under non-par benefits. There’s no copay, but the member's responsibility is forty percent coinsurance. The separate deductible for non-participating providers does apply, and you'll need prior auth for this. Telehealth isn't available for this type of procedure.
+
+MONICA: Can you provide the individual and family deductible amounts, as well as any amounts met?
+
+INSURANCE: For the non-par side, the individual deductible is twenty-five hundred. Nothing's been applied to the non-par accumulators yet.
+
+MONICA: Do you have the family deductible amount?
+
+INSURANCE: I can only provide the individual amounts for the non-par accumulators, as that's typically what we track in this context. There's no family deductible amount available for non-participating providers.
+
+MONICA: Understood. What is the family out-of-pocket maximum?
+
+INSURANCE: I can provide the individual non-par OOP max, which is ten thousand. So far, there’s zero applied on the non-par side. Unfortunately, I don't have the family OOP max details available.
+
+MONICA: Thank you for the information. May I have a reference number for this call?
+
+INSURANCE: Sure! The reference number is BCBS-OON-2025-1234.
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: You're welcome! Anything else I can help with? Alright, have a good day!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

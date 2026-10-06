@@ -1,0 +1,19 @@
+{
+  "id": "34_2026-01-05_020720",
+  "scenario_id": "34",
+  "timestamp": "2026-01-05T02:07:20.740945",
+  "langfuse_trace_id": "f7153d35d5695538332245d8784214ab",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/f7153d35d5695538332245d8784214ab",
+  "input": {
+    "utterance": "...orry, I was on mute. This is provider services, how can I help?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

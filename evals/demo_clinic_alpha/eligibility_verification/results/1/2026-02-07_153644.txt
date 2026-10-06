@@ -1,0 +1,38 @@
+SCENARIO: 1
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Provider services, this is Eliza. Tax ID and member ID?
+
+MONICA: Hi Eliza, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith. May I have your last initial for my records?
+
+INSURANCE: I need the tax ID and member ID, please.
+
+MONICA: Perfect, thank you. The member name is John Smith. His date of birth is March 15, 1985. The member ID is U123456789. The tax ID for our facility is 82-1234567.
+
+INSURANCE: Okay, they're active. POS plan, in network, effective January first twenty twenty five, no term date. What code are you looking at?
+
+MONICA: I'm looking at CPT code 95800. Can you provide the coverage details for this code?
+
+INSURANCE: Ninety-five eight hundred, that's covered. Fifty dollar copay, no coinsurance, ded doesn't apply, no auth, telehealth same benefit.
+
+MONICA: Thank you for that information. Can you provide details on the deductible and out-of-pocket maximums?
+
+INSURANCE: Family ded is five hundred, fully met. OOP max six K, eleven seventy point seven four applied. Anything else?
+
+MONICA: What is the individual deductible amount?
+
+INSURANCE: I don't have that info. Anything else?
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Reference is UHC-2025-789456. Have a good one.
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: Goodbye.
+
+============================================================
+GRADE: FAIL - FAIL: golden: Failed: FAIL: The bot asks for the representative's last initial but does not ask for their first name. The bot already uses "Eliza" (indicating it knows or assumes the first name) but doesn't explicitly ask the representative to provide their
+NODE CHECK: PASS: Reached closing

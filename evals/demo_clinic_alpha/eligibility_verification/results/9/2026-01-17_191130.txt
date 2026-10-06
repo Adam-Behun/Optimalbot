@@ -1,0 +1,58 @@
+SCENARIO: 9
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Cigna provider services, this is Lisa. How can I help you?
+
+MONICA: Hi, this is Steven W. calling from City Health Partners about eligibility verification for Linda Martinez. Her date of birth is August fifteenth, nineteen eighty-three. The tax ID for our facility is sixty-six dash seven seven eight eight nine nine zero.
+
+INSURANCE: Thank you, Steven. Can I get the member's name and date of birth?
+
+MONICA: The member's name is Linda Martinez, and her date of birth is August fifteenth, nineteen eighty-three.
+
+INSURANCE: Let me pull that up... Okay, I have Linda Martinez. What do you need?
+
+MONICA: I need to verify a few details about her insurance plan. Is City Health Partners participating in the network?
+
+INSURANCE: Yes, City Health Partners is in-network.
+
+MONICA: What type of plan does Linda have?
+
+INSURANCE: Linda has a PPO plan.
+
+MONICA: What is the effective date of her plan?
+
+INSURANCE: The effective date is May first, twenty twenty-four.
+
+MONICA: Is there a termination date for her plan?
+
+INSURANCE: No termination date.
+
+MONICA: Now that I have all the plan information, can you provide coverage details for the CPT code nine nine two one two?
+
+INSURANCE: Let me check ninety-nine two twelve... Yes, that's covered. Twenty-five dollar copay, twenty percent coinsurance, deductible applies, no prior auth, telehealth is covered.
+
+MONICA: Thank you for that information. Can you provide details about the individual and family deductible amounts and any amounts already met? Also, is there a reference number for this call?
+
+INSURANCE: Sure! The family deductible is one thousand, and seven hundred has been met. 
+
+The family out-of-pocket max is six thousand, and fifteen hundred has been used. 
+
+The reference number for this call is CIG-CORR-2025-3456. 
+
+Oh wait, before we continue - I need to correct something. I gave you the wrong copay earlier. It should be FIFTY dollars, not twenty-five. Can you update that?
+
+INSURANCE: Thank you for acknowledging that correction, Steven. I appreciate it! Is there anything else I can assist you with today?
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Of course! The reference number for this call is CIG-CORR-2025-3456. Is there anything else you need?
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: You're welcome! If you need anything else in the future, don't hesitate to reach out. Goodbye!
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Bot asks reference twice
+NODE CHECK: PASS: Reached closing

@@ -1,0 +1,29 @@
+{
+  "id": "29_2025-12-13_203046",
+  "scenario_id": "29",
+  "timestamp": "2025-12-13T20:30:46.047076",
+  "langfuse_trace_id": "dde83d3b7803aee33d12d9ba364c974d",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/dde83d3b7803aee33d12d9ba364c974d",
+  "input": {
+    "utterance": "Hello! I'm Eva, your virtual assistant for United Healthcare. I can help you check eligibility, prior authorization status, and more. What would you like to do today?",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "classification": {
+        "pass": true,
+        "reason": "PASS: Virtual assistant uses conversational language and open-ended questioning rather than menu options"
+      },
+      "confidence": {
+        "pass": true,
+        "reason": "PASS: Clear case handled correctly"
+      }
+    }
+  },
+  "notes": ""
+}

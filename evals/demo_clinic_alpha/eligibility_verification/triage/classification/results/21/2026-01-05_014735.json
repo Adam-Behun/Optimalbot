@@ -1,0 +1,19 @@
+{
+  "id": "21_2026-01-05_014735",
+  "scenario_id": "21",
+  "timestamp": "2026-01-05T01:47:35.383373",
+  "langfuse_trace_id": "b5ff7b8194178d6c4b2f724db24661aa",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/b5ff7b8194178d6c4b2f724db24661aa",
+  "input": {
+    "utterance": "Hold please... [hold music 5 sec]... Thank you for holding, this is the eligibility department, how may I direct your call?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

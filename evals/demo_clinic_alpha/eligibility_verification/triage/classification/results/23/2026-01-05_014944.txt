@@ -1,0 +1,10 @@
+SCENARIO: 23
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Great news! Your callback request has been saved. We'll call you back at this number within the next 20 minutes. You may hang up now.
+
+============================================================
+GRADE: PASS - Correct: IVR

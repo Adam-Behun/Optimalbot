@@ -1,0 +1,10 @@
+SCENARIO: 31
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Please hold, I'm transferring you now. [brief silence] ...Thank you for holding. You've reached provider eligibility. Press 1 to verify benefits. Press 2 for prior auth.
+
+============================================================
+GRADE: PASS - Correct: IVR

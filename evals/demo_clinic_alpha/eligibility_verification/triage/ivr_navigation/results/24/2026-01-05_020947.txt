@@ -1,0 +1,62 @@
+SCENARIO: 24
+DESCRIPTION: Cigna: Deep menu navigation with provider callback number
+============================================================
+
+STEP 1:
+  Menu: Thank you for calling Cigna. For faster service, have your NPI ready. Press 1 to continue.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 2:
+  Menu: For providers, press 1. For members, press 2. For pharmacies, press 3.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 3:
+  Menu: Provider services. For eligibility and benefits, press 1. For claims, press 2. For prior authorization, press 3. For credentialing, press 4.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 4:
+  Menu: To access eligibility, I'll need to verify your information. Please enter your NPI.
+  Expected: dtmf_sequence:1928374650
+  Actual: <dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf>
+
+STEP 5:
+  Menu: What is your callback number in case we get disconnected? Enter 10 digits.
+  Expected: dtmf_sequence:5558472910
+  Actual: <dtmf>5</dtmf><dtmf>5</dtmf><dtmf>5</dtmf><dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf>
+
+STEP 6:
+  Menu: Thank you. Enter the member's ID number.
+  Expected: speak:WDH492817365
+  Actual: WDH492817365
+
+STEP 7:
+  Menu: For automated eligibility response, press 1. To speak with a representative, press 2.
+  Expected: dtmf:2
+  Actual: <dtmf>2</dtmf>
+
+STEP 8:
+  Menu: All representatives are currently busy. Estimated wait: 8 minutes. Press 1 to hold. Press 2 for callback.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 9:
+  Menu: Thank you for holding. A representative will be with you shortly.
+  Expected: status:completed
+  Actual: <ivr>wait</ivr>
+
+============================================================
+GRADE: FAIL - FAIL: 1/9 steps failed
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct DTMF (1)
+  Step 2: PASS - PASS: Correct DTMF (1)
+  Step 3: PASS - PASS: Correct DTMF (1)
+  Step 4: PASS - PASS: Correct DTMF sequence (1928374650)
+  Step 5: PASS - PASS: Correct DTMF sequence (5558472910)
+  Step 6: PASS - PASS: Exact match (WDH492817365)
+  Step 7: PASS - PASS: Correct DTMF (2)
+  Step 8: PASS - PASS: Correct DTMF (1)
+  Step 9: FAIL - FAIL: Expected status 'completed', got 'wait'

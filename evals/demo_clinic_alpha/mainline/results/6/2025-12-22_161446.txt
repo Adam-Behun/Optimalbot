@@ -1,0 +1,12 @@
+SCENARIO: 6
+EXPECTED: Bot may not de-escalate and transfer appropriately for persistent human requests; also tests transfer failure recovery
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I need to speak with someone at the front desk please.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

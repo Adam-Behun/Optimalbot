@@ -1,0 +1,123 @@
+{
+  "id": "1_2025-12-20_123545",
+  "scenario_id": "1",
+  "timestamp": "2025-12-20T12:35:45.122596",
+  "langfuse_trace_id": "edb2a5e6dd3d3f453c62c1f1c88ba31f",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/edb2a5e6dd3d3f453c62c1f1c88ba31f",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Context may be lost when handing off to scheduling workflow"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I need to schedule a follow-up appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What's the follow-up for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's for my chronic lower back pain. I've been coming here for about three years for it.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, a follow-up for chronic lower back pain. Let me get you to our scheduling team.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Thank you!",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, a follow-up for chronic lower back pain. Let me pull up your file. What's the phone number on your account?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "My phone number is 555-333-4444.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.",
+        "turn": 4
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "follow-up for chronic lower back pain, returning patient"
+        }
+      },
+      {
+        "turn": 3,
+        "node": "handoff_entry",
+        "function": "set_returning_patient",
+        "args": {
+          "visit_reason": "chronic lower back pain"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "returning_patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5553334444"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "follow-up for chronic lower back pain, returning patient",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "today": "December 20, 2025",
+      "available_slots": [
+        "Sunday, December 21 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "chronic lower back pain",
+      "appointment_type": "Returning Patient",
+      "handed_off_to": "scheduling"
+    },
+    "turns": 4
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Context lost during workflow handoff; quality: FAIL: Bot repeats chronic pain statement",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Context lost during workflow handoff"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Bot repeats chronic pain statement"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct scheduling workflow routing"
+      }
+    }
+  },
+  "notes": ""
+}

@@ -1,0 +1,67 @@
+{
+  "id": "6_2025-12-23_233740",
+  "scenario_id": "6",
+  "timestamp": "2025-12-23T23:37:40.817306",
+  "langfuse_trace_id": "8193fcb1caa4a5f47e316c4bab30c792",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/8193fcb1caa4a5f47e316c4bab30c792",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not de-escalate and transfer appropriately for persistent human requests; also tests transfer failure recovery"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I need to speak with someone at the front desk please.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 1
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "request_staff",
+        "args": {
+          "reason": "caller requested human"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Staff Transfer",
+      "call_reason": "caller requested human",
+      "routed_to": "Staff",
+      "resolution": ""
+    },
+    "turns": 1
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Appropriate transfer with context"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural, direct, appropriate transfer"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct staff request for human"
+      }
+    }
+  },
+  "notes": ""
+}

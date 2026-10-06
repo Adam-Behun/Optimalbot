@@ -1,0 +1,10 @@
+SCENARIO: 37
+EXPECTED: IVR
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Mmhmm. And what is the member's date of birth?
+
+============================================================
+GRADE: FAIL - Expected IVR, got CONVERSATION

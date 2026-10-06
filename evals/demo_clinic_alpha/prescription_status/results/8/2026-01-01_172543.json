@@ -1,0 +1,223 @@
+{
+  "id": "8_2026-01-01_172543",
+  "scenario_id": "8",
+  "timestamp": "2026-01-01T17:25:43.509478",
+  "langfuse_trace_id": "66e3f925a79c6100108623f37714076e",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/66e3f925a79c6100108623f37714076e",
+  "input": {
+    "target_node": "end",
+    "expected_problem": "Bot should allow retry with different phone number when first lookup fails",
+    "patient": {
+      "_id": "6956f44c64bfaf955f306814",
+      "patient_id": "6956f44c64bfaf955f306814",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "prescription_status",
+      "call_status": "Not Started",
+      "patient_name": "David Kim",
+      "date_of_birth": "1979-12-05",
+      "phone_number": "2135559999",
+      "pharmacy_name": "Walgreens",
+      "pharmacy_phone": "(213) 555-9999",
+      "pharmacy_address": "500 Hollywood Blvd, Los Angeles, CA 90028",
+      "prescriptions": [
+        {
+          "medication_name": "Omeprazole",
+          "dosage": "20mg daily",
+          "status": "Ready for Pickup",
+          "refills_remaining": 2
+        }
+      ],
+      "first_name": "David",
+      "last_name": "Kim",
+      "created_at": "2026-01-01T22:25:16.382898+00:00",
+      "updated_at": "2026-01-01T22:25:16.382898+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Jamie, I need to check on my prescription refill.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sounds good! What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's two one three, five five five, one two three four.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "That's 213-555-1234, correct?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Yes.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I'm sorry, I couldn't find a record for 213-555-1234 with that date of birth. Could you double-check those for me?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Oh wait, I think I gave you my old number. Try two one three, five five five, nine nine nine nine.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! That's 213-555-9999. And what's your date of birth?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "December fifth, nineteen seventy-nine.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Your Omeprazole 20mg daily is ready for pickup at Walgreens.",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Perfect, thank you!",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Is there anything else I can help you with today?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Nope, that's all. Thanks!",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Take care!",
+        "turn": 7
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_prescription_status",
+        "args": {}
+      },
+      {
+        "turn": 3,
+        "node": "patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "2135551234"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "patient_not_found",
+        "function": "retry_lookup",
+        "args": {
+          "phone_number": "2135559999",
+          "date_of_birth": "December 5, 1979"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "status_ready",
+        "function": "proceed_to_completion",
+        "args": {}
+      },
+      {
+        "turn": 7,
+        "node": "completion",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6956f44c64bfaf955f306814",
+      "patient_name": "David Kim",
+      "first_name": "David",
+      "last_name": "Kim",
+      "date_of_birth": "1979-12-05",
+      "phone_number": "2135559999",
+      "identity_verified": true,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 1,
+      "anything_else_count": 1,
+      "medication_name": "Omeprazole",
+      "dosage": "20mg daily",
+      "prescribing_physician": "",
+      "refill_status": "Ready for Pickup",
+      "last_filled_date": "",
+      "next_refill_date": "",
+      "pharmacy_name": "Walgreens",
+      "pharmacy_phone": "(213) 555-9999",
+      "pharmacy_address": "500 Hollywood Blvd, Los Angeles, CA 90028",
+      "refills_remaining": 2,
+      "prescriptions": [
+        {
+          "medication_name": "Omeprazole",
+          "dosage": "20mg daily",
+          "status": "Ready for Pickup",
+          "refills_remaining": 2
+        }
+      ],
+      "callback_confirmed": false,
+      "medication_select_attempts": 0,
+      "mentioned_medication": null,
+      "selected_prescription": {
+        "medication_name": "Omeprazole",
+        "dosage": "20mg daily",
+        "status": "Ready for Pickup",
+        "refills_remaining": 2
+      },
+      "_last_lookup_phone": "2135559999",
+      "_last_lookup_dob": "1979-12-05"
+    },
+    "final_node": "end",
+    "turns": 7
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: Identity verified before sharing"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversation, no problems detected"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: All functions called correctly"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached end (equivalent to end)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: No DB state assertions"
+      }
+    }
+  },
+  "notes": ""
+}

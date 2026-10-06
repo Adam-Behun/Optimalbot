@@ -1,0 +1,10 @@
+SCENARIO: 6
+EXPECTED: VOICEMAIL
+ACTUAL: VOICEMAIL
+============================================================
+
+UTTERANCE:
+Hello? Hello? ...If you can hear me, please leave a message after the tone.
+
+============================================================
+GRADE: PASS - Correct: VOICEMAIL

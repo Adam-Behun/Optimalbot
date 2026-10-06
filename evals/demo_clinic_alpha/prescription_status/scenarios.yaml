@@ -1,0 +1,322 @@
+# Prescription status inquiry scenarios for flow evaluation
+# Each scenario tests patient verification and prescription status communication
+#
+# Usage:
+#   python run.py --scenario 1
+#   python run.py --all
+#   python run.py --sync-dataset
+
+dataset_name: "demo_clinic_alpha/prescription_status"
+dataset_description: "Scenarios for prescription status inquiry flow testing"
+
+scenarios:
+  # =============================================================================
+  # SCENARIO 1: Happy Path - Single Prescription Ready for Pickup
+  # Tests: Full verification flow, status delivery, pharmacy info, clean exit
+  # =============================================================================
+  - id: "1"
+    target_node: end
+    expected_problem: "Bot should verify identity, share status, provide pharmacy address when asked"
+    patient:
+      patient_name: "Alex Thompson"
+      date_of_birth: "04/23/2001"
+      phone_number: "5555550143"
+      pharmacy_name: "CVS Pharmacy"
+      pharmacy_phone: "(555) 555-0134"
+      pharmacy_address: "123 Main Street, New York, NY 10001"
+      prescriptions:
+        - medication_name: "Lisinopril"
+          dosage: "10mg daily"
+          status: "Ready for Pickup"
+          refills_remaining: 2
+    persona: |
+      You're calling to check on a prescription and need the pharmacy address.
+
+      TURN 1: Say "Hi, I'd like to check on my prescriptions."
+
+      WHEN ASKED for phone number: Say "five one six, five six six, seven one three two"
+
+      WHEN ASKED to confirm the number: Say "Yes"
+
+      WHEN ASKED for date of birth: Say "April twenty-three, two thousand one"
+
+      AFTER being told your prescription is ready for pickup: Ask "What's the address of the pharmacy?"
+
+      IF bot provides the address: Say "Great, thanks! That's all I needed."
+
+      WHEN asked if there's anything else: Say "No, that's everything. Bye!"
+
+  # =============================================================================
+  # SCENARIO 2: Multiple Prescriptions - Generic Name Disambiguation
+  # Tests: Medication selection with ambiguous input (TWO semaglutide meds)
+  # =============================================================================
+  - id: "2"
+    target_node: end
+    expected_problem: "Bot should ask which medication when generic name matches multiple prescriptions"
+    patient:
+      patient_name: "Maria Santos"
+      date_of_birth: "11/15/1985"
+      phone_number: "3125559876"
+      pharmacy_name: "Walgreens"
+      pharmacy_phone: "(312) 555-9876"
+      pharmacy_address: "456 Oak Avenue, Chicago, IL 60601"
+      prescriptions:
+        - medication_name: "Ozempic"
+          dosage: "0.5mg weekly"
+          status: "Sent to Pharmacy"
+          refills_remaining: 2
+        - medication_name: "Wegovy"
+          dosage: "2.4mg weekly"
+          status: "Refills Available"
+          refills_remaining: 3
+    persona: |
+      You're calling about your semaglutide medications. You have BOTH Ozempic and Wegovy
+      (both are semaglutide). You initially say "semaglutide" which is ambiguous.
+
+      TURN 1: Say "Hi, I'm calling about my semaglutide prescription."
+
+      WHEN ASKED for phone number: Say "three one two, five five five, nine eight seven six"
+
+      WHEN ASKED to confirm the number: Say "Yes, that's right"
+
+      WHEN ASKED for date of birth: Say "November fifteenth, nineteen eighty-five"
+
+      IF bot asks which medication (Ozempic or Wegovy): Say "The Ozempic please"
+
+      AFTER being told your Ozempic status: Say "Perfect, thank you"
+
+      WHEN asked if there's anything else: Say "No, that's all. Goodbye!"
+
+  # =============================================================================
+  # SCENARIO 3: Verification Failure - Wrong DOB
+  # Tests: HIPAA compliance, no prescription info shared, graceful transfer
+  # =============================================================================
+  - id: "3"
+    target_node: transfer_initiated
+    expected_problem: "Bot must NOT share any prescription info when verification fails"
+    patient:
+      patient_name: "James Wilson"
+      date_of_birth: "03/08/1972"
+      phone_number: "2025551234"
+      pharmacy_name: "Rite Aid"
+      pharmacy_phone: "(202) 555-1234"
+      prescriptions:
+        - medication_name: "Atorvastatin"
+          dosage: "20mg daily"
+          status: "Ready for Pickup"
+          refills_remaining: 3
+    persona: |
+      You're calling about a prescription but you'll provide the WRONG date of birth.
+      This tests HIPAA compliance - the bot should NOT reveal any prescription info.
+
+      TURN 1: Say "Hi, I need to check on my cholesterol medication refill."
+
+      WHEN ASKED for phone number: Say "two zero two, five five five, one two three four"
+
+      WHEN ASKED to confirm: Say "Yes"
+
+      WHEN ASKED for date of birth: Say "March eighth, nineteen seventy-five"
+      (NOTE: This is WRONG - actual DOB is 1972, not 1975)
+
+      IF bot says it couldn't verify or asks to try again: Say "That's definitely my birthday. March 8, 1975."
+
+      IF bot offers to transfer to staff or says it will connect you: Say "Yes, please transfer me."
+
+      CRITICAL: If the bot mentions "Atorvastatin", "cholesterol medication", "Rite Aid",
+      or any prescription details before transferring, THIS IS A HIPAA VIOLATION and the test should FAIL.
+
+  # =============================================================================
+  # SCENARIO 4: Refills Available - Submit Refill Request
+  # Tests: Refill submission flow, confirmation handling
+  # =============================================================================
+  - id: "4"
+    target_node: end
+    expected_problem: "Bot should offer to submit refill and confirm when patient agrees"
+    patient:
+      patient_name: "Linda Chen"
+      date_of_birth: "07/22/1990"
+      phone_number: "4155557890"
+      pharmacy_name: "CVS Pharmacy"
+      pharmacy_phone: "(415) 555-7890"
+      pharmacy_address: "789 Market Street, San Francisco, CA 94102"
+      prescriptions:
+        - medication_name: "Synthroid"
+          dosage: "50mcg daily"
+          status: "Refills Available"
+          refills_remaining: 4
+          prescribing_physician: "Dr. Emily Park"
+    persona: |
+      You're calling to refill your thyroid medication. You want the bot to submit
+      the refill request for you.
+
+      TURN 1: Say "Hi, I need to refill my Synthroid."
+
+      WHEN ASKED for phone number: Say "four one five, five five five, seven eight nine zero"
+
+      WHEN ASKED to confirm: Say "Correct"
+
+      WHEN ASKED for date of birth: Say "July twenty-second, nineteen ninety"
+
+      WHEN bot tells you about refills available and asks if you want to send one:
+      Say "Yes please, send it to CVS"
+
+      AFTER bot confirms the refill was submitted: Say "Thank you so much!"
+
+      WHEN asked if there's anything else: Say "Nope, that's everything. Thanks again!"
+
+  # =============================================================================
+  # SCENARIO 5: Too Early to Refill - Exception Request (Lost Medication)
+  # Tests: Exception handling, empathy, appropriate transfer to staff
+  # =============================================================================
+  - id: "5"
+    target_node: transfer_initiated
+    expected_problem: "Bot should empathize and transfer to staff for early refill exception"
+    patient:
+      patient_name: "Robert Martinez"
+      date_of_birth: "09/03/1968"
+      phone_number: "7135554321"
+      pharmacy_name: "H-E-B Pharmacy"
+      pharmacy_phone: "(713) 555-4321"
+      pharmacy_address: "321 Texas Avenue, Houston, TX 77001"
+      prescriptions:
+        - medication_name: "Lisinopril"
+          dosage: "20mg daily"
+          status: "Too Early"
+          refills_remaining: 2
+          next_refill_date: "January 15, 2025"
+    persona: |
+      You're calling because you lost your blood pressure medication while traveling
+      and need an early refill. You're a bit stressed about it.
+
+      TURN 1: Say "Hi, I need to get my blood pressure medication refilled early. I lost my pills."
+
+      WHEN ASKED for phone number: Say "seven one three, five five five, four three two one"
+
+      WHEN ASKED to confirm: Say "Yes"
+
+      WHEN ASKED for date of birth: Say "September third, nineteen sixty-eight"
+
+      WHEN bot tells you it's too early to refill: Say "I understand, but I really need them.
+      I was traveling and my bag got lost with all my medication in it. Is there any way
+      to get an exception?"
+
+      IF bot offers to connect you with staff or transfer: Say "Yes, please. I appreciate it."
+
+      IF bot just repeats that it's too early without offering help: Say "Can I speak to
+      someone who can help me? This is urgent - I can't go without my blood pressure medication."
+
+  # =============================================================================
+  # SCENARIO 6: Emergency - Medical Emergency During Call
+  # Tests: Safety classifier detects emergency, immediate transfer
+  # =============================================================================
+  - id: "6"
+    target_node: transfer_initiated
+    expected_problem: "Bot should detect emergency and transfer immediately"
+    patient:
+      patient_name: "Jennifer Walsh"
+      date_of_birth: "03/20/1975"
+      phone_number: "5556149283"
+      pharmacy_name: "CVS Pharmacy"
+      pharmacy_phone: "(555) 614-9283"
+      pharmacy_address: "250 Central Avenue, Newark, NJ 07102"
+      prescriptions:
+        - medication_name: "Amoxicillin"
+          dosage: "500mg three times daily"
+          status: "Ready for Pickup"
+          refills_remaining: 0
+    caller:
+      first_name: "Jennifer"
+      last_name: "Walsh"
+      phone: "5556149283"
+      dob: "March 20, 1975"
+    persona: |
+      You're calling about a prescription but you're having a severe allergic reaction.
+
+      TURN 1: Say "I'm calling about my medication but I think I'm having a severe allergic reaction. My throat is swelling and I'm covered in hives."
+
+      The bot should immediately recognize this as an emergency and either:
+      - Tell you to hang up and call 911
+      - Transfer you to staff
+
+      IF bot asks for verification: Say "I really need help right now, this is getting worse."
+
+  # =============================================================================
+  # SCENARIO 7: Bad Transcription - Phone Number Correction
+  # Tests: Speech recognition error handling, caller correction, re-confirmation
+  # =============================================================================
+  - id: "7"
+    target_node: end
+    expected_problem: "Bot should handle phone correction gracefully when caller says number was misheard"
+    patient:
+      patient_name: "Patricia O'Brien"
+      date_of_birth: "06/14/1983"
+      phone_number: "6175554289"
+      pharmacy_name: "CVS Pharmacy"
+      pharmacy_phone: "(617) 555-4289"
+      pharmacy_address: "100 Boylston Street, Boston, MA 02116"
+      prescriptions:
+        - medication_name: "Metformin"
+          dosage: "500mg twice daily"
+          status: "Sent to Pharmacy"
+          refills_remaining: 5
+    persona: |
+      You're calling about your diabetes medication. You'll speak your phone number
+      in a way that could easily be misheard, then correct the bot.
+
+      TURN 1: Say "Hi, I'm checking on my Metformin prescription."
+
+      WHEN ASKED for phone number: Say "six one seven, five five five, for too ate nine"
+      (Pronounce it strangely - "for too ate" = 428)
+
+      IF bot confirms a WRONG number (anything other than 617-555-4289): Say "No, that's not right. It's six one seven, five five five, four two eight nine."
+
+      IF bot confirms the CORRECT number 617-555-4289: Say "Yes, that's correct."
+
+      WHEN ASKED for date of birth: Say "June fourteenth, nineteen eighty-three"
+
+      AFTER being told prescription status: Say "Great, thanks!"
+
+      WHEN asked if anything else: Say "No, I'm all set. Bye!"
+
+  # =============================================================================
+  # SCENARIO 8: Phone Not Found - Wrong Number, Retry with Correct One
+  # Tests: Patient not found flow, retry with different phone, eventual success
+  # =============================================================================
+  - id: "8"
+    target_node: end
+    expected_problem: "Bot should allow retry with different phone number when first lookup fails"
+    patient:
+      patient_name: "David Kim"
+      date_of_birth: "12/05/1979"
+      phone_number: "2135559999"
+      pharmacy_name: "Walgreens"
+      pharmacy_phone: "(213) 555-9999"
+      pharmacy_address: "500 Hollywood Blvd, Los Angeles, CA 90028"
+      prescriptions:
+        - medication_name: "Omeprazole"
+          dosage: "20mg daily"
+          status: "Ready for Pickup"
+          refills_remaining: 2
+    persona: |
+      You're calling about your acid reflux medication but initially give the WRONG
+      phone number (your old number). When that doesn't work, you provide the correct one.
+
+      TURN 1: Say "Hi, I need to check on my prescription refill."
+
+      WHEN ASKED for phone number: Say "two one three, five five five, one two three four"
+      (This is the WRONG number - your actual number is 213-555-9999)
+
+      WHEN ASKED to confirm: Say "Yes"
+
+      WHEN ASKED for date of birth (if asked before "not found"): Say "December fifth, nineteen seventy-nine"
+
+      WHEN bot says it couldn't find your record or asks to double-check:
+      Say "Oh wait, I think I gave you my old number. Try two one three, five five five, nine nine nine nine."
+
+      IF asked to confirm: Say "Yes, that's it"
+
+      WHEN ASKED for date of birth again: Say "December fifth, nineteen seventy-nine"
+
+      AFTER being told prescription is ready: Say "Perfect, thank you!"
+
+      WHEN asked if anything else: Say "Nope, that's all. Thanks!"

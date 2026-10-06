@@ -1,0 +1,10 @@
+SCENARIO: 27
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+I found your provider record. Your Tax ID ends in 4521, is that correct? Say yes or press 1 to confirm.
+
+============================================================
+GRADE: PASS - Correct: IVR

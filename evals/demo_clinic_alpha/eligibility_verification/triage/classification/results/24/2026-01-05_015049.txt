@@ -1,0 +1,10 @@
+SCENARIO: 24
+EXPECTED: VOICEMAIL
+ACTUAL: VOICEMAIL
+============================================================
+
+UTTERANCE:
+The representative you were waiting for is no longer available. Please leave a message or call back during business hours.
+
+============================================================
+GRADE: PASS - Correct: VOICEMAIL

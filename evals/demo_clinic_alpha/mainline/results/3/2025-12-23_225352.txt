@@ -1,0 +1,34 @@
+SCENARIO: 3
+EXPECTED: Complex prescription context may be lost during handoff
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I'm calling about a prescription issue.
+
+MONICA: I can look into that for you. Which medication are you having an issue with?
+
+CALLER: It's lisinopril, 10mg. I take it for blood pressure. I've been on it for two years.
+
+MONICA: Got it, lisinopril 10mg for blood pressure. Is there any specific issue you're facing, like a pharmacy problem or a refill request?
+
+CALLER: Yes, I went to pick up my lisinopril refill at CVS, and they said there's some kind of hold on it? They told me to call you.
+
+CALLER: Which CVS are you referring to?
+
+MONICA: Could you please provide the address or location of the CVS where you went to pick up your refill?
+
+CALLER: It's the one on Oak Street, near the grocery store.
+
+MONICA: Thank you for the information. To assist you further with your prescription issue, I need to verify your identity. Could you please provide your full name?
+
+CALLER: Sure, it's Linda Anderson. But you should have all my info from what I just told the first person.
+
+MONICA: Thank you, Linda. I still need to verify your identity for privacy reasons. Can you please provide your date of birth?
+
+CALLER: Of course, my date of birth is December 10, 1972.
+
+MONICA: I'm sorry, I wasn't able to verify your identity. For your security, I'll need to transfer you to a staff member who can assist you. One moment please.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Caller asked bot which CVS

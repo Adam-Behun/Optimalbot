@@ -1,0 +1,102 @@
+SCENARIO: 11
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Thank you for calling provider services. My name is Eliza. May I have your first name and the initial of your last name?
+
+MONICA: Hi, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith.
+
+INSURANCE: Thank you, Alex. And how about the facility's name and the street address?
+
+MONICA: The facility's name is Example Sleep Clinic, and I don't have the street address available.
+
+INSURANCE: That's okay, Alex. How about the tax ID?
+
+MONICA: The tax ID is 82-1234567.
+
+INSURANCE: Thank you. How about the member's name?
+
+MONICA: The member's name is John Smith, and his date of birth is March 15, 1985.
+
+INSURANCE: Thank you, Alex. How can I assist you today?
+
+MONICA: I'm calling to verify eligibility for John Smith.
+
+INSURANCE: Sure! Let me check the eligibility for John Smith. Just a moment, please. 
+
+(After verifying) 
+
+Yes, for checking, this facility is in network. Would you like more information about the plan type or effective date?
+
+MONICA: Yes, please. What type of plan is this?
+
+INSURANCE: The plan type is a POS. Would you like to know the effective date as well?
+
+MONICA: Yes, please provide the effective date.
+
+INSURANCE: That is oh one oh one twenty twenty five. Is there anything else you would like to know?
+
+MONICA: Yes, is there a termination date for the plan?
+
+INSURANCE: No future termination date yet. Would you like to check about the coverage for a specific procedure?
+
+MONICA: Yes, I would like to check coverage for CPT code 95800.
+
+INSURANCE: Let me check that. May I know when is the date of service?
+
+MONICA: The date of service is not yet determined. Can you use today's date?
+
+INSURANCE: So is it fine then that I'll just use today's date in checking the benefit? And how about the place of service?
+
+MONICA: Yes, that's fine. The place of service is home.
+
+INSURANCE: Okay. Let me go ahead and check here now the benefit of this code. Let me work here in silence for two to three minutes. And if you have any further questions, just call my attention. Okay? 
+
+(After the hold)
+
+Thank you very much for patiently waiting on the line. So, yeah, I already have checked right now the benefits of this code. The code 95800 is valid and billable. And for the benefit, that is fifty dollar copay per service. The annual deductible does not apply. 
+
+Do you have any questions about coinsurance, prior authorization, or telehealth coverage?
+
+MONICA: Yes, could you please confirm if there is a coinsurance, if prior authorization is required, and if telehealth is covered for this service?
+
+INSURANCE: Sure! 
+
+- For coinsurance, there is none. 
+- Prior authorization is not required for this service. 
+- And yes, telehealth is covered with the same benefit, as long as the platform is HIPAA compliant.
+
+Is there anything else you would like to know?
+
+MONICA: Yes, I would like to know about the family deductible amount.
+
+INSURANCE: That is five hundred dollars, and it has been met or satisfied. Would you like to know how much has been met?
+
+MONICA: Yes, how much of the family deductible has been met?
+
+INSURANCE: Five hundred dollars. Is there anything else you would like to know regarding the accumulators?
+
+MONICA: Yes, what is the family out-of-pocket maximum?
+
+INSURANCE: For family, that is six thousand dollars. Would you like to know how much of that has been met?
+
+MONICA: Yes, how much of the family out-of-pocket maximum has been met?
+
+INSURANCE: That would be one thousand one hundred seventy dollars and seventy four cents. Do you have any other questions?
+
+MONICA: No, I don't have any further questions at this time. May I have a reference number for this call?
+
+INSURANCE: The reference number is UHC-EV-2025-789456. 
+
+You're welcome! Thank you for calling, and have a lovely day ahead. Bye bye!
+
+MONICA: Thank you for your help. Goodbye! 
+
+
+
+INSURANCE: You're welcome! Goodbye, and take care!
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Multiple goodbyes after call ended
+NODE CHECK: PASS: Reached closing

@@ -1,0 +1,221 @@
+{
+  "id": "10_2025-12-23_234303",
+  "scenario_id": "10",
+  "timestamp": "2025-12-23T23:43:03.693115",
+  "langfuse_trace_id": "bc8a8d68d47c6b2e341052b5c0c8860d",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/bc8a8d68d47c6b2e341052b5c0c8860d",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may get confused by caller who changes their mind mid-conversation"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I think I need to schedule an appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What would the appointment be for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Actually, wait. Before I do that - do you know if my lab results are back? I had blood work last week.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you check on that. Are you feeling anxious about the results?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Oh, a little bit, yes. I just want to know what's going on. But, hmm, actually never mind the labs for now. Let me just schedule the appointment. But wait - what are your hours? I need to figure out when I can come in.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Our office hours are Monday through Friday, 8 AM to 5 PM, and Saturday from 9 AM to 1 PM. We're closed on Sundays. Is there anything else I can help with?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Okay, so you're open until 5. That might work. Actually, can I check on those lab results first after all? Then I'll know if I even need to come in.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! I can help you check on that. Just to confirm, you had blood work done last week, right?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's right. Thank you for checking.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you with that. Can I have your full name?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Sure! My name is Michelle Lee.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks, Michelle. And what is your date of birth?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "My date of birth is April 22, 1988.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "I'm sorry, I wasn't able to verify your identity. Let me connect you with someone who can help.",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "Hmm, actually, I changed my mind. I do want to schedule the appointment either way. Sorry, I know I'm all over the place today.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "No problem at all, Michelle! I have Wednesday, December 24 at 9:00 AM or Friday, December 26 at 2:00 PM. Which works for you?",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "Sorry, I'm just stressed. Let me focus. I need to: one, check my lab results, and two, schedule a follow-up regardless of the results. Can we do both?",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "Absolutely, we can do both! First, let me help you check your lab results, and then we can schedule your appointment. Can I have your full name again?",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "My name is Michelle Lee. Thank you for your patience!",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Michelle! And could you please provide your date of birth again?",
+        "turn": 10
+      },
+      {
+        "role": "user",
+        "content": "Sure! My date of birth is April 22, 1988.",
+        "turn": 11
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 11
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 5,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "lab_results",
+          "reason": "blood work from last week, caller is anxious about results"
+        }
+      },
+      {
+        "turn": 7,
+        "node": "verification",
+        "function": "verify_identity",
+        "args": {
+          "name": "Michelle Lee",
+          "date_of_birth": "April 22, 1988"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "verification_failed",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "caller wants to schedule an appointment"
+        }
+      },
+      {
+        "turn": 11,
+        "node": "scheduling",
+        "function": "request_staff",
+        "args": {
+          "patient_confirmed": true,
+          "reason": "check lab results and schedule follow-up appointment"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Lab Results",
+      "call_reason": "blood work from last week, caller is anxious about results",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "handed_off_to": "scheduling",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "medical_record_number": "",
+      "phone_number": "",
+      "test_type": "",
+      "test_date": "",
+      "ordering_physician": "",
+      "results_status": "",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "identity_verified": false,
+      "results_communicated": false,
+      "caller_anxious": true,
+      "today": "December 23, 2025",
+      "available_slots": [
+        "Wednesday, December 24 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "caller wants to schedule an appointment",
+      "appointment_type": "New Patient",
+      "transfer_reason": "check lab results and schedule follow-up appointment"
+    },
+    "turns": 11
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Repetition asking same verification questions",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Handled changes gracefully, routed correctly"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Repetition asking same verification questions"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing and staff request"
+      }
+    }
+  },
+  "notes": ""
+}

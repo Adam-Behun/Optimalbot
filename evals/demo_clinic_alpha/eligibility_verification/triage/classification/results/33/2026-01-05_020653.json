@@ -1,0 +1,19 @@
+{
+  "id": "33_2026-01-05_020653",
+  "scenario_id": "33",
+  "timestamp": "2026-01-05T02:06:53.466932",
+  "langfuse_trace_id": "178ba111b1394aefec09562f7256d229",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/178ba111b1394aefec09562f7256d229",
+  "input": {
+    "utterance": "[beep] Thank you for calling. [beep] For claims, press 1. [beep] For eligibility, press 2.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

@@ -1,0 +1,37 @@
+SCENARIO: 1
+EXPECTED: Bot should verify identity, offer to read results, read them when confirmed, and end call
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Hello, this is Demo Clinic Alpha laboratory results. How can I help you?
+
+PATIENT: Hi, I'm calling to check on my blood work results.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: It's five five five, one two three, four five six seven.
+
+BOT: That's 555-123-4567, correct?
+
+PATIENT: Yes, that's correct.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: Sure, it's March fifteenth, nineteen eighty-five.
+
+BOT: Thank you. Your Complete Blood Count results are in. Would you like me to read them for you?
+
+PATIENT: Yes, please read them to me.
+
+BOT: Your Complete Blood Count results show: All values within normal range. White blood cell count 7.2, hemoglobin 14.1, platelets 245.. Is there anything else I can help you with today?
+
+PATIENT: Great, thank you! That's a relief.
+
+BOT: I'm glad to hear that! If you need anything else, just let us know. Take care!
+
+PATIENT: No, that's all. Thanks so much, bye!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached end (equivalent to end)

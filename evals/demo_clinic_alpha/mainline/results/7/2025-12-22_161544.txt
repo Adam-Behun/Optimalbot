@@ -1,0 +1,20 @@
+SCENARIO: 7
+EXPECTED: Bot should recognize check-in is outside its capabilities and transfer to front_desk
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I'm here for my 2:30 appointment. I saw there's phone check-in?
+
+MONICA: Got it! Yes, we do have phone check-in available. Just give us a call when you're ready to check in. Is there anything else I can help with?
+
+CALLER: No, I don't need to schedule. I already have an appointment - today, at 2:30. I'm in the parking lot right now. I just need to check in.
+
+MONICA: Let me transfer you to someone who can help with that check-in. One moment, please.
+
+CALLER: Yes, please. I just need someone to mark me as arrived.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Ignored caller's check-in request

@@ -1,0 +1,227 @@
+{
+  "id": "4_2026-01-01_171224",
+  "scenario_id": "4",
+  "timestamp": "2026-01-01T17:12:24.637224",
+  "langfuse_trace_id": "2609636eae9cf8db6974437b31d83526",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/2609636eae9cf8db6974437b31d83526",
+  "input": {
+    "target_node": "end",
+    "expected_problem": "Bot should offer to submit refill and confirm when patient agrees",
+    "patient": {
+      "_id": "6956f13bea8c5678b92e3c6b",
+      "patient_id": "6956f13bea8c5678b92e3c6b",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "prescription_status",
+      "call_status": "Not Started",
+      "patient_name": "Linda Chen",
+      "date_of_birth": "1990-07-22",
+      "phone_number": "4155557890",
+      "pharmacy_name": "CVS Pharmacy",
+      "pharmacy_phone": "(415) 555-7890",
+      "pharmacy_address": "789 Market Street, San Francisco, CA 94102",
+      "prescriptions": [
+        {
+          "medication_name": "Synthroid",
+          "dosage": "50mcg daily",
+          "status": "Refills Available",
+          "refills_remaining": 4,
+          "prescribing_physician": "Dr. Emily Park"
+        }
+      ],
+      "first_name": "Linda",
+      "last_name": "Chen",
+      "created_at": "2026-01-01T22:12:11.538341+00:00",
+      "updated_at": "2026-01-01T22:12:11.538341+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I need to refill my Synthroid.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sounds good! What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Four one five, five five five, seven eight nine zero.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "That's 415-555-7890, correct?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Correct.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Can you confirm your date of birth please? Let me pull up your account.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "July twenty-second, nineteen ninety.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "You have 4 refills remaining for your Synthroid 50mcg daily. Would you like me to send one to CVS Pharmacy?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yes please, send it to CVS.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "I've submitted the refill request to CVS Pharmacy. They should have it ready within 2 to 4 hours. Is there anything else I can help you with today?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Thank you so much!",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Got it.",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Nope, that's everything. Thanks again!",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Take care!",
+        "turn": 7
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_prescription_status",
+        "args": {
+          "mentioned_medication": "Synthroid"
+        }
+      },
+      {
+        "turn": 3,
+        "node": "patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "4155557890"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "verify_dob",
+        "function": "verify_dob",
+        "args": {
+          "date_of_birth": "July 22, 1990"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "status_refills",
+        "function": "submit_refill",
+        "args": {}
+      },
+      {
+        "turn": 7,
+        "node": "completion",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6956f13bea8c5678b92e3c6b",
+      "patient_name": "Linda Chen",
+      "first_name": "Linda",
+      "last_name": "Chen",
+      "date_of_birth": "1990-07-22",
+      "phone_number": "4155557890",
+      "identity_verified": true,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 0,
+      "anything_else_count": 1,
+      "medication_name": "Synthroid",
+      "dosage": "50mcg daily",
+      "prescribing_physician": "",
+      "refill_status": "Refills Available",
+      "last_filled_date": "",
+      "next_refill_date": "",
+      "pharmacy_name": "CVS Pharmacy",
+      "pharmacy_phone": "(415) 555-7890",
+      "pharmacy_address": "789 Market Street, San Francisco, CA 94102",
+      "refills_remaining": 4,
+      "prescriptions": [
+        {
+          "medication_name": "Synthroid",
+          "dosage": "50mcg daily",
+          "status": "Refills Available",
+          "refills_remaining": 4,
+          "prescribing_physician": "Dr. Emily Park"
+        }
+      ],
+      "callback_confirmed": false,
+      "medication_select_attempts": 0,
+      "mentioned_medication": "Synthroid",
+      "selected_prescription": {
+        "medication_name": "Synthroid",
+        "dosage": "50mcg daily",
+        "status": "Refills Available",
+        "refills_remaining": 4,
+        "prescribing_physician": "Dr. Emily Park"
+      },
+      "_last_lookup_phone": "4155557890",
+      "_last_lookup_dob": "1990-07-22"
+    },
+    "final_node": "end",
+    "turns": 7
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: Identity verified before sharing"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversation, no problems detected"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: All functions called correctly"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached end (equivalent to end)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: No DB state assertions"
+      }
+    }
+  },
+  "notes": ""
+}

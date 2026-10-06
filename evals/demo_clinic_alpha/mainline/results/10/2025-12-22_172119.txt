@@ -1,0 +1,40 @@
+SCENARIO: 10
+EXPECTED: Bot may get confused by caller who changes their mind mid-conversation
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I think I need to schedule an appointment.
+
+MONICA: Sure! What would the appointment be for?
+
+CALLER: Actually, wait. Before I do that—do you know if my lab results are back? I had blood work last week.
+
+MONICA: I can help you check on that. Were there any specific tests done with your blood work?
+
+CALLER: Hmm, actually, I’m not sure about the specifics. I just know I had some routine tests done. Can you check if the results are back regardless? Then I'll decide about the appointment.
+
+MONICA: Got it. Let me get you to someone who can look that up for you.
+
+CALLER: Oh, wait! Before you do that, what are your hours? I need to figure out when I can come in, just in case I need to schedule an appointment.
+
+MONICA: Our office hours are Monday through Friday, 8 AM to 5 PM, and Saturday from 9 AM to 1 PM. We're closed on Sundays. Is there anything else I can help with?
+
+CALLER: Okay, so you're open until 5. That might work. Actually, can I check on those lab results first after all? Then I'll know if I even need to come in.
+
+MONICA: I understand you're looking to check on your lab results. However, I will need to verify your identity first to access that information. Can I have your full name?
+
+CALLER: Sure! My name is Michelle Lee.
+
+MONICA: Thank you, Michelle. And what is your date of birth?
+
+CALLER: My date of birth is April 22, 1988.
+
+MONICA: I'm sorry, I wasn't able to verify your identity. Let me connect you with someone who can help.
+
+CALLER: Oh, wait! Actually, I changed my mind. I do want to schedule an appointment regardless of the lab results. Sorry, I know I'm all over the place today. Can we do that?
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Wrong final routing after caller changed mind

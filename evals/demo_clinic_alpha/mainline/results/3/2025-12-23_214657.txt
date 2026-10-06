@@ -1,0 +1,36 @@
+SCENARIO: 3
+EXPECTED: Complex prescription context may be lost during handoff
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi Monica, I'm calling about a prescription issue.
+
+MONICA: I can look into that for you. Which medication are you having an issue with?
+
+CALLER: It's lisinopril, 10mg. I take it for blood pressure. I've been on it for two years.
+
+MONICA: Got it, lisinopril 10mg for blood pressure. Are you experiencing any specific issues, like a refill or something else?
+
+CALLER: Yes, I need a refill for my lisinopril, but when I went to pick it up at CVS, they said there's some kind of hold on it. They told me to call you.
+
+MONICA: I understand. Let me get you to someone who can look into that for you.
+
+CALLER: Thank you! I appreciate it.
+
+CALLER: (After being routed to the prescription workflow)
+
+Hi! Just to confirm, it's lisinopril 10mg, and CVS said there's a prior authorization issue.
+
+MONICA: I can assist you with that. To proceed, I need to verify your identity for privacy reasons. Could you please provide your first and last name?
+
+CALLER: Sure, it's Linda Anderson. You should have all my info from what I just told the first person.
+
+MONICA: Thank you, Linda. And what is your date of birth?
+
+CALLER: My date of birth is December 10, 1972.
+
+MONICA: I'm sorry, I wasn't able to verify your identity. For your security, I'll need to transfer you to a staff member who can assist you. One moment please.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

@@ -1,0 +1,19 @@
+{
+  "id": "19_2026-01-05_014703",
+  "scenario_id": "19",
+  "timestamp": "2026-01-05T01:47:03.965558",
+  "langfuse_trace_id": "140977166db292f9e19d444431998cb4",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/140977166db292f9e19d444431998cb4",
+  "input": {
+    "utterance": "Thank you for calling Blue Cross Blue Shield. This is the provider eligibility department, Lisa speaking, representative ID 84521. For quality purposes, may I have your provider NPI?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

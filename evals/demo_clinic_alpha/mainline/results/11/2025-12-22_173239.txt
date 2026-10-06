@@ -1,0 +1,24 @@
+SCENARIO: 11
+EXPECTED: Bot may not properly handle medical urgency signals during routing
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, Monica. My doctor left a message saying to call about my test results as soon as possible. I don't know what's going on, and I'm really worried.
+
+MONICA: I can help you check on that. What type of test was it?
+
+CALLER: It was blood work, I think? I had a bunch of tests done. She just said to call right away about the results.
+
+MONICA: I understand this is concerning for you. Let me get you to someone who can look that up for you.
+
+CALLER: Thank you, but could you please check soon? The way she said "as soon as possible" has me really worried. Doctors don't usually say that, do they?
+
+MONICA: I've initiated the process to get you the information about your test results. Please hold on for a moment while I connect you.
+
+CALLER: Okay, I appreciate it. Please let them know my doctor said it was urgent. I don't want to wait in a queue.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Missed urgent medical priority signals

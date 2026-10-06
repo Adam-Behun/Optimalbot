@@ -1,0 +1,60 @@
+SCENARIO: 15
+TARGET NODE: plan_info
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Provider services, how can I help you?
+
+MONICA: May I have your first name and last initial?
+
+INSURANCE: Sure, I'm Sarah K. What's the tax ID?
+
+MONICA: Hi Sarah, this is Jordan M. calling from Sample Medical Center about eligibility verification for Test Patient Two.
+
+INSURANCE: Thanks, Jordan. What's the tax ID?
+
+MONICA: The tax ID is ninety-eight dash seven six five four three two one.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Test Patient Two and the date of birth is February twentieth, nineteen eighty-five.
+
+INSURANCE: Let me pull that up... Got it. They're active, in network. What else do you need?
+
+MONICA: What type of plan is this?
+
+INSURANCE: I can help with that. Let me check the plan details for you. Just a moment... 
+
+The member is enrolled in a PPO plan. Is there anything else you need assistance with?
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: The effective date of the plan is January 1, 2023. Do you need any more information?
+
+MONICA: Is there a term date for the plan?
+
+INSURANCE: No, there is currently no term date for the plan; it remains active. Is there anything else I can assist you with?
+
+MONICA: I have all the plan information. Now, can you provide coverage details for the CPT code nine nine two one four?
+
+INSURANCE: Let me check the coverage details for CPT code 99214... 
+
+The coverage for that code is included under the member's plan. It typically covers established patient visits, and the copayment is $30. Is there anything else you would like to know?
+
+MONICA: Is telehealth covered for this service?
+
+INSURANCE: Yes, telehealth is covered for this service under the member's plan. Would you like any more information on this or anything else?
+
+MONICA: Could you provide the individual and family deductible amounts, as well as the out-of-pocket maximums?
+
+INSURANCE: Sure! The individual deductible is $1,500, and the family deductible is $3,000. The out-of-pocket maximums are $6,000 for an individual and $12,000 for a family. 
+
+Is there anything else you need assistance with?
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Of course! Your reference number for this call is 78234. Is there anything else I can help you with?
+
+============================================================
+GRADE: FAIL - FAIL: node: FAIL: Expected plan_info, got closing; DB: FAIL: insurance_rep_first_name: expected Sarah, got None; insurance_rep_last_initial: expected K, got None
+NODE CHECK: FAIL: Expected plan_info, got closing

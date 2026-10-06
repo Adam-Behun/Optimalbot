@@ -1,0 +1,39 @@
+SCENARIO: 8
+EXPECTED: Bot should allow retry with different phone number when first lookup fails
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?
+
+PATIENT: Hi Jamie, I need to check on my prescription refill.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: It's two one three, five five five, one two three four.
+
+BOT: That's 213-555-1234, correct?
+
+PATIENT: Yes.
+
+BOT: I'm sorry, I couldn't find a record for 213-555-1234 with that date of birth. Could you double-check those for me?
+
+PATIENT: Oh wait, I think I gave you my old number. Try two one three, five five five, nine nine nine nine.
+
+BOT: Got it! That's 213-555-9999. And what's your date of birth?
+
+PATIENT: December fifth, nineteen seventy-nine.
+
+BOT: Your Omeprazole 20mg daily is ready for pickup at Walgreens.
+
+PATIENT: Perfect, thank you!
+
+BOT: Is there anything else I can help you with today?
+
+PATIENT: Nope, that's all. Thanks!
+
+BOT: Take care!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached end (equivalent to end)

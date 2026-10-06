@@ -1,0 +1,213 @@
+{
+  "id": "1_2026-01-01_170753",
+  "scenario_id": "1",
+  "timestamp": "2026-01-01T17:07:53.710723",
+  "langfuse_trace_id": "c7a57d5b81892048ed814edc5a29999f",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/c7a57d5b81892048ed814edc5a29999f",
+  "input": {
+    "target_node": "end",
+    "expected_problem": "Bot should verify identity, offer to read results, read them when confirmed, and end call",
+    "patient": {
+      "_id": "6956f0289de5a4df3bda655a",
+      "patient_id": "6956f0289de5a4df3bda655a",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "lab_results",
+      "call_status": "Not Started",
+      "patient_name": "Sarah Johnson",
+      "date_of_birth": "1985-03-15",
+      "phone_number": "5551234567",
+      "test_type": "Complete Blood Count",
+      "test_date": "2024-12-20",
+      "ordering_physician": "Dr. Emily Chen",
+      "results_status": "ready",
+      "results_summary": "All values within normal range. White blood cell count 7.2, hemoglobin 14.1, platelets 245.",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "first_name": "Sarah",
+      "last_name": "Johnson",
+      "created_at": "2026-01-01T22:07:37.551827+00:00",
+      "updated_at": "2026-01-01T22:07:37.551827+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Demo Clinic Alpha laboratory results. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I'm calling to check on my blood work results.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sounds good! What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's five five five, one two three, four five six seven.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "That's 555-123-4567, correct?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's correct.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Can you confirm your date of birth please? Let me pull up your account.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Sure, it's March fifteenth, nineteen eighty-five.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you. Your Complete Blood Count results are in. Would you like me to read them for you?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yes, please read them to me.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Your Complete Blood Count results show: All values within normal range. White blood cell count 7.2, hemoglobin 14.1, platelets 245.. Is there anything else I can help you with today?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Great, thank you! That's a relief.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "I'm glad to hear that! Your doctor can give you the best guidance on what this means for you.",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "No, that's all. Thanks so much, bye!",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Take care!",
+        "turn": 7
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_lab_results",
+        "args": {}
+      },
+      {
+        "turn": 3,
+        "node": "patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5551234567"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "verify_dob",
+        "function": "verify_dob",
+        "args": {
+          "date_of_birth": "March 15, 1985"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "results_ready",
+        "function": "read_results",
+        "args": {}
+      },
+      {
+        "turn": 5,
+        "node": "results_read",
+        "function": "proceed_to_completion",
+        "args": {}
+      },
+      {
+        "turn": 7,
+        "node": "completion",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6956f0289de5a4df3bda655a",
+      "patient_name": "Sarah Johnson",
+      "first_name": "Sarah",
+      "last_name": "Johnson",
+      "date_of_birth": "1985-03-15",
+      "phone_number": "5551234567",
+      "identity_verified": true,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 0,
+      "anything_else_count": 1,
+      "test_type": "Complete Blood Count",
+      "test_date": "2024-12-20",
+      "ordering_physician": "Dr. Emily Chen",
+      "results_status": "ready",
+      "results_summary": "All values within normal range. White blood cell count 7.2, hemoglobin 14.1, platelets 245.",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "callback_confirmed": false,
+      "results_communicated": true,
+      "_last_lookup_phone": "5551234567",
+      "_last_lookup_dob": "1985-03-15"
+    },
+    "final_node": "end",
+    "db_state": {
+      "identity_verified": false,
+      "results_communicated": true,
+      "callback_confirmed": false,
+      "call_status": "Completed",
+      "caller_phone_number": ""
+    },
+    "turns": 7
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: Identity verified before sharing results"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural flow, appropriate responses."
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Complete verification and results workflow"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached end (equivalent to end)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: DB state correct"
+      }
+    }
+  },
+  "notes": ""
+}

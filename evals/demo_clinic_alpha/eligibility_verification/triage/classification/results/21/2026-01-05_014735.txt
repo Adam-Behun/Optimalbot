@@ -1,0 +1,10 @@
+SCENARIO: 21
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Hold please... [hold music 5 sec]... Thank you for holding, this is the eligibility department, how may I direct your call?
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

@@ -1,0 +1,27 @@
+SCENARIO: 4
+EXPECTED: Bot should verify identity, find no results, and transfer to staff
+TARGET NODE: transfer_initiated
+FINAL NODE: transfer_pending
+============================================================
+
+BOT: Hello, this is Demo Clinic Alpha laboratory results. How can I help you?
+
+PATIENT: Hi, I'm calling to check on my lab results from last week.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: Five five five, three six nine, two five eight one.
+
+BOT: That's 555-369-2581, correct?
+
+PATIENT: Yes.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: November thirtieth, nineteen ninety.
+
+BOT: I found your record, but I don't see any pending lab results. Let me connect you with a colleague who can help. Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached transfer_pending (transferred to staff)

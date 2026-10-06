@@ -1,0 +1,338 @@
+{
+  "id": "2_2026-01-17_184823",
+  "scenario_id": "2",
+  "timestamp": "2026-01-17T18:48:23.664442",
+  "langfuse_trace_id": "814f682c2e802b137fc171f09911c553",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/814f682c2e802b137fc171f09911c553",
+  "input": {
+    "target_node": "closing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Aetna provider line, Marcus speaking. How can I help?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Hi, this is Alex M. calling from Metro Imaging Center about eligibility verification for Maria Garcia. Her date of birth is July 22, 1978.",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Thanks. Can I get the facility name and tax ID?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "The facility name is Metro Imaging Center and the tax ID is forty-five dash six seven eight nine zero one two.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "And the member's name and date of birth?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "The member's name is Maria Garcia and her date of birth is July 22, 1978.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Okay, let me pull that up... Got it. What do you need today?",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "I need to verify the insurance eligibility and benefits for Maria. First, can you confirm if Metro Imaging Center is participating in the network?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yeah, Metro Imaging is in network.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "What type of plan does Maria have?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "PPO.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "What is the effective date of the plan?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "March fifteenth twenty twenty four.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Is there a termination date for the plan?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "No term date.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "Now that I have all the plan information, can you provide the coverage details for CPT code seven zero five five three?",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "What's the date of service?",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "The date of service is January fifteenth, twenty twenty five.",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "Let me check seventy triple five three... Okay so that code is covered, seventy-five copay, twenty percent coinsurance, you'll need a PA on that, ded applies. Anything else?",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "Is telehealth covered for this service?",
+        "turn": 10
+      },
+      {
+        "role": "user",
+        "content": "Telehealth? Not applicable for imaging procedures.",
+        "turn": 11
+      },
+      {
+        "role": "assistant",
+        "content": "Could you provide the accumulator information, including the individual and family deductible amounts and any amounts met?",
+        "turn": 11
+      },
+      {
+        "role": "user",
+        "content": "Family ded is a thousand, six fifty met.",
+        "turn": 12
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have the individual deductible amounts as well?",
+        "turn": 12
+      },
+      {
+        "role": "user",
+        "content": "I only have the family deductible info. OOP max is eight K, twenty-three forty applied.",
+        "turn": 13
+      },
+      {
+        "role": "assistant",
+        "content": "May I have a reference number for this call?",
+        "turn": 13
+      },
+      {
+        "role": "user",
+        "content": "Reference is ATN-PA-445566.",
+        "turn": 14
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you for your help. Goodbye! \n\nend_call",
+        "turn": 14
+      },
+      {
+        "role": "user",
+        "content": "Alright, anything else? No? Okay, take care!",
+        "turn": 15
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 4,
+        "node": "greeting_without_ivr",
+        "function": "proceed_to_plan_info",
+        "args": {}
+      },
+      {
+        "turn": 5,
+        "node": "plan_info",
+        "function": "record_network_status",
+        "args": {
+          "status": "In-Network"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "plan_info",
+        "function": "record_plan_type",
+        "args": {
+          "plan_type": "PPO"
+        }
+      },
+      {
+        "turn": 7,
+        "node": "plan_info",
+        "function": "record_plan_effective_date",
+        "args": {
+          "date": "03/15/2024"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "plan_info",
+        "function": "record_plan_term_date",
+        "args": {
+          "date": "None"
+        }
+      },
+      {
+        "turn": 10,
+        "node": "plan_info",
+        "function": "proceed_to_cpt_coverage",
+        "args": {
+          "cpt_covered": "Yes",
+          "copay_amount": "75.00",
+          "coinsurance_percent": "20",
+          "deductible_applies": "Yes",
+          "prior_auth_required": "Yes",
+          "telehealth_covered": "Unknown",
+          "deductible_family": "None",
+          "deductible_family_met": "None",
+          "oop_max_family": "None",
+          "oop_max_family_met": "None",
+          "reference_number": "None"
+        }
+      },
+      {
+        "turn": 11,
+        "node": "cpt_coverage",
+        "function": "record_telehealth_covered",
+        "args": {
+          "covered": "No"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "cpt_coverage",
+        "function": "proceed_to_accumulators",
+        "args": {
+          "deductible_family": "1000",
+          "deductible_family_met": "650"
+        }
+      },
+      {
+        "turn": 13,
+        "node": "accumulators",
+        "function": "record_oop_max_family",
+        "args": {
+          "amount": "8000.00"
+        }
+      },
+      {
+        "turn": 13,
+        "node": "accumulators",
+        "function": "record_oop_max_family_met",
+        "args": {
+          "amount": "2340.00"
+        }
+      },
+      {
+        "turn": 14,
+        "node": "accumulators",
+        "function": "record_reference_number",
+        "args": {
+          "reference_number": "ATN-PA-445566"
+        }
+      },
+      {
+        "turn": 14,
+        "node": "accumulators",
+        "function": "proceed_to_closing",
+        "args": {
+          "reference_number": "ATN-PA-445566"
+        }
+      },
+      {
+        "turn": 15,
+        "node": "closing",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "696c1f975d8ee86364616403",
+      "patient_name": "Maria Garcia",
+      "date_of_birth": "1978-07-22",
+      "insurance_member_id": "AET987654321",
+      "insurance_company_name": "Aetna",
+      "insurance_phone": "+18002345678",
+      "caller_name": "Alex",
+      "caller_last_initial": "M",
+      "facility_name": "Metro Imaging Center",
+      "tax_id": "45-6789012",
+      "provider_name": "Dr. Michael Chen",
+      "provider_npi": "1234567890",
+      "provider_call_back_phone": "+15559876543",
+      "cpt_code": "70553",
+      "place_of_service": "Outpatient Hospital",
+      "date_of_service": "01/15/2025",
+      "network_status": "In-Network",
+      "plan_type": "PPO",
+      "plan_effective_date": "03/15/2024",
+      "plan_term_date": "None",
+      "cpt_covered": "Yes",
+      "copay_amount": "75.00",
+      "coinsurance_percent": "20",
+      "deductible_applies": "Yes",
+      "prior_auth_required": "Yes",
+      "deductible_family": "1000",
+      "deductible_family_met": "650",
+      "oop_max_family": "8000.00",
+      "oop_max_family_met": "2340.00",
+      "reference_number": "ATN-PA-445566",
+      "telehealth_covered": "No"
+    },
+    "final_node": "closing",
+    "turns": 15
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: functions: FAIL: proceed_to_cpt_coverage.oop_max_family: expected 8000.00, got None; proceed_to_cpt_coverage.reference_number: expected ATN-PA-445566, got None; proceed_to_cpt_coverage.deductible_family: expected 1000.00, got None (+2 more)",
+    "details": {
+      "data_accuracy": {
+        "pass": true,
+        "reason": "PASS: All 11 fields match"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversational flow maintained"
+      },
+      "functions": {
+        "pass": false,
+        "reason": "FAIL: proceed_to_cpt_coverage.oop_max_family: expected 8000.00, got None; proceed_to_cpt_coverage.reference_number: expected ATN-PA-445566, got None; proceed_to_cpt_coverage.deductible_family: expected 1000.00, got None (+2 more)"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached closing"
+      },
+      "captured_state": {
+        "pass": true,
+        "reason": "PASS: Captured state correct"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: Captured state correct"
+      }
+    }
+  },
+  "notes": ""
+}

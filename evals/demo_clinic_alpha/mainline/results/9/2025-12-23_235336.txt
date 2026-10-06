@@ -1,0 +1,12 @@
+SCENARIO: 9
+EXPECTED: Bot should recognize callback requests require human handling and transfer to front_desk
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I can't really talk right now - I'm at work. Can someone call me back?
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Ignored callback request, transferred instead

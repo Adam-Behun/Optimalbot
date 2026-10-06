@@ -1,0 +1,298 @@
+{
+  "id": "6_2026-01-17_190157",
+  "scenario_id": "6",
+  "timestamp": "2026-01-17T19:01:57.636550",
+  "langfuse_trace_id": "0d6bbd960815bfefde86670e4fe63b91",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/0d6bbd960815bfefde86670e4fe63b91",
+  "input": {
+    "target_node": "closing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "user",
+        "content": "UnitedHealthcare provider services, this is Robert. How can I help you?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Hi, this is Daniel S. calling from Advanced Therapy Center about eligibility verification for Emily Johnson. Her date of birth is February 28, 1975.",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Thank you, Daniel. Can I get the tax ID for the facility?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "The tax ID for Advanced Therapy Center is seventy-seven dash eight-eight-nine-nine-zero-zero-one.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "And the member's name and date of birth?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "The member's name is Emily Johnson, and her date of birth is February 28, 1975.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Let me pull that up... Okay, I have Emily Johnson here. What do you need today?",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "I need to verify a few details regarding her insurance plan. First, is Advanced Therapy Center participating in the network?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Yes, Advanced Therapy Center is participating.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "What type of plan does she have?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "This is an HMO plan.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "What is the effective date of the plan?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Effective September first, twenty twenty four.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Is there a termination date for this plan?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "No termination date on file.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "Now that I have the plan information, can you provide coverage details for CPT code 97140?",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "Let me check that code... I'm sorry, that procedure is NOT covered under this member's benefit plan. It's a plan exclusion.",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "Can you provide the family deductible amount?",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "The family deductible is fifteen hundred, eight hundred has been met.",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "What is the family out-of-pocket maximum?",
+        "turn": 10
+      },
+      {
+        "role": "user",
+        "content": "Family out-of-pocket max is seventy-five hundred, twelve hundred applied.",
+        "turn": 11
+      },
+      {
+        "role": "assistant",
+        "content": "May I have a reference number for this call?",
+        "turn": 11
+      },
+      {
+        "role": "user",
+        "content": "Reference number is UHC-NC-2025-5432.",
+        "turn": 12
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 4,
+        "node": "greeting_without_ivr",
+        "function": "proceed_to_plan_info",
+        "args": {}
+      },
+      {
+        "turn": 5,
+        "node": "plan_info",
+        "function": "record_network_status",
+        "args": {
+          "status": "In-Network"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "plan_info",
+        "function": "record_plan_type",
+        "args": {
+          "plan_type": "HMO"
+        }
+      },
+      {
+        "turn": 7,
+        "node": "plan_info",
+        "function": "record_plan_effective_date",
+        "args": {
+          "date": "09/01/2024"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "plan_info",
+        "function": "record_plan_term_date",
+        "args": {
+          "date": "None"
+        }
+      },
+      {
+        "turn": 9,
+        "node": "plan_info",
+        "function": "proceed_to_cpt_coverage",
+        "args": {
+          "cpt_covered": "No"
+        }
+      },
+      {
+        "turn": 9,
+        "node": "cpt_coverage",
+        "function": "proceed_to_accumulators",
+        "args": {}
+      },
+      {
+        "turn": 10,
+        "node": "accumulators",
+        "function": "record_deductible_family",
+        "args": {
+          "amount": "1500.00"
+        }
+      },
+      {
+        "turn": 10,
+        "node": "accumulators",
+        "function": "record_deductible_family_met",
+        "args": {
+          "amount": "800.00"
+        }
+      },
+      {
+        "turn": 11,
+        "node": "accumulators",
+        "function": "record_oop_max_family",
+        "args": {
+          "amount": "7500.00"
+        }
+      },
+      {
+        "turn": 11,
+        "node": "accumulators",
+        "function": "record_oop_max_family_met",
+        "args": {
+          "amount": "1200.00"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "accumulators",
+        "function": "record_reference_number",
+        "args": {
+          "reference_number": "UHC-NC-2025-5432"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "accumulators",
+        "function": "proceed_to_closing",
+        "args": {
+          "reference_number": "UHC-NC-2025-5432"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "closing",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "696c22bddb758f62ce13e196",
+      "patient_name": "Emily Johnson",
+      "date_of_birth": "1975-02-28",
+      "insurance_member_id": "UHC112233445",
+      "insurance_company_name": "United Healthcare",
+      "insurance_phone": "+18006789012",
+      "caller_name": "Daniel",
+      "caller_last_initial": "S",
+      "facility_name": "Advanced Therapy Center",
+      "tax_id": "77-8899001",
+      "provider_name": "Dr. Rachel Green",
+      "provider_npi": "7890123456",
+      "provider_call_back_phone": "+15556789012",
+      "cpt_code": "97140",
+      "place_of_service": "Office",
+      "date_of_service": "",
+      "network_status": "In-Network",
+      "plan_type": "HMO",
+      "plan_effective_date": "09/01/2024",
+      "plan_term_date": "None",
+      "cpt_covered": "No",
+      "deductible_family": "1500.00",
+      "deductible_family_met": "800.00",
+      "oop_max_family": "7500.00",
+      "oop_max_family_met": "1200.00",
+      "reference_number": "UHC-NC-2025-5432"
+    },
+    "final_node": "closing",
+    "turns": 12
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "data_accuracy": {
+        "pass": true,
+        "reason": "PASS: No expected data defined"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Clean professional conversation style"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: 0 function checks passed"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached closing"
+      },
+      "captured_state": {
+        "pass": true,
+        "reason": "PASS: Captured state correct"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: Captured state correct"
+      }
+    }
+  },
+  "notes": ""
+}

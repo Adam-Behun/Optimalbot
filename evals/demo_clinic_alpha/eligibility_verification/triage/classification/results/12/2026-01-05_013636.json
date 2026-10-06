@@ -1,0 +1,19 @@
+{
+  "id": "12_2026-01-05_013636",
+  "scenario_id": "12",
+  "timestamp": "2026-01-05T01:36:36.127679",
+  "langfuse_trace_id": "a62d5b48bc9f796add4573b7a82a25d1",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/a62d5b48bc9f796add4573b7a82a25d1",
+  "input": {
+    "utterance": "One moment please while I look that up for you... I found your account. Press 1 to confirm.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

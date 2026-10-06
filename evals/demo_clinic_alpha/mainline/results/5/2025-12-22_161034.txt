@@ -1,0 +1,24 @@
+SCENARIO: 5
+EXPECTED: Bot may not recognize when caller needs scheduling vs something else
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, um, I was wondering if maybe, you know, I could come in sometime?
+
+MONICA: Sure! What would the appointment be for?
+
+CALLER: Oh, just... like a checkup? I guess? It's been a while.
+
+MONICA: Got it, a checkup. Let me get you scheduled for that.
+
+CALLER: Um, okay. Just to let you know, it's been maybe like... two years? Could be three. I'm not sure exactly.
+
+MONICA: Before I can schedule your appointment, I'll need to pull up your file. Could you please provide the phone number associated with your account?
+
+CALLER: Oh, um, yeah. It's 5555556666.
+
+MONICA: I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

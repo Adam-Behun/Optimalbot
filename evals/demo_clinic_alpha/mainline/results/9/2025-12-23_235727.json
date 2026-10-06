@@ -1,0 +1,67 @@
+{
+  "id": "9_2025-12-23_235727",
+  "scenario_id": "9",
+  "timestamp": "2025-12-23T23:57:27.402417",
+  "langfuse_trace_id": "c2884292f5e8d828055ac75677ed8701",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/c2884292f5e8d828055ac75677ed8701",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot should recognize callback requests require human handling and transfer to front_desk"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I can't really talk right now - I'm at work. Can someone call me back?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 1
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "request_staff",
+        "args": {
+          "reason": "caller requested a call back"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Staff Transfer",
+      "call_reason": "caller requested a call back",
+      "routed_to": "Staff",
+      "resolution": ""
+    },
+    "turns": 1
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correctly transferred callback request"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Quick appropriate transfer for callback"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct staff request for callback"
+      }
+    }
+  },
+  "notes": ""
+}

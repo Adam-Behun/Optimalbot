@@ -1,0 +1,295 @@
+{
+  "id": "25_2026-01-05_021414",
+  "scenario_id": "25",
+  "timestamp": "2026-01-05T02:14:14.673482",
+  "langfuse_trace_id": "6d867fc5d3bafbd3ebd9abfef281a209",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/6d867fc5d3bafbd3ebd9abfef281a209",
+  "input": {
+    "description": "Humana: Mixed verbal and DTMF with wrong department recovery",
+    "steps": [
+      {
+        "menu_prompt": "Welcome to Humana. I'm your virtual assistant. Are you a healthcare provider or a member?",
+        "expected_action": "speak:Health care professional"
+      },
+      {
+        "menu_prompt": "Great! What's your facility name?",
+        "expected_action": "speak:Westbrook Family Medicine"
+      },
+      {
+        "menu_prompt": "And who am I speaking with today?",
+        "expected_action": "speak:Maria Chen"
+      },
+      {
+        "menu_prompt": "Thanks Maria. For your security, enter your Tax ID.",
+        "expected_action": "dtmf_sequence:847291035"
+      },
+      {
+        "menu_prompt": "I'm connecting you to pharmacy benefits. Please hold.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "Pharmacy benefits. For prescription coverage, press 1. For formulary, press 2. To return to main menu, press star.",
+        "expected_action": "dtmf:*"
+      },
+      {
+        "menu_prompt": "Main menu. For medical eligibility, press 1. For pharmacy, press 2. For dental, press 3.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Medical eligibility. Enter the member ID.",
+        "expected_action": "speak:WDH492817365"
+      },
+      {
+        "menu_prompt": "Member found. Connecting you to an eligibility specialist.",
+        "expected_action": "status:completed"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Welcome to Humana. I'm your virtual assistant. Are you a healthcare provider or a member?",
+        "expected_action": "speak:Health care professional",
+        "actual_response": "Health care professional",
+        "reasoning": "Verbal response - we are a provider",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "Great! What's your facility name?",
+        "expected_action": "speak:Westbrook Family Medicine",
+        "actual_response": "Westbrook Family Medicine",
+        "reasoning": "Speak facility name",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "And who am I speaking with today?",
+        "expected_action": "speak:Maria Chen",
+        "actual_response": "Maria Chen",
+        "reasoning": "Speak caller name",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "Thanks Maria. For your security, enter your Tax ID.",
+        "expected_action": "dtmf_sequence:847291035",
+        "actual_response": "<dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf>",
+        "reasoning": "Enter Tax ID digits",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "8",
+        "event_matched": false
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "I'm connecting you to pharmacy benefits. Please hold.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "Wrong department - wait for transfer",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "Pharmacy benefits. For prescription coverage, press 1. For formulary, press 2. To return to main menu, press star.",
+        "expected_action": "dtmf:*",
+        "actual_response": "<ivr>stuck</ivr>",
+        "reasoning": "Wrong department - go back to main menu",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "*",
+        "actual_arg": "stuck",
+        "event_matched": false
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "Main menu. For medical eligibility, press 1. For pharmacy, press 2. For dental, press 3.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<ivr>stuck</ivr>",
+        "reasoning": "Medical eligibility",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "1",
+        "actual_arg": "stuck",
+        "event_matched": false
+      },
+      {
+        "step_number": 8,
+        "menu_prompt": "Medical eligibility. Enter the member ID.",
+        "expected_action": "speak:WDH492817365",
+        "actual_response": "WDH492817365",
+        "reasoning": "Member ID contains letters - must speak it verbally",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 9,
+        "menu_prompt": "Member found. Connecting you to an eligibility specialist.",
+        "expected_action": "status:completed",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "Transfer to specialist - navigation complete",
+        "expected_event": "on_ivr_status_changed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "completed",
+        "actual_arg": "completed",
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Welcome to Humana. I'm your virtual assistant. Are you a healthcare provider or a member?"
+      },
+      {
+        "role": "assistant",
+        "content": "Health care professional"
+      },
+      {
+        "role": "user",
+        "content": "Great! What's your facility name?"
+      },
+      {
+        "role": "assistant",
+        "content": "Westbrook Family Medicine"
+      },
+      {
+        "role": "user",
+        "content": "And who am I speaking with today?"
+      },
+      {
+        "role": "assistant",
+        "content": "Maria Chen"
+      },
+      {
+        "role": "user",
+        "content": "Thanks Maria. For your security, enter your Tax ID."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "I'm connecting you to pharmacy benefits. Please hold."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "Pharmacy benefits. For prescription coverage, press 1. For formulary, press 2. To return to main menu, press star."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>stuck</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "Main menu. For medical eligibility, press 1. For pharmacy, press 2. For dental, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>stuck</ivr>"
+      },
+      {
+        "role": "user",
+        "content": "Medical eligibility. Enter the member ID."
+      },
+      {
+        "role": "assistant",
+        "content": "WDH492817365"
+      },
+      {
+        "role": "user",
+        "content": "Member found. Connecting you to an eligibility specialist."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: 2/9 steps failed",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Welcome to Humana. I'm your virtual assistant. Are...",
+        "pass": true,
+        "reason": "PASS: Exact match (Health care professional)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "Great! What's your facility name?...",
+        "pass": true,
+        "reason": "PASS: Exact match (Westbrook Family Medicine)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "And who am I speaking with today?...",
+        "pass": true,
+        "reason": "PASS: Exact match (Maria Chen)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "Thanks Maria. For your security, enter your Tax ID...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF sequence (847291035)"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "I'm connecting you to pharmacy benefits. Please ho...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "Pharmacy benefits. For prescription coverage, pres...",
+        "pass": false,
+        "reason": "FAIL: Expected DTMF '*', got no DTMF"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "Main menu. For medical eligibility, press 1. For p...",
+        "pass": false,
+        "reason": "FAIL: Expected DTMF '1', got no DTMF"
+      },
+      {
+        "step": 8,
+        "menu_prompt": "Medical eligibility. Enter the member ID....",
+        "pass": true,
+        "reason": "PASS: Exact match (WDH492817365)"
+      },
+      {
+        "step": 9,
+        "menu_prompt": "Member found. Connecting you to an eligibility spe...",
+        "pass": true,
+        "reason": "PASS: Correct status (completed)"
+      }
+    ]
+  },
+  "notes": ""
+}

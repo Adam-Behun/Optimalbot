@@ -1,0 +1,19 @@
+{
+  "id": "29_2026-01-05_020415",
+  "scenario_id": "29",
+  "timestamp": "2026-01-05T02:04:15.736043",
+  "langfuse_trace_id": "f7ca45f3b35993f9ecff2cb08ad89208",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/f7ca45f3b35993f9ecff2cb08ad89208",
+  "input": {
+    "utterance": "One moment while I look up that information... I see you're calling about eligibility. Let me transfer you to the right department.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

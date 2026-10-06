@@ -1,0 +1,87 @@
+{
+  "id": "12_2025-12-23_234800",
+  "scenario_id": "12",
+  "timestamp": "2025-12-23T23:48:00.532735",
+  "langfuse_trace_id": "0f769cc177f8897aa049316b0b4b501c",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/0f769cc177f8897aa049316b0b4b501c",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot should recognize language barrier and transfer to front_desk for human assistance"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hello, do you have someone who speaks Spanish?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry, I didn't catch that. Could you repeat that?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Yes please. Someone Spanish. Thank you.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Let me transfer you to someone who can help with that.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Thank you.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 3
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "request_staff",
+        "args": {
+          "reason": "caller requested Spanish-speaking staff"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Staff Transfer",
+      "call_reason": "caller requested Spanish-speaking staff",
+      "routed_to": "Staff",
+      "resolution": ""
+    },
+    "turns": 3
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correctly transferred for language barrier"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Handled Spanish request appropriately"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct staff request for Spanish"
+      }
+    }
+  },
+  "notes": ""
+}

@@ -1,0 +1,45 @@
+SCENARIO: 2
+EXPECTED: Bot should ask which medication when generic name matches multiple prescriptions
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?
+
+PATIENT: Hi, I'm calling about my semaglutide prescription.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: Three one two, five five five, nine eight seven six.
+
+BOT: That's 312-555-9876, correct?
+
+PATIENT: Yes, that's right.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: November fifteenth, nineteen eighty-five.
+
+BOT: I see you have multiple medications on file:
+- Ozempic (0.5mg weekly)
+- Wegovy (2.4mg weekly)
+
+Which one are you calling about today? Are you referring to Ozempic or Wegovy?
+
+PATIENT: The Ozempic please.
+
+BOT: Your Ozempic 0.5mg weekly has been sent to Walgreens. You can reach them at (312) 555-9876 to check if it's ready for pickup.
+
+PATIENT: Perfect, thank you!
+
+BOT: Is there anything else I can help you with today?
+
+PATIENT: No, that's all. Goodbye!
+
+BOT: You're welcome! Thank you for calling Demo Clinic Alpha. Take care!
+
+PATIENT: Thank you! You too!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached end (equivalent to end)

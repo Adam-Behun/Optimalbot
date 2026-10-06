@@ -1,0 +1,10 @@
+SCENARIO: 16
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Hi there, I'm the Cigna digital assistant. I noticed you're calling from a provider's office. Are you calling about a patient's benefits?
+
+============================================================
+GRADE: PASS - Correct: IVR

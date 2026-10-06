@@ -1,0 +1,234 @@
+{
+  "id": "4_2025-12-24_000752",
+  "scenario_id": "4",
+  "timestamp": "2025-12-24T00:07:52.228231",
+  "langfuse_trace_id": "cc87d72ef0fefe457c0d2092ab1b948c",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/cc87d72ef0fefe457c0d2092ab1b948c",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not handle multiple unrelated intents with proper sequencing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I have a few things I need help with. I need to schedule my annual physical, I'm waiting on some blood work results from last Tuesday, and I got a bill I don't understand.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! Let's start with your annual physical. What date are you looking to schedule it for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Sure, let's go for next week. How about Tuesday or Wednesday?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with your annual physical scheduling, but it looks like our available slots right now are Thursday, December 25 at 9:00 AM or Friday, December 26 at 2:00 PM. Which works for you?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Actually, I think there might be a misunderstanding\u2014December 25 is a holiday. Can we look for a date earlier than that? Maybe next week instead?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I understand, but it seems those are the only available slots at the moment. If you'd like, I can transfer you to staff who may have more options for scheduling. Would you like me to do that?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "No, that's okay. Let's go with Friday, December 26 at 2:00 PM. Okay, that's booked. What about my lab results?",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Perfect! Now I just need a few details to complete your booking. To finalize your booking, could you please provide your first name?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Sure, it's Daniel. Now about my lab results? I need to check on those from last Tuesday.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks, Daniel! Now, can I get your last name, please?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "It's Harris. Now, can we check on my lab results? I really need to know how those came back.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Daniel Harris! Next, could you please provide your phone number?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Of course, it's 555-888-9999. Now, can we please check on those lab results?",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Thanks for providing your phone number! Now, could you share your date of birth?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "Sure, my date of birth is November 11, 1983. Now, about those lab results from last Tuesday\u2014what do they say?",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you for your date of birth, Daniel! Lastly, could you provide your email address?",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "Absolutely, my email is dharris@email.com. Now, can we check on those lab results?",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you! Let me confirm all the details. I've saved your information and will now check on your lab results from last Tuesday. Please hold on for a moment while I get that information for you.",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "Thank you, I appreciate it! I'll hold.",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 10
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 2,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "annual physical for next week, ALSO NEEDS: blood work results from last Tuesday, billing question"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "scheduling",
+        "function": "schedule_appointment",
+        "args": {
+          "appointment_date": "December 26, 2025",
+          "appointment_time": "2:00 PM"
+        }
+      },
+      {
+        "turn": 9,
+        "node": "collect_info",
+        "function": "save_patient_info",
+        "args": {
+          "first_name": "Daniel",
+          "last_name": "Harris",
+          "phone_number": "5558889999",
+          "date_of_birth": "November 11, 1983",
+          "email": "dharris@email.com"
+        }
+      },
+      {
+        "turn": 9,
+        "node": "confirmation",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "lab_results",
+          "reason": "checking on blood work results from last Tuesday"
+        }
+      },
+      {
+        "turn": 10,
+        "node": "verification",
+        "function": "verify_identity",
+        "args": {
+          "name": "Daniel Harris",
+          "date_of_birth": "November 11, 1983"
+        }
+      },
+      {
+        "turn": 10,
+        "node": "verification_failed",
+        "function": "request_staff",
+        "args": {
+          "reason": "checking on lab results for Daniel Harris from last Tuesday"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "annual physical for next week, ALSO NEEDS: blood work results from last Tuesday, billing question",
+      "routed_to": "lab_results (AI)",
+      "resolution": "",
+      "handed_off_to": "lab_results",
+      "patient_id": "",
+      "patient_name": "",
+      "first_name": "Daniel",
+      "last_name": "Harris",
+      "date_of_birth": "1983-11-11",
+      "phone_number": "5558889999",
+      "identity_verified": false,
+      "today": "December 24, 2025",
+      "available_slots": [
+        "Thursday, December 25 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "annual physical for next week",
+      "appointment_type": "New Patient",
+      "appointment_date": "2025-12-26",
+      "appointment_time": "14:00",
+      "email": "dharris@email.com",
+      "medical_record_number": "",
+      "test_type": "",
+      "test_date": "",
+      "ordering_physician": "",
+      "results_status": "",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "results_communicated": false,
+      "caller_anxious": false,
+      "transfer_reason": "checking on lab results for Daniel Harris from last Tuesday"
+    },
+    "turns": 10
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Ignored billing question completely; quality: FAIL: Bot ignored lab results repeatedly",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Ignored billing question completely"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Bot ignored lab results repeatedly"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing and function sequence"
+      }
+    }
+  },
+  "notes": ""
+}

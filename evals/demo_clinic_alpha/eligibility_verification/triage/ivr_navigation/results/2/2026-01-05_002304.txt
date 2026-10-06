@@ -1,0 +1,14 @@
+SCENARIO: 2
+DESCRIPTION: Trap: 'Eligibility' option leads to automated system, not human
+============================================================
+
+STEP 1:
+  Menu: For automated eligibility verification, press 1. For prior authorization status, press 2. To speak with a representative, press 0.
+  Expected: dtmf:0
+  Actual: <dtmf>0</dtmf>
+
+============================================================
+GRADE: PASS - PASS: All 1 steps correct
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct DTMF (0)

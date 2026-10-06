@@ -1,0 +1,111 @@
+{
+  "id": "1_2025-12-23_224544",
+  "scenario_id": "1",
+  "timestamp": "2025-12-23T22:45:44.666818",
+  "langfuse_trace_id": "fc9b9b5657a28d7d2fe53b23a99da4b9",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/fc9b9b5657a28d7d2fe53b23a99da4b9",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Context may be lost when handing off to scheduling workflow"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, this is Jessica Williams. I need to schedule a follow-up appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What's the follow-up for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's for my chronic lower back pain. I've been coming here for about three years for it.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I need to pull up your file first. Could you please provide the phone number associated with your account?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Sure, my phone number is 555-333-4444.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.",
+        "turn": 3
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 2,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "follow-up appointment for chronic lower back pain, returning patient Jessica Williams"
+        }
+      },
+      {
+        "turn": 3,
+        "node": "returning_patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5553334444"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "follow-up appointment for chronic lower back pain, returning patient Jessica Williams",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "handed_off_to": "scheduling",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "phone_number": "",
+      "identity_verified": false,
+      "today": "December 23, 2025",
+      "available_slots": [
+        "Wednesday, December 24 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "follow-up appointment for chronic lower back pain",
+      "appointment_type": "Returning Patient"
+    },
+    "turns": 3
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correct routing with preserved context"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversation, addressed request appropriately."
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing and lookup sequence"
+      }
+    }
+  },
+  "notes": ""
+}

@@ -1,0 +1,295 @@
+{
+  "id": "21_2026-01-05_020355",
+  "scenario_id": "21",
+  "timestamp": "2026-01-05T02:03:55.927748",
+  "langfuse_trace_id": "f8c9eeb42d4bbb92a465cacdab7305aa",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/f8c9eeb42d4bbb92a465cacdab7305aa",
+  "input": {
+    "description": "Aetna: Full provider auth with NPI, Tax ID, and verbal confirmation",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling Aetna. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Are you a healthcare provider? Press 1 for yes, press 2 for no.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "To verify your identity, please enter your 10-digit NPI number followed by the pound key.",
+        "expected_action": "dtmf_sequence:1928374650#"
+      },
+      {
+        "menu_prompt": "Thank you. Now please enter your 9-digit Tax ID number.",
+        "expected_action": "dtmf_sequence:847291035"
+      },
+      {
+        "menu_prompt": "I found your provider record. You are registered as Westbrook Family Medicine. Is that correct? Press 1 for yes, press 2 for no.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "For eligibility verification, press 1. For prior authorization, press 2. For claims, press 3.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Please enter the member ID number from the insurance card.",
+        "expected_action": "speak:WDH492817365"
+      },
+      {
+        "menu_prompt": "Member found. For real-time benefits, press 1. To speak with a representative, press 2.",
+        "expected_action": "dtmf:2"
+      },
+      {
+        "menu_prompt": "Please hold for the next available eligibility specialist.",
+        "expected_action": "status:wait"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling Aetna. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Select English",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "Are you a healthcare provider? Press 1 for yes, press 2 for no.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "We are a healthcare provider",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "To verify your identity, please enter your 10-digit NPI number followed by the pound key.",
+        "expected_action": "dtmf_sequence:1928374650#",
+        "actual_response": "<dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf><dtmf>#</dtmf>",
+        "reasoning": "Enter NPI 1928374650 with pound terminator",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "1",
+        "event_matched": false
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "Thank you. Now please enter your 9-digit Tax ID number.",
+        "expected_action": "dtmf_sequence:847291035",
+        "actual_response": "<dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf>",
+        "reasoning": "Enter Tax ID digits only (84-7291035 \u2192 847291035)",
+        "expected_event": null,
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": null,
+        "actual_arg": "8",
+        "event_matched": false
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "I found your provider record. You are registered as Westbrook Family Medicine. Is that correct? Press 1 for yes, press 2 for no.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Confirm facility name is correct",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "For eligibility verification, press 1. For prior authorization, press 2. For claims, press 3.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Select eligibility verification",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "Please enter the member ID number from the insurance card.",
+        "expected_action": "speak:WDH492817365",
+        "actual_response": "WDH492817365",
+        "reasoning": "Member ID contains letters - must speak it verbally (DTMF only supports digits)",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 8,
+        "menu_prompt": "Member found. For real-time benefits, press 1. To speak with a representative, press 2.",
+        "expected_action": "dtmf:2",
+        "actual_response": "<dtmf>2</dtmf>",
+        "reasoning": "Need representative for complex verification",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "2",
+        "actual_arg": "2",
+        "event_matched": true
+      },
+      {
+        "step_number": 9,
+        "menu_prompt": "Please hold for the next available eligibility specialist.",
+        "expected_action": "status:wait",
+        "actual_response": "<ivr>wait</ivr>",
+        "reasoning": "Still on hold - wait for human to answer",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling Aetna. For English, press 1. Para espa\u00f1ol, oprima 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Are you a healthcare provider? Press 1 for yes, press 2 for no."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "To verify your identity, please enter your 10-digit NPI number followed by the pound key."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf><dtmf>#</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you. Now please enter your 9-digit Tax ID number."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "I found your provider record. You are registered as Westbrook Family Medicine. Is that correct? Press 1 for yes, press 2 for no."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "For eligibility verification, press 1. For prior authorization, press 2. For claims, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please enter the member ID number from the insurance card."
+      },
+      {
+        "role": "assistant",
+        "content": "WDH492817365"
+      },
+      {
+        "role": "user",
+        "content": "Member found. For real-time benefits, press 1. To speak with a representative, press 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>2</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please hold for the next available eligibility specialist."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>wait</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All 9 steps correct",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling Aetna. For English, press 1....",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "Are you a healthcare provider? Press 1 for yes, pr...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "To verify your identity, please enter your 10-digi...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF sequence (1928374650#)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "Thank you. Now please enter your 9-digit Tax ID nu...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF sequence (847291035)"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "I found your provider record. You are registered a...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "For eligibility verification, press 1. For prior a...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "Please enter the member ID number from the insuran...",
+        "pass": true,
+        "reason": "PASS: Exact match (WDH492817365)"
+      },
+      {
+        "step": 8,
+        "menu_prompt": "Member found. For real-time benefits, press 1. To ...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (2)"
+      },
+      {
+        "step": 9,
+        "menu_prompt": "Please hold for the next available eligibility spe...",
+        "pass": true,
+        "reason": "PASS: Correct status (wait)"
+      }
+    ]
+  },
+  "notes": ""
+}

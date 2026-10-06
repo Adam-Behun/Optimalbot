@@ -1,0 +1,7 @@
+# Extend the default rules. .secrets.baseline stores SHA-1 hashes of known
+# false positives for detect-secrets, which gitleaks mistakes for API keys.
+[extend]
+useDefault = true
+
+[allowlist]
+paths = ['''^\.secrets\.baseline$''']

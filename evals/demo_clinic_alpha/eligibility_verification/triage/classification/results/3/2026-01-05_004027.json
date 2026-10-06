@@ -1,0 +1,19 @@
+{
+  "id": "3_2026-01-05_004027",
+  "scenario_id": "3",
+  "timestamp": "2026-01-05T00:40:27.760949",
+  "langfuse_trace_id": "19d0a0d77bc4f82a5240c619eb6bed7c",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/19d0a0d77bc4f82a5240c619eb6bed7c",
+  "input": {
+    "utterance": "Hi there! I'm your virtual assistant. What can I help you with today?",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": false,
+    "reason": "Expected IVR, got CONVERSATION"
+  },
+  "notes": ""
+}

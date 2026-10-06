@@ -1,0 +1,10 @@
+SCENARIO: 12
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+One moment please while I look that up for you... I found your account. Press 1 to confirm.
+
+============================================================
+GRADE: PASS - Correct: IVR

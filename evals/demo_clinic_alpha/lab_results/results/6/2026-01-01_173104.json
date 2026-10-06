@@ -1,0 +1,120 @@
+{
+  "id": "6_2026-01-01_173104",
+  "scenario_id": "6",
+  "timestamp": "2026-01-01T17:31:04.610282",
+  "langfuse_trace_id": "98b8236b3f73c9786eb69fb163c51629",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/98b8236b3f73c9786eb69fb163c51629",
+  "input": {
+    "target_node": "transfer_initiated",
+    "expected_problem": "Bot should detect emergency and transfer immediately",
+    "patient": {
+      "_id": "6956f59dd315c783802cea17",
+      "patient_id": "6956f59dd315c783802cea17",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "lab_results",
+      "call_status": "Not Started",
+      "patient_name": "Test Emergency",
+      "date_of_birth": "1980-01-01",
+      "phone_number": "5550001111",
+      "test_type": "",
+      "results_status": "",
+      "first_name": "Test",
+      "last_name": "Emergency",
+      "created_at": "2026-01-01T22:30:53.747437+00:00",
+      "updated_at": "2026-01-01T22:30:53.747437+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Demo Clinic Alpha laboratory results. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "I'm calling about my test results but I'm having severe chest pains right now and I can't breathe properly.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 1
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_other",
+        "args": {}
+      },
+      {
+        "turn": 1,
+        "node": "other_requests",
+        "function": "request_staff",
+        "args": {
+          "reason": "urgent"
+        }
+      }
+    ],
+    "final_state": {
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "phone_number": "",
+      "identity_verified": false,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 0,
+      "anything_else_count": 0,
+      "test_type": "",
+      "test_date": "",
+      "ordering_physician": "",
+      "results_status": "",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "callback_confirmed": false,
+      "results_communicated": false
+    },
+    "final_node": "transfer_pending",
+    "db_state": {
+      "identity_verified": false,
+      "results_communicated": false,
+      "callback_confirmed": false,
+      "call_status": "Not Started",
+      "caller_phone_number": ""
+    },
+    "turns": 1
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: Emergency transfer, no results shared"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Appropriate emergency transfer handling"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correctly requested staff for urgent"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached transfer_pending (transferred to staff)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: No DB state assertions"
+      }
+    }
+  },
+  "notes": ""
+}

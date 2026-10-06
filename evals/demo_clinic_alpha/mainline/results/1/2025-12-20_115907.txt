@@ -1,0 +1,14 @@
+SCENARIO: 1
+EXPECTED: Context may be lost when handing off to scheduling workflow
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I need to schedule a follow-up appointment.
+
+MONICA: Sure, I can help you with that. Let me get you to the scheduling team.
+
+CALLER: Thank you!
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Missing patient identification before routing

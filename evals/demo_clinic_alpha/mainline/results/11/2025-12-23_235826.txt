@@ -1,0 +1,32 @@
+SCENARIO: 11
+EXPECTED: Bot may not properly handle medical urgency signals during routing
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, Monica. My doctor left a message saying to call about my test results as soon as possible. I'm really not sure what's going on, and I'm feeling a bit worried.
+
+MONICA: I can help you check on that. What type of test was it?
+
+CALLER: I think it was blood work? I had a bunch of tests done. She just said to call right away about the results.
+
+MONICA: I understand, that sounds concerning. Let me get you to someone who can look that up for you. 
+
+CALLER: Thank you, I really appreciate it. Can you please check soon? The way she said "as soon as possible" has me really worried. Doctors don't usually say that, do they?
+
+MONICA: Can I have your full name?
+
+CALLER: Sure, it's Patricia Garcia.
+
+MONICA: Thanks, Patricia. And what is your date of birth?
+
+CALLER: My date of birth is June 5, 1965.
+
+MONICA: I'm sorry, I wasn't able to verify your identity. Let me connect you with someone who can help.
+
+CALLER: Okay, but please understand I'm worried. Can you check quickly? My doctor said it was urgent, and I'm really anxious about it.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

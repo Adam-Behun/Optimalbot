@@ -1,0 +1,71 @@
+{
+  "id": "6_2025-12-22_161446",
+  "scenario_id": "6",
+  "timestamp": "2025-12-22T16:14:46.690756",
+  "langfuse_trace_id": "ad66d82e17c060263021da7311c0622b",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/ad66d82e17c060263021da7311c0622b",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not de-escalate and transfer appropriately for persistent human requests; also tests transfer failure recovery"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I need to speak with someone at the front desk please.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 1
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "request_staff",
+        "args": {
+          "department": "front_desk",
+          "patient_confirmed": true,
+          "reason": "caller requested human"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Front Desk",
+      "call_reason": "caller requested human",
+      "routed_to": "Front Desk (staff)",
+      "resolution": "",
+      "pending_department": "front_desk",
+      "transfer_reason": "caller requested human"
+    },
+    "turns": 1
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correct transfer with context"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural, brief, handled request properly"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct staff routing function used"
+      }
+    }
+  },
+  "notes": ""
+}

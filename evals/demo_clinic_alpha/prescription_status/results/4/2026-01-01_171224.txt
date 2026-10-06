@@ -1,0 +1,39 @@
+SCENARIO: 4
+EXPECTED: Bot should offer to submit refill and confirm when patient agrees
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?
+
+PATIENT: Hi, I need to refill my Synthroid.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: Four one five, five five five, seven eight nine zero.
+
+BOT: That's 415-555-7890, correct?
+
+PATIENT: Correct.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: July twenty-second, nineteen ninety.
+
+BOT: You have 4 refills remaining for your Synthroid 50mcg daily. Would you like me to send one to CVS Pharmacy?
+
+PATIENT: Yes please, send it to CVS.
+
+BOT: I've submitted the refill request to CVS Pharmacy. They should have it ready within 2 to 4 hours. Is there anything else I can help you with today?
+
+PATIENT: Thank you so much!
+
+BOT: Got it.
+
+PATIENT: Nope, that's everything. Thanks again!
+
+BOT: Take care!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached end (equivalent to end)

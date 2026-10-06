@@ -1,0 +1,143 @@
+{
+  "id": "1_2025-12-20_122805",
+  "scenario_id": "1",
+  "timestamp": "2025-12-20T12:28:05.347455",
+  "langfuse_trace_id": "f19c5e1715597da52e39528041aa15ce",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/f19c5e1715597da52e39528041aa15ce",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Context may be lost when handing off to scheduling workflow"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I need to schedule a follow-up appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What's the follow-up for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's for my chronic lower back pain. I've been coming here for about three years for it.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, a follow-up for chronic lower back pain. Let me get that scheduled for you.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Actually, I\u2019d like to see Dr. Chen if possible \u2013 she's been treating me.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! This is Monica from Demo Clinic Alpha. How can I help you?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I need to schedule a follow-up appointment.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with that! Have you been here before, or are you a new patient?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "I'm a returning patient. Like I said, I've been coming here for three years for my chronic lower back pain.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Great! Since you\u2019re a returning patient, I\u2019ll need to pull up your file. Could you please provide the phone number associated with your account?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Sure! My phone number is 555-333-4444.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.",
+        "turn": 6
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "follow-up for chronic lower back pain, prefers Dr. Chen, returning patient"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "greeting",
+        "function": "set_returning_patient",
+        "args": {
+          "visit_reason": "chronic lower back pain"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "returning_patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5553334444"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "follow-up for chronic lower back pain, prefers Dr. Chen, returning patient",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "today": "December 20, 2025",
+      "available_slots": [
+        "Sunday, December 21 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "chronic lower back pain",
+      "appointment_type": "Returning Patient",
+      "handed_off_to": "scheduling"
+    },
+    "turns": 6
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Context lost during workflow handoff; quality: FAIL: Bot repeated greeting unnecessarily mid-conversation",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Context lost during workflow handoff"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Bot repeated greeting unnecessarily mid-conversation"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct scheduling workflow routing"
+      }
+    }
+  },
+  "notes": ""
+}

@@ -1,0 +1,19 @@
+{
+  "id": "14_2026-01-05_013831",
+  "scenario_id": "14",
+  "timestamp": "2026-01-05T01:38:31.198286",
+  "langfuse_trace_id": "dd248caddb4b6472ed997990c0bcbc70",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/dd248caddb4b6472ed997990c0bcbc70",
+  "input": {
+    "utterance": "Leave a message.",
+    "expected_classification": "VOICEMAIL"
+  },
+  "output": {
+    "actual_classification": "VOICEMAIL"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: VOICEMAIL"
+  },
+  "notes": ""
+}

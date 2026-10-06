@@ -1,0 +1,10 @@
+SCENARIO: 20
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Thank you for calling provider services. This call may be recorded. Please hold while we connect you to the next available representative.
+
+============================================================
+GRADE: PASS - Correct: IVR

@@ -1,0 +1,70 @@
+{
+  "id": "6_2025-12-22_161103",
+  "scenario_id": "6",
+  "timestamp": "2025-12-22T16:11:03.976984",
+  "langfuse_trace_id": "943364a7bcc4cd998515a8514f5d8636",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/943364a7bcc4cd998515a8514f5d8636",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not de-escalate and transfer appropriately for persistent human requests; also tests transfer failure recovery"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I need to speak with someone at the front desk please.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 1
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "request_staff",
+        "args": {
+          "department": "front_desk",
+          "patient_confirmed": true
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Front Desk",
+      "call_reason": "",
+      "routed_to": "Front Desk (staff)",
+      "resolution": "",
+      "pending_department": "front_desk",
+      "transfer_reason": ""
+    },
+    "turns": 1
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Missing context in handoff details",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Missing context in handoff details"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural, appropriate, addressed request properly"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct staff routing function used"
+      }
+    }
+  },
+  "notes": ""
+}

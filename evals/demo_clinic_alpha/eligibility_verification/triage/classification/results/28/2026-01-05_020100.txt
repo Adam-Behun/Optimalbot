@@ -1,0 +1,10 @@
+SCENARIO: 28
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+I'll need to verify your identity. Can you confirm your provider's Tax ID number?
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

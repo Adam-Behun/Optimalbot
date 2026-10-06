@@ -1,0 +1,10 @@
+SCENARIO: 7
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Yes
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

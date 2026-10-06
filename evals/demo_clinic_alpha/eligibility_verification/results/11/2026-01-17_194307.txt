@@ -1,0 +1,100 @@
+SCENARIO: 11
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Thank you for calling provider services. My name is Eliza. May I have your first name and the initial of your last name?
+
+MONICA: Hi, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith.
+
+INSURANCE: Thank you, Alex. And how about the facility's name and the street address?
+
+MONICA: The facility's name is Example Sleep Clinic. I don't have the street address available.
+
+INSURANCE: That's okay. How about the tax ID?
+
+MONICA: The tax ID is 82-1234567.
+
+INSURANCE: Thank you. How about the member's name?
+
+MONICA: The member's name is John Smith, and his date of birth is March 15, 1985.
+
+INSURANCE: Thank you. May I know how we can assist you today?
+
+MONICA: I'm calling to verify insurance eligibility for John Smith.
+
+INSURANCE: Sure! Let me check that for you. 
+
+First, I can confirm that this facility is in network. 
+
+What type of plan does John have? 
+
+MONICA: What type of plan does John have?
+
+INSURANCE: John has a POS plan. 
+
+Is there anything else you'd like to verify?
+
+MONICA: Yes, could you please provide the effective date of the plan?
+
+INSURANCE: The effective date of the plan is oh one oh one twenty twenty five. 
+
+Is there a termination date for this plan?
+
+MONICA: Is there a termination date for this plan?
+
+INSURANCE: No future termination date yet. 
+
+Now, do you need information about CPT coverage?
+
+MONICA: Yes, please provide the CPT coverage details for the service.
+
+INSURANCE: Let me check that. May I know when is the date of service?
+
+MONICA: The date of service is not yet determined. Can you use today's date?
+
+INSURANCE: So, is it fine then that I'll just use today's date in checking the benefit? And how about the place of service?
+
+MONICA: Yes, using today's date is fine, and the place of service is home.
+
+INSURANCE: Okay. Let me go ahead and check here now the benefit of this code. Let me work here in silence for two to three minutes. And if you have any further questions, just call my attention. Okay?
+
+MONICA: Understood, I'll wait.
+
+INSURANCE: Thank you very much for patiently waiting on the line. So, yeah, I already have checked right now the benefits of this code. The code 95800 is valid and billable. And for the benefit, that is a fifty dollar copay per service. The annual deductible does not apply.
+
+Do you have any questions about coinsurance, prior authorization, or telehealth coverage?
+
+MONICA: Yes, could you please provide information on coinsurance, whether prior authorization is required, and if telehealth is covered for this service?
+
+INSURANCE: Sure! 
+
+- There is no coinsurance for this service.
+- Prior authorization is not required.
+- Telehealth is covered as well, with the same benefit, as long as the platform is HIPAA compliant.
+
+Is there anything else you'd like to know?
+
+MONICA: I would like to verify how much of the family deductible has been met.
+
+INSURANCE: That is five hundred dollars, and it has been met or satisfied. Would you like to know how much of the family out-of-pocket maximum has been met as well?
+
+MONICA: Yes, please provide how much of the family out-of-pocket maximum has been met.
+
+INSURANCE: For family, that is six thousand dollars for the out-of-pocket maximum. And the amount that has been met is one thousand one hundred seventy dollars and seventy four cents. 
+
+Is there anything else you need?
+
+MONICA: No, I have all the information I need. May I have a reference number for this call?
+
+INSURANCE: The reference number is UHC-EV-2025-789456. 
+
+You're welcome! Thank you for calling, and have a lovely day ahead. Bye bye!
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: You're welcome! Goodbye!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

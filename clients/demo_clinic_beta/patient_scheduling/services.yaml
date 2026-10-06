@@ -1,0 +1,41 @@
+call_type: "dial-in"
+
+services:
+  stt:
+    api_key: ${DEEPGRAM_API_KEY}
+    model: flux-general-en
+    eager_eot_threshold: 0.40  # Very aggressive eager detection
+    eot_threshold: 0.50        # Fast end-of-turn confirmation
+    eot_timeout_ms: 1200       # Short max wait (was 2500)
+    keyterm: ["Monica", "appointment", "cleaning", "checkup", "toothache", "cavity", "filling", "whitening", "crown", "extraction"]
+# https://developers.deepgram.com/docs/keyterm
+
+  llm:
+    provider: openai
+    model: gpt-4o-mini
+    temperature: 0.4
+    api_key: ${OPENAI_API_KEY}
+    max_tokens: 128
+    service_tier: priority
+
+  tts:
+    provider: cartesia
+    model: sonic-3-2025-10-27
+    voice_id: f786b574-daa5-4673-aa0c-cbe3e8534c02 #829ccd10-f8b3-43cd-b8a0-4aeaa81f3b30
+    api_key: ${CARTESIA_API_KEY}
+    generation_config:
+      speed: 1.0
+      volume: 1.0
+      emotion: neutral
+    aggregate_sentences: true  # Keep enabled - word-by-word is terrible
+
+  transport:
+    provider: daily
+    api_key: ${DAILY_API_KEY}
+    phone_number_id: ${DAILY_PHONE_NUMBER_ID}
+    enable_echo_cancellation: true
+    audio_in_sample_rate: 16000
+    audio_out_sample_rate: 24000
+
+cold_transfer:
+  staff_number: "+15555550144"

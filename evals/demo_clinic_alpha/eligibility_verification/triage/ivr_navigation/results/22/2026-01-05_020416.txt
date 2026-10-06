@@ -1,0 +1,56 @@
+SCENARIO: 22
+DESCRIPTION: BCBS: Conversational AI with verbal responses and NPI entry
+============================================================
+
+STEP 1:
+  Menu: Hello! I'm the Blue Cross virtual assistant. I can help you check eligibility or connect you with a representative. What would you like to do today?
+  Expected: speak:eligibility
+  Actual: Health care professional.
+
+STEP 2:
+  Menu: I can help with eligibility. First, what facility are you calling from?
+  Expected: speak:Westbrook Family Medicine
+  Actual: Westbrook Family Medicine.
+
+STEP 3:
+  Menu: Thank you. And may I have your name?
+  Expected: speak:Maria Chen
+  Actual: Maria Chen.
+
+STEP 4:
+  Menu: Got it, Maria. For security, please enter your 10-digit NPI number.
+  Expected: dtmf_sequence:1928374650
+  Actual: <dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf>
+
+STEP 5:
+  Menu: Perfect. What is the patient's name you're calling about?
+  Expected: speak:Robert Martinez
+  Actual: Robert Martinez.
+
+STEP 6:
+  Menu: And the patient's date of birth? Please enter it as month, day, year using the keypad.
+  Expected: dtmf_sequence:07141982
+  Actual: <dtmf>0</dtmf><dtmf>7</dtmf><dtmf>1</dtmf><dtmf>4</dtmf><dtmf>1</dtmf><dtmf>9</dtmf><dtmf>8</dtmf><dtmf>2</dtmf>
+
+STEP 7:
+  Menu: I found Robert Martinez in our system. The plan is active. Would you like me to transfer you to an eligibility specialist for detailed benefits? Press 1 for yes, press 2 for no.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 8:
+  Menu: Transferring you now. Please hold.
+  Expected: status:completed
+  Actual: <ivr>wait</ivr>
+
+============================================================
+GRADE: FAIL - FAIL: 2/8 steps failed
+
+STEP GRADES:
+  Step 1: FAIL - FAIL: Expected 'eligibility' not found in 'Health care professional.'
+  Step 2: PASS - PASS: Contains expected value (Westbrook Family Medicine)
+  Step 3: PASS - PASS: Contains expected value (Maria Chen)
+  Step 4: PASS - PASS: Correct DTMF sequence (1928374650)
+  Step 5: PASS - PASS: Contains expected value (Robert Martinez)
+  Step 6: PASS - PASS: Correct DTMF sequence (07141982)
+  Step 7: PASS - PASS: Correct DTMF (1)
+  Step 8: FAIL - FAIL: Expected status 'completed', got 'wait'

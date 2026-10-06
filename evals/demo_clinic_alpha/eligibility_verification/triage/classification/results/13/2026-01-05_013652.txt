@@ -1,0 +1,10 @@
+SCENARIO: 13
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+[Background noise] Hello? [cough] Sorry, provider services.
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

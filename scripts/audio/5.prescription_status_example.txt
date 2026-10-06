@@ -1,0 +1,267 @@
+PRESCRIPTION STATUS INQUIRY CALL - EXAMPLE TRANSCRIPT
+Clinic: Bright Smile Dental
+Workflow: Inbound Prescription Refill Inquiry
+
+================================================================================
+SECTION 1: GREETING AND IDENTITY VERIFICATION
+================================================================================
+
+[Phone rings]
+
+[AI Agent]
+Thank you for calling Bright Smile Dental. This is Jamie. How can I help you today?
+
+[Patient - Robert]
+Hi, I need to check on a prescription refill.
+
+[AI Agent]
+I can help you with that. For your privacy and security, I need to verify your identity first. May I have your full name?
+
+[Patient - Robert]
+Robert Thompson.
+
+[AI Agent]
+Thank you, Robert. And what is your date of birth?
+
+[Patient - Robert]
+July 8th, 1965.
+
+[AI Agent]
+Thank you. One moment while I look up your records.
+
+[AI Agent]
+I found your record. Just to confirm, is this the phone number ending in 7891?
+
+[Patient - Robert]
+Yes, that's correct.
+
+[AI Agent]
+Perfect. I've verified your identity. Which medication are you calling about today?
+
+================================================================================
+SECTION 2: PRESCRIPTION STATUS - REFILLS AVAILABLE
+================================================================================
+
+[Patient - Robert]
+I need a refill on my Chlorhexidine mouth rinse.
+
+[AI Agent]
+Let me look that up for you. I can see you have a prescription for Chlorhexidine Gluconate 0.12% oral rinse, prescribed by Dr. Michael Park.
+
+[Patient - Robert]
+Yes, that's the one.
+
+[AI Agent]
+Good news. You have 2 refills remaining on this prescription. The last time it was filled was November 15th, 2025. You're eligible for a refill now. Would you like me to send the refill to your pharmacy?
+
+[Patient - Robert]
+Yes, please.
+
+[AI Agent]
+I have your pharmacy on file as Walgreens on Oak Street. Is that still your preferred pharmacy?
+
+[Patient - Robert]
+Actually, can you send it to the CVS on Main Street instead?
+
+[AI Agent]
+I can update that for you. Do you have the phone number or address for the CVS on Main Street?
+
+[Patient - Robert]
+It's 555-234-5678.
+
+[AI Agent]
+Thank you. I've updated your pharmacy to CVS on Main Street. The refill request has been submitted. Your pharmacy should have it ready within 2 to 4 hours. Is there anything else I can help you with?
+
+[Patient - Robert]
+No, that's everything. Thank you.
+
+[AI Agent]
+You're welcome, Robert. Thank you for calling Bright Smile Dental. Have a great day.
+
+================================================================================
+SECTION 3: ALTERNATIVE SCENARIO - NO REFILLS REMAINING
+================================================================================
+
+[AI Agent]
+Let me look that up for you. I can see you have a prescription for Chlorhexidine Gluconate 0.12% oral rinse, prescribed by Dr. Michael Park.
+
+[Patient - Robert]
+Right, I need more of that.
+
+[AI Agent]
+I see that this prescription has no refills remaining. The last refill was on November 15th, 2025. To get more, Dr. Park will need to authorize a new prescription.
+
+[Patient - Robert]
+Oh, okay. How do I do that?
+
+[AI Agent]
+I can submit a refill request to Dr. Park's office for review. He'll evaluate whether a renewal is appropriate and, if approved, send a new prescription to your pharmacy. This typically takes 1 to 2 business days. Would you like me to submit that request?
+
+[Patient - Robert]
+Yes, please do that.
+
+[AI Agent]
+I've submitted the refill request to Dr. Park for review. Your pharmacy on file is Walgreens on Oak Street at 555-123-4567. Once approved, the prescription will be sent there. Is that the correct pharmacy?
+
+[Patient - Robert]
+Yes, that's fine.
+
+[AI Agent]
+You should hear back within 1 to 2 business days. If you don't receive a call from the pharmacy by then, please contact our office. Is there anything else I can help you with?
+
+[Patient - Robert]
+No, that's all. Thanks.
+
+[AI Agent]
+You're welcome. Thank you for calling Bright Smile Dental.
+
+================================================================================
+SECTION 4: ALTERNATIVE SCENARIO - TOO EARLY TO REFILL
+================================================================================
+
+[AI Agent]
+Let me look that up for you. I can see you have a prescription for Chlorhexidine Gluconate 0.12% oral rinse, prescribed by Dr. Michael Park. You have 2 refills remaining.
+
+[Patient - Robert]
+Great, can I get a refill?
+
+[AI Agent]
+I see that this prescription was last filled on December 10th, 2025. Based on the supply, it's a bit early for a refill. The next eligible refill date is January 8th, 2026.
+
+[Patient - Robert]
+Oh, I thought I was running low. When did you say I can refill it?
+
+[AI Agent]
+You'll be eligible for a refill on January 8th, 2026. That's about 3 weeks from now. If you believe you're running out sooner than expected, I can make a note for Dr. Park's office to review.
+
+[Patient - Robert]
+No, I think I miscounted. January 8th works.
+
+[AI Agent]
+Understood. Would you like me to set a reminder for the refill, or would you prefer to call back when you're ready?
+
+[Patient - Robert]
+I'll just call back. Thanks.
+
+[AI Agent]
+Sounds good. Is there anything else I can help you with today?
+
+[Patient - Robert]
+No, that's it.
+
+[AI Agent]
+Thank you for calling Bright Smile Dental. Take care.
+
+================================================================================
+SECTION 5: ALTERNATIVE SCENARIO - MULTIPLE PRESCRIPTIONS
+================================================================================
+
+[AI Agent]
+I can help you with that. I see you have multiple active prescriptions on file. Which medication are you calling about?
+
+[Patient - Robert]
+I'm not sure of the exact name. It's the antibiotic I was given after my tooth extraction.
+
+[AI Agent]
+I can see you have Amoxicillin 500mg, which was prescribed by Dr. Michael Park on December 5th, 2025, following your extraction. Is that the one?
+
+[Patient - Robert]
+Yes, that's it.
+
+[AI Agent]
+That prescription was for a 7-day course with no refills, which is standard for post-procedure antibiotics. The prescription has been completed. Are you experiencing any issues that make you feel you need more?
+
+[Patient - Robert]
+No, I was just checking. I finished the bottle.
+
+[AI Agent]
+That's good to hear. If you have any concerns about healing, I'd recommend scheduling a follow-up with Dr. Park. Is there anything else I can help you with?
+
+[Patient - Robert]
+Actually, while I have you, can you also check on my fluoride rinse?
+
+[AI Agent]
+Of course. I see you also have a prescription for Sodium Fluoride 0.2% rinse, prescribed by Dr. Park. You have 3 refills remaining. It was last filled on October 20th, 2025. Would you like to request a refill?
+
+[Patient - Robert]
+Yes, please.
+
+[AI Agent]
+I've submitted the refill request to Walgreens on Oak Street. It should be ready within 2 to 4 hours. Is there anything else?
+
+[Patient - Robert]
+No, that's perfect. Thank you.
+
+[AI Agent]
+You're welcome, Robert. Thank you for calling Bright Smile Dental. Have a great day.
+
+================================================================================
+SUMMARY OF FIELDS USED
+================================================================================
+
+PATIENT IDENTIFICATION (verified during call):
+- Patient Name: Robert Thompson
+- Date of Birth: 07/08/1965
+- Phone Number: (xxx) xxx-7891
+- Medical Record Number: [used internally for lookup]
+
+PRESCRIPTION RECORD (from database):
+- Medication Name: Chlorhexidine Gluconate 0.12% oral rinse
+- Dosage: 0.12% (15mL twice daily)
+- Prescribing Physician: Dr. Michael Park
+- Refill Status: "Active" | "Pending Approval" | "Expired" | "Too Early"
+- Refills Remaining: 2
+- Last Filled Date: 11/15/2025
+- Next Refill Date: 12/15/2025
+
+PHARMACY (from database):
+- Pharmacy Name: Walgreens (updated to CVS)
+- Pharmacy Phone: 555-123-4567 (updated to 555-234-5678)
+- Pharmacy Address: Oak Street (updated to Main Street)
+
+CALL OUTCOME (recorded during call):
+- Identity Verified: True
+- Status Communicated: True
+- Refill Requested: True
+- Call Status: Completed
+- Caller Phone Number: [captured from incoming call]
+- Created At: [timestamp]
+- Updated At: [timestamp]
+
+================================================================================
+SUGGESTED ADDITIONAL FIELDS FOR PRESCRIPTION WORKFLOWS
+================================================================================
+
+The following fields would enhance this workflow:
+
+1. prescription_type (string)
+   - Example: "Antibiotic", "Pain Management", "Oral Rinse", "Fluoride"
+   - Helps categorize and apply appropriate handling rules
+
+2. controlled_substance (boolean)
+   - Indicates if medication requires stricter refill protocols
+   - Affects whether phone refills are allowed
+
+3. days_supply (number)
+   - Example: 30, 90
+   - Used to calculate next_refill_date and detect early refill attempts
+
+4. original_prescription_date (date)
+   - When the prescription was first written
+   - Helps determine if prescription has expired (typically 1 year)
+
+5. prescription_expiration_date (date)
+   - When the prescription itself expires (not just refills)
+   - After this date, provider must write new prescription
+
+6. prior_authorization_required (boolean)
+   - Some medications require insurance pre-approval
+   - Affects refill processing time
+
+7. pharmacy_preference_updated (boolean)
+   - Track if patient changed pharmacy during call
+   - Useful for updating records
+
+8. refill_request_notes (string)
+   - Any special instructions or reasons for early refill
+   - Passed to provider for review

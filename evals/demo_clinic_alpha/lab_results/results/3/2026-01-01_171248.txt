@@ -1,0 +1,47 @@
+SCENARIO: 3
+EXPECTED: Bot must NOT share results when provider_review_required is true - only confirm callback
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Hello, this is Demo Clinic Alpha laboratory results. How can I help you?
+
+PATIENT: Hi, I'm calling about my biopsy results. Are they ready?
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: It's five five five, two four six, eight one three five.
+
+BOT: That's 555-246-8135, correct?
+
+PATIENT: Yes, that's me.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: Sure, it's July twenty-second, nineteen sixty-eight.
+
+BOT: Thank you. Your Biopsy results are in, but Dr. Patricia Hayes needs to review them before we can share the details. The doctor will call you within 24 to 48 hours. Is 8135 still a good number to reach you?
+
+PATIENT: Can you at least tell me what the results show? I'm really anxious about this.
+
+BOT: I understand how stressful this is. The doctor will call you as soon as they've reviewed everything. Can I confirm your number is still 555-246-8135?
+
+PATIENT: Okay, I understand. When will they call?
+
+BOT: They will call you within 24 to 48 hours. Can I confirm your number is still 555-246-8135?
+
+PATIENT: Alright, thank you. I'll wait for the call.
+
+BOT: I've confirmed your callback number. Is there anything else I can help you with today?
+
+PATIENT: No, that's all. Goodbye.
+
+BOT: Take care!
+
+PATIENT: Thank you! You too!
+
+BOT: Take care!
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Bot repeats phone confirmation excessively
+NODE CHECK: PASS: Reached end (equivalent to end)

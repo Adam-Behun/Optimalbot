@@ -1,0 +1,14 @@
+SCENARIO: 1
+DESCRIPTION: Trap: 'Member eligibility' vs need for provider eligibility
+============================================================
+
+STEP 1:
+  Menu: For member eligibility and benefits, press 1. For claims, press 2. For pharmacy, press 3. To speak with an operator, press 0.
+  Expected: dtmf:0
+  Actual: <dtmf>1</dtmf>
+
+============================================================
+GRADE: FAIL - FAIL: 1/1 steps failed
+
+STEP GRADES:
+  Step 1: FAIL - FAIL: Pressed 1 for member eligibility which is for patients checking their own benefits, not for providers needing provider services

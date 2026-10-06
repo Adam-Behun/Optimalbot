@@ -1,0 +1,123 @@
+# Bot ignore file (for Dockerfile.bot)
+# Used by: deploy.sh
+#
+# REQUIRED FILES (do NOT add these to ignore):
+#   - pyproject.bot.toml (dependency specification)
+#   - uv.bot.lock (lockfile for reproducible builds)
+#   - bot.py, logging_config.py
+#   - backend/{__init__,database,constants,sessions,utils}.py
+#   - backend/models/, services/, clients/, handlers/, core/, pipeline/, observers/, utils/
+
+# ============================================
+# EXCLUDE: Backend API code (bot only needs models, functions, sessions)
+# ============================================
+backend/api/
+backend/main.py
+backend/config.py
+backend/dependencies.py
+backend/middleware.py
+backend/lifespan.py
+backend/exceptions.py
+backend/audit.py
+backend/schemas.py
+backend/alerts.py
+backend/metrics.py
+backend/server_utils.py
+backend/CLAUDE.md
+app.py
+pyproject.toml
+pyproject.api.toml
+uv.api.lock
+uv.local.lock
+
+# ============================================
+# EXCLUDE: Frontend (deployed separately to Vercel)
+# ============================================
+frontend/
+
+# ============================================
+# EXCLUDE: Examples and development directories
+# ============================================
+pipecat-examples/
+evals/
+scripts/
+whisker/
+patients.csv
+
+# ============================================
+# Python artifacts
+# ============================================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+
+# ============================================
+# Environment and secrets
+# ============================================
+.env
+.env.*
+.env.example
+*.log
+
+# ============================================
+# IDE and OS
+# ============================================
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ============================================
+# Database
+# ============================================
+*.db
+*.sqlite3
+
+# ============================================
+# Git
+# ============================================
+.git/
+.gitignore
+.github/
+
+# ============================================
+# Deployment configs (other services)
+# ============================================
+fly.toml
+fly.test.toml
+vercel.json
+pcc-deploy*.toml
+Dockerfile.api
+Dockerfile.api.dockerignore
+.dockerignore
+
+# ============================================
+# Documentation
+# ============================================
+README.md
+CLAUDE.md
+docs/
+Notes.md
+SUMMARY.md
+AUDIT_ISSUES.md
+
+# ============================================
+# Tests
+# ============================================
+tests/
+test_*.py
+*_test.py
+pytest.ini

@@ -1,0 +1,60 @@
+SCENARIO: 10
+EXPECTED: Bot may get confused by caller who changes their mind mid-conversation
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I think I need to schedule an appointment.
+
+MONICA: Sure! What would the appointment be for?
+
+CALLER: Actually, wait. Before I do that - do you know if my lab results are back? I had blood work last week.
+
+MONICA: I can help you check on that. Were there any specific tests done, or just general blood work?
+
+CALLER: Hmm, actually never mind the labs. Let me just schedule the appointment. But wait - what are your hours? I need to figure out when I can come in.
+
+MONICA: Our office hours are Monday through Friday, 8 AM to 5 PM, and Saturday from 9 AM to 1 PM. We're closed on Sundays. Is there anything else I can help with?
+
+CALLER: Okay, so you're open until 5. That might work. Actually, can I check on those lab results first after all? Then I'll know if I even need to come in.
+
+MONICA: Got it! I can help you check on that. Was it just general blood work, or were there specific tests done?
+
+CALLER: Actually, I changed my mind. I do want to schedule the appointment either way. Sorry, I know I'm all over the place today.
+
+MONICA: No problem at all! What would the appointment be for?
+
+CALLER: Sorry, I'm just stressed. Let me focus. I need to: one, check my lab results, and two, schedule a follow-up regardless of the results. Can we do both?
+
+MONICA: Sure thing! Let me help you with that. First, I can check your lab results. Was it just general blood work, or were there specific tests done?
+
+CALLER: It was just general blood work. Thank you for your patience!
+
+MONICA: I will check on your lab results for the general blood work. While I do that, could you please provide me with your full name and date of birth?
+
+CALLER: Of course! My name is Michelle Lee, and my date of birth is April 22, 1988.
+
+MONICA: Thank you for your patience, Michelle! I have your lab results request in progress. In the meantime, I have available slots on Tuesday, December 23 at 9:00 AM or Friday, December 26 at 2:00 PM. Which works for you?
+
+CALLER: Thank you for bearing with me. I know I was confusing. I think I’ll go with Tuesday, December 23 at 9:00 AM for my appointment.
+
+MONICA: Perfect! Now I just need a few details to complete your booking. I still need a couple of details to finalize your appointment. Can I get your phone number?
+
+CALLER: Sure! My phone number is 555-666-7777.
+
+MONICA: Thank you! And could you please provide your email address?
+
+CALLER: Yes, my email address is mlee@email.com.
+
+MONICA: Thank you! Let me confirm all the details. Michelle, you're booked for 2025-12-23 at 09:00. Confirmation email to mlee@email.com. Anything else?
+
+CALLER: No, that sounds good! Just to recap, I’m still waiting on my lab results, right?
+
+MONICA: Yes, that's correct! You're waiting on your lab results for the general blood work. Would you like me to send you a text? You can reply anytime if questions come up.
+
+CALLER: Yes, that would be great! I appreciate it. Thank you for your help today!
+
+MONICA: I'll send you a text right now. You can reply anytime with questions!
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Bot repeated lab questions multiple times

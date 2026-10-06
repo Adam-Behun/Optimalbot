@@ -1,0 +1,185 @@
+{
+  "id": "10_2025-12-22_171943",
+  "scenario_id": "10",
+  "timestamp": "2025-12-22T17:19:43.284190",
+  "langfuse_trace_id": "dbc74c1181b13cd831d9b4ffe141de56",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/dbc74c1181b13cd831d9b4ffe141de56",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may get confused by caller who changes their mind mid-conversation"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I think I need to schedule an appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What would the appointment be for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Actually, wait. Before I do that - do you know if my lab results are back? I had blood work last week.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you check on that. Were there any specific tests done, or just general blood work?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "It was just general blood work. But, hmm, actually never mind the labs. Let me just schedule the appointment. But wait - what are your hours? I need to figure out when I can come in.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Our office hours are Monday through Friday, 8 AM to 5 PM, and Saturday from 9 AM to 1 PM. We're closed on Sundays. Is there anything else I can help with?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Okay, so you're open until 5. That might work. Actually, can I check on those lab results first after all? Then I'll know if I even need to come in.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! I can help you check on that. Since it was general blood work, I\u2019ll note that. Were you feeling anxious about the results at all?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Oh, I was just a bit worried, but I'm trying not to stress too much. Okay. Actually, I changed my mind, I do want to schedule the appointment either way. Sorry, I know I'm all over the place today.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "No problem at all! What would the appointment be for?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Sorry, let me focus. I need to: one, check my lab results, and two, schedule a follow-up regardless of the results. Can we do both?",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you with that! First, I'll need to verify your identity to check on your lab results. Can I have your full name?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Sure! My name is Michelle Lee.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Michelle. And what is your date of birth?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "My date of birth is April 22, 1988.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "I'm sorry, I wasn't able to verify your identity. Let me connect you with someone who can help.",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "Oh, okay! I understand. Thank you for your help so far. Sorry for being all over the place today.",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 9
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 6,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "lab_results",
+          "reason": "general blood work from last week, caller is a bit worried about results"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "verification",
+        "function": "verify_identity",
+        "args": {
+          "name": "Michelle Lee",
+          "date_of_birth": "April 22, 1988"
+        }
+      },
+      {
+        "turn": 9,
+        "node": "verification_failed",
+        "function": "request_staff",
+        "args": {
+          "reason": "caller requested human assistance for lab results and appointment scheduling"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Lab Results",
+      "call_reason": "general blood work from last week, caller is a bit worried about results",
+      "routed_to": "lab_results (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "medical_record_number": "",
+      "phone_number": "",
+      "test_type": "",
+      "test_date": "",
+      "ordering_physician": "",
+      "results_status": "",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "identity_verified": false,
+      "results_communicated": false,
+      "caller_anxious": true,
+      "transfer_reason": "caller requested human assistance for lab results and appointment scheduling",
+      "handed_off_to": "lab_results"
+    },
+    "turns": 9
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: REPETITION: Bot asks \"What would the appointment be for?\" twice - once at the beginning and again after the caller changes their mind multiple times.\n\nFAIL: Bot repeated appointment question twice",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Handled changing requests correctly"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "REPETITION: Bot asks \"What would the appointment be for?\" twice - once at the beginning and again after the caller changes their mind multiple times.\n\nFAIL: Bot repeated appointment question twice"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing and function sequence"
+      }
+    }
+  },
+  "notes": ""
+}

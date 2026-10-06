@@ -1,0 +1,102 @@
+call_type: "dial-out"
+
+triage:
+  enabled: true
+  # 2.0s delay allows voicemail beep to complete before speaking
+  voicemail_response_delay: 2.0
+
+services:
+  stt:
+    api_key: ${DEEPGRAM_API_KEY}
+    model: flux-general-en
+    eager_eot_threshold: 0.65
+    eot_threshold: 0.75
+    eot_timeout_ms: 5000
+    keyterm:
+      - "Alexandra"
+      - "prior authorization"
+      - "pre-authorization"
+      - "CPT code"
+      - "NPI"
+      - "member ID"
+      - "reference number"
+      - "date of birth"
+      - "Aetna"
+      - "Cigna"
+      - "Humana"
+      - "Anthem"
+      - "Centene"
+      - "WellCare"
+      - "Molina"
+      - "Fidelis Care"
+      - "Emblem Health"
+      - "MVP Health Care"
+      - "Kaiser Permanente"
+      - "UnitedHealthcare"
+      - "Blue Cross Blue Shield"
+      - "Oxford Health"
+      - "99212"
+      - "99213"
+      - "99214"
+      - "99215"
+      # Insurance jargon
+      - "non-par"
+      - "non-participating"
+      - "out-of-network"
+      - "in-network"
+      - "OOP"
+      - "out-of-pocket"
+      - "coinsurance"
+      - "copay"
+      - "deductible"
+      - "accumulator"
+      - "term date"
+      - "effective date"
+      - "telehealth"
+# https://developers.deepgram.com/docs/keyterm
+
+  llm:
+    provider: openai
+    model: gpt-4o-mini
+    temperature: 0.4
+    api_key: ${OPENAI_API_KEY}
+    max_tokens: 128
+    service_tier: priority
+
+  observer_llm:
+    provider: openai
+    model: gpt-4o
+    temperature: 0
+    api_key: ${OPENAI_API_KEY}
+    max_tokens: 256
+    service_tier: priority
+
+  classifier_llm:
+    provider: groq
+    model: llama-3.3-70b-versatile
+    temperature: 0
+    api_key: ${GROQ_API_KEY}
+    max_tokens: 128
+
+  tts:
+    provider: cartesia
+    model: sonic-3-2025-10-27
+    voice_id: 829ccd10-f8b3-43cd-b8a0-4aeaa81f3b30
+    api_key: ${CARTESIA_API_KEY}
+
+    generation_config:
+      speed: 0.95
+      volume: 1.0
+      emotion: neutral
+    aggregate_sentences: true
+
+  transport:
+    provider: daily
+    api_key: ${DAILY_API_KEY}
+    phone_number_id: ${DAILY_PHONE_NUMBER_ID}
+    enable_echo_cancellation: true
+    audio_in_sample_rate: 16000
+    audio_out_sample_rate: 24000
+
+cold_transfer:
+  staff_number: "+15555550142"

@@ -1,0 +1,19 @@
+{
+  "id": "37_2026-01-05_021610",
+  "scenario_id": "37",
+  "timestamp": "2026-01-05T02:16:10.543292",
+  "langfuse_trace_id": "b55cbdfe28d117b46d87b209bece58d5",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/b55cbdfe28d117b46d87b209bece58d5",
+  "input": {
+    "utterance": "Mmhmm. And what is the member's date of birth?",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": false,
+    "reason": "Expected IVR, got CONVERSATION"
+  },
+  "notes": ""
+}

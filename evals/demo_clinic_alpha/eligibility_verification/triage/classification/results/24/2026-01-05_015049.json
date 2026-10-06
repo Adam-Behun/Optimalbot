@@ -1,0 +1,19 @@
+{
+  "id": "24_2026-01-05_015049",
+  "scenario_id": "24",
+  "timestamp": "2026-01-05T01:50:49.189860",
+  "langfuse_trace_id": "7e42c2a9ff8e3f364dd178f47569d5f1",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/7e42c2a9ff8e3f364dd178f47569d5f1",
+  "input": {
+    "utterance": "The representative you were waiting for is no longer available. Please leave a message or call back during business hours.",
+    "expected_classification": "VOICEMAIL"
+  },
+  "output": {
+    "actual_classification": "VOICEMAIL"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: VOICEMAIL"
+  },
+  "notes": ""
+}

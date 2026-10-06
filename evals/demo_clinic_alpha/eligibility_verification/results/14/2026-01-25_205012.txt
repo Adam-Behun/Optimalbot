@@ -1,0 +1,86 @@
+SCENARIO: 14
+TARGET NODE: plan_info
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Test Insurance provider line, Marcus B. speaking. How can I help you today?
+
+MONICA: Hi Marcus, this is Alex T. calling from Test Clinic about eligibility verification for Test Patient.
+
+INSURANCE: Thanks, Alex. What's the tax ID?
+
+MONICA: The tax ID is twelve dash three four five six seven eight nine.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Test Patient, and the date of birth is January fifteenth, nineteen ninety.
+
+INSURANCE: Let me pull that up... Got it. They're active, in network. What else do you need?
+
+MONICA: What type of plan is this?
+
+INSURANCE: I can help with that. The member is enrolled in a standard PPO plan. Is there anything else you would like to know?
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: The effective date of the plan is March first, twenty twenty-three. Do you need any additional information?
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: No, there is currently no termination date for the plan. It remains active. Is there anything else I can assist you with?
+
+MONICA: Can we proceed to coverage details for the CPT code nine nine two one three?
+
+INSURANCE: Sure, let me check the coverage details for CPT code 99213... It looks like that code is covered under the member's plan. Do you need any specific information regarding copays or limits?
+
+MONICA: What is the copay for this service?
+
+INSURANCE: The copay for CPT code 99213 is $25. Is there anything else I can help you with?
+
+MONICA: Is there a coinsurance for this service?
+
+INSURANCE: Yes, there is a coinsurance of 20% for this service after the deductible has been met. Do you need any further assistance?
+
+MONICA: Does the deductible apply to this service?
+
+INSURANCE: Yes, the deductible does apply to this service. Once the deductible is met, the coinsurance will kick in. Is there anything else you'd like to know?
+
+MONICA: Is prior authorization required for this service?
+
+INSURANCE: Yes, prior authorization is required for this service. Would you like assistance with the authorization process?
+
+MONICA: Is telehealth covered for this service?
+
+INSURANCE: Yes, telehealth is covered for this service. Would you like to know more about how to access telehealth options?
+
+MONICA: Can you provide the individual and family deductible amounts, as well as any amounts met?
+
+INSURANCE: Certainly! The individual deductible is $1,500, and the family deductible is $3,000. Currently, the amount met for the individual is $600, and for the family, it's $1,800. Is there anything else you need?
+
+MONICA: What is the individual out-of-pocket maximum?
+
+INSURANCE: The individual out-of-pocket maximum is $6,000. Would you like to know about the family out-of-pocket maximum as well?
+
+MONICA: Yes, please provide the family out-of-pocket maximum.
+
+INSURANCE: The family out-of-pocket maximum is $12,000. Is there anything else I can assist you with?
+
+MONICA: How much of the individual out-of-pocket maximum has been met?
+
+INSURANCE: Currently, $2,000 of the individual out-of-pocket maximum has been met. Do you need any more information?
+
+MONICA: How much of the family out-of-pocket maximum has been met?
+
+INSURANCE: The family out-of-pocket maximum has $4,500 met so far. Is there anything else you would like to know?
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Certainly! Your reference number for this call is 987654321. Is there anything else I can help you with today?
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: You're welcome! If you need assistance in the future, feel free to reach out. Goodbye!
+
+============================================================
+GRADE: FAIL - FAIL: node: FAIL: Expected plan_info, got closing; DB: FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None
+NODE CHECK: FAIL: Expected plan_info, got closing

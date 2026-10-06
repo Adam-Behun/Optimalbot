@@ -1,0 +1,19 @@
+{
+  "id": "35_2026-01-05_021004",
+  "scenario_id": "35",
+  "timestamp": "2026-01-05T02:10:04.308422",
+  "langfuse_trace_id": "c837837eb7b9bc7778015cee424b1b43",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/c837837eb7b9bc7778015cee424b1b43",
+  "input": {
+    "utterance": "Provider services.",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

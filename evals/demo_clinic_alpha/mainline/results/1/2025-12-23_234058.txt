@@ -1,0 +1,24 @@
+SCENARIO: 1
+EXPECTED: Context may be lost when handing off to scheduling workflow
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, this is Jessica Williams. I need to schedule a follow-up appointment.
+
+MONICA: Sure! What's the follow-up for?
+
+CALLER: It's for my chronic lower back pain. I've been coming here for about three years for it.
+
+MONICA: Got it, a follow-up for chronic lower back pain. I'll get you routed to scheduling now.
+
+CALLER: Thank you!
+
+MONICA: I need to pull up your file first. Could you please provide the phone number associated with your account?
+
+CALLER: Sure, my phone number is 555-333-4444.
+
+MONICA: I couldn't find your record in our system. Let me connect you with a colleague who can help. One moment.
+
+============================================================
+GRADE: PASS - PASS: All checks passed

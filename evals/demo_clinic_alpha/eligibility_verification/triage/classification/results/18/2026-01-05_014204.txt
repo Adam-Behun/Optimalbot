@@ -1,0 +1,10 @@
+SCENARIO: 18
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Hi, this is Jessica, I'm a virtual assistant... just kidding, real person here! How can I help you?
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

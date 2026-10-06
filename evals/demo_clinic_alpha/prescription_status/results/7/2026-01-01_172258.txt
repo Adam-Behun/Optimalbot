@@ -1,0 +1,39 @@
+SCENARIO: 7
+EXPECTED: Bot should handle phone correction gracefully when caller says number was misheard
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?
+
+PATIENT: Hi, I'm checking on my Metformin prescription.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: It's six one seven, five five five, for too ate nine.
+
+BOT: That's 617-555-4289, correct?
+
+PATIENT: No, that's not right. It's six one seven, five five five, four two eight nine.
+
+BOT: Got it! That's 617-555-4289. Let me look that up for you. One moment, please.
+
+PATIENT: Yes, that's correct.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: June fourteenth, nineteen eighty-three.
+
+BOT: Your Metformin 500mg twice daily has been sent to CVS Pharmacy. You can reach them at (617) 555-4289 to check if it's ready for pickup.
+
+PATIENT: Great, thanks!
+
+BOT: Is there anything else I can help you with today?
+
+PATIENT: No, I'm all set. Bye!
+
+BOT: Take care!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached end (equivalent to end)

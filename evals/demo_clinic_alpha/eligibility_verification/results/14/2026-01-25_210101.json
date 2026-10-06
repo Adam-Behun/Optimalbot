@@ -1,0 +1,291 @@
+{
+  "id": "14_2026-01-25_210101",
+  "scenario_id": "14",
+  "timestamp": "2026-01-25T21:01:01.513896",
+  "langfuse_trace_id": "9760fafb239d7059768fa80c437554f4",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/9760fafb239d7059768fa80c437554f4",
+  "input": {
+    "target_node": "plan_info"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Test Insurance provider line, Marcus B. speaking. How can I help you today?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Hi Marcus, this is Alex T. calling from Test Clinic about eligibility verification for Test Patient.",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Thanks, Alex. What's the tax ID?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "The tax ID is twelve dash three four five six seven eight nine.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "And the member's name and date of birth?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "The member's name is Test Patient and the date of birth is January fifteenth, nineteen ninety.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Let me pull that up... Got it. They're active, in network. What else do you need?",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Great, could you please tell me what type of plan this is?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "I'm sorry, but I can't provide specific plan details. However, I can assist you with any other questions or information related to the member's eligibility or benefits. What else do you need?",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Could you let me know the effective date of the plan?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "I'm unable to provide the effective date of the plan directly. However, I can help with other inquiries you may have regarding the member's coverage or benefits. What else can I assist you with?",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Is there a termination date for the plan?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "I'm unable to provide the termination date for the plan at this moment. However, if you have any other questions or need assistance with something else, feel free to ask!",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Could you use today's date for the effective date?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "I'm sorry, but I can't set or confirm effective dates directly. If you have any other questions or need further assistance, I'm here to help! What else can I do for you?",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "I understand. Let's move on to the CPT coverage details. The CPT code is nine nine two one three. Can you provide coverage information for that?",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "I don't have the capability to provide specific CPT code coverage details. However, if you have any other questions or need assistance with eligibility verification or member benefits, please let me know! What else can I help you with?",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "If you have any information about coverage for the CPT code nine nine two one three, could you please share that?",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "I'm unable to provide specific coverage information for CPT codes. If there\u2019s anything else related to the member\u2019s eligibility or benefits that you need help with, please feel free to ask! What else can I assist you with?",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "I appreciate your help. If you have any information regarding copay amounts or deductibles for the CPT code, please let me know.",
+        "turn": 10
+      },
+      {
+        "role": "user",
+        "content": "I\u2019m sorry, but I can't provide copay amounts or deductible information for specific CPT codes. However, if you have other questions or need assistance with the member's eligibility or coverage, I'm here to help! What else can I do for you?",
+        "turn": 11
+      },
+      {
+        "role": "assistant",
+        "content": "Could you confirm if a prior authorization is required for the CPT code nine nine two one three?",
+        "turn": 11
+      },
+      {
+        "role": "user",
+        "content": "I can't confirm if a prior authorization is required for that CPT code. If you have any other questions regarding the member's eligibility or benefits, please let me know! What else can I assist you with?",
+        "turn": 12
+      },
+      {
+        "role": "assistant",
+        "content": "Is telehealth covered for the CPT code nine nine two one three?",
+        "turn": 12
+      },
+      {
+        "role": "user",
+        "content": "I'm unable to provide specific information about telehealth coverage for that CPT code. If you need help with any other inquiries regarding the member\u2019s eligibility or benefits, feel free to ask! What else can I assist you with?",
+        "turn": 13
+      },
+      {
+        "role": "assistant",
+        "content": "I understand. If you have any information about individual or family deductibles, that would be helpful.",
+        "turn": 13
+      },
+      {
+        "role": "user",
+        "content": "I'm sorry, but I can't provide details about individual or family deductibles. However, if you have other questions related to the member's eligibility or benefits, I'm here to help! What else can I assist you with?",
+        "turn": 14
+      },
+      {
+        "role": "assistant",
+        "content": "If you have any information on out-of-pocket maximums for the member, please share that.",
+        "turn": 14
+      },
+      {
+        "role": "user",
+        "content": "I apologize, but I can't provide information on out-of-pocket maximums for the member. If there\u2019s anything else related to eligibility or benefits that you need assistance with, please let me know! What else can I help you with?",
+        "turn": 15
+      },
+      {
+        "role": "assistant",
+        "content": "Could you confirm if there are any reference numbers associated with this eligibility verification?",
+        "turn": 15
+      },
+      {
+        "role": "user",
+        "content": "I'm unable to provide reference numbers associated with this eligibility verification. If you have any other questions or need further assistance with the member's coverage or benefits, just let me know! What else can I assist you with?",
+        "turn": 16
+      },
+      {
+        "role": "assistant",
+        "content": "I believe that covers everything for now. Thank you for your assistance today.",
+        "turn": 16
+      },
+      {
+        "role": "user",
+        "content": "You're welcome! If you have any more questions in the future, don't hesitate to reach out. Have a great day!",
+        "turn": 17
+      },
+      {
+        "role": "assistant",
+        "content": "Goodbye.",
+        "turn": 17
+      },
+      {
+        "role": "user",
+        "content": "Goodbye! Take care!",
+        "turn": 18
+      },
+      {
+        "role": "assistant",
+        "content": "Goodbye.",
+        "turn": 18
+      },
+      {
+        "role": "user",
+        "content": "Goodbye! Have a great day!",
+        "turn": 19
+      },
+      {
+        "role": "assistant",
+        "content": "Goodbye.",
+        "turn": 19
+      },
+      {
+        "role": "user",
+        "content": "Goodbye! If you need anything else, feel free to call back. Take care!",
+        "turn": 20
+      },
+      {
+        "role": "assistant",
+        "content": "Goodbye.",
+        "turn": 20
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "record_rep_name",
+        "args": {
+          "first_name": "Marcus",
+          "last_initial": "B"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "greeting",
+        "function": "proceed_to_plan_info",
+        "args": {
+          "network_status": "In-Network"
+        }
+      }
+    ],
+    "final_state": {
+      "patient_id": "6976cab6e6a9a25d4b36fa2f",
+      "patient_name": "Test Patient",
+      "date_of_birth": "1990-01-15",
+      "insurance_member_id": "TEST123456",
+      "insurance_company_name": "Test Insurance",
+      "insurance_phone": "+18001234567",
+      "provider_agent_first_name": "Alex",
+      "provider_agent_last_initial": "T",
+      "facility_name": "Test Clinic",
+      "tax_id": "12-3456789",
+      "provider_name": "Dr. Test",
+      "provider_npi": "1234567890",
+      "provider_call_back_phone": "+15551234567",
+      "cpt_code": "99213",
+      "place_of_service": "Office",
+      "date_of_service": "",
+      "insurance_rep_first_name": "Marcus",
+      "insurance_rep_last_initial": "B",
+      "network_status": "In-Network"
+    },
+    "final_node": "plan_info",
+    "turns": 20
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Multiple goodbye repetitions occurred; DB: FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None",
+    "details": {
+      "data_accuracy": {
+        "pass": true,
+        "reason": "PASS: No expected data defined"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Multiple goodbye repetitions occurred"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: 2 function checks passed"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached plan_info"
+      },
+      "captured_state": {
+        "pass": true,
+        "reason": "PASS: Captured state correct"
+      },
+      "forbidden_phrases": {
+        "pass": true,
+        "reason": "PASS: None of 5 forbidden phrases used"
+      },
+      "db_state": {
+        "pass": false,
+        "reason": "FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None"
+      }
+    }
+  },
+  "notes": ""
+}

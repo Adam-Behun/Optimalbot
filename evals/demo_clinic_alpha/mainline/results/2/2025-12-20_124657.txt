@@ -1,0 +1,36 @@
+SCENARIO: 2
+EXPECTED: Anxious caller context should transfer to lab_results workflow
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, Monica. I'm calling about some test results. I had a biopsy done about ten days ago.
+
+MONICA: I can help you check on that. What type of biopsy was it?
+
+CALLER: It was a skin biopsy for a mole that looked suspicious. The doctor said I'd hear back in a week, but I haven't heard anything.
+
+MONICA: I understand your concern. Let me get you to someone who can look that up for you.
+
+CALLER: Thank you, I really appreciate it. I've been pretty worried about it, to be honest. Is there any way to check if the results are back?
+
+MONICA: Hello! Thank you for calling Demo Clinic Alpha. How can I help you today?
+
+CALLER: I already explained this, but I'm calling about a biopsy result. It was done on the 8th by Dr. Patel, and I'm really anxious because it's been longer than the week they said. Can you please check if it's back?
+
+MONICA: Before I can check on your biopsy results, I need to verify your identity for privacy reasons. Could you please provide me with your first and last name?
+
+CALLER: Of course, my name is Robert Martinez.
+
+MONICA: Thank you, Robert. And could you please provide your date of birth?
+
+CALLER: Sure, my date of birth is February 28, 1958.
+
+MONICA: I'm sorry, but I wasn't able to verify your identity with the information provided. For your security, let me connect you with a staff member who can assist you further.
+
+CALLER: I understand, but I've already provided my name and date of birth. Is there something else you need to verify my identity? I'm really anxious about my biopsy results and would appreciate any help you can give me.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Bot repeated greeting after transfer

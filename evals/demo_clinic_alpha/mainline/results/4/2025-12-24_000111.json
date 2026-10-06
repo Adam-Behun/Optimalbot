@@ -1,0 +1,138 @@
+{
+  "id": "4_2025-12-24_000111",
+  "scenario_id": "4",
+  "timestamp": "2025-12-24T00:01:11.089816",
+  "langfuse_trace_id": "3d4eecc4c17c29f1c4eab13810929e0b",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/3d4eecc4c17c29f1c4eab13810929e0b",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not handle multiple unrelated intents with proper sequencing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I have a few things I need help with. I need to schedule my annual physical, I'm waiting on some blood work results from last Tuesday, and I got a bill I don't understand.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Got it! Let's start with your annual physical. What date are you looking to schedule that for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Sure, I'd like to schedule it for sometime next week, if possible. Do you have any availability?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I can't check availability directly. Let me route you to scheduling to help with that. I have you down for an annual physical next week. \n\nNow, about your blood work results from last Tuesday, what type of blood work was it?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Okay, that's booked. What about my lab results? I'm just looking for the results from the blood work I had done last Tuesday.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I've connected you with scheduling for your annual physical and staff for your billing question. They'll take it from here!",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Wait, remember I mentioned blood work from last Tuesday? I need to check on those results. Can we address that before moving on?",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "I can't help with checking lab results. Let me connect you with someone who can assist with that. Would you like me to transfer you?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Sure, I understand. Please go ahead and transfer me to someone who can help with my lab results. Thanks!",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 5
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "annual physical appointment for next week"
+        }
+      },
+      {
+        "turn": 3,
+        "node": "scheduling",
+        "function": "request_staff",
+        "args": {
+          "reason": "billing"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "staff_confirmation",
+        "function": "dial_staff",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "annual physical appointment for next week",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "handed_off_to": "scheduling",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "phone_number": "",
+      "identity_verified": false,
+      "today": "December 24, 2025",
+      "available_slots": [
+        "Thursday, December 25 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "annual physical appointment for next week",
+      "appointment_type": "New Patient",
+      "transfer_reason": "billing"
+    },
+    "turns": 5
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Abandoned lab results routing completely; quality: FAIL: Ignored blood work results request; functions: FAIL: Multiple conflicting routes called unnecessarily",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Abandoned lab results routing completely"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Ignored blood work results request"
+      },
+      "functions": {
+        "pass": false,
+        "reason": "FAIL: Multiple conflicting routes called unnecessarily"
+      }
+    }
+  },
+  "notes": ""
+}

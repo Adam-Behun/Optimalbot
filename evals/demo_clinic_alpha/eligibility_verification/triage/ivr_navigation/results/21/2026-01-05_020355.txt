@@ -1,0 +1,62 @@
+SCENARIO: 21
+DESCRIPTION: Aetna: Full provider auth with NPI, Tax ID, and verbal confirmation
+============================================================
+
+STEP 1:
+  Menu: Thank you for calling Aetna. For English, press 1. Para español, oprima 2.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 2:
+  Menu: Are you a healthcare provider? Press 1 for yes, press 2 for no.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 3:
+  Menu: To verify your identity, please enter your 10-digit NPI number followed by the pound key.
+  Expected: dtmf_sequence:1928374650#
+  Actual: <dtmf>1</dtmf><dtmf>9</dtmf><dtmf>2</dtmf><dtmf>8</dtmf><dtmf>3</dtmf><dtmf>7</dtmf><dtmf>4</dtmf><dtmf>6</dtmf><dtmf>5</dtmf><dtmf>0</dtmf><dtmf>#</dtmf>
+
+STEP 4:
+  Menu: Thank you. Now please enter your 9-digit Tax ID number.
+  Expected: dtmf_sequence:847291035
+  Actual: <dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf>
+
+STEP 5:
+  Menu: I found your provider record. You are registered as Westbrook Family Medicine. Is that correct? Press 1 for yes, press 2 for no.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 6:
+  Menu: For eligibility verification, press 1. For prior authorization, press 2. For claims, press 3.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 7:
+  Menu: Please enter the member ID number from the insurance card.
+  Expected: speak:WDH492817365
+  Actual: WDH492817365
+
+STEP 8:
+  Menu: Member found. For real-time benefits, press 1. To speak with a representative, press 2.
+  Expected: dtmf:2
+  Actual: <dtmf>2</dtmf>
+
+STEP 9:
+  Menu: Please hold for the next available eligibility specialist.
+  Expected: status:wait
+  Actual: <ivr>wait</ivr>
+
+============================================================
+GRADE: PASS - PASS: All 9 steps correct
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct DTMF (1)
+  Step 2: PASS - PASS: Correct DTMF (1)
+  Step 3: PASS - PASS: Correct DTMF sequence (1928374650#)
+  Step 4: PASS - PASS: Correct DTMF sequence (847291035)
+  Step 5: PASS - PASS: Correct DTMF (1)
+  Step 6: PASS - PASS: Correct DTMF (1)
+  Step 7: PASS - PASS: Exact match (WDH492817365)
+  Step 8: PASS - PASS: Correct DTMF (2)
+  Step 9: PASS - PASS: Correct status (wait)

@@ -1,0 +1,38 @@
+SCENARIO: 3
+EXPECTED: Complex prescription context may be lost during handoff
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi Monica, I'm calling about a prescription issue.
+
+MONICA: I can look into that for you. Which medication are you having an issue with?
+
+CALLER: It's lisinopril, 10mg. I take it for blood pressure. I've been on it for two years.
+
+MONICA: Got it. Are you having any specific issues, like a refill problem or something with your pharmacy?
+
+CALLER: Yes, I went to pick up my lisinopril refill at CVS, and they said there's some kind of hold on it? They told me to call you.
+
+MONICA: I understand. Let me get that information for you. I'll check on the refill issue for your lisinopril. One moment, please. 
+
+[Routing to the prescription status workflow now.]
+
+CALLER: Thank you! Just to let you know, it's lisinopril 10mg, and CVS said there's a prior authorization problem.
+
+MONICA: Before I can assist you further, I need to verify your identity. Could you please provide your full name and date of birth?
+
+CALLER: Sure, my name is Linda Anderson, and my date of birth is December 10, 1972. You should have all my info from what I just told the first person.
+
+MONICA: For privacy and security, I need to verify your identity first. May I have your first and last name?
+
+CALLER: Of course, it's Linda Anderson.
+
+MONICA: Thank you, Linda. And what is your date of birth?
+
+CALLER: It's December 10, 1972.
+
+MONICA: I'm sorry, I wasn't able to verify your identity. For your security, I'll need to transfer you to a staff member who can assist you. One moment please.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Bot repeated identity verification unnecessarily; functions: FAIL: Identity verification shows not verified

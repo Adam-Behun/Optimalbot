@@ -1,0 +1,242 @@
+{
+  "id": "10_2026-01-04_222522",
+  "scenario_id": "10",
+  "timestamp": "2026-01-04T22:25:22.225509",
+  "langfuse_trace_id": "68f14df0ded9f3b5359107eee2d8d540",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/68f14df0ded9f3b5359107eee2d8d540",
+  "input": {
+    "target_node": "plan_info"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Hello, James Wilson! I hope you're doing well today. Can I start by confirming a few details? Could you please provide your date of birth and member ID?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Hi, this is Rachel P. calling from Comprehensive Care Clinic about eligibility verification for James Wilson. His date of birth is May twentieth, nineteen ninety-two, and the member ID is BSC223344556.",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Thank you, Rachel! I appreciate you providing that information. Let me verify James Wilson's eligibility.\n\nI can confirm that he is eligible under our plan. \n\nThis is an HDHP \u2013 that\u2019s a high deductible health plan. The member also has an HSA. His coverage is in-network, and the effective date of the plan is January 1, 2025. There is no term date for this plan.\n\nIf you have specific questions about coverage, feel free to ask!",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Could you please provide the coverage details for the CPT code nine nine two zero four?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Certainly! For CPT code 99204, here's the coverage information:\n\n- **Covered:** Yes\n- **Copay:** No copay - this is an HDHP, so everything goes to deductible first.\n- **Coinsurance:** After the deductible is met, the member pays twenty percent coinsurance.\n- **Deductible Applies:** Yes, the deductible applies to ALL services - that's how an HDHP works.\n- **Prior Auth Required:** No\n- **Telehealth Covered:** Yes, telehealth is covered but also subject to deductible.\n\nRemember, with this HDHP structure, the member pays the full contracted rate until the deductible is met. If you have more questions or need further assistance, just let me know!",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Could you provide the accumulator information, such as the individual and family deductible amounts, any amounts met, and the reference number?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Of course! Here\u2019s the accumulator information for James Wilson's plan:\n\n- **Individual Deductible:** $3,000 (the individual deductible is three thousand dollars)\n- **Individual Deductible Met:** $850 (eight hundred fifty has been applied)\n- **Individual Out of Pocket Max:** $7,000 (seven thousand individual out of pocket max)\n- **Individual Out of Pocket Met:** $850 (eight fifty applied)\n- **Family Deductible:** $6,000 (family deductible is six thousand)\n- **Family Deductible Met:** $1,200 (twelve hundred met on family)\n- **Family Out of Pocket Max:** $14,000 (fourteen thousand family out of pocket maximum)\n- **",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "How much of the out-of-pocket maximum has been met?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "For James Wilson's plan, the amounts met for the out-of-pocket maximum are as follows:\n\n- **Individual Out of Pocket Met:** $850 (eight hundred fifty applied)\n- **Family Out of Pocket Met:** $1,200 (same twelve hundred).\n\nIf you need any more information or have further questions, feel free to ask!",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Additionally, the reference number for this inquiry is BSC-HDHP-2025-7890. If there's anything else you need or if you have more questions, I'm here to help!",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you for your help. Goodbye! \n\n",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "You're welcome, Rachel! If you need assistance in the future, don't hesitate to reach out. Have a great day! Goodbye!",
+        "turn": 7
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 2,
+        "node": "greeting_without_ivr",
+        "function": "proceed_to_plan_info",
+        "args": {
+          "network_status": "In-Network",
+          "plan_type": "HDHP",
+          "plan_effective_date": "01/01/2025",
+          "plan_term_date": "None"
+        }
+      },
+      {
+        "turn": 3,
+        "node": "plan_info",
+        "function": "proceed_to_cpt_coverage",
+        "args": {
+          "cpt_covered": "Yes",
+          "copay_amount": "None",
+          "coinsurance_percent": "20",
+          "deductible_applies": "Yes",
+          "prior_auth_required": "No",
+          "telehealth_covered": "Yes"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "cpt_coverage",
+        "function": "proceed_to_accumulators",
+        "args": {
+          "deductible_individual": "3000",
+          "deductible_individual_met": "850",
+          "oop_max_individual": "7000",
+          "oop_max_individual_met": "850",
+          "deductible_family": "6000",
+          "deductible_family_met": "1200",
+          "oop_max_family": "14000"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "accumulators",
+        "function": "record_oop_max_individual_met",
+        "args": {
+          "amount": "850.00"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "accumulators",
+        "function": "record_oop_max_family_met",
+        "args": {
+          "amount": "1200.00"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "accumulators",
+        "function": "record_oop_max_family_met",
+        "args": {
+          "amount": "1200.00"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "accumulators",
+        "function": "record_oop_max_family_met",
+        "args": {
+          "amount": "1200.00"
+        }
+      },
+      {
+        "turn": 5,
+        "node": "accumulators",
+        "function": "record_oop_max_individual_met",
+        "args": {
+          "amount": "850.00"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "accumulators",
+        "function": "record_reference_number",
+        "args": {
+          "reference_number": "BSC-HDHP-2025-7890"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "accumulators",
+        "function": "proceed_to_closing",
+        "args": {
+          "reference_number": "BSC-HDHP-2025-7890"
+        }
+      },
+      {
+        "turn": 7,
+        "node": "closing",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "695b2efbed49fcc0ab7d2b8a",
+      "patient_name": "James Wilson",
+      "date_of_birth": "1992-05-20",
+      "insurance_member_id": "BSC223344556",
+      "insurance_company_name": "Blue Shield of California",
+      "insurance_phone": "+18000123456",
+      "caller_name": "Rachel",
+      "caller_last_initial": "P",
+      "facility_name": "Comprehensive Care Clinic",
+      "tax_id": "88-9900112",
+      "provider_name": "Dr. David Lee",
+      "provider_npi": "8901234567",
+      "provider_call_back_phone": "+15550123456",
+      "cpt_code": "99204",
+      "place_of_service": "Office",
+      "date_of_service": "",
+      "network_status": "In-Network",
+      "plan_type": "HDHP",
+      "plan_effective_date": "01/01/2025",
+      "plan_term_date": "None",
+      "cpt_covered": "Yes",
+      "copay_amount": "None",
+      "coinsurance_percent": "20",
+      "deductible_applies": "Yes",
+      "prior_auth_required": "No",
+      "telehealth_covered": "Yes",
+      "deductible_individual": "3000",
+      "deductible_individual_met": "850",
+      "deductible_family": "6000",
+      "deductible_family_met": "1200",
+      "oop_max_individual": "7000",
+      "oop_max_individual_met": "850.00",
+      "oop_max_family": "14000",
+      "oop_max_family_met": "1200.00",
+      "reference_number": "BSC-HDHP-2025-7890"
+    },
+    "final_node": "closing",
+    "turns": 7
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: functions: FAIL: Duplicate recording function calls made; node: FAIL: Expected plan_info, got closing",
+    "details": {
+      "data_accuracy": {
+        "pass": true,
+        "reason": "PASS: No expected data defined"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversation flow maintained"
+      },
+      "functions": {
+        "pass": false,
+        "reason": "FAIL: Duplicate recording function calls made"
+      },
+      "node_reached": {
+        "pass": false,
+        "reason": "FAIL: Expected plan_info, got closing"
+      },
+      "captured_state": {
+        "pass": true,
+        "reason": "PASS: No state assertions"
+      }
+    }
+  },
+  "notes": ""
+}

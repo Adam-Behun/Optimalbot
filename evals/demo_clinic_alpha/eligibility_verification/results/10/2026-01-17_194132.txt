@@ -1,0 +1,74 @@
+SCENARIO: 10
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Hello, James! This is David Kim from Blue Shield of California. I see you’re calling today regarding your health plan. Can I please confirm your date of birth and member ID to get started? 
+
+Date of Birth: 05/20/1992  
+Member ID: BSC223344556
+
+MONICA: Hi, this is Rachel P. calling from Comprehensive Care Clinic about eligibility verification for James Wilson. His date of birth is May twentieth, nineteen ninety-two, and the member ID is BSC223344556.
+
+INSURANCE: Hello, Rachel! Thank you for calling Comprehensive Care Clinic. I’ve verified the information for James Wilson. 
+
+Now, regarding his health plan, I can confirm that he is enrolled in an HDHP—that's a high deductible health plan with an HSA. 
+
+Would you like me to provide specific details about his coverage?
+
+MONICA: Yes, could you please confirm if Comprehensive Care Clinic is participating in the network?
+
+INSURANCE: Yes, I can confirm that Comprehensive Care Clinic is in-network for James Wilson's plan. If you need any more details about his coverage, feel free to ask!
+
+MONICA: Thank you. Can you also provide the effective date of the plan?
+
+INSURANCE: Certainly! The effective date of James Wilson's plan is January 1, 2025. If you have any more questions, just let me know!
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: There is no termination date for James Wilson's plan at this time. It remains active. If you have any other questions or need further assistance, feel free to ask!
+
+MONICA: Now that I have all the plan information, can we proceed to the CPT coverage details for the service? The CPT code is nine nine two zero four.
+
+INSURANCE: Of course! For the CPT code 99204, here are the coverage details:
+
+- **Covered**: Yes, this service is covered.
+- **Copay**: No copay—this is an HDHP, so everything goes to the deductible first.
+- **Coinsurance**: After the deductible is met, the member pays twenty percent coinsurance.
+- **Deductible Applies**: Yes, the deductible applies to ALL services—that’s how HDHP works.
+- **Prior Auth Required**: No, prior authorization is not required.
+- **Telehealth Covered**: Yes, telehealth services are covered but are also subject to the deductible.
+
+If you need any more information or have further questions, just let me know!
+
+MONICA: Could you please provide the individual and family deductible amounts, as well as any amounts already met?
+
+INSURANCE: Certainly! Here are the deductible amounts and what has been met so far:
+
+- **Individual Deductible**: The individual deductible is three thousand dollars ($3,000).
+- **Individual Deductible Met**: Eight hundred fifty dollars ($850) has been applied.
+
+- **Family Deductible**: The family deductible is six thousand dollars ($6,000).
+- **Family Deductible Met**: Twelve hundred dollars ($1,200) has been met on the family side.
+
+If you have any more questions or need additional information, feel free to ask!
+
+MONICA: What is the family out-of-pocket maximum?
+
+INSURANCE: The family out-of-pocket maximum is fourteen thousand dollars ($14,000). If you need any more details or have further questions, just let me know!
+
+MONICA: How much of the out-of-pocket maximum has been met?
+
+INSURANCE: Currently, eight hundred dollars ($1,200) has been applied towards the family out-of-pocket maximum. If you have any more questions or need further assistance, feel free to ask!
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Certainly! The reference number for this call is BSC-HDHP-2025-7890. If you need anything else, just let me know!
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: You're welcome, Rachel! If you need assistance in the future, don't hesitate to reach out. Have a great day, and goodbye!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

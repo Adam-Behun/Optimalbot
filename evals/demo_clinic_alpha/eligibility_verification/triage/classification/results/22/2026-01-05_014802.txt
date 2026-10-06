@@ -1,0 +1,10 @@
+SCENARIO: 22
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Your estimated wait time is 15 minutes. To continue holding, stay on the line. To receive a callback when it's your turn, press 1. To leave a voicemail, press 2.
+
+============================================================
+GRADE: PASS - Correct: IVR

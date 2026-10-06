@@ -1,0 +1,19 @@
+{
+  "id": "26_2026-01-05_015919",
+  "scenario_id": "26",
+  "timestamp": "2026-01-05T01:59:19.949092",
+  "langfuse_trace_id": "2dfdfb8cf2bcf6effb167570e668918f",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/2dfdfb8cf2bcf6effb167570e668918f",
+  "input": {
+    "utterance": "Thank you for calling. Our office hours are Monday through Friday, 8 AM to 6 PM Eastern. If you know your party's extension, you may dial it now. Otherwise, please call back during business hours.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "VOICEMAIL"
+  },
+  "grade": {
+    "pass": false,
+    "reason": "Expected IVR, got VOICEMAIL"
+  },
+  "notes": ""
+}

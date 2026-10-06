@@ -1,0 +1,232 @@
+{
+  "id": "1_2026-01-01_170354",
+  "scenario_id": "1",
+  "timestamp": "2026-01-01T17:03:54.966934",
+  "langfuse_trace_id": "bb9fa63879b7d077ecb0e5b2db460bf6",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/bb9fa63879b7d077ecb0e5b2db460bf6",
+  "input": {
+    "target_node": "end",
+    "expected_problem": "Bot should verify identity, share status, provide pharmacy address when asked",
+    "patient": {
+      "_id": "6956ef39bfe352ff4bd364a7",
+      "patient_id": "6956ef39bfe352ff4bd364a7",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "prescription_status",
+      "call_status": "Not Started",
+      "patient_name": "Alex Thompson",
+      "date_of_birth": "2001-04-23",
+      "phone_number": "5555550143",
+      "pharmacy_name": "CVS Pharmacy",
+      "pharmacy_phone": "(555) 555-0134",
+      "pharmacy_address": "123 Main Street, New York, NY 10001",
+      "prescriptions": [
+        {
+          "medication_name": "Lisinopril",
+          "dosage": "10mg daily",
+          "status": "Ready for Pickup",
+          "refills_remaining": 2
+        }
+      ],
+      "first_name": "Alex",
+      "last_name": "Thompson",
+      "created_at": "2026-01-01T22:03:37.771766+00:00",
+      "updated_at": "2026-01-01T22:03:37.771766+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I'd like to check on my prescriptions.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sounds good! What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Five one six, five six six, seven one three two.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "That's 555-555-0143, correct?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Yes.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Can you confirm your date of birth please? Let me pull up your account.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "April twenty-three, two thousand one.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Your Lisinopril 10mg daily is ready for pickup at CVS Pharmacy.",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "What's the address of the pharmacy?",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "The address for CVS Pharmacy is 123 Main Street, New York, NY 10001.",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Great, thanks! That's all I needed.",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "Is there anything else I can help you with today?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "No, that's everything. Bye!",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "You're welcome! Take care!",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "Thank you! You too!",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "Take care!",
+        "turn": 8
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_prescription_status",
+        "args": {}
+      },
+      {
+        "turn": 3,
+        "node": "patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5555550143"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "verify_dob",
+        "function": "verify_dob",
+        "args": {
+          "date_of_birth": "April 23, 2001"
+        }
+      },
+      {
+        "turn": 6,
+        "node": "status_ready",
+        "function": "proceed_to_completion",
+        "args": {}
+      },
+      {
+        "turn": 8,
+        "node": "completion",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6956ef39bfe352ff4bd364a7",
+      "patient_name": "Alex Thompson",
+      "first_name": "Alex",
+      "last_name": "Thompson",
+      "date_of_birth": "2001-04-23",
+      "phone_number": "5555550143",
+      "identity_verified": true,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 0,
+      "anything_else_count": 1,
+      "medication_name": "Lisinopril",
+      "dosage": "10mg daily",
+      "prescribing_physician": "",
+      "refill_status": "Ready for Pickup",
+      "last_filled_date": "",
+      "next_refill_date": "",
+      "pharmacy_name": "CVS Pharmacy",
+      "pharmacy_phone": "(555) 555-0134",
+      "pharmacy_address": "123 Main Street, New York, NY 10001",
+      "refills_remaining": 2,
+      "prescriptions": [
+        {
+          "medication_name": "Lisinopril",
+          "dosage": "10mg daily",
+          "status": "Ready for Pickup",
+          "refills_remaining": 2
+        }
+      ],
+      "callback_confirmed": false,
+      "medication_select_attempts": 0,
+      "mentioned_medication": null,
+      "selected_prescription": {
+        "medication_name": "Lisinopril",
+        "dosage": "10mg daily",
+        "status": "Ready for Pickup",
+        "refills_remaining": 2
+      },
+      "_last_lookup_phone": "5555550143",
+      "_last_lookup_dob": "2001-04-23"
+    },
+    "final_node": "end",
+    "turns": 8
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Over-talking after caller goodbye",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: Identity verified before sharing"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Over-talking after caller goodbye"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: All functions called correctly"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached end (equivalent to end)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: No DB state assertions"
+      }
+    }
+  },
+  "notes": ""
+}

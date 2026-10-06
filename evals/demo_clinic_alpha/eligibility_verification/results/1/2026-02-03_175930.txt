@@ -1,0 +1,88 @@
+SCENARIO: 1
+TARGET NODE: closing
+FINAL NODE: plan_info
+============================================================
+
+INSURANCE: Provider services, this is Eliza. Tax ID and member ID?
+
+MONICA: Hi Eliza, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith. May I have your last initial for my records?
+
+INSURANCE: I appreciate that, but I need the tax ID and member ID to proceed.
+
+MONICA: Hi Eliza, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith. May I have your last initial for my records?
+
+INSURANCE: I need the tax ID and member ID to assist you.
+
+MONICA: Hi Eliza, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith. May I have your last initial for my records?
+
+INSURANCE: I understand, but I need the tax ID and member ID to proceed.
+
+MONICA: The member ID is U123456789 and the tax ID is 82-1234567.
+
+INSURANCE: Okay, they're active. POS plan, in network, effective January first twenty twenty five, no term date. What code are you looking at?
+
+MONICA: I'm looking at CPT code 95800.
+
+INSURANCE: Ninety-five eight hundred, that's covered. Fifty dollar copay, no coinsurance, ded doesn't apply, no auth, telehealth same benefit. Anything else?
+
+MONICA: No, that covers everything.
+
+INSURANCE: Reference is UHC-2025-789456. Have a good one.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye.
+
+MONICA: Goodbye.
+
+============================================================
+GRADE: FAIL - FAIL: data_accuracy: FAIL: deductible_family: expected '500.00', got 'None'; deductible_family_met: expected '500.00', got 'None'; oop_max_family: expected '6000.00', got 'None' (+2 more); quality: FAIL: Multiple goodbye repetitions occurred; node: FAIL: Expected closing, got plan_info; state: FAIL: reference_number: expected UHC-2025-789456, got None; golden: Failed: FAIL: The bot asks for the representative's last initial but does not ask for their first name. The bot already assumes the representative's name is "Eliza" without asking for it, when it should be asking for both the first name; DB: FAIL: reference_number: expected UHC-2025-789456, got None
+NODE CHECK: FAIL: Expected closing, got plan_info

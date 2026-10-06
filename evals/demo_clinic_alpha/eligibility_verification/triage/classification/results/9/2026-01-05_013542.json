@@ -1,0 +1,19 @@
+{
+  "id": "9_2026-01-05_013542",
+  "scenario_id": "9",
+  "timestamp": "2026-01-05T01:35:42.264311",
+  "langfuse_trace_id": "9d36a006042be92b8000429dc6cf73b9",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/9d36a006042be92b8000429dc6cf73b9",
+  "input": {
+    "utterance": "Hmm?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

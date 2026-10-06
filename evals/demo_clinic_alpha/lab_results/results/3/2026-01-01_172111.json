@@ -1,0 +1,229 @@
+{
+  "id": "3_2026-01-01_172111",
+  "scenario_id": "3",
+  "timestamp": "2026-01-01T17:21:11.435645",
+  "langfuse_trace_id": "f6e41196da0d15475def876241e0f5be",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/f6e41196da0d15475def876241e0f5be",
+  "input": {
+    "target_node": "end",
+    "expected_problem": "Bot must NOT share results when provider_review_required is true - only confirm callback",
+    "patient": {
+      "_id": "6956f33ff104ac1e785a3363",
+      "patient_id": "6956f33ff104ac1e785a3363",
+      "organization_id": "507f1f77bcf86cd799439011",
+      "workflow": "lab_results",
+      "call_status": "Not Started",
+      "patient_name": "Michael Brown",
+      "date_of_birth": "1968-07-22",
+      "phone_number": "5552468135",
+      "test_type": "Biopsy",
+      "test_date": "2024-12-15",
+      "ordering_physician": "Dr. Patricia Hayes",
+      "results_status": "ready",
+      "results_summary": "Tissue sample shows atypical cells requiring further evaluation. Recommend follow-up with oncology.",
+      "provider_review_required": true,
+      "callback_timeframe": "24 to 48 hours",
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "created_at": "2026-01-01T22:20:48.100951+00:00",
+      "updated_at": "2026-01-01T22:20:48.100951+00:00"
+    }
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Demo Clinic Alpha laboratory results. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I'm calling about my biopsy results. Are they ready?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sounds good! What's the phone number on your account?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's five five five, two four six, eight one three five.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "That's 555-246-8135, correct?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's me.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Can you confirm your date of birth please? Let me pull up your account.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Sure, it's July twenty-second, nineteen sixty-eight.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you. Your Biopsy results are in, but Dr. Patricia Hayes needs to review them before we can share the details. The doctor will call you within 24 to 48 hours. Is 8135 still a good number to reach you?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Can you at least tell me what the results show? I'm really anxious about this.",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "I understand how stressful this is. The doctor will call you as soon as they've reviewed everything. Is 8135 still the best number to reach you?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "Okay, I understand. When will they call?",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "They will call you within 24 to 48 hours. Is 8135 still the best number to reach you?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "Alright, thank you. I'll wait for the call.",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "I've confirmed your callback number. Is there anything else I can help you with today?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "No, that's all. Goodbye.",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "You're welcome! Take care!",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "Thank you! You too!",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "Take care!",
+        "turn": 9
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 1,
+        "node": "greeting",
+        "function": "proceed_to_lab_results",
+        "args": {}
+      },
+      {
+        "turn": 3,
+        "node": "patient_lookup",
+        "function": "lookup_by_phone",
+        "args": {
+          "phone_number": "5552468135"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "verify_dob",
+        "function": "verify_dob",
+        "args": {
+          "date_of_birth": "July 22, 1968"
+        }
+      },
+      {
+        "turn": 7,
+        "node": "provider_review",
+        "function": "confirm_callback",
+        "args": {
+          "confirmed": true
+        }
+      },
+      {
+        "turn": 9,
+        "node": "completion",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6956f33ff104ac1e785a3363",
+      "patient_name": "Michael Brown",
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "date_of_birth": "1968-07-22",
+      "phone_number": "5552468135",
+      "identity_verified": true,
+      "caller_stated_name": false,
+      "routed_to": "",
+      "lookup_attempts": 0,
+      "anything_else_count": 1,
+      "test_type": "Biopsy",
+      "test_date": "2024-12-15",
+      "ordering_physician": "Dr. Patricia Hayes",
+      "results_status": "ready",
+      "results_summary": "Tissue sample shows atypical cells requiring further evaluation. Recommend follow-up with oncology.",
+      "provider_review_required": true,
+      "callback_timeframe": "24 to 48 hours",
+      "callback_confirmed": false,
+      "results_communicated": false,
+      "_last_lookup_phone": "5552468135",
+      "_last_lookup_dob": "1968-07-22"
+    },
+    "final_node": "end",
+    "db_state": {
+      "identity_verified": false,
+      "results_communicated": false,
+      "callback_confirmed": true,
+      "call_status": "Completed",
+      "caller_phone_number": ""
+    },
+    "turns": 9
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: quality: FAIL: Bot repeats callback question excessively; functions: FAIL: Provider review requires callback confirmation",
+    "details": {
+      "hipaa": {
+        "pass": true,
+        "reason": "PASS: No results shared, callback confirmed"
+      },
+      "quality": {
+        "pass": false,
+        "reason": "FAIL: Bot repeats callback question excessively"
+      },
+      "functions": {
+        "pass": false,
+        "reason": "FAIL: Provider review requires callback confirmation"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached end (equivalent to end)"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: DB state correct"
+      }
+    }
+  },
+  "notes": ""
+}

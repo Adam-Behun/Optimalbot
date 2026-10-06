@@ -1,0 +1,66 @@
+SCENARIO: 6
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: UnitedHealthcare provider services, this is Robert. How can I help you?
+
+MONICA: Hi Robert, this is Daniel S. calling from Advanced Therapy Center about eligibility verification for Emily Johnson. May I have your last initial for my records?
+
+INSURANCE: Thank you. My last initial is M. Can I get the tax ID for the facility?
+
+MONICA: Perfect, thank you. The tax ID for the facility is seventy-seven dash eight-eight-nine-nine-zero-zero-one.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Emily Johnson and the date of birth is February twenty-eighth, nineteen seventy-five.
+
+INSURANCE: Let me pull that up... Okay, I have Emily Johnson here. What do you need today?
+
+MONICA: I'm calling to verify eligibility and benefits for Emily Johnson.
+
+INSURANCE: Sure! Is Advanced Therapy Center participating in the network?
+
+MONICA: Yes, Advanced Therapy Center is in-network.
+
+INSURANCE: This is an HMO plan.
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: Effective September first, twenty twenty four.
+
+MONICA: Is there a term date for the plan?
+
+INSURANCE: No termination date on file.
+
+MONICA: Now that I have all the plan information, can we proceed to the CPT coverage details? The CPT code is nine seven one four zero.
+
+INSURANCE: Let me check that code... I'm sorry, that procedure is NOT covered under this member's benefit plan. It's a plan exclusion.
+
+MONICA: Since the CPT code is not covered, can we move on to the accumulator information?
+
+INSURANCE: Sure! The family deductible is fifteen hundred, and eight hundred has been met.
+
+MONICA: What is the individual deductible amount?
+
+INSURANCE: I'm sorry, but I only have the family deductible information. Would you like to know about the out-of-pocket maximum instead?
+
+MONICA: Yes, please provide the family out-of-pocket maximum and how much has been met.
+
+INSURANCE: The family out-of-pocket max is seventy-five hundred, and twelve hundred has been applied.
+
+MONICA: What is the individual out-of-pocket maximum?
+
+INSURANCE: I only have the family out-of-pocket maximum information available. Would you like anything else?
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Reference number is UHC-NC-2025-5432.
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: Goodbye.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

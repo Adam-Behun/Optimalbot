@@ -1,0 +1,145 @@
+{
+  "id": "1_2026-01-05_002041",
+  "scenario_id": "1",
+  "timestamp": "2026-01-05T00:20:41.213548",
+  "langfuse_trace_id": "a9505d71c6fd218cbe6698fd1d68dbb3",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/a9505d71c6fd218cbe6698fd1d68dbb3",
+  "input": {
+    "description": "Trap: 'Member eligibility' vs need for provider eligibility",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy and drug coverage, press 3. To speak with a provider services representative, press 0.",
+        "expected_action": "dtmf:0"
+      },
+      {
+        "menu_prompt": "Please hold for the next available provider services representative.",
+        "expected_action": "status:completed"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Select English",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "We are calling as a healthcare provider",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "4",
+        "actual_arg": "4",
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy and drug coverage, press 3. To speak with a provider services representative, press 0.",
+        "expected_action": "dtmf:0",
+        "actual_response": "<dtmf>0</dtmf>",
+        "reasoning": "'Member eligibility' is for members checking their OWN benefits, not for providers verifying patients. Need representative.",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "0",
+        "actual_arg": "0",
+        "event_matched": true
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "Please hold for the next available provider services representative.",
+        "expected_action": "status:completed",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "Goal reached - connected to provider services rep",
+        "expected_event": "on_ivr_status_changed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "completed",
+        "actual_arg": "completed",
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling BlueCross BlueShield. For English, press 1. Para espa\u00f1ol, oprima 2."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please listen carefully as our menu options have changed. For individual and family plans, press 1. For group and employer plans, press 2. For Medicare, press 3. For healthcare providers, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Provider services. For member eligibility and benefits, press 1. For claims status, press 2. For pharmacy and drug coverage, press 3. To speak with a provider services representative, press 0."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>0</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please hold for the next available provider services representative."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All 4 steps correct",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling BlueCross BlueShield. For En...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "Please listen carefully as our menu options have c...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "Provider services. For member eligibility and bene...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (0)"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "Please hold for the next available provider servic...",
+        "pass": true,
+        "reason": "PASS: Correct status (completed)"
+      }
+    ]
+  },
+  "notes": ""
+}

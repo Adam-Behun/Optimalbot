@@ -1,0 +1,50 @@
+SCENARIO: 28
+DESCRIPTION: Deep: 7-level enterprise IVR maze
+============================================================
+
+STEP 1:
+  Menu: Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For all other inquiries, press 3.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 2:
+  Menu: UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored plans, press 2. For Medicare, press 3. For healthcare providers, press 4.
+  Expected: dtmf:4
+  Actual: <dtmf>4</dtmf>
+
+STEP 3:
+  Menu: Provider services. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For patient support services, press 4.
+  Expected: dtmf:4
+  Actual: <dtmf>4</dtmf>
+
+STEP 4:
+  Menu: Patient support. For eligibility and benefits verification, press 1. For referral management, press 2. For care coordination, press 3.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 5:
+  Menu: Eligibility verification. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid, press 3. For all plan types, press 4.
+  Expected: dtmf:4
+  Actual: <dtmf>4</dtmf>
+
+STEP 6:
+  Menu: To expedite your call, please have your provider NPI ready. Press 1 to continue.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 7:
+  Menu: Please hold for the next available eligibility specialist. Current wait time is 3 minutes.
+  Expected: status:completed
+  Actual: <ivr>completed</ivr>
+
+============================================================
+GRADE: PASS - PASS: All 7 steps correct
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct DTMF (1)
+  Step 2: PASS - PASS: Correct DTMF (4)
+  Step 3: PASS - PASS: Correct DTMF (4)
+  Step 4: PASS - PASS: Correct DTMF (1)
+  Step 5: PASS - PASS: Correct DTMF (4)
+  Step 6: PASS - PASS: Correct DTMF (1)
+  Step 7: PASS - PASS: Correct status (completed)

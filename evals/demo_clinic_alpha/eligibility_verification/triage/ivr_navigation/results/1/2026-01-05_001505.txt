@@ -1,0 +1,14 @@
+SCENARIO: 1
+DESCRIPTION: Trap: 'Member eligibility' vs need for provider eligibility
+============================================================
+
+STEP 1:
+  Menu: For member eligibility and benefits, press 1. For claims, press 2. For pharmacy, press 3. To speak with an operator, press 0.
+  Expected: dtmf:0
+  Actual: <dtmf>0</dtmf>
+
+============================================================
+GRADE: PASS - PASS: All 1 steps correct
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct DTMF (0)

@@ -1,0 +1,436 @@
+{
+  "id": "14_2026-01-25_204159",
+  "scenario_id": "14",
+  "timestamp": "2026-01-25T20:41:59.332261",
+  "langfuse_trace_id": "e613d9e29c5db01c71ccba52076e1e09",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/e613d9e29c5db01c71ccba52076e1e09",
+  "input": {
+    "target_node": "plan_info"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Test Insurance provider line, Marcus B. speaking. How can I help you today?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Hi Marcus, this is Alex T. calling from Test Clinic about eligibility verification for Test Patient. May I have your last initial?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "I just told you, I'm Marcus B. Were you not listening? Anyway, what's the tax ID?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I apologize for that, Marcus. The tax ID is twelve dash three four five six seven eight nine.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "And the member's name and date of birth?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "The member's name is Test Patient and the date of birth is January fifteenth, nineteen ninety.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Let me pull that up... Got it. They're active, in network. What else do you need?",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Could you please provide the type of plan for Test Patient?",
+        "turn": 4
+      },
+      {
+        "role": "user",
+        "content": "Sure! The type of plan for Test Patient is a comprehensive health plan. Is there anything else you need?",
+        "turn": 5
+      },
+      {
+        "role": "assistant",
+        "content": "Could you specify the plan type as PPO, HMO, POS, EPO, or HDHP?",
+        "turn": 5
+      },
+      {
+        "role": "user",
+        "content": "The plan type for Test Patient is an HMO plan. Is there anything else you would like to know?",
+        "turn": 6
+      },
+      {
+        "role": "assistant",
+        "content": "What is the effective date of the plan?",
+        "turn": 6
+      },
+      {
+        "role": "user",
+        "content": "The effective date of the plan is March 1, 2023. Is there anything else I can assist you with?",
+        "turn": 7
+      },
+      {
+        "role": "assistant",
+        "content": "Is there a termination date for the plan?",
+        "turn": 7
+      },
+      {
+        "role": "user",
+        "content": "The termination date for the plan is December 31, 2024. Do you need any more information?",
+        "turn": 8
+      },
+      {
+        "role": "assistant",
+        "content": "I need to verify coverage for CPT code nine nine two one three. Can you confirm if this service is covered?",
+        "turn": 8
+      },
+      {
+        "role": "user",
+        "content": "Let me check that for you... Yes, the service for CPT code 99213 is covered under the plan. Is there anything else you need?",
+        "turn": 9
+      },
+      {
+        "role": "assistant",
+        "content": "What is the copay for this service?",
+        "turn": 9
+      },
+      {
+        "role": "user",
+        "content": "The copay for CPT code 99213 is $25. Is there anything else I can help you with?",
+        "turn": 10
+      },
+      {
+        "role": "assistant",
+        "content": "Is there a coinsurance for this service?",
+        "turn": 10
+      },
+      {
+        "role": "user",
+        "content": "No, there is no coinsurance for this service. The copay of $25 is the only cost associated with it. Do you have any other questions?",
+        "turn": 11
+      },
+      {
+        "role": "assistant",
+        "content": "Does the deductible apply to this service?",
+        "turn": 11
+      },
+      {
+        "role": "user",
+        "content": "No, the deductible does not apply to this service. The copay of $25 covers it fully. Is there anything else you would like to know?",
+        "turn": 12
+      },
+      {
+        "role": "assistant",
+        "content": "Is prior authorization required for this service?",
+        "turn": 12
+      },
+      {
+        "role": "user",
+        "content": "No, prior authorization is not required for this service. Is there anything else I can assist you with?",
+        "turn": 13
+      },
+      {
+        "role": "assistant",
+        "content": "Is telehealth covered for this service?",
+        "turn": 13
+      },
+      {
+        "role": "user",
+        "content": "Yes, telehealth is covered for this service. Is there anything else you need?",
+        "turn": 14
+      },
+      {
+        "role": "assistant",
+        "content": "Could you provide the individual and family deductible amounts, as well as any amounts met?",
+        "turn": 14
+      },
+      {
+        "role": "user",
+        "content": "The individual deductible is $1,500, and the family deductible is $3,000. Currently, $500 has been met for the individual, and $1,000 has been met for the family. Is there anything else I can help with?",
+        "turn": 15
+      },
+      {
+        "role": "assistant",
+        "content": "What is the individual out-of-pocket maximum?",
+        "turn": 15
+      },
+      {
+        "role": "user",
+        "content": "The individual out-of-pocket maximum is $3,500. Is there anything else you would like to know?",
+        "turn": 16
+      },
+      {
+        "role": "assistant",
+        "content": "How much of the individual out-of-pocket maximum has been met?",
+        "turn": 16
+      },
+      {
+        "role": "user",
+        "content": "$1,000 has been met of the individual out-of-pocket maximum. Do you need any more information?",
+        "turn": 17
+      },
+      {
+        "role": "assistant",
+        "content": "What is the family out-of-pocket maximum?",
+        "turn": 17
+      },
+      {
+        "role": "user",
+        "content": "The family out-of-pocket maximum is $7,000. Is there anything else I can assist you with?",
+        "turn": 18
+      },
+      {
+        "role": "assistant",
+        "content": "How much of the family out-of-pocket maximum has been met?",
+        "turn": 18
+      },
+      {
+        "role": "user",
+        "content": "$2,000 has been met of the family out-of-pocket maximum. Is there anything else you would like to know?",
+        "turn": 19
+      },
+      {
+        "role": "assistant",
+        "content": "May I have a reference number for this call?",
+        "turn": 19
+      },
+      {
+        "role": "user",
+        "content": "Sure! Your reference number for this call is 987654321. Is there anything else I can assist you with?",
+        "turn": 20
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you for your help. Goodbye!",
+        "turn": 20
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 4,
+        "node": "greeting",
+        "function": "proceed_to_plan_info",
+        "args": {
+          "network_status": "In-Network"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "plan_info",
+        "function": "record_plan_type",
+        "args": {
+          "plan_type": "HMO"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "plan_info",
+        "function": "record_plan_effective_date",
+        "args": {
+          "date": "03/01/2023"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "plan_info",
+        "function": "record_plan_term_date",
+        "args": {
+          "date": "12/31/2024"
+        }
+      },
+      {
+        "turn": 8,
+        "node": "plan_info",
+        "function": "proceed_to_cpt_coverage",
+        "args": {}
+      },
+      {
+        "turn": 9,
+        "node": "cpt_coverage",
+        "function": "record_cpt_covered",
+        "args": {
+          "covered": "Yes"
+        }
+      },
+      {
+        "turn": 10,
+        "node": "cpt_coverage",
+        "function": "record_copay",
+        "args": {
+          "amount": "25.00"
+        }
+      },
+      {
+        "turn": 11,
+        "node": "cpt_coverage",
+        "function": "record_coinsurance",
+        "args": {
+          "percent": "None"
+        }
+      },
+      {
+        "turn": 12,
+        "node": "cpt_coverage",
+        "function": "record_deductible_applies",
+        "args": {
+          "applies": "No"
+        }
+      },
+      {
+        "turn": 13,
+        "node": "cpt_coverage",
+        "function": "record_prior_auth_required",
+        "args": {
+          "required": "No"
+        }
+      },
+      {
+        "turn": 14,
+        "node": "cpt_coverage",
+        "function": "record_telehealth_covered",
+        "args": {
+          "covered": "Yes"
+        }
+      },
+      {
+        "turn": 15,
+        "node": "cpt_coverage",
+        "function": "proceed_to_accumulators",
+        "args": {
+          "deductible_individual": "1500",
+          "deductible_individual_met": "500",
+          "deductible_family": "3000",
+          "deductible_family_met": "1000"
+        }
+      },
+      {
+        "turn": 16,
+        "node": "accumulators",
+        "function": "record_oop_max_individual",
+        "args": {
+          "amount": "3500.00"
+        }
+      },
+      {
+        "turn": 17,
+        "node": "accumulators",
+        "function": "record_oop_max_individual_met",
+        "args": {
+          "amount": "1000.00"
+        }
+      },
+      {
+        "turn": 18,
+        "node": "accumulators",
+        "function": "record_oop_max_family",
+        "args": {
+          "amount": "7000.00"
+        }
+      },
+      {
+        "turn": 19,
+        "node": "accumulators",
+        "function": "record_oop_max_family_met",
+        "args": {
+          "amount": "2000.00"
+        }
+      },
+      {
+        "turn": 20,
+        "node": "accumulators",
+        "function": "record_reference_number",
+        "args": {
+          "reference_number": "987654321"
+        }
+      },
+      {
+        "turn": 20,
+        "node": "accumulators",
+        "function": "proceed_to_closing",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "6976c62ee5bf91ec05145186",
+      "patient_name": "Test Patient",
+      "date_of_birth": "1990-01-15",
+      "insurance_member_id": "TEST123456",
+      "insurance_company_name": "Test Insurance",
+      "insurance_phone": "+18001234567",
+      "provider_agent_first_name": "Alex",
+      "provider_agent_last_initial": "T",
+      "facility_name": "Test Clinic",
+      "tax_id": "12-3456789",
+      "provider_name": "Dr. Test",
+      "provider_npi": "1234567890",
+      "provider_call_back_phone": "+15551234567",
+      "cpt_code": "99213",
+      "place_of_service": "Office",
+      "date_of_service": "",
+      "network_status": "In-Network",
+      "plan_type": "HMO",
+      "plan_effective_date": "03/01/2023",
+      "plan_term_date": "12/31/2024",
+      "cpt_covered": "Yes",
+      "copay_amount": "25.00",
+      "coinsurance_percent": "None",
+      "deductible_applies": "No",
+      "prior_auth_required": "No",
+      "telehealth_covered": "Yes",
+      "deductible_individual": "1500",
+      "deductible_individual_met": "500",
+      "deductible_family": "3000",
+      "deductible_family_met": "1000",
+      "oop_max_individual": "3500.00",
+      "oop_max_individual_met": "1000.00",
+      "oop_max_family": "7000.00",
+      "oop_max_family_met": "2000.00",
+      "reference_number": "987654321"
+    },
+    "final_node": "closing",
+    "turns": 20
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: functions: FAIL: Missing: record_rep_name; node: FAIL: Expected plan_info, got closing; state: FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None; phrases: FAIL: Bot said forbidden phrase(s): last initial; DB: FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None",
+    "details": {
+      "data_accuracy": {
+        "pass": true,
+        "reason": "PASS: No expected data defined"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversational flow maintained"
+      },
+      "functions": {
+        "pass": false,
+        "reason": "FAIL: Missing: record_rep_name"
+      },
+      "node_reached": {
+        "pass": false,
+        "reason": "FAIL: Expected plan_info, got closing"
+      },
+      "captured_state": {
+        "pass": false,
+        "reason": "FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None"
+      },
+      "forbidden_phrases": {
+        "pass": false,
+        "reason": "FAIL: Bot said forbidden phrase(s): last initial",
+        "violations": [
+          "last initial"
+        ]
+      },
+      "db_state": {
+        "pass": false,
+        "reason": "FAIL: insurance_rep_first_name: expected Marcus, got None; insurance_rep_last_initial: expected B, got None"
+      }
+    }
+  },
+  "notes": ""
+}

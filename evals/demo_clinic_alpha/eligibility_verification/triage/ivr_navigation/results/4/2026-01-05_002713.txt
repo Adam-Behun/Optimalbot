@@ -1,0 +1,14 @@
+SCENARIO: 4
+DESCRIPTION: Stuck: Pharmacy-only menu with no escape
+============================================================
+
+STEP 1:
+  Menu: Pharmacy services. For prescription refills, press 1. For drug pricing, press 2. For mail order, press 3. For specialty pharmacy, press 4.
+  Expected: status:stuck
+  Actual: <ivr>wait</ivr>
+
+============================================================
+GRADE: FAIL - FAIL: 1/1 steps failed
+
+STEP GRADES:
+  Step 1: FAIL - FAIL: Should be "stuck" - no relevant options for wrong department, not "wait"

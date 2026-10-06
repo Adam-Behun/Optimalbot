@@ -1,0 +1,48 @@
+SCENARIO: 4
+EXPECTED: Bot may not handle multiple unrelated intents with proper sequencing
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi Monica, I have a few things I need help with. I need to schedule my annual physical, I'm waiting on some blood work results from last Tuesday, and I got a bill I don't understand.
+
+MONICA: Got it! Let's start with your annual physical. What date are you looking to schedule it for?
+
+CALLER: Sure, let's go for next week. How about Tuesday or Wednesday?
+
+MONICA: I can help with your annual physical scheduling, but it looks like our available slots right now are Thursday, December 25 at 9:00 AM or Friday, December 26 at 2:00 PM. Which works for you?
+
+CALLER: Actually, I think there might be a misunderstanding—December 25 is a holiday. Can we look for a date earlier than that? Maybe next week instead?
+
+MONICA: I understand, but it seems those are the only available slots at the moment. If you'd like, I can transfer you to staff who may have more options for scheduling. Would you like me to do that?
+
+CALLER: No, that's okay. Let's go with Friday, December 26 at 2:00 PM. Okay, that's booked. What about my lab results?
+
+MONICA: Perfect! Now I just need a few details to complete your booking. To finalize your booking, could you please provide your first name?
+
+CALLER: Sure, it's Daniel. Now about my lab results? I need to check on those from last Tuesday.
+
+MONICA: Thanks, Daniel! Now, can I get your last name, please?
+
+CALLER: It's Harris. Now, can we check on my lab results? I really need to know how those came back.
+
+MONICA: Thank you, Daniel Harris! Next, could you please provide your phone number?
+
+CALLER: Of course, it's 555-888-9999. Now, can we please check on those lab results?
+
+MONICA: Thanks for providing your phone number! Now, could you share your date of birth?
+
+CALLER: Sure, my date of birth is November 11, 1983. Now, about those lab results from last Tuesday—what do they say?
+
+MONICA: Thank you for your date of birth, Daniel! Lastly, could you provide your email address?
+
+CALLER: Absolutely, my email is dharris@email.com. Now, can we check on those lab results?
+
+MONICA: Thank you! Let me confirm all the details. I've saved your information and will now check on your lab results from last Tuesday. Please hold on for a moment while I get that information for you.
+
+CALLER: Thank you, I appreciate it! I'll hold.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Ignored billing question completely; quality: FAIL: Bot ignored lab results repeatedly

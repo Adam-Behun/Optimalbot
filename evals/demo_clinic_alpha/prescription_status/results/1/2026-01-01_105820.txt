@@ -1,0 +1,41 @@
+SCENARIO: 1
+EXPECTED: Bot should verify identity, share status, provide pharmacy address when asked
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?
+
+PATIENT: Hi, I'd like to check on my prescriptions.
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: Five one six, five six six, seven one three two.
+
+BOT: That's 555-555-0143, correct?
+
+PATIENT: Yes.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: April twenty-three, two thousand one.
+
+BOT: Your Lisinopril 10mg daily is ready for pickup at CVS Pharmacy.
+
+PATIENT: What's the address of the pharmacy?
+
+BOT: The address for CVS Pharmacy is 123 Main Street, New York, NY 10001.
+
+PATIENT: Great, thanks! That's all I needed.
+
+BOT: Is there anything else I can help you with today?
+
+PATIENT: No, that's everything. Bye!
+
+BOT: You're welcome! Take care!
+
+PATIENT: Thank you! You too!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached end (equivalent to end)

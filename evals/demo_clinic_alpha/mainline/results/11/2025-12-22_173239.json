@@ -1,0 +1,126 @@
+{
+  "id": "11_2025-12-22_173239",
+  "scenario_id": "11",
+  "timestamp": "2025-12-22T17:32:39.176607",
+  "langfuse_trace_id": "35c7e03936b1e0610b57055d04c76443",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/35c7e03936b1e0610b57055d04c76443",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Bot may not properly handle medical urgency signals during routing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, Monica. My doctor left a message saying to call about my test results as soon as possible. I don't know what's going on, and I'm really worried.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "I can help you check on that. What type of test was it?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It was blood work, I think? I had a bunch of tests done. She just said to call right away about the results.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I understand this is concerning for you. Let me get you to someone who can look that up for you.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Thank you, but could you please check soon? The way she said \"as soon as possible\" has me really worried. Doctors don't usually say that, do they?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I've initiated the process to get you the information about your test results. Please hold on for a moment while I connect you.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Okay, I appreciate it. Please let them know my doctor said it was urgent. I don't want to wait in a queue.",
+        "turn": 4
+      },
+      {
+        "role": "assistant",
+        "content": "Transferring you now, please hold.",
+        "turn": 4
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "lab_results",
+          "reason": "caller anxious about blood work results, doctor requested to call as soon as possible"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "verification",
+        "function": "request_staff",
+        "args": {
+          "reason": "caller anxious about urgent blood work results"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Lab Results",
+      "call_reason": "caller anxious about blood work results, doctor requested to call as soon as possible",
+      "routed_to": "lab_results (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "patient_id": null,
+      "patient_name": "",
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "medical_record_number": "",
+      "phone_number": "",
+      "test_type": "",
+      "test_date": "",
+      "ordering_physician": "",
+      "results_status": "",
+      "results_summary": "",
+      "provider_review_required": false,
+      "callback_timeframe": "24 to 48 hours",
+      "identity_verified": false,
+      "results_communicated": false,
+      "caller_anxious": true,
+      "transfer_reason": "caller anxious about urgent blood work results",
+      "handed_off_to": "lab_results"
+    },
+    "turns": 4
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Missed urgent medical priority signals",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Missed urgent medical priority signals"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural flow, acknowledged urgency appropriately"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing to lab results"
+      }
+    }
+  },
+  "notes": ""
+}

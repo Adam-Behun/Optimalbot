@@ -1,0 +1,10 @@
+SCENARIO: 19
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Thank you for calling Blue Cross Blue Shield. This is the provider eligibility department, Lisa speaking, representative ID 84521. For quality purposes, may I have your provider NPI?
+
+============================================================
+GRADE: PASS - Correct: CONVERSATION

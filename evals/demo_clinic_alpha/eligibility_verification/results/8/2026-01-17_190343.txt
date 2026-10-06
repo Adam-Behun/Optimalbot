@@ -1,0 +1,64 @@
+SCENARIO: 8
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Kaiser provider line, Michael speaking. How can I help?
+
+MONICA: Hi, this is Amanda K. calling from Wellness Medical Center about eligibility verification for Christopher Lee. His date of birth is December third, nineteen seventy.
+
+INSURANCE: Thank you, Amanda. Can I get the facility's street address?
+
+MONICA: I don't have that information available.
+
+INSURANCE: No problem. How about the fax number?
+
+MONICA: I don't have that information available.
+
+INSURANCE: That's fine. Can you provide the tax ID?
+
+MONICA: The tax ID is eleven dash two two three three four four five.
+
+INSURANCE: And your callback number?
+
+MONICA: The callback number is one five five five eight nine zero one two three four.
+
+INSURANCE: Okay, and the member's name and date of birth?
+
+MONICA: The member's name is Christopher Lee, and his date of birth is December third, nineteen seventy.
+
+INSURANCE: Let me pull that up... Okay, I have Christopher Lee. What do you need today?
+
+MONICA: I'm calling to verify insurance eligibility for Christopher Lee.
+
+INSURANCE: Yes, Wellness Medical Center is in-network.
+
+MONICA: What type of plan is this?
+
+INSURANCE: It's an HMO plan.
+
+MONICA: What is the effective date?
+
+INSURANCE: January first, twenty twenty five.
+
+MONICA: Is there a termination date?
+
+INSURANCE: No termination date.
+
+MONICA: Now that I have all the plan information, can we proceed to the CPT coverage details? The CPT code is nine nine two zero three.
+
+INSURANCE: Let me check ninety-nine two oh three... Yes, that's covered. Thirty dollar copay, no coinsurance on this HMO, no deductible applies, no prior auth needed, telehealth is covered.
+
+MONICA: Can you provide the individual and family deductible amounts, as well as any amounts met? Also, please share the reference number if available.
+
+INSURANCE: This HMO has no deductible. The out-of-pocket max is three thousand, and five hundred forty has been used. 
+
+Reference number is KP-2025-HMO-8899.
+
+MONICA: Thank you for your help. Goodbye!
+
+INSURANCE: You're welcome! If you need anything else, feel free to reach out. Goodbye!
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached closing

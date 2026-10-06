@@ -1,0 +1,19 @@
+{
+  "id": "30_2026-01-05_020438",
+  "scenario_id": "30",
+  "timestamp": "2026-01-05T02:04:38.473272",
+  "langfuse_trace_id": "00579db9d17d2bb9ac15d80cecbab102",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/00579db9d17d2bb9ac15d80cecbab102",
+  "input": {
+    "utterance": "Let me check on that... [keyboard sounds]... okay, I've got the patient pulled up. Go ahead.",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: CONVERSATION"
+  },
+  "notes": ""
+}

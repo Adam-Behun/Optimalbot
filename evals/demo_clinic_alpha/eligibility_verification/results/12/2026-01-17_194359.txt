@@ -1,0 +1,64 @@
+SCENARIO: 12
+TARGET NODE: closing
+FINAL NODE: closing
+============================================================
+
+INSURANCE: Provider services, this is Sarah. Who am I speaking with?
+
+MONICA: This is Monica B. calling from Metro Health Clinic.
+
+INSURANCE: And your tax ID?
+
+MONICA: The tax ID for Metro Health Clinic is twelve dash three four five six seven eight nine.
+
+INSURANCE: Member's name and date of birth?
+
+MONICA: The member's name is Jane Doe, and her date of birth is May twenty-second, nineteen ninety.
+
+INSURANCE: Let me pull that up... How can I help you today?
+
+MONICA: I'm calling to verify insurance eligibility and benefits for Jane Doe. Could you please confirm if Metro Health Clinic is participating in the network?
+
+INSURANCE: Yes, Metro Health Clinic is in network.
+
+MONICA: What type of plan does she have?
+
+INSURANCE: PPO.
+
+MONICA: What is the effective date of the plan?
+
+INSURANCE: January first, twenty twenty five.
+
+MONICA: Is there a termination date for the plan?
+
+INSURANCE: No termination date.
+
+MONICA: Now that I have the plan information, could you provide coverage details for CPT code nine nine two one three?
+
+INSURANCE: What's the date of service?
+
+MONICA: The date of service is not yet determined. Can you use today's date?
+
+INSURANCE: Let me check ninety-nine two thirteen... Covered. Forty dollar copay, twenty percent coinsurance, deductible applies, no prior auth, telehealth is covered.
+
+MONICA: Could you provide the individual and family deductible amounts, as well as the out-of-pocket maximums?
+
+INSURANCE: Family deductible is one thousand, five hundred has been met. Family out of pocket max is five thousand, twelve hundred applied.
+
+MONICA: Thank you for that information. Do you have the individual deductible and out-of-pocket maximum amounts as well?
+
+INSURANCE: I don't have the individual deductible and out-of-pocket maximum amounts available at the moment. Would you like to know anything else?
+
+MONICA: May I have a reference number for this call?
+
+INSURANCE: Reference is ATN-IVR-2025-001.
+
+MONICA: Thank you for your help. Goodbye! 
+
+
+
+INSURANCE: Anything else? Alright, have a good day!
+
+============================================================
+GRADE: FAIL - FAIL: data_accuracy: FAIL: deductible_family: expected '1000.00', got '1500'; deductible_family_met: expected '500.00', got '1500'; oop_max_family: expected '5000.00', got '51200' (+1 more); functions: FAIL: proceed_to_accumulators.oop_max_family: expected 5000.00, got 51200; proceed_to_accumulators.deductible_family_met: expected 500.00, got 1500; proceed_to_accumulators.deductible_family: expected 1000.00, got 1500
+NODE CHECK: PASS: Reached closing

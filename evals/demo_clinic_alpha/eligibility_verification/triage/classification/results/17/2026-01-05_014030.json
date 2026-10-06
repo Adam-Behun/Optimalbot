@@ -1,0 +1,19 @@
+{
+  "id": "17_2026-01-05_014030",
+  "scenario_id": "17",
+  "timestamp": "2026-01-05T01:40:30.988822",
+  "langfuse_trace_id": "262f8e0e9879a132c5c6aacdd88b1aca",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/262f8e0e9879a132c5c6aacdd88b1aca",
+  "input": {
+    "utterance": "Thanks for calling Aetna! Before I connect you to a representative, can you tell me what you're calling about today? You can say things like 'check eligibility' or 'prior auth status.'",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

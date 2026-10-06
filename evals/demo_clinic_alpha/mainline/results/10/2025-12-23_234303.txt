@@ -1,0 +1,52 @@
+SCENARIO: 10
+EXPECTED: Bot may get confused by caller who changes their mind mid-conversation
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, I think I need to schedule an appointment.
+
+MONICA: Sure! What would the appointment be for?
+
+CALLER: Actually, wait. Before I do that - do you know if my lab results are back? I had blood work last week.
+
+MONICA: I can help you check on that. Are you feeling anxious about the results?
+
+CALLER: Oh, a little bit, yes. I just want to know what's going on. But, hmm, actually never mind the labs for now. Let me just schedule the appointment. But wait - what are your hours? I need to figure out when I can come in.
+
+MONICA: Our office hours are Monday through Friday, 8 AM to 5 PM, and Saturday from 9 AM to 1 PM. We're closed on Sundays. Is there anything else I can help with?
+
+CALLER: Okay, so you're open until 5. That might work. Actually, can I check on those lab results first after all? Then I'll know if I even need to come in.
+
+MONICA: Got it! I can help you check on that. Just to confirm, you had blood work done last week, right?
+
+CALLER: Yes, that's right. Thank you for checking.
+
+MONICA: I can help you with that. Can I have your full name?
+
+CALLER: Sure! My name is Michelle Lee.
+
+MONICA: Thanks, Michelle. And what is your date of birth?
+
+CALLER: My date of birth is April 22, 1988.
+
+MONICA: I'm sorry, I wasn't able to verify your identity. Let me connect you with someone who can help.
+
+CALLER: Hmm, actually, I changed my mind. I do want to schedule the appointment either way. Sorry, I know I'm all over the place today.
+
+MONICA: No problem at all, Michelle! I have Wednesday, December 24 at 9:00 AM or Friday, December 26 at 2:00 PM. Which works for you?
+
+CALLER: Sorry, I'm just stressed. Let me focus. I need to: one, check my lab results, and two, schedule a follow-up regardless of the results. Can we do both?
+
+MONICA: Absolutely, we can do both! First, let me help you check your lab results, and then we can schedule your appointment. Can I have your full name again?
+
+CALLER: My name is Michelle Lee. Thank you for your patience!
+
+MONICA: Thank you, Michelle! And could you please provide your date of birth again?
+
+CALLER: Sure! My date of birth is April 22, 1988.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Repetition asking same verification questions

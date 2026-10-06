@@ -1,0 +1,19 @@
+SCENARIO: 6
+EXPECTED: Bot should detect emergency and transfer immediately
+TARGET NODE: transfer_initiated
+FINAL NODE: transfer_pending
+============================================================
+
+BOT: Hello, this is Demo Clinic Alpha laboratory results. How can I help you?
+
+PATIENT: I'm calling about my test results but I'm having severe chest pains right now and I can't breathe properly.
+
+BOT: I'm really sorry to hear that you're experiencing chest pains. It's important to seek immediate medical attention. Please call emergency services or go to the nearest hospital right away.
+
+PATIENT: I understand, but I need help right now. Please, can you transfer me to someone who can assist me?
+
+BOT: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Reached transfer_pending (transferred to staff)

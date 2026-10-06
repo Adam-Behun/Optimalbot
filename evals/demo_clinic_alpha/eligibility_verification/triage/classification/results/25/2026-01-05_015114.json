@@ -1,0 +1,19 @@
+{
+  "id": "25_2026-01-05_015114",
+  "scenario_id": "25",
+  "timestamp": "2026-01-05T01:51:14.520907",
+  "langfuse_trace_id": "11f125ffdb8b0087c4cad362b88a449f",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/11f125ffdb8b0087c4cad362b88a449f",
+  "input": {
+    "utterance": "Hello, you've reached Anthem's prior authorization department. We're currently experiencing high call volume and cannot take your call. Please leave a message.",
+    "expected_classification": "VOICEMAIL"
+  },
+  "output": {
+    "actual_classification": "VOICEMAIL"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: VOICEMAIL"
+  },
+  "notes": ""
+}

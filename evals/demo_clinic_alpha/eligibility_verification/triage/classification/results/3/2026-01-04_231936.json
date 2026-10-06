@@ -1,0 +1,29 @@
+{
+  "id": "3_2026-01-04_231936",
+  "scenario_id": "3",
+  "timestamp": "2026-01-04T23:19:36.888798",
+  "langfuse_trace_id": "cb4e123e25d55cf30c936fb47195a5b1",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/cb4e123e25d55cf30c936fb47195a5b1",
+  "input": {
+    "utterance": "Good afternoon, Cigna provider relations, this is automated... I mean Amanda, how can I help?",
+    "expected_classification": "CONVERSATION"
+  },
+  "output": {
+    "actual_classification": "CONVERSATION"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "classification": {
+        "pass": true,
+        "reason": "PASS: Correct classification (CONVERSATION)"
+      },
+      "confidence": {
+        "pass": true,
+        "reason": "PASS: Clear case handled correctly"
+      }
+    }
+  },
+  "notes": ""
+}

@@ -1,0 +1,62 @@
+SCENARIO: 25
+DESCRIPTION: Humana: Mixed verbal and DTMF with wrong department recovery
+============================================================
+
+STEP 1:
+  Menu: Welcome to Humana. I'm your virtual assistant. Are you a healthcare provider or a member?
+  Expected: speak:healthcare provider
+  Actual: Health care professional
+
+STEP 2:
+  Menu: Great! What's your facility name?
+  Expected: speak:Westbrook Family Medicine
+  Actual: Westbrook Family Medicine
+
+STEP 3:
+  Menu: And who am I speaking with today?
+  Expected: speak:Maria Chen
+  Actual: Maria Chen
+
+STEP 4:
+  Menu: Thanks Maria. For your security, enter your Tax ID.
+  Expected: dtmf_sequence:847291035
+  Actual: <dtmf>8</dtmf><dtmf>4</dtmf><dtmf>7</dtmf><dtmf>2</dtmf><dtmf>9</dtmf><dtmf>1</dtmf><dtmf>0</dtmf><dtmf>3</dtmf><dtmf>5</dtmf>
+
+STEP 5:
+  Menu: I'm connecting you to pharmacy benefits. Please hold.
+  Expected: status:wait
+  Actual: <ivr>wait</ivr>
+
+STEP 6:
+  Menu: Pharmacy benefits. For prescription coverage, press 1. For formulary, press 2. To return to main menu, press star.
+  Expected: dtmf:*
+  Actual: <ivr>stuck</ivr>
+
+STEP 7:
+  Menu: Main menu. For medical eligibility, press 1. For pharmacy, press 2. For dental, press 3.
+  Expected: dtmf:1
+  Actual: <ivr>stuck</ivr>
+
+STEP 8:
+  Menu: Medical eligibility. Enter the member ID.
+  Expected: speak:WDH492817365
+  Actual: WDH492817365
+
+STEP 9:
+  Menu: Member found. Connecting you to an eligibility specialist.
+  Expected: status:completed
+  Actual: <ivr>completed</ivr>
+
+============================================================
+GRADE: FAIL - FAIL: 3/9 steps failed
+
+STEP GRADES:
+  Step 1: FAIL - FAIL: Expected 'healthcare provider' not found in 'Health care professional'
+  Step 2: PASS - PASS: Exact match (Westbrook Family Medicine)
+  Step 3: PASS - PASS: Exact match (Maria Chen)
+  Step 4: PASS - PASS: Correct DTMF sequence (847291035)
+  Step 5: PASS - PASS: Correct status (wait)
+  Step 6: FAIL - FAIL: Expected DTMF '*', got no DTMF
+  Step 7: FAIL - FAIL: Expected DTMF '1', got no DTMF
+  Step 8: PASS - PASS: Exact match (WDH492817365)
+  Step 9: PASS - PASS: Correct status (completed)

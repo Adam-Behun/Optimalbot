@@ -1,0 +1,10 @@
+SCENARIO: 25
+EXPECTED: VOICEMAIL
+ACTUAL: VOICEMAIL
+============================================================
+
+UTTERANCE:
+Hello, you've reached Anthem's prior authorization department. We're currently experiencing high call volume and cannot take your call. Please leave a message.
+
+============================================================
+GRADE: PASS - Correct: VOICEMAIL

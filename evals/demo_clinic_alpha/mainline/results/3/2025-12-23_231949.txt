@@ -1,0 +1,30 @@
+SCENARIO: 3
+EXPECTED: Complex prescription context may be lost during handoff
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi Monica, I'm calling about a prescription issue.
+
+MONICA: I can look into that for you. Could you tell me which medication you're having an issue with?
+
+CALLER: It's lisinopril, 10mg. I take it for blood pressure. I've been on it for two years.
+
+MONICA: Got it, lisinopril 10mg for blood pressure. Let me route you to the right team to help with that.
+
+CALLER: Thank you! I appreciate your help.
+
+CALLER: Hi, I'm calling about a prescription issue.
+
+MONICA: I can help you with that. Could you please provide your first and last name?
+
+CALLER: Sure, my name is Linda Anderson.
+
+MONICA: Thank you, Linda. And what is your date of birth?
+
+CALLER: My date of birth is December 10, 1972.
+
+MONICA: I'm sorry, I wasn't able to verify your identity. For your security, I'll need to transfer you to a staff member who can assist you. One moment please.
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Caller repeated prescription issue unnecessarily

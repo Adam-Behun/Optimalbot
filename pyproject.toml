@@ -1,0 +1,110 @@
+[project]
+name = "healthcare-voice-ai"
+version = "1.0.0"
+description = "Healthcare voice AI - full local development (backend + bot)"
+requires-python = ">=3.12"
+dependencies = [
+    # ===========================================
+    # Bot dependencies (mirrors pyproject.bot.toml)
+    # ===========================================
+    # Pipecat AI
+    # NOTE: keep in sync with pyproject.bot.toml. Pinned to a known-working
+    # major version - pipecat-ai has repeatedly made breaking changes to its
+    # module layout across majors (e.g. removing
+    # pipecat.processors.aggregators.openai_llm_context in 1.x), so leaving
+    # this unbounded lets a routine `uv sync` silently break imports.
+    "pipecat-ai[daily,cartesia,deepgram,groq,tracing]>=1.10.0,<2.0.0",
+    "pipecat-ai-flows>=1.3.0,<2.0.0",
+    "pipecat-ai-whisker",
+    "pipecatcloud",
+
+    # LLM providers
+    "anthropic",
+
+    # Observability
+    "langfuse",
+
+    # ===========================================
+    # Backend dependencies
+    # ===========================================
+    # Web framework
+    "uvicorn",
+    "fastapi",
+    "python-multipart",
+
+    # HTTP clients
+    "aiohttp",
+    "httpx",
+
+    # Transcription
+    "assemblyai",
+
+    # Authentication
+    "passlib[bcrypt]",
+    "python-jose[cryptography]",
+
+    # MFA (Two-Factor Authentication)
+    "pyotp>=2.9.0",
+    "qrcode[pil]>=7.4",
+
+    # Email alerting
+    "aiosmtplib>=3.0.0",
+
+    # Rate limiting
+    "slowapi",
+
+    # Caching
+    "cachetools",
+
+    # ===========================================
+    # Shared dependencies
+    # ===========================================
+    # Database
+    "motor",
+
+    # Utilities
+    "pyyaml",
+    "pydantic",
+    "tenacity",
+    "phonenumbers",
+    "python-dateutil",
+    "python-dotenv",
+    "loguru",
+
+    # Excel export
+    "openpyxl>=3.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.8.0",
+    "pyright>=1.1.0",
+]
+
+[tool.ruff]
+exclude = [".git", "__pycache__", "*.pyc"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501", "E402"]  # E402: module-level imports not at top (intentional for path setup)
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "off"
+exclude = ["**/node_modules", "**/__pycache__", ".venv", "whisker", "pipecat_src", "evals/**/deprecated", "evals/**/*_deprecated*"]
+# Start lenient - catch import errors and undefined names only
+# Tighten over time by changing typeCheckingMode to "basic" then "standard"
+reportMissingImports = "error"
+reportMissingTypeStubs = false
+reportUndefinedVariable = "error"
+
+[tool.bandit]
+exclude_dirs = ["tests", "evals/ivr_deprecated", "evals/*_deprecated", ".venv"]
+# B101: assert used (OK in non-production code)
+# B104: binding to all interfaces (OK for local dev servers)
+skips = ["B101", "B104"]
+# Only report medium and high severity issues
+severity = "medium"

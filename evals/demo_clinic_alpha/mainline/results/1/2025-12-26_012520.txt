@@ -1,0 +1,24 @@
+SCENARIO: 1
+EXPECTED: Context may be lost when handing off to scheduling workflow
+============================================================
+
+MONICA: Hello, this is Monica at Demo Clinic Alpha. How can I help you?
+
+CALLER: Hi, this is Jessica Williams. I need to schedule a follow-up appointment.
+
+MONICA: Sure thing, Jessica! What's the follow-up for?
+
+CALLER: It's for my chronic lower back pain. I've been coming here for about three years for it.
+
+MONICA: Got it, a follow-up for chronic lower back pain. Let me route you to scheduling for that.
+
+CALLER: Thank you!
+
+MONICA: You're all set! I've routed you to scheduling now. They'll be able to help you with that appointment.
+
+CALLER: Thank you! Just to remind you, I'm a returning patient, and I'd like to see Dr. Chen if possible.
+
+MONICA: Transferring you now, please hold.
+
+============================================================
+GRADE: FAIL - FAIL: routing: FAIL: Missing Dr Chen preference context

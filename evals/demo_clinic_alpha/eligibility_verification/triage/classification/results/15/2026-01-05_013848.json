@@ -1,0 +1,19 @@
+{
+  "id": "15_2026-01-05_013848",
+  "scenario_id": "15",
+  "timestamp": "2026-01-05T01:38:48.283651",
+  "langfuse_trace_id": "ec9ab49e6ddf9d0e0f7dce5e79f609dc",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/ec9ab49e6ddf9d0e0f7dce5e79f609dc",
+  "input": {
+    "utterance": "Hello! I'm Eva, your virtual assistant for United Healthcare. I can help you check eligibility, prior authorization status, and more. What would you like to do today?",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

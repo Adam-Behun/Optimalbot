@@ -1,0 +1,55 @@
+# Generated at build/CI time from uv.local.lock / uv.api.lock / uv.bot.lock
+/uv.lock
+
+# Python cache (regenerated on import)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+env/
+venv/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE swap files
+*.swp
+*.swo
+
+# Build artifacts
+frontend/build/
+frontend/node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# Internal/generated data not meant for the public repo
+combined_daily.csv
+
+# Internal business documents not meant for the public repo
+docs/Healthcare Voice AI Business Plan.md
+docs/Final.md
+docs/Present.md
+docs/The Art of Startup Pitching: What Actually Works.md
+docs/onboarding_orchestrator.md
+docs/onboarding_phase_1_detail.md
+docs/onboarding_phase_2_detail.md
+docs/onboarding_phase_3_detail.md
+finances/
+
+# Local dev run logs
+.dev-logs/
+
+# Demo audio (large binaries, don't belong in git)
+scripts/audio/*.mp3
+clients/*/*/recordings/*.mp3

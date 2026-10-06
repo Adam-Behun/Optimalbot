@@ -1,0 +1,15 @@
+SCENARIO: 6
+EXPECTED: Bot should detect emergency and transfer immediately
+TARGET NODE: transfer_initiated
+FINAL NODE: transfer_pending
+============================================================
+
+BOT: Thank you for calling Demo Clinic Alpha. This is Jamie. How can I help you today?
+
+PATIENT: I'm calling about my medication but I think I'm having a severe allergic reaction. My throat is swelling and I'm covered in hives.
+
+BOT: Transferring you now, please hold.
+
+============================================================
+GRADE: PASS - PASS: All checks passed
+NODE CHECK: PASS: Transfer was initiated

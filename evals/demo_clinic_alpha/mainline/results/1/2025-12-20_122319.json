@@ -1,0 +1,91 @@
+{
+  "id": "1_2025-12-20_122319",
+  "scenario_id": "1",
+  "timestamp": "2025-12-20T12:23:19.855718",
+  "langfuse_trace_id": "e28439793145a1c943b6de7b5f5c671d",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/e28439793145a1c943b6de7b5f5c671d",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Context may be lost when handing off to scheduling workflow"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I need to schedule a follow-up appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! What's the follow-up for?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's for my chronic lower back pain. I've been coming here for about three years for it.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, a follow-up for chronic lower back pain. Let me get that scheduled for you.",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Actually, I\u2019d like to see Dr. Chen if possible\u2014she's been treating me.",
+        "turn": 3
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "follow-up for chronic lower back pain, prefers Dr. Chen, returning patient"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "follow-up for chronic lower back pain, prefers Dr. Chen, returning patient",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "today": "December 20, 2025",
+      "available_slots": [
+        "Sunday, December 21 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "follow-up for chronic lower back pain, prefers Dr. Chen, returning patient",
+      "handed_off_to": "scheduling"
+    },
+    "turns": 3
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correct routing with context"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural flow, acknowledged requests appropriately"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correctly routed scheduling request"
+      }
+    }
+  },
+  "notes": ""
+}

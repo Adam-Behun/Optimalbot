@@ -1,0 +1,295 @@
+{
+  "id": "2_2026-01-05_010627",
+  "scenario_id": "2",
+  "timestamp": "2026-01-05T01:06:27.260357",
+  "langfuse_trace_id": "2c470257439988eb38ff411dffec23e1",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/2c470257439988eb38ff411dffec23e1",
+  "input": {
+    "description": "UnitedHealthcare: 8-level enterprise IVR with authentication and plan selection",
+    "steps": [
+      {
+        "menu_prompt": "Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For UnitedHealth corporate, press 3.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored, press 2. For Medicare and retirement, press 3. For healthcare providers, press 4. For brokers, press 5.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Provider services. To continue, please enter your 10-digit NPI number followed by pound.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "Thank you. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For eligibility and benefits, press 4. For prior authorization, press 5.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Eligibility and benefits. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid and CHIP, press 3. If you don't know the plan type, press 4.",
+        "expected_action": "dtmf:4"
+      },
+      {
+        "menu_prompt": "Please enter the member ID number followed by pound.",
+        "expected_action": "status:wait"
+      },
+      {
+        "menu_prompt": "Member found. John Smith, date of birth January 15, 1980. Commercial PPO plan. Press 1 if correct, press 2 if this is not the member you're looking for.",
+        "expected_action": "dtmf:1"
+      },
+      {
+        "menu_prompt": "For real-time benefit check, press 1. For detailed eligibility including accumulators, press 2. To speak with a benefits specialist, press 3.",
+        "expected_action": "dtmf:3"
+      },
+      {
+        "menu_prompt": "Connecting you to a benefits specialist. Current wait time is 4 minutes.",
+        "expected_action": "status:completed"
+      }
+    ]
+  },
+  "output": {
+    "steps": [
+      {
+        "step_number": 1,
+        "menu_prompt": "Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For UnitedHealth corporate, press 3.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "UnitedHealthcare is the insurance arm",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 2,
+        "menu_prompt": "UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored, press 2. For Medicare and retirement, press 3. For healthcare providers, press 4. For brokers, press 5.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "We are calling as a healthcare provider",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "4",
+        "actual_arg": "4",
+        "event_matched": true
+      },
+      {
+        "step_number": 3,
+        "menu_prompt": "Provider services. To continue, please enter your 10-digit NPI number followed by pound.",
+        "expected_action": "status:wait",
+        "actual_response": "<dtmf>NPI_NUMBER</dtmf>",
+        "reasoning": "NPI authentication required - not a menu choice",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 4,
+        "menu_prompt": "Thank you. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For eligibility and benefits, press 4. For prior authorization, press 5.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>4</dtmf>",
+        "reasoning": "Eligibility and benefits matches our goal",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "4",
+        "actual_arg": "4",
+        "event_matched": true
+      },
+      {
+        "step_number": 5,
+        "menu_prompt": "Eligibility and benefits. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid and CHIP, press 3. If you don't know the plan type, press 4.",
+        "expected_action": "dtmf:4",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Don't know plan type - let system help determine",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "4",
+        "actual_arg": "1",
+        "event_matched": false
+      },
+      {
+        "step_number": 6,
+        "menu_prompt": "Please enter the member ID number followed by pound.",
+        "expected_action": "status:wait",
+        "actual_response": "<dtmf>MEMBER_ID_NUMBER</dtmf>",
+        "reasoning": "Member ID entry required",
+        "expected_event": null,
+        "actual_event": null,
+        "expected_arg": null,
+        "actual_arg": null,
+        "event_matched": true
+      },
+      {
+        "step_number": 7,
+        "menu_prompt": "Member found. John Smith, date of birth January 15, 1980. Commercial PPO plan. Press 1 if correct, press 2 if this is not the member you're looking for.",
+        "expected_action": "dtmf:1",
+        "actual_response": "<dtmf>1</dtmf>",
+        "reasoning": "Confirm correct member",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "1",
+        "actual_arg": "1",
+        "event_matched": true
+      },
+      {
+        "step_number": 8,
+        "menu_prompt": "For real-time benefit check, press 1. For detailed eligibility including accumulators, press 2. To speak with a benefits specialist, press 3.",
+        "expected_action": "dtmf:3",
+        "actual_response": "<dtmf>3</dtmf>",
+        "reasoning": "Need specialist for complex PA and CPT questions",
+        "expected_event": "on_dtmf_pressed",
+        "actual_event": "on_dtmf_pressed",
+        "expected_arg": "3",
+        "actual_arg": "3",
+        "event_matched": true
+      },
+      {
+        "step_number": 9,
+        "menu_prompt": "Connecting you to a benefits specialist. Current wait time is 4 minutes.",
+        "expected_action": "status:completed",
+        "actual_response": "<ivr>completed</ivr>",
+        "reasoning": "In queue for specialist - navigation complete",
+        "expected_event": "on_ivr_status_changed",
+        "actual_event": "on_ivr_status_changed",
+        "expected_arg": "completed",
+        "actual_arg": "completed",
+        "event_matched": true
+      }
+    ],
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For UnitedHealth corporate, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored, press 2. For Medicare and retirement, press 3. For healthcare providers, press 4. For brokers, press 5."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Provider services. To continue, please enter your 10-digit NPI number followed by pound."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>NPI_NUMBER</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Thank you. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For eligibility and benefits, press 4. For prior authorization, press 5."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>4</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Eligibility and benefits. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid and CHIP, press 3. If you don't know the plan type, press 4."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Please enter the member ID number followed by pound."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>MEMBER_ID_NUMBER</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Member found. John Smith, date of birth January 15, 1980. Commercial PPO plan. Press 1 if correct, press 2 if this is not the member you're looking for."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>1</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "For real-time benefit check, press 1. For detailed eligibility including accumulators, press 2. To speak with a benefits specialist, press 3."
+      },
+      {
+        "role": "assistant",
+        "content": "<dtmf>3</dtmf>"
+      },
+      {
+        "role": "user",
+        "content": "Connecting you to a benefits specialist. Current wait time is 4 minutes."
+      },
+      {
+        "role": "assistant",
+        "content": "<ivr>completed</ivr>"
+      }
+    ]
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: 3/9 steps failed",
+    "step_grades": [
+      {
+        "step": 1,
+        "menu_prompt": "Thank you for calling UnitedHealth Group. For Unit...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 2,
+        "menu_prompt": "UnitedHealthcare. For individual and family plans,...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 3,
+        "menu_prompt": "Provider services. To continue, please enter your ...",
+        "pass": false,
+        "reason": "FAIL: Should wait for NPI input prompt, not immediately send DTMF data"
+      },
+      {
+        "step": 4,
+        "menu_prompt": "Thank you. For contracting and credentialing, pres...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (4)"
+      },
+      {
+        "step": 5,
+        "menu_prompt": "Eligibility and benefits. For commercial plans, pr...",
+        "pass": false,
+        "reason": "FAIL: Pressed 1 for commercial plans when context indicates caller doesn't know plan type and should press 4 for system assistance"
+      },
+      {
+        "step": 6,
+        "menu_prompt": "Please enter the member ID number followed by poun...",
+        "pass": false,
+        "reason": "FAIL: Should wait for user input, not send DTMF when prompted to enter information"
+      },
+      {
+        "step": 7,
+        "menu_prompt": "Member found. John Smith, date of birth January 15...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (1)"
+      },
+      {
+        "step": 8,
+        "menu_prompt": "For real-time benefit check, press 1. For detailed...",
+        "pass": true,
+        "reason": "PASS: Correct DTMF (3)"
+      },
+      {
+        "step": 9,
+        "menu_prompt": "Connecting you to a benefits specialist. Current w...",
+        "pass": true,
+        "reason": "PASS: Correct status (completed)"
+      }
+    ]
+  },
+  "notes": ""
+}

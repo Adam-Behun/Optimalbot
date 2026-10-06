@@ -1,0 +1,166 @@
+{
+  "id": "1_2026-01-04_214642",
+  "scenario_id": "1",
+  "timestamp": "2026-01-04T21:46:42.690021",
+  "langfuse_trace_id": "65e5a34bb602f608074342d8207efdaf",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/65e5a34bb602f608074342d8207efdaf",
+  "input": {
+    "target_node": "closing"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Provider services, this is Eliza. Tax ID and member ID?",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Hi, this is Alex Q. calling from Example Sleep Clinic about eligibility verification for John Smith. The tax ID is 82-1234567 and the member ID is U123456789.",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Okay, they're active. POS plan, in network, effective January first twenty twenty five, no term date. What code are you looking at?",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "I'm looking at CPT code 95800. Can you provide coverage details for that?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Ninety-five eight hundred, that's covered. Fifty dollar copay, no coinsurance, ded doesn't apply, no auth, telehealth same benefit. Anything else?",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "Could you provide the individual and family deductible amounts, as well as any out-of-pocket maximums? Additionally, is there a reference number for this verification?",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Family ded is five hundred, fully met. OOP max six K, eleven seventy point seven four applied. Reference is UHC-2025-789456. Have a good one.",
+        "turn": 4
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 2,
+        "node": "greeting_without_ivr",
+        "function": "proceed_to_plan_info",
+        "args": {
+          "network_status": "In-Network",
+          "plan_type": "POS",
+          "plan_effective_date": "01/01/2025",
+          "cpt_covered": "Yes"
+        }
+      },
+      {
+        "turn": 3,
+        "node": "plan_info",
+        "function": "proceed_to_cpt_coverage",
+        "args": {
+          "cpt_covered": "Yes",
+          "copay_amount": "50.00",
+          "coinsurance_percent": "None",
+          "deductible_applies": "No",
+          "prior_auth_required": "No",
+          "telehealth_covered": "Yes"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "cpt_coverage",
+        "function": "proceed_to_accumulators",
+        "args": {
+          "deductible_family": "500",
+          "deductible_family_met": "500",
+          "oop_max_family": "6000",
+          "oop_max_family_met": "1170.74",
+          "reference_number": "UHC-2025-789456"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "accumulators",
+        "function": "proceed_to_closing",
+        "args": {
+          "reference_number": "UHC-2025-789456"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "closing",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "patient_id": "695b25f4bd95402e183bc209",
+      "patient_name": "John Smith",
+      "date_of_birth": "1985-03-15",
+      "insurance_member_id": "U123456789",
+      "insurance_company_name": "United Healthcare",
+      "insurance_phone": "+18001234567",
+      "caller_name": "Alex",
+      "caller_last_initial": "Q",
+      "facility_name": "Example Sleep Clinic",
+      "tax_id": "82-1234567",
+      "provider_name": "Dr. Sarah Johnson",
+      "provider_npi": "1234567893",
+      "provider_call_back_phone": "+15551234567",
+      "cpt_code": "95800",
+      "place_of_service": "Home",
+      "date_of_service": "",
+      "network_status": "In-Network",
+      "plan_type": "POS",
+      "plan_effective_date": "01/01/2025",
+      "cpt_covered": "Yes",
+      "copay_amount": "50.00",
+      "coinsurance_percent": "None",
+      "deductible_applies": "No",
+      "prior_auth_required": "No",
+      "telehealth_covered": "Yes",
+      "deductible_family": "500",
+      "deductible_family_met": "500",
+      "oop_max_family": "6000",
+      "oop_max_family_met": "1170.74",
+      "reference_number": "UHC-2025-789456"
+    },
+    "final_node": "closing",
+    "turns": 4
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "data_accuracy": {
+        "pass": true,
+        "reason": "PASS: All values captured correctly"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural conversation flow maintained"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: All functions called correctly"
+      },
+      "node_reached": {
+        "pass": true,
+        "reason": "PASS: Reached closing"
+      },
+      "captured_state": {
+        "pass": true,
+        "reason": "PASS: Captured state correct"
+      },
+      "db_state": {
+        "pass": true,
+        "reason": "PASS: Captured state correct"
+      }
+    }
+  },
+  "notes": ""
+}

@@ -1,0 +1,119 @@
+{
+  "id": "3_2025-12-20_192213",
+  "scenario_id": "3",
+  "timestamp": "2025-12-20T19:22:13.190351",
+  "langfuse_trace_id": "f92865cd9f7df383af2a9a83c129cfb7",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/f92865cd9f7df383af2a9a83c129cfb7",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Complex prescription context may be lost during handoff"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi Monica, I'm calling about a prescription issue.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "I can look into that for you. Which medication are you having an issue with?",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "It's lisinopril, 10mg. I take it for blood pressure. I've been on it for two years.",
+        "turn": 2
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, lisinopril 10mg for blood pressure. Are you experiencing any specific issues, like a pharmacy problem or prior authorization?",
+        "turn": 2
+      },
+      {
+        "role": "user",
+        "content": "Yes, I went to pick up my lisinopril refill at CVS, and they said there's some kind of hold on it? They told me to call you.",
+        "turn": 3
+      },
+      {
+        "role": "assistant",
+        "content": "I\u2019m transferring you to the team that can assist with your prescription hold. Please hold on for just a moment.",
+        "turn": 3
+      },
+      {
+        "role": "user",
+        "content": "Thank you! I'll hold.",
+        "turn": 4
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 3,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "prescription_status",
+          "reason": "lisinopril 10mg refill, caller reports a hold at CVS, needs assistance"
+        }
+      },
+      {
+        "turn": 4,
+        "node": "handoff_entry",
+        "function": "end_call",
+        "args": {}
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Prescription Status",
+      "call_reason": "lisinopril 10mg refill, caller reports a hold at CVS, needs assistance",
+      "routed_to": "prescription_status (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "patient_id": null,
+      "first_name": "",
+      "last_name": "",
+      "date_of_birth": "",
+      "medical_record_number": "",
+      "phone_number": "",
+      "medication_name": "lisinopril",
+      "dosage": "",
+      "prescribing_physician": "",
+      "refill_status": "",
+      "refills_remaining": 0,
+      "last_filled_date": "",
+      "next_refill_date": "",
+      "pharmacy_name": "",
+      "pharmacy_phone": "",
+      "pharmacy_address": "",
+      "prescriptions": [],
+      "identity_verified": false,
+      "handed_off_to": "prescription_status"
+    },
+    "turns": 4
+  },
+  "grade": {
+    "pass": true,
+    "reason": "PASS: All checks passed",
+    "details": {
+      "routing": {
+        "pass": true,
+        "reason": "PASS: Correct routing with sufficient context"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural flow, addressed prescription issue"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correct routing for prescription status"
+      }
+    }
+  },
+  "notes": ""
+}

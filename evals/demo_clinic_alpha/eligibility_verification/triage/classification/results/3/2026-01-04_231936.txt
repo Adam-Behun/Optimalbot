@@ -1,0 +1,10 @@
+SCENARIO: 3
+EXPECTED: CONVERSATION
+ACTUAL: CONVERSATION
+============================================================
+
+UTTERANCE:
+Good afternoon, Cigna provider relations, this is automated... I mean Amanda, how can I help?
+
+============================================================
+GRADE: PASS - PASS: All checks passed

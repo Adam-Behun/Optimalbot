@@ -1,0 +1,10 @@
+SCENARIO: 17
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Thanks for calling Aetna! Before I connect you to a representative, can you tell me what you're calling about today? You can say things like 'check eligibility' or 'prior auth status.'
+
+============================================================
+GRADE: PASS - Correct: IVR

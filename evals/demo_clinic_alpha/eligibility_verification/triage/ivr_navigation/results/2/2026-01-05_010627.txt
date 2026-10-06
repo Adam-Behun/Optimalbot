@@ -1,0 +1,62 @@
+SCENARIO: 2
+DESCRIPTION: UnitedHealthcare: 8-level enterprise IVR with authentication and plan selection
+============================================================
+
+STEP 1:
+  Menu: Thank you for calling UnitedHealth Group. For UnitedHealthcare, press 1. For Optum, press 2. For UnitedHealth corporate, press 3.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 2:
+  Menu: UnitedHealthcare. For individual and family plans, press 1. For employer-sponsored, press 2. For Medicare and retirement, press 3. For healthcare providers, press 4. For brokers, press 5.
+  Expected: dtmf:4
+  Actual: <dtmf>4</dtmf>
+
+STEP 3:
+  Menu: Provider services. To continue, please enter your 10-digit NPI number followed by pound.
+  Expected: status:wait
+  Actual: <dtmf>NPI_NUMBER</dtmf>
+
+STEP 4:
+  Menu: Thank you. For contracting and credentialing, press 1. For claims and payment, press 2. For clinical programs, press 3. For eligibility and benefits, press 4. For prior authorization, press 5.
+  Expected: dtmf:4
+  Actual: <dtmf>4</dtmf>
+
+STEP 5:
+  Menu: Eligibility and benefits. For commercial plans, press 1. For Medicare Advantage, press 2. For Medicaid and CHIP, press 3. If you don't know the plan type, press 4.
+  Expected: dtmf:4
+  Actual: <dtmf>1</dtmf>
+
+STEP 6:
+  Menu: Please enter the member ID number followed by pound.
+  Expected: status:wait
+  Actual: <dtmf>MEMBER_ID_NUMBER</dtmf>
+
+STEP 7:
+  Menu: Member found. John Smith, date of birth January 15, 1980. Commercial PPO plan. Press 1 if correct, press 2 if this is not the member you're looking for.
+  Expected: dtmf:1
+  Actual: <dtmf>1</dtmf>
+
+STEP 8:
+  Menu: For real-time benefit check, press 1. For detailed eligibility including accumulators, press 2. To speak with a benefits specialist, press 3.
+  Expected: dtmf:3
+  Actual: <dtmf>3</dtmf>
+
+STEP 9:
+  Menu: Connecting you to a benefits specialist. Current wait time is 4 minutes.
+  Expected: status:completed
+  Actual: <ivr>completed</ivr>
+
+============================================================
+GRADE: FAIL - FAIL: 3/9 steps failed
+
+STEP GRADES:
+  Step 1: PASS - PASS: Correct DTMF (1)
+  Step 2: PASS - PASS: Correct DTMF (4)
+  Step 3: FAIL - FAIL: Should wait for NPI input prompt, not immediately send DTMF data
+  Step 4: PASS - PASS: Correct DTMF (4)
+  Step 5: FAIL - FAIL: Pressed 1 for commercial plans when context indicates caller doesn't know plan type and should press 4 for system assistance
+  Step 6: FAIL - FAIL: Should wait for user input, not send DTMF when prompted to enter information
+  Step 7: PASS - PASS: Correct DTMF (1)
+  Step 8: PASS - PASS: Correct DTMF (3)
+  Step 9: PASS - PASS: Correct status (completed)

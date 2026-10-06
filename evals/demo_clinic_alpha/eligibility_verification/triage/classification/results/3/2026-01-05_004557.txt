@@ -1,0 +1,10 @@
+SCENARIO: 3
+EXPECTED: IVR
+ACTUAL: IVR
+============================================================
+
+UTTERANCE:
+Hi there! I'm your virtual assistant. What can I help you with today?
+
+============================================================
+GRADE: PASS - Correct: IVR

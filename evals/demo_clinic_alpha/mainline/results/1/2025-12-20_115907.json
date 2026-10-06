@@ -1,0 +1,81 @@
+{
+  "id": "1_2025-12-20_115907",
+  "scenario_id": "1",
+  "timestamp": "2025-12-20T11:59:07.917612",
+  "langfuse_trace_id": "5413a079b9cfddb88ea82332d0e790ab",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/5413a079b9cfddb88ea82332d0e790ab",
+  "input": {
+    "target_node": "greeting",
+    "expected_problem": "Context may be lost when handing off to scheduling workflow"
+  },
+  "output": {
+    "conversation": [
+      {
+        "role": "assistant",
+        "content": "Hello, this is Monica at Demo Clinic Alpha. How can I help you?",
+        "turn": 0
+      },
+      {
+        "role": "user",
+        "content": "Hi, I need to schedule a follow-up appointment.",
+        "turn": 1
+      },
+      {
+        "role": "assistant",
+        "content": "Sure, I can help you with that. Let me get you to the scheduling team.",
+        "turn": 1
+      },
+      {
+        "role": "user",
+        "content": "Thank you!",
+        "turn": 2
+      }
+    ],
+    "function_calls": [
+      {
+        "turn": 2,
+        "node": "greeting",
+        "function": "route_to_workflow",
+        "args": {
+          "workflow": "scheduling",
+          "reason": "schedule follow-up appointment"
+        }
+      }
+    ],
+    "final_state": {
+      "caller_name": "",
+      "call_type": "Scheduling",
+      "call_reason": "schedule follow-up appointment",
+      "routed_to": "scheduling (AI)",
+      "resolution": "",
+      "pending_department": "",
+      "today": "December 20, 2025",
+      "available_slots": [
+        "Sunday, December 21 at 9:00 AM",
+        "Friday, December 26 at 2:00 PM"
+      ],
+      "appointment_reason": "schedule follow-up appointment",
+      "handed_off_to": "scheduling"
+    },
+    "turns": 2
+  },
+  "grade": {
+    "pass": false,
+    "reason": "FAIL: routing: FAIL: Missing patient identification before routing",
+    "details": {
+      "routing": {
+        "pass": false,
+        "reason": "FAIL: Missing patient identification before routing"
+      },
+      "quality": {
+        "pass": true,
+        "reason": "PASS: Natural, brief, addresses request appropriately"
+      },
+      "functions": {
+        "pass": true,
+        "reason": "PASS: Correctly routed scheduling request"
+      }
+    }
+  },
+  "notes": ""
+}

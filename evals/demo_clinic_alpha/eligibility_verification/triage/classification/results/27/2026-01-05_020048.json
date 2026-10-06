@@ -1,0 +1,19 @@
+{
+  "id": "27_2026-01-05_020048",
+  "scenario_id": "27",
+  "timestamp": "2026-01-05T02:00:48.169619",
+  "langfuse_trace_id": "c1451357a808a0d9b4d9a0b46c556e17",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/c1451357a808a0d9b4d9a0b46c556e17",
+  "input": {
+    "utterance": "I found your provider record. Your Tax ID ends in 4521, is that correct? Say yes or press 1 to confirm.",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

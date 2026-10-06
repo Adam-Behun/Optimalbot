@@ -1,0 +1,19 @@
+{
+  "id": "16_2026-01-05_014018",
+  "scenario_id": "16",
+  "timestamp": "2026-01-05T01:40:18.133073",
+  "langfuse_trace_id": "76934e5511e4f91b01ee54024d764970",
+  "langfuse_trace_url": "https://cloud.langfuse.com/trace/76934e5511e4f91b01ee54024d764970",
+  "input": {
+    "utterance": "Hi there, I'm the Cigna digital assistant. I noticed you're calling from a provider's office. Are you calling about a patient's benefits?",
+    "expected_classification": "IVR"
+  },
+  "output": {
+    "actual_classification": "IVR"
+  },
+  "grade": {
+    "pass": true,
+    "reason": "Correct: IVR"
+  },
+  "notes": ""
+}

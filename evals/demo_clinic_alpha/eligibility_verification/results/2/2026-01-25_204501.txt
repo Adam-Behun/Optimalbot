@@ -1,0 +1,112 @@
+SCENARIO: 2
+TARGET NODE: closing
+FINAL NODE: accumulators
+============================================================
+
+INSURANCE: Aetna provider line, Marcus speaking. How can I help?
+
+MONICA: Hi Marcus, this is Alex M. calling from Metro Imaging Center about eligibility verification for Maria Garcia.
+
+INSURANCE: Thanks. Can I get the facility name and tax ID?
+
+MONICA: The facility name is Metro Imaging Center and the tax ID is forty-five dash six seven eight nine zero one two.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Maria Garcia and the date of birth is July twenty-second, nineteen seventy-eight.
+
+INSURANCE: Okay, let me pull that up... Got it. What do you need today?
+
+MONICA: I'm looking to verify eligibility and benefits for a service on January fifteenth, twenty twenty-five, with CPT code seven zero five five three.
+
+INSURANCE: Yeah, Metro Imaging is in network. 
+
+It's a PPO plan. 
+
+Effective date is March fifteenth twenty twenty four. 
+
+No term date. 
+
+What's the date of service?
+
+MONICA: The date of service is January fifteenth, twenty twenty-five.
+
+INSURANCE: Let me check seventy triple five three... 
+
+Okay so that code is covered, seventy-five copay, twenty percent coinsurance, you'll need a PA on that, ded applies. Anything else?
+
+MONICA: I need to confirm the individual deductible amount, if available, and any reference number for this coverage.
+
+INSURANCE: Family ded is a thousand, six fifty met. 
+
+Reference is ATN-PA-445566. 
+
+Anything else? No? Okay, take care.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+INSURANCE: Aetna provider line, Marcus speaking. How can I help?
+
+MONICA: Hi Marcus, this is Alex M. calling from Metro Imaging Center about eligibility verification for Maria Garcia.
+
+INSURANCE: Thanks. Can I get the facility name and tax ID?
+
+MONICA: The facility name is Metro Imaging Center and the tax ID is forty-five dash six seven eight nine zero one two.
+
+INSURANCE: And the member's name and date of birth?
+
+MONICA: The member's name is Maria Garcia and the date of birth is July twenty-second, nineteen seventy-eight.
+
+INSURANCE: Okay, let me pull that up... Got it. What do you need today?
+
+MONICA: I'm looking to verify eligibility and benefits for a service on January fifteenth, twenty twenty-five, with CPT code seven zero five five three.
+
+INSURANCE: Yeah, Metro Imaging is in network. 
+
+It's a PPO plan. 
+
+Effective date is March fifteenth twenty twenty four. 
+
+No term date. 
+
+What's the date of service?
+
+MONICA: The date of service is January fifteenth, twenty twenty-five.
+
+INSURANCE: Let me check seventy triple five three... 
+
+Okay so that code is covered, seventy-five copay, twenty percent coinsurance, you'll need a PA on that, ded applies. Anything else?
+
+INSURANCE: Telehealth? Not applicable for imaging procedures.
+
+MONICA: Could you provide the individual deductible amount and any reference number for this coverage?
+
+INSURANCE: Family ded is a thousand, six fifty met. 
+
+Reference is ATN-PA-445566. 
+
+Anything else? No? Okay, take care.
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+MONICA: Goodbye.
+
+INSURANCE: Goodbye!
+
+MONICA: Goodbye.
+
+============================================================
+GRADE: FAIL - FAIL: data_accuracy: FAIL: oop_max_family: expected '8000.00', got 'None'; oop_max_family_met: expected '2340.00', got 'None'; reference_number: expected 'ATN-PA-445566', got 'None'; quality: FAIL: Multiple goodbye repetitions occur; node: FAIL: Expected closing, got accumulators; state: FAIL: reference_number: expected ATN-PA-445566, got None; DB: FAIL: reference_number: expected ATN-PA-445566, got None
+NODE CHECK: FAIL: Expected closing, got accumulators

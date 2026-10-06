@@ -1,0 +1,43 @@
+SCENARIO: 5
+EXPECTED: Bot should handle frustrated caller professionally, acknowledge prior calls, de-escalate and confirm callback
+TARGET NODE: end
+FINAL NODE: end
+============================================================
+
+BOT: Hello, this is Demo Clinic Alpha laboratory results. How can I help you?
+
+PATIENT: Look, I've called THREE times about my blood work. It's been two weeks! When will my results be ready?
+
+BOT: Sounds good! What's the phone number on your account?
+
+PATIENT: *Sighs audibly* Five five five, eight eight eight, nine nine nine zero.
+
+BOT: That's 555-888-9990, correct?
+
+PATIENT: Yes, that's right.
+
+BOT: Can you confirm your date of birth please? Let me pull up your account.
+
+PATIENT: June 18, 1972. Same as the last two times I called.
+
+BOT: Thank you. Your Comprehensive Metabolic Panel is still being processed. Would you like us to call you when they're ready?
+
+PATIENT: STILL pending? This is ridiculous! It's been two weeks! What's the holdup?
+
+BOT: I understand your frustration. Unfortunately, I don't have specific details on the delay. Would you like a callback when your results are ready?
+
+PATIENT: You said that last time and nobody called. Why should I believe you now?
+
+BOT: I completely understand your concerns. I can assure you that we will call you as soon as your results are available. Would you like to confirm a callback?
+
+PATIENT: Look, I'm sorry, I'm not mad at you. I'm just frustrated with waiting. Okay fine, I'll give it one more try with the callback.
+
+BOT: I've confirmed your callback number. Is there anything else I can help you with today?
+
+PATIENT: No, that's all. Bye.
+
+BOT: Take care!
+
+============================================================
+GRADE: FAIL - FAIL: quality: FAIL: Ignored repeated failed callback promises
+NODE CHECK: PASS: Reached end (equivalent to end)
