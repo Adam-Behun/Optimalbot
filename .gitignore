@@ -36,12 +36,6 @@ frontend/node_modules/
 # Internal/generated data not meant for the public repo
 combined_daily.csv
 
-# Internal business documents not meant for the public repo
-docs/Healthcare Voice AI Business Plan.md
-docs/Final.md
-docs/Present.md
-docs/The Art of Startup Pitching: What Actually Works.md
-docs/onboarding_orchestrator.md
 docs/onboarding_phase_1_detail.md
 docs/onboarding_phase_2_detail.md
 docs/onboarding_phase_3_detail.md
