@@ -36,10 +36,6 @@ frontend/node_modules/
 # Internal/generated data not meant for the public repo
 combined_daily.csv
 
-docs/onboarding_phase_1_detail.md
-docs/onboarding_phase_2_detail.md
-docs/onboarding_phase_3_detail.md
-finances/
 
 # Local dev run logs
 .dev-logs/
