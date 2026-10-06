@@ -36,7 +36,6 @@ frontend/node_modules/
 # Internal/generated data not meant for the public repo
 combined_daily.csv
 
-
 # Local dev run logs
 .dev-logs/
 
