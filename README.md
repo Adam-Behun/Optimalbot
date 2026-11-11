@@ -6,51 +6,80 @@ Portfolio project. Code is shared to show the architecture and eval design; runn
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    subgraph Callers
-        Payer["Insurance payer line"]
-        Patient["Patient"]
-    end
+### How a call starts
 
-    Daily["Daily telephony<br/>rooms, SIP dial-out, dial-in webhook, SIP transfer"]
+```mermaid
+%%{init: {'flowchart': {'wrappingWidth': 420}}}%%
+flowchart TB
+    Portal["React portal"]
+    Payer["Insurance payer line"]
+    Patient["Patient"]
+
+    API["FastAPI backend<br/>/start-call · /dialin-webhook<br/>patients · sessions · auth"]
+    Daily["Daily telephony<br/>rooms · SIP dial-out<br/>dial-in webhook · SIP transfer"]
+    Cloud["Pipecat Cloud<br/>(production)"]
+    Clients["clients/&lt;org&gt;/&lt;workflow&gt;/<br/>flow_definition.py<br/>services.yaml · schema.py"]
+
+    Bot["Bot — bot.py / CallSession<br/>builds and runs the<br/>Pipecat pipeline"]
+
+    DB[("MongoDB<br/>organizations · patients<br/>sessions · audit logs")]
+    Langfuse["Langfuse /<br/>OpenTelemetry"]
+
+    Portal -- "start a call" --> API
     Payer <--> Daily
     Patient <--> Daily
-
-    subgraph Bot["Bot (bot.py, Pipecat pipeline)"]
-        STT["STT<br/>Deepgram Flux"]
-        Triage["Triage + IVR navigation<br/>(dial-out only)<br/>Groq classifier"]
-        LLM["LLM<br/>OpenAI, driven by<br/>Pipecat Flows nodes"]
-        Safety["Safety monitor + output validator<br/>(optional per workflow)<br/>Groq Llama Guard"]
-        TTS["TTS<br/>Cartesia"]
-        Obs["Observer LLM<br/>(eligibility only)<br/>OpenAI"]
-        STT --> Triage --> LLM --> TTS
-        STT --> Safety
-        LLM --> Safety
-        LLM -.-> Obs
-    end
-
-    Daily <--> STT
-    TTS --> Daily
-
-    Clients["clients/&lt;org&gt;/&lt;workflow&gt;/<br/>flow_definition.py, services.yaml, schema.py"]
-    Clients -. "loaded by FlowLoader<br/>and PipelineFactory" .-> Bot
-
-    API["FastAPI backend<br/>/start-call, /dialin-webhook,<br/>patients, sessions, auth, admin"]
-    DB[("MongoDB<br/>organizations, patients,<br/>sessions")]
-    Portal["React portal"]
-    Cloud["Pipecat Cloud<br/>(production)"]
-
-    Portal <--> API
-    API <--> DB
     Daily -- "dial-in webhook" --> API
-    API -- "start bot" --> Bot
+    API <--> DB
+
+    API -- "start bot (local)" --> Bot
     API -. "production" .-> Cloud -.-> Bot
-    Bot -- "patient fields, transcript, usage" --> DB
-    Bot -. "traces" .-> Langfuse["Langfuse / OpenTelemetry"]
+    Clients -. "FlowLoader +<br/>PipelineFactory" .-> Bot
+
+    Bot <--> Daily
+    Bot -- "transcript, usage,<br/>patient fields, call status" --> DB
+    Bot -. "traces" .-> Langfuse
+
+    classDef bot fill:#e8f4ea,stroke:#4a7c59,stroke-width:2px
+    class Bot bot
 ```
 
-A call starts when the portal posts to `/start-call` (dial-out) or Daily posts to `/dialin-webhook/{organization}/{workflow}` (dial-in). The backend creates a session and starts the bot, locally or through Pipecat Cloud. The bot builds a Pipecat pipeline from the workflow's `services.yaml`: Deepgram Flux speech-to-text, an OpenAI LLM driven by Pipecat Flows nodes, and Cartesia text-to-speech over a Daily room. Dial-out calls add Groq triage and IVR navigation in front of the conversation, and some workflows add safety monitoring or an observer LLM. When the call ends, the bot saves the transcript, usage, and call status to MongoDB.
+A call starts when the portal posts to `/start-call` (dial-out) or Daily posts to `/dialin-webhook/{organization}/{workflow}` (dial-in). The backend checks the workflow is enabled for the organization, creates a session record, and starts the bot — a local process in development, Pipecat Cloud in production — passing the workflow name and the patient record. `FlowLoader` and `PipelineFactory` build the call from that workflow's own `flow_definition.py` and `services.yaml`. When the call ends, the bot writes the transcript, token and telephony usage, extracted patient fields, and final call status back to MongoDB.
+
+### Inside the bot: the Pipecat pipeline
+
+```mermaid
+%%{init: {'flowchart': {'wrappingWidth': 520}}}%%
+flowchart TB
+    In["Daily transport in — caller audio"]
+    STT["STT · Deepgram Flux — per-workflow EOT thresholds, payer keyterms"]
+    Safety["Safety monitor · Groq Llama Guard (optional per workflow)"]
+    Triage["Triage · Groq classifier — CONVERSATION / IVR / VOICEMAIL (dial-out only)"]
+
+    LLM["Conversation LLM · OpenAI<br/>driven by Pipecat Flows nodes<br/>calls flow-control functions only"]
+    IVRNav["IVR navigation — parses &lt;dtmf&gt; / &lt;ivr&gt; tags out of LLM output"]
+    TTS["Output validator → TTS · Cartesia"]
+
+    Obs["Observer LLM · OpenAI<br/>rolling 10-turn window, extracts<br/>23 eligibility fields (eligibility only)"]
+    Null["NullFilter — observer can never speak"]
+
+    Out["Daily transport out — bot audio"]
+
+    In --> STT --> Safety --> Triage
+    Triage --> LLM --> IVRNav --> TTS --> Out
+    Triage -. "voicemail or stuck IVR ends the call" .-> Out
+    TTS -. "bot speech via Producer → Consumer" .-> Obs
+    Triage -. "caller speech" .-> Obs
+    Obs --> Null
+
+    classDef conv fill:#e8f4ea,stroke:#4a7c59,stroke-width:2px
+    classDef observer fill:#fdf3e3,stroke:#b5822e,stroke-width:2px
+    classDef infra fill:#eef0fb,stroke:#5b6abf
+    class LLM,IVRNav,TTS conv
+    class Obs,Null observer
+    class In,Out,STT,Safety,Triage infra
+```
+
+Every workflow shares the same frame pipeline, assembled per workflow from `services.yaml`: Deepgram Flux speech-to-text, an OpenAI LLM driven by Pipecat Flows nodes, and Cartesia text-to-speech over a Daily room. Dial-out calls add a Groq triage classifier and IVR navigation in front of the conversation; dial-in calls go straight to the flow. The eligibility workflow adds a second, silent LLM in a parallel branch that extracts structured fields while the call is still running — it receives the caller's speech directly and the bot's speech through a producer/consumer pair, and a `NullFilter` at the end of the branch makes it impossible for it to emit audio.
 
 ## Workflows
 
