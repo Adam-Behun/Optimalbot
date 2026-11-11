@@ -39,8 +39,10 @@ flowchart TB
     Bot -- "transcript, usage,<br/>patient fields, call status" --> DB
     Bot -. "traces" .-> Langfuse
 
-    classDef bot fill:#e8f4ea,stroke:#4a7c59,stroke-width:2px
+    classDef bot fill:#dcefe1,stroke:#2f6b47,stroke-width:2px,color:#10301f
+    classDef infra fill:#e6eaf8,stroke:#41519e,stroke-width:1.5px,color:#151d45
     class Bot bot
+    class Portal,Payer,Patient,API,Daily,Cloud,Clients,DB,Langfuse infra
 ```
 
 A call starts when the portal posts to `/start-call` (dial-out) or Daily posts to `/dialin-webhook/{organization}/{workflow}` (dial-in). The backend checks the workflow is enabled for the organization, creates a session record, and starts the bot — a local process in development, Pipecat Cloud in production — passing the workflow name and the patient record. `FlowLoader` and `PipelineFactory` build the call from that workflow's own `flow_definition.py` and `services.yaml`. When the call ends, the bot writes the transcript, token and telephony usage, extracted patient fields, and final call status back to MongoDB.
@@ -71,9 +73,9 @@ flowchart TB
     Triage -. "caller speech" .-> Obs
     Obs --> Null
 
-    classDef conv fill:#e8f4ea,stroke:#4a7c59,stroke-width:2px
-    classDef observer fill:#fdf3e3,stroke:#b5822e,stroke-width:2px
-    classDef infra fill:#eef0fb,stroke:#5b6abf
+    classDef conv fill:#dcefe1,stroke:#2f6b47,stroke-width:2px,color:#10301f
+    classDef observer fill:#fbeccd,stroke:#8a5d12,stroke-width:2px,color:#3d2906
+    classDef infra fill:#e6eaf8,stroke:#41519e,stroke-width:1.5px,color:#151d45
     class LLM,IVRNav,TTS conv
     class Obs,Null observer
     class In,Out,STT,Safety,Triage infra
